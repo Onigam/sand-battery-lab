@@ -237,11 +237,11 @@ export const SILO_PARTS: PartInfo[] = [
     category: 'structure',
     name: l('Bardage extérieur', 'Outer steel cladding'),
     short: lf(
-      'Protège des intempéries et reste froid : environ {surfaceK} K au-dessus de l’air à pleine charge (résultat du modèle).',
+      'Protège des intempéries et reste frais : environ {surfaceK} K au-dessus de l’air à pleine charge (résultat du modèle).',
       'Keeps the weather out and stays cool: about {surfaceK} K above the air at full charge (model result).',
     ),
     description: lf(
-      'Le bardage n’a rien à contenir, il protège. C’est de l’acier nervuré sombre sur les photographies, avec un solin au pied qui rejette l’eau de pluie. Le constructeur dit que cette surface reste froide ; le modèle la trouve environ {surfaceK} K au-dessus de l’air, avec {surfaceW} W/m² qui passent (résultat du modèle). Ce n’est pas brûlant, et l’alarme « bardage chaud » du modèle, fixée à {surfaceLimit} °C (estimation), n’est pas un seuil de brûlure : c’est un repère pour dire que quelque chose a changé dedans. Regarder ce bardage en hiver, c’est lire la santé de l’isolant.',
+      'Le bardage n’a rien à contenir, il protège. C’est de l’acier nervuré sombre sur les photographies, avec un solin au pied qui rejette l’eau de pluie. Le constructeur dit que cette surface reste fraîche ; le modèle la trouve environ {surfaceK} K au-dessus de l’air, avec {surfaceW} W/m² qui passent (résultat du modèle). Ce n’est pas brûlant, et l’alarme « bardage chaud » du modèle, fixée à {surfaceLimit} °C (estimation), n’est pas un seuil de brûlure : c’est un repère pour dire que quelque chose a changé dedans. Regarder ce bardage en hiver, c’est lire la santé de l’isolant.',
       'The cladding has nothing to contain, it protects. It is dark ribbed steel on the photographs, with a flashing at the foot that throws off the rain. The maker says this surface stays cool; the model finds it about {surfaceK} K above the air, with {surfaceW} W/m² passing through (model result). That is not burning hot, and the model’s “warm cladding” alarm, set at {surfaceLimit} °C (estimate), is not a burn threshold: it is a marker to say that something has changed inside. Looking at this cladding in winter means reading the health of the insulation.',
     ),
     material: l('Tôle d’acier nervurée, solin au pied', 'Ribbed sheet steel, flashing at the foot'),

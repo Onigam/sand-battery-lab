@@ -250,8 +250,8 @@ export const SOURCES: { fr: string; en: string; items: SourceEntry[] }[] = [
       {
         href: 'https://unric.org/en/sand-warms-up-the-finnish-polar-night/',
         label: 'UNRIC, 2022',
-        fr: 'le premier silo par −23 °C',
-        en: 'the first silo at −23 °C',
+        fr: 'la ville du premier silo, jusqu’à −23 °C',
+        en: 'the first silo’s town, down to −23 °C',
       },
       {
         href: 'https://www.dna.fi/yrityksille/blogi/-/blogs/hiekka-akku-on-taman-hetken-puhuttavin-innovaatio-polar-night-energylla-on-kunnianhimoiset-kasvutavoitteet',

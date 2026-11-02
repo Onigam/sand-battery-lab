@@ -79,8 +79,8 @@ export const SCENARIO_TEXTS: Record<ScenarioId, { name: Pair; lesson: Pair }> = 
   'half-insulation': {
     name: ['Moitié moins d’isolant', 'Half the insulation'],
     lesson: [
-      'L’isolant le plus cher est celui qu’on enlève : deux fois moins épais, deux fois plus de pertes, et le bardage n’est plus aussi froid.',
-      'The most expensive insulation is the one you remove: half as thick, twice the losses, and the cladding is no longer as cold.',
+      'L’isolant le plus cher est celui qu’on enlève : deux fois moins épais, deux fois plus de pertes, et le bardage n’est plus aussi frais.',
+      'The most expensive insulation is the one you remove: half as thick, twice the losses, and the cladding is no longer as cool.',
     ],
   },
   scale: {

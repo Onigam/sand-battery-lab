@@ -387,6 +387,19 @@ describe('the visitor texts', () => {
     for (const [label, v] of ALL_TEXTS) expect(v.fr + ' ' + v.en, label).not.toMatch(quotes);
   });
 
+  it('say no more than their sources: the review of 2 November read them', () => {
+    const all = ALL_TEXTS.map(([, v]) => `${v.fr}\n${v.en}`).join('\n');
+    // the 160 t is a forecast, absent from the first-year report; the maker says « cool »; a UN article gives the −23 °C; the testing « will begin during the winter »
+    expect(all).not.toMatch(/first year the operator announces about 160|pour la première année environ 160/);
+    expect(all).toMatch(/Before commissioning, the operator expected about 160 t/);
+    expect(all).toMatch(/After a year, the maker reports a 70% cut/);
+    expect(all).not.toMatch(/froid au toucher|cold to the touch|extérieur reste froid|surface reste froide/);
+    expect(all).not.toMatch(/operator of the first silo has seen|opérateur du premier silo a connu/);
+    expect(all).not.toMatch(/largest customer|plus gros client/);
+    expect(all).not.toMatch(/all through the winter|tout l’hiver 2024/);
+    expect(all).toMatch(/was due to begin during the winter of 2024-2025/);
+  });
+
   it('state no law from memory: no article, no directive number, no limit value', () => {
     const law = /2017\/2398|mg\/m³|2023\/1230|2006\/42|2014\/68|2014\/35|13732/;
     for (const [label, v] of ALL_TEXTS) expect(v.fr + ' ' + v.en, label).not.toMatch(law);

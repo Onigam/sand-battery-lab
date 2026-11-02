@@ -13,11 +13,11 @@ export const SITE_PARTS: PartInfo[] = [
     category: 'structure',
     name: l('Le silo vu du dehors', 'The silo from outside'),
     short: l(
-      'Un cylindre trapu de 13 m sur 15 m, plein de pierre à 400 °C en moyenne, et froid au toucher.',
-      'A squat cylinder, 13 m by 15 m, full of stone at a mean of 400 °C, and cold to the touch.',
+      'Un cylindre trapu de 13 m sur 15 m, plein de pierre à 400 °C en moyenne, et frais au toucher.',
+      'A squat cylinder, 13 m by 15 m, full of stone at a mean of 400 °C, and cool to the touch.',
     ),
     description: lf(
-      'Vu de la cour, rien ne trahit ce qu’il y a dedans : un cylindre trapu d’environ 13 m de haut et 15 m de large, bardé d’acier nervuré sombre, coiffé d’un toit conique bas. Le plus grand silo de ce genre en service ne contient pas de sable, mais environ 2 000 t de pierre ollaire concassée, à une moyenne d’environ 400 °C quand il est plein. Le constructeur assure que l’extérieur reste froid ; le modèle trouve environ {surfaceK} K au-dessus de l’air à pleine charge (résultat du modèle). Le lit de pierre ne fait que 6 m de haut : le reste, ce sont les fondations, les isolants et, selon notre lecture, un étage technique sous le toit. Cliquez pour l’ouvrir en coupe.',
+      'Vu de la cour, rien ne trahit ce qu’il y a dedans : un cylindre trapu d’environ 13 m de haut et 15 m de large, bardé d’acier nervuré sombre, coiffé d’un toit conique bas. Le plus grand silo de ce genre en service ne contient pas de sable, mais environ 2 000 t de pierre ollaire concassée, à une moyenne d’environ 400 °C quand il est plein. Le constructeur assure que l’extérieur reste frais ; le modèle trouve environ {surfaceK} K au-dessus de l’air à pleine charge (résultat du modèle). Le lit de pierre ne fait que 6 m de haut : le reste, ce sont les fondations, les isolants et, selon notre lecture, un étage technique sous le toit. Cliquez pour l’ouvrir en coupe.',
       'From the yard nothing gives away what is inside: a squat cylinder about 13 m high and 15 m wide, clad in dark ribbed steel, under a low conical roof. The largest silo of its kind in service holds no sand at all but about 2,000 t of crushed soapstone, at a mean of about 400 °C when full. The maker says the outside stays cool; the model finds about {surfaceK} K above the air at full charge (model result). The stone itself is only 6 m deep: the rest is foundations, insulation and, on our reading, an equipment floor under the roof. Click to open it in section.',
     ),
     material: l(
@@ -95,14 +95,14 @@ export const SITE_PARTS: PartInfo[] = [
     maintenance: maint(
       {
         failure:
-          'Le gel, si l’eau s’arrête en plein hiver : l’opérateur du premier silo a connu −23 °C. Puis la gaine déchirée qui laisse l’isolant prendre l’eau, et une fuite à une bride.',
+          'Le gel, si l’eau s’arrête en plein hiver : dans la ville du premier silo, le froid peut descendre à −23 °C. Puis la gaine déchirée qui laisse l’isolant prendre l’eau, et une fuite à une bride.',
         check:
           'Une caméra thermique montre tout de suite lequel est le départ, et si la gaine a perdu son isolant. Vérifiez les supports : le tuyau s’allonge en chauffant et doit pouvoir glisser.',
         care: 'L’eau doit rester en mouvement par grand froid, ou la colonne doit pouvoir se vidanger. Recousez la gaine dès qu’elle est abîmée.',
       },
       {
         failure:
-          'Frost, if the water stops in midwinter: the operator of the first silo has seen −23 °C. Then a torn jacket that lets the insulation get wet, and a leak at a flange.',
+          'Frost, if the water stops in midwinter: in the first silo’s town, the cold can fall to −23 °C. Then a torn jacket that lets the insulation get wet, and a leak at a flange.',
         check:
           'A thermal camera shows at once which pipe is the supply, and where the jacket has lost its insulation. Check the supports: the pipe grows as it warms and must be able to slide.',
         care: 'The water has to keep moving in hard frost, or the riser has to be drainable. Mend the jacket as soon as it is damaged.',
@@ -503,15 +503,18 @@ export const SITE_PARTS: PartInfo[] = [
       'The only smoke on the site, and a rarer sight now: it is where the announced gain shows.',
     ),
     description: l(
-      'Le silo ne brûle rien et n’a pas de cheminée : la seule fumée du site vient d’ici. L’exploitant annonce pour la première année environ 160 t de CO₂e évitées par an, soit une baisse de 70 %, avec environ 60 % de plaquettes en moins et plus aucune goutte de fioul. Ces chiffres sont les siens : le modèle ne calcule pas le CO₂, et le labo ne peut pas les vérifier. Reste une image simple : cette cheminée brûle bien moins, et le village reste chauffé.',
-      'The silo burns nothing and has no chimney: the only smoke on the site comes from here. For its first year the operator announces about 160 t of CO₂e avoided a year, a 70% cut, with about 60% fewer chips and not one drop of oil. These figures are its own: the model does not compute CO₂, and the lab cannot check them. A simple picture remains: this stack burns far less, and the village stays warm.',
+      'Le silo ne brûle rien et n’a pas de cheminée : la seule fumée du site vient d’ici. Avant la mise en service, l’exploitant attendait environ 160 t de CO₂e évitées par an. Après un an, le constructeur rapporte 70 % d’émissions en moins, environ 60 % de plaquettes en moins et plus aucune goutte de fioul. Ces chiffres sont les leurs : le modèle ne calcule pas le CO₂, et le labo ne peut pas les vérifier. Reste une image simple : cette cheminée brûle bien moins, et le village reste chauffé.',
+      'The silo burns nothing and has no chimney: the only smoke on the site comes from here. Before commissioning, the operator expected about 160 t of CO₂e avoided a year. After a year, the maker reports a 70% cut in emissions, about 60% fewer chips and not one drop of oil. These figures are theirs: the model does not compute CO₂, and the lab cannot check them. A simple picture remains: this stack burns far less, and the village stays warm.',
     ),
     material: l('Conduit d’acier isolé, fût de métal ou de maçonnerie', 'Insulated steel flue, metal or masonry shaft'),
     specs: [
       sp(
         'CO₂e évité',
         'CO₂e avoided',
-        l('environ 160 t par an, soit 70 %, annoncé', 'about 160 t a year, or 70%, announced'),
+        l(
+          'environ 160 t par an attendues ; 70 % rapportés après un an',
+          'about 160 t a year expected; 70% reported after a year',
+        ),
       ),
       sp(
         'Dans le modèle',
@@ -607,8 +610,8 @@ export const SITE_PARTS: PartInfo[] = [
       'The demand in flesh and blood: its radiators do not know where the hot water comes from, and that is the point.',
     ),
     description: lf(
-      'L’école représente tous les bâtiments du réseau : le plus gros client du vrai réseau, ce sont des bâtiments publics. Selon le constructeur, les 100 MWh annoncés représentent à peu près une semaine de demande d’hiver et presque un mois d’été. On en tire {winterKw} kW et {summerKw} kW (dérivé), soit environ {yearGWh} GWh par an (dérivé). Le modèle retrouve l’hiver : {daysWinter} jours à partir de plein ; pour l’été, il donne {daysSummer} jours, bien plus qu’un mois (résultat du modèle). À cette puissance modérée, le silo rend bien plus que sa capacité à pleine puissance : {usableWinter} MWh en hiver contre {usable} MWh à 1 MW, le même plein (résultat du modèle). Les écoliers n’en savent rien : c’est le but.',
-      'The school stands for all the buildings on the network: the real network’s largest customer is public buildings. According to the maker, the 100 MWh it quotes come to about a week of winter demand and almost a month of summer. That gives {winterKw} kW and {summerKw} kW (derived), so about {yearGWh} GWh a year (derived). The model finds the winter again: {daysWinter} days from full; for the summer it gives {daysSummer} days, well over a month (model result). At that moderate power the silo gives far more than its capacity at full power: {usableWinter} MWh in winter against {usable} MWh at 1 MW, from the same full charge (model result). The pupils know nothing of it: that is the point.',
+      'L’école représente tous les bâtiments du réseau. Selon le constructeur, les 100 MWh annoncés représentent à peu près une semaine de demande d’hiver et presque un mois d’été. On en tire {winterKw} kW et {summerKw} kW (dérivé), soit environ {yearGWh} GWh par an (dérivé). Le modèle retrouve l’hiver : {daysWinter} jours à partir de plein ; pour l’été, il donne {daysSummer} jours, bien plus qu’un mois (résultat du modèle). À cette puissance modérée, le silo rend bien plus que sa capacité à pleine puissance : {usableWinter} MWh en hiver contre {usable} MWh à 1 MW, le même plein (résultat du modèle). Les écoliers n’en savent rien : c’est le but.',
+      'The school stands for all the buildings on the network. According to the maker, the 100 MWh it quotes come to about a week of winter demand and almost a month of summer. That gives {winterKw} kW and {summerKw} kW (derived), so about {yearGWh} GWh a year (derived). The model finds the winter again: {daysWinter} days from full; for the summer it gives {daysSummer} days, well over a month (model result). At that moderate power the silo gives far more than its capacity at full power: {usableWinter} MWh in winter against {usable} MWh at 1 MW, from the same full charge (model result). The pupils know nothing of it: that is the point.',
     ),
     material: l('Radiateurs à eau, boucle du bâtiment, sous-station', 'Water radiators, building loop, substation'),
     specs: [

@@ -81,7 +81,7 @@ export function demandAt(season: Season, day: number, hour: number, rated: numbe
   return (level * DAY_SHAPE[Math.floor(hour) % 24]! * rated) / 1e6;
 }
 
-/** Outside air, °C: ESTIMATE, a usual curve for southern Finland; the reported minimum is −23 °C at a sister plant, the slider reaches it. */
+/** Outside air, °C: ESTIMATE, a usual curve for southern Finland; a source says the first silo’s town can fall to −23 °C, and the slider reaches it. */
 export function outsideAt(season: Season, day: number, hour: number, shift: number): number {
   const w = winterness(season, day);
   return -6 + 23 * (1 - w) + 3 * Math.sin((2 * Math.PI * (hour - 9)) / 24) + shift;

@@ -115,11 +115,11 @@ export const INSTALL: GuideStep[] = [
   {
     id: 'winter-tests',
     scene: 'silo',
-    title: l('Un hiver d’essais', 'A winter of tests'),
+    title: l('Les premiers essais', 'The first tests'),
     text: step(
       'reported',
-      'Après le remplissage, les essais ont duré tout l’hiver 2024-2025 sur le vrai silo. Charger, reposer, décharger, à des températures de plus en plus hautes : c’est à ce moment que la coupe colorée du modèle cède la place aux vraies sondes. La longueur de ces essais rappelle aussi que le premier chiffre d’un rendement sur un an inclut ces réglages, que le modèle n’a pas.',
-      'After filling, the tests went on all through the winter of 2024-2025 at the real silo. Charging, resting, discharging, at higher and higher temperatures: this is when the model’s coloured section gives way to the real probes. The length of these tests is also a reminder that a first year’s efficiency figure includes these adjustments, which the model does not have.',
+      'Après le remplissage, les essais du vrai silo devaient commencer pendant l’hiver 2024-2025, pour une mise en service en 2025. Charger, reposer, décharger, à des températures de plus en plus hautes : c’est à ce moment que la coupe colorée du modèle cède la place aux vraies sondes. Ces réglages, le modèle ne les a pas : une raison de plus de lire ses rendements comme des plafonds.',
+      'After filling, testing of the real silo was due to begin during the winter of 2024-2025, with commissioning in 2025. Charging, resting, discharging, at higher and higher temperatures: this is when the model’s coloured section gives way to the real probes. The model has none of these adjustments: one more reason to read its efficiencies as ceilings.',
       [
         'pour les dates ; le contenu des essais est notre lecture',
         'for the dates; what the tests contained is our reading',

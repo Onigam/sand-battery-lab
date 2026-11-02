@@ -86,6 +86,10 @@ describe('the panel’s words', () => {
     expect(count(/independent measurement/i)).toBe(1);
     expect(count(/Nobody has measured|No independent measurement/)).toBe(0);
   });
+  it('quote the efficiency of the source: 80 to 90, not 85 to 90', () => {
+    expect(PANEL_STRINGS.efficiencyHint![0]).toContain('de 80 à 90 %');
+    expect(PANEL_STRINGS.efficiencyHint![1]).toContain('80 to 90%');
+  });
   it('write 46% in English, 46 % in French', () => {
     for (const [key, [fr, en]] of entries) {
       expect(en, key).not.toMatch(/\d %/);
