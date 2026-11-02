@@ -4,7 +4,7 @@ import { nEn, nFr } from '../data/units';
 import { SILO, ZONE_R } from '../three/dims';
 import { HEAT_MAX, HEAT_MIN, HEAT_STOPS } from '../three/heat';
 import { caption, grid, modelTag, note, PAPER } from './draw';
-import { cat, lab, perMetre } from './geom';
+import { cat, fig, lab, perMetre } from './geom';
 import { chargeCurve, temperatureMaps } from './model';
 
 // PL-03: the section at 0, 25, 50 and 100 % of a first charge, as the model finds it: a half-section (r, z) of the grid of src/sim, coloured with the same ramp as the 3D (src/three/heat.ts, in °C). Model
@@ -183,6 +183,25 @@ function draw(d: Drawing): void {
     l(
       'Chaque rectangle est une cellule de la grille du modèle, dix anneaux sur six couches, à sa température moyenne. La vraie pierre n’a pas ces marches, et près d’un tube elle est plus chaude que la moyenne de sa cellule. Les couleurs sont celles de la coupe du monde 3D : à 400 °C, une pierre ne rougeoie pas, elle a l’air froide.',
       'Each rectangle is one cell of the model’s grid, ten rings by six layers, at its mean temperature. The real stone has no such steps, and near a pipe it is hotter than its cell’s mean. The colours are those of the 3D section: at 400 °C, stone does not glow, it looks cold.',
+    ),
+    { size: 2 },
+  );
+  note(
+    d,
+    190,
+    181,
+    215,
+    cat(
+      l(
+        'Cette première charge part de l’eau de retour. Les fiches citent le silo après trois cycles, parti de plus haut : ',
+        'This first charge starts from the return water. The part sheets quote the silo after three cycles, starting higher: ',
+      ),
+      fig('coreFull', 'M', ' °C'),
+      l(' au cœur, ', ' at the core, '),
+      fig('edgeFull', 'M', ' °C'),
+      l(' au bord, ', ' at the edge, '),
+      fig('chargeHours', 'M', ' h'),
+      l(' du plancher au plein.', ' from the floor to full.'),
     ),
     { size: 2 },
   );

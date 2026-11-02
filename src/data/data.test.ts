@@ -496,8 +496,8 @@ describe('the figures of the texts, against the simulation', () => {
   it('efficiency, walls and half-life', () => {
     const year = yearRun(spec, defaultOperation({ strategy: 'threshold', threshold: 40 }));
     near(year.efficiency * 100, MODEL.etaYear, 1, 'year');
-    near((year.walls / year.electricity) * 100, MODEL.wallsYear, 0.4, 'walls');
-    near((year.circulation / year.electricity) * 100, MODEL.circYear, 0.4, 'circulation');
+    near((year.walls / year.electricity) * 100, MODEL.wallsYear, 0.06, 'walls');
+    near((year.circulation / year.electricity) * 100, MODEL.circYear, 0.06, 'circulation');
     near(year.walls / (8760 * 3600) / 1e3, MODEL.lossYear, 2, 'loss over a year');
     near(cycleRun(spec, spec.ratedPower, 1).efficiency * 100, MODEL.etaCycle, 1, 'cycle');
     near(cycleRun(spec, spec.ratedPower, 1).wallShare * 100, MODEL.wallsCycle, 0.6, 'cycle walls');

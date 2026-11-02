@@ -212,8 +212,8 @@ export const PLANT_ROOM_PARTS: PartInfo[] = [
         'Length of a charge',
         tf(
           'model',
-          '{chargeHours} h à 500 °C d’air, {chargeHours600} h à 600 °C',
-          '{chargeHours} h at 500 °C of air, {chargeHours600} h at 600 °C',
+          'du plancher au plein, {chargeHours} h à 500 °C d’air, {chargeHours600} h à 600 °C',
+          'from the floor to full, {chargeHours} h at 500 °C of air, {chargeHours600} h at 600 °C',
         ),
       ),
       sp('Deux soufflantes', 'Two blowers', l('hypothèse du labo', 'an assumption of the lab')),
@@ -475,8 +475,8 @@ export const PLANT_ROOM_PARTS: PartInfo[] = [
       'Short and well insulated, on purpose: about {ductDiameter} m inside (derived) to carry the megawatt at {airSpeed} m/s (estimate).',
     ),
     description: lf(
-      'Le constructeur tient à ses gaines courtes et bien isolées, et il en donne la raison : tout mètre chaud qui traîne dehors est une perte, chaque fois que l’air y passe. Dans le modèle, une boucle à 1 MW a {ductWK} W/K de gaines, environ {ductLength} m (estimation), qui ne perdent que lorsqu’elles soufflent. Le diamètre vient de la physique : 1 MW sur 300 K demande environ {airKgS} kg/s d’air (dérivé), et la soufflante de {blowerRate} m³/s (estimation), à {airSpeed} m/s (estimation), donne une gaine de {ductDiameter} m (dérivé). L’air y atteint jusqu’à environ 500 °C, et l’on ne touche pas ces gaines : leur habillage tiède ne dit rien de ce qui passe dedans.',
-      'The maker cares about short, well-insulated ducts and gives the reason: every hot metre left outside is a loss, each time air passes through it. In the model a loop at 1 MW has {ductWK} W/K of ducts, about {ductLength} m (estimate), which only lose while they blow. The diameter comes from physics: 1 MW over 300 K takes about {airKgS} kg/s of air (derived), and the blower’s {blowerRate} m³/s (estimate), at {airSpeed} m/s (estimate), gives a duct of {ductDiameter} m (derived). The air there reaches up to about 500 °C, and nobody touches these ducts: their lukewarm jacket says nothing of what passes inside.',
+      'Le constructeur tient à ses gaines courtes et bien isolées, et il en donne la raison : tout mètre chaud qui traîne dehors est une perte, chaque fois que l’air y passe. Dans le modèle, une boucle à 1 MW a {ductWK} W/K de gaines, environ {ductLength} m (estimation), qui ne perdent que lorsqu’elles soufflent. Le diamètre vient de la physique : 1 MW sur 300 K demande environ {airKgS} kg/s d’air (dérivé), et la soufflante de {blowerRate} m³/s (estimation), à {airSpeed} m/s (estimation), donne une gaine de {ductDiameter} m (dérivé). L’air y atteint jusqu’à environ 500 °C, et l’on ne touche pas ces gaines : leur habillage tiède ne dit rien de ce qui passe dedans. Le repère « 0 à 600 °C » mène à cette fiche : il donne l’échelle des couleurs de la pierre, que cet air vient chauffer.',
+      'The maker cares about short, well-insulated ducts and gives the reason: every hot metre left outside is a loss, each time air passes through it. In the model a loop at 1 MW has {ductWK} W/K of ducts, about {ductLength} m (estimate), which only lose while they blow. The diameter comes from physics: 1 MW over 300 K takes about {airKgS} kg/s of air (derived), and the blower’s {blowerRate} m³/s (estimate), at {airSpeed} m/s (estimate), gives a duct of {ductDiameter} m (derived). The air there reaches up to about 500 °C, and nobody touches these ducts: their lukewarm jacket says nothing of what passes inside. The “0 to 600 °C” marker leads to this sheet: it gives the scale of the colours of the stone, which this air comes to heat.',
     ),
     material: l('Tôle d’acier inoxydable, isolant, habillage', 'Stainless sheet, insulation, jacket'),
     specs: [

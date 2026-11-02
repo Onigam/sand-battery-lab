@@ -244,6 +244,16 @@ The model **agrees with the maker's split of the losses** (5 % + 5 %, hence 90 %
 | K43 | not disclosed                                                               | No cost of the plant                                                                                                                                                                               | Context                                                                                                                                                                                                  |
 | K44 | about 500 °C of air, to check                                               | Input                                                                                                                                                                                              | The charging time depends on it heavily: 515 h at 400 °C, 183 h at 500 °C, 120 h at 600 °C                                                                                                               |
 
+**The same « full », three ways, and two years** (the review's D27). All are right, and each place now says which it is:
+
+| Where                      | Run                                                               | Core, edge at full | Charge                |
+| -------------------------- | ----------------------------------------------------------------- | ------------------ | --------------------- |
+| Sheets, voice, this file   | `capacityRun`: the third of three cycles                          | 417 °C, 375 °C     | 183 h, from the floor |
+| Panel, the table of orders | `chargeOrderCompare`: a first charge, from 150 °C                 | 416 °C, 369 °C     | 281 h                 |
+| PL-03                      | `temperatureMaps`: a first charge, from the return water at 45 °C | 423 °C, 365 °C     | 336 h                 |
+
+The year of the sheets is the hourly run: walls 4.6 %, circulation 4.3 %, the stone's share 81 %. The panel's year runs in steps of 6 h, so that it does not hold a frame back: 4.5 %, 4.2 %, 79 %. The panel says so, and `sim.test.ts` holds it within 0.2 points on the shares. The tests of these shares allowed ±5 points in `figures.test.ts` and ±0.4 in `data.test.ts`; they now allow ±0.05 and ±0.06.
+
 ### 5.5 The offline check of K14, on a real year
 
 As research Q7 proposed: once, offline, no price data in the repository. The Finnish day-ahead prices from 1 July 2025 to 30 June 2026 (the plant's first year), read from the public `sahkotin.fi` API, 8,760 hours, mean **70.9 €/MWh**, from −12 to 770. Pornainen under a price rule, K36's demand:

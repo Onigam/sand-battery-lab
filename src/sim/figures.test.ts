@@ -153,8 +153,8 @@ describe('the plant as reported', () => {
 
   it('K11 reported circulation and charging about 5 %, storage time often under 5 %: over a year about 4 % and 5 % of the electricity', () => {
     const y = yearOptimal;
-    expect(y.circulation / y.electricity).toBeCloseTo(0.044, 1);
-    expect(y.walls / y.electricity).toBeCloseTo(0.046, 1);
+    expect(y.circulation / y.electricity).toBeCloseTo(0.044, 3);
+    expect(y.walls / y.electricity).toBeCloseTo(0.046, 3);
     // a single full-power cycle is shorter in heat and just as long in days: the walls weigh more
     expect(cycleRated.circulationShare).toBeCloseTo(0.043, 1);
     expect(cycleRated.wallShare).toBeCloseTo(0.115, 1);
