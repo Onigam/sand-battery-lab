@@ -85,7 +85,8 @@ function envTexture(): THREE.DataTexture {
   return tex;
 }
 
-const FOG_DENSITY = 0.00046;
+/** About 50 % at 1 km: the far ridge recedes, and its dark spruces stand less hard against the sky (docs/3d.md, shimmer); the wind farm on it still reads. */
+const FOG_DENSITY = 0.00085;
 
 export interface SkyRig {
   sun: THREE.DirectionalLight;
