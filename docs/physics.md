@@ -157,7 +157,7 @@ Also not found: the ratio of charge. S17's « about 100 hours » is 183 h here f
 
 ### 5.2 K23 and K31: Vääksy, 2.5 times at nearly the same size
 
-**Found, in the ratio:** 160 / 69 = **2.3** against the reported 2.5. **Not retrieved in absolute terms:** 160 MWh against 250. Same physics, same blower rule, same floor (270 and 275 °C):
+**Found, in the ratio:** 160 / 69 = **2.3** against the reported 2.5. **Not retrieved in absolute terms:** 160 MWh against 250. (On the hourly step this figure moves by one step, 2 MWh at 2 MW: 160 or 162 depending on how many cycles are run. At 15 minutes or finer it is 160 at any number of cycles, so 160 it is, and `scaleRow`, which printed 162 from two cycles, now runs the same three as `capacityRun`.) Same physics, same blower rule, same floor (270 and 275 °C):
 
 | Step, with the floor of 275 °C        | MWh | Factor                                    |
 | ------------------------------------- | --- | ----------------------------------------- |

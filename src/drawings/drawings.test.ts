@@ -235,7 +235,7 @@ describe('the sheets against the sources of their numbers', () => {
     expect(by('pornainen').surfacePerVolume).toBeCloseTo(0.62, 2);
     expect(by('two-drums').surfacePerVolume).toBeCloseTo(9.5, 0);
     expect(Math.round(by('pornainen').usable / MWH)).toBe(MODEL.usable);
-    expect(Math.abs(by('vaaksy').usable / MWH - MODEL.usableV)).toBeLessThan(5);
+    expect(Math.round(by('vaaksy').usable / MWH)).toBe(MODEL.usableV);
     expect(by('two-drums').usable / 3.6e6).toBeLessThan(2);
     expect(by('kankaanpaa').efficiency).toBeLessThan(by('pornainen').efficiency);
     expect(by('two-drums').halfLife).toBeLessThan(by('kankaanpaa').halfLife);

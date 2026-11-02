@@ -595,7 +595,7 @@ export function scaleRow(id: string, spec: SiloSpec): ScaleRow {
   const volume = Math.PI * r * r * h;
   // a tiny plant lives in hours, a big one in days
   const dt = spec.ratedPower < 1e5 ? 300 : 3600;
-  const c = capacityRun(spec, spec.ratedPower, 2, dt);
+  const c = capacityRun(spec, spec.ratedPower, 3, dt);
   const idle = idleRun(spec);
   const cy = cycleRun(spec, spec.ratedPower, 1, 3, dt);
   return {

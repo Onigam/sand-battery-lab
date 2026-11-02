@@ -644,6 +644,8 @@ describe('the charts’ runs', () => {
     expect(big.halfLife).toBeGreaterThan(50 * small.halfLife);
     expect(small.surfacePerVolume).toBeGreaterThan(10 * big.surfacePerVolume);
     expect(big.heat / MWH).toBeCloseTo(217, -1);
+    // the same run as docs/physics.md §5.2, so that the chart and the sheet print its figure
+    expect(Math.round(scaleRow('v', siloSpec('vaaksy')).usable / MWH)).toBe(160);
   });
   it('the engine caches what it computes', () => {
     const sim = new SandSim();

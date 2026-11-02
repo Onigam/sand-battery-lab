@@ -117,11 +117,6 @@ let scale: ScaleRow[] | null = null;
 /** The four sizes on one rule: the first silo, this one, the 250 MWh silo and the two drums. */
 export function scaleRows(): ScaleRow[] {
   if (scale) return scale;
-  scale = (['kankaanpaa', 'pornainen', 'vaaksy', 'two-drums'] as const).map((id) => {
-    const spec = siloSpec(id);
-    // the usable heat of the long run, the same as docs/physics.md prints; the two drums live in minutes, so they take a shorter step
-    const usable = id === 'two-drums' ? capacityRun(spec, spec.ratedPower, 3, 300).usable : capacityRun(spec).usable;
-    return { ...scaleRow(id, spec), usable };
-  });
+  scale = (['kankaanpaa', 'pornainen', 'vaaksy', 'two-drums'] as const).map((id) => scaleRow(id, siloSpec(id)));
   return scale;
 }
