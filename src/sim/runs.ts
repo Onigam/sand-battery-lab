@@ -59,6 +59,12 @@ export function chargeToFull(
   return t / 3600;
 }
 
+/**
+ * The step of a capacity run: a tiny plant lives in hours, a big one in days. The hour is the step of docs/physics.md: at 1 or 2 MW a coarser one moves the figure by a step's
+ * worth (70 for 69 MWh at 2 h, 72 at 6 h), and the texts print the figure of the hour.
+ */
+export const capacityStep = (spec: SiloSpec): number => (spec.ratedPower < 1e5 ? 300 : 3600);
+
 export interface DischargeResult {
   /** Delivered at the asked power, J; hours of it. */
   atPower: number;
@@ -543,7 +549,10 @@ export interface CapacityPoint {
 
 /** A point of usable capacity against the power asked, quick version for a chart: two cycles at a coarse step. */
 export function capacityPoint(spec: SiloSpec, power: number): CapacityPoint {
-  const c = capacityRun(spec, power, 2, spec.ratedPower < 1e5 ? 300 : 6 * 3600);
+  // Below half power the run lasts months and 6 h read the same within 1 %. It also steps over a handover of the zones at 100 kW, where the heat falls to nothing
+  // for a few hours and then comes back: on a finer step the run would stop there, at 99 MWh instead of about 155.
+  const dt = power < 0.5 * spec.ratedPower && spec.ratedPower >= 1e5 ? 6 * 3600 : capacityStep(spec);
+  const c = capacityRun(spec, power, 3, dt);
   return { power, usable: c.usable, hours: c.hoursUsable };
 }
 
@@ -593,8 +602,7 @@ export function scaleRow(id: string, spec: SiloSpec): ScaleRow {
   const r = spec.bedRadius;
   const h = spec.bedHeight;
   const volume = Math.PI * r * r * h;
-  // a tiny plant lives in hours, a big one in days
-  const dt = spec.ratedPower < 1e5 ? 300 : 3600;
+  const dt = capacityStep(spec);
   const c = capacityRun(spec, spec.ratedPower, 3, dt);
   const idle = idleRun(spec);
   const cy = cycleRun(spec, spec.ratedPower, 1, 3, dt);

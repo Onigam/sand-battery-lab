@@ -61,7 +61,7 @@ export const MODEL = {
   usableWinter: 122, // MWh at the winter demand
   shareWinter: 56, // %
   daysWinter: 8.5, // days of the winter demand from full
-  usableSummer: 160, // MWh at the summer demand
+  usableSummer: 159, // MWh at the summer demand
   shareSummer: 74, // %
   daysSummer: 48, // days of the summer demand from full
   rangeLow: 46, // MWh at 1 MW, the lowest across the estimates of §6

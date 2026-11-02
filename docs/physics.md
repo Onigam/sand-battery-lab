@@ -149,7 +149,9 @@ The same full silo against the power asked, nothing else changing (`capacityRun`
 | 1,000 kW (rated) | 69          | 32 %              | 69 h     | 274 °C          |
 | 800 kW           | 93          | 43 %              | 116 h    | 230 °C          |
 | 595 kW (winter)  | 122         | 56 %              | 8.5 days | 175 °C          |
-| 139 kW (summer)  | 160         | 74 %              | 48 days  | 81 °C           |
+| 139 kW (summer)  | 159         | 74 %              | 48 days  | 81 °C           |
+
+Every figure here is `capacityRun` on its default, three cycles at one hour, and since the lead's pass so is the panel (`getCapacity`, `capacityPoint`, `scaleRow`, through `capacityStep`): it had run at 2 h and 6 h for speed, and printed 70 MWh and 72 MWh for these 69. Below half power the panel's curve keeps 6 h, for a reason that is a **limit of the model, not yet looked at**: at 100 kW the heat falls to nothing for a few hours around hour 1,000 (mean 181 °C) and then holds again to about hour 1,560, so that on a fine step the run stops at 99 MWh and on 6 h it reads about 155. At 139 kW there is no such gap.
 
 So **46 % is what you get near 750 kW in this model, or at 1 MW with blowers 1.7 times larger.** The model cannot tell which. What it can say: a capacity without a power means little; the maker's « about a week of winter demand » reads about right (8.5 days); its « almost a month of summer » reads short (48 days, walls included); and none of this says that 100 MWh is the physical limit. Plausible range at 1 MW across the estimates of §6: **46 to 132 MWh**.
 

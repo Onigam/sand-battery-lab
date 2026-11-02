@@ -261,6 +261,18 @@ export const SCALE_KEYS: Record<string, PanelKey> = {
   vaaksy: 'scaleVaaksy',
 };
 
+/** Whole percentages of a budget that add up to 100 (largest remainder): 31.8, 48.6 and 19.6 read 32, 48 and 20, as on the sheet, not 32, 49 and 20. */
+export function wholeShares(values: readonly number[]): number[] {
+  const total = values.reduce((a, v) => a + v, 0);
+  if (!(total > 0)) return values.map(() => 0);
+  const exact = values.map((v) => (100 * v) / total);
+  const shares = exact.map(Math.floor);
+  const left = 100 - shares.reduce((a, v) => a + v, 0);
+  const order = exact.map((v, i) => [v - shares[i]!, i] as const).sort((a, b) => b[0] - a[0]);
+  for (let k = 0; k < left; k++) shares[order[k]![1]]!++;
+  return shares;
+}
+
 /** One line of the scale's table. */
 export function scaleLine(r: ScaleRow) {
   return {

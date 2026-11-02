@@ -18,6 +18,7 @@ import {
   power,
   powersChartData,
   scaleLine,
+  wholeShares,
   sectionChartData,
   setBlock,
   sinceReadouts,
@@ -63,6 +64,14 @@ const run = (panel: SimPanel, sim: SandSim, seconds: number): void => {
     panel.tick(1 / 30);
   }
 };
+
+describe('the budget', () => {
+  it('reads whole percentages that add up to 100', () => {
+    expect(wholeShares([69, 105.3, 42.5])).toEqual([32, 48, 20]);
+    expect(wholeShares([1, 1, 1]).reduce((a, v) => a + v, 0)).toBe(100);
+    expect(wholeShares([0, 0, 0])).toEqual([0, 0, 0]);
+  });
+});
 
 describe('what the panel offers', () => {
   it('opens on the plant with its presets, a custom entry and a chip per scenario', () => {

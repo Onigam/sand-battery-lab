@@ -34,6 +34,7 @@ import {
 } from './presets';
 import {
   capacityPoint,
+  capacityStep,
   capacityRun,
   chargeOrderCompare,
   CURVE_SHARES,
@@ -732,7 +733,9 @@ export class SandSim implements LabSim {
   /** What a full discharge at rated power gives, on this machine. */
   getCapacity(): CapacityResult {
     const spec = this.spec;
-    return this.cached(`capacity|${JSON.stringify(spec)}`, () => capacityRun(spec, spec.ratedPower, 2, 2 * 3600));
+    return this.cached(`capacity|${JSON.stringify(spec)}`, () =>
+      capacityRun(spec, spec.ratedPower, 3, capacityStep(spec)),
+    );
   }
 
   /** A point of the usable heat against the power asked: `index` in `CURVE_SHARES`. */

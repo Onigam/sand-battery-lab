@@ -21,6 +21,7 @@ import {
   defaultOperation,
   gamePlan,
   scaleRow,
+  CURVE_SHARES,
 } from './runs';
 import { siloSpec } from './silo';
 import { ALARM_TEXTS, PRESET_TEXTS, SCENARIO_TEXTS } from './texts';
@@ -657,6 +658,17 @@ describe('the charts’ runs', () => {
     expect(sim.getScale()).toHaveLength(4);
     expect(sim.getChargeOrder().even.hours).toBeGreaterThan(0);
     expect(sim.getYear().dayMean).toHaveLength(365);
+  });
+  it('the panel prints the figures of the texts: 69, 105 and 43 MWh, and 93 at 800 kW', () => {
+    const sim = new SandSim();
+    const c = sim.getCapacity();
+    expect(Math.round(c.usable / MWH)).toBe(69);
+    expect(Math.round(c.tail / MWH)).toBe(105);
+    const curve = sim.getCapacityCurve();
+    expect(Math.round(curve[CURVE_SHARES.indexOf(1)]!.usable / MWH)).toBe(69);
+    expect(Math.round(curve[CURVE_SHARES.indexOf(0.8)]!.usable / MWH)).toBe(93);
+    // the lowest powers last longest and give the most, up to where the walls take over
+    expect(curve[0]!.usable / MWH).toBeGreaterThan(140);
   });
   it('scenarios start from a real charge, not a drawn field', () => {
     const f = scenarioSetup('winter-week');

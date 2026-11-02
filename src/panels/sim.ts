@@ -47,6 +47,7 @@ import {
   tempsChartData,
   weekChartData,
   yearChartData,
+  wholeShares,
   yearReadouts,
   type Readout,
 } from './model';
@@ -630,7 +631,7 @@ export class SimPanel implements PanelController {
       return;
     }
     const rows = budgetSegments(c);
-    const total = rows.reduce((a, r) => a + r.joules, 0) || 1;
+    const shares = wholeShares(rows.map((r) => r.joules));
     fill(
       this.budget,
       h(
@@ -643,7 +644,7 @@ export class SimPanel implements PanelController {
       h(
         'div',
         { class: 'loss-legend' },
-        ...rows.map((r) => {
+        ...rows.map((r, i) => {
           const e = energy(r.joules);
           return h(
             'span',
@@ -651,7 +652,7 @@ export class SimPanel implements PanelController {
             h('i', { style: `background:${r.colour}` }),
             `${st(r.key)} `,
             h('b', {}, `${num(e.value, e.digits)} ${e.unit}`),
-            h('small', {}, ` ${num((100 * r.joules) / total)}${unitGap('%')}% †`),
+            h('small', {}, ` ${num(shares[i]!)}${unitGap('%')}% †`),
           );
         }),
       ),
@@ -841,7 +842,13 @@ export class SimPanel implements PanelController {
       fill(
         this.yearBox,
         ...yr.map((r) =>
-          h('span', {}, `${st(r.key)} `, h('b', {}, num(r.value, r.digits)), h('small', {}, ` ${r.unit} ${r.tag}`)),
+          h(
+            'span',
+            {},
+            `${st(r.key)} `,
+            h('b', {}, num(r.value, r.digits)),
+            h('small', {}, `${unitGap(r.unit)}${r.unit} ${r.tag}`),
+          ),
         ),
       );
     }
