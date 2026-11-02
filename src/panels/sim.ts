@@ -29,9 +29,11 @@ import { PRICE_WEEKS, type PriceWeekId, type Season } from '../sim/week';
 import {
   BLOCKS_PER_DAY,
   BLOCK_HOURS,
+  beatsOpponent,
   blockOn,
   budgetSegments,
   capacityChartData,
+  dayMarkers,
   energy,
   mainReadouts,
   makerPoint,
@@ -76,6 +78,7 @@ export class SimPanel implements PanelController {
   private presetSelect: HTMLSelectElement | null = null;
   private lesson = h('div', {});
   private status = h('div', {});
+  private drawnNote = h('div', {});
   private readouts = h('div', { class: 'readouts' });
   private budget = h('div', { class: 'losses' });
   private budgetNote = h('div', {});
@@ -98,6 +101,7 @@ export class SimPanel implements PanelController {
   private sectionChart: LineChart;
   private capacityChart: LineChart;
   private weekChart: LineChart;
+  private gameChart: LineChart;
   private cChart: LineChart;
   private yearChart: LineChart;
   private yearMeanChart: LineChart;
@@ -106,6 +110,7 @@ export class SimPanel implements PanelController {
   private sectionOpts: ChartOpts;
   private capacityOpts: ChartOpts;
   private weekOpts: ChartOpts;
+  private gameOpts: ChartOpts;
   private yearOpts: ChartOpts;
   private yearMeanOpts: ChartOpts;
 
@@ -195,6 +200,18 @@ export class SimPanel implements PanelController {
       },
     };
     this.weekChart = new LineChart(this.weekOpts);
+    // the game's own view of the week: the prices beside the hours being painted, whatever the rule of the moment
+    this.gameOpts = {
+      height: 120,
+      series: [
+        { key: 'price', label: () => st('seriesPrice'), color: SERIES_COLORS.dump, bold: true },
+        { key: 'plan', label: () => st('seriesPainted'), color: SERIES_COLORS.load },
+      ],
+      yFmt: (v) => num(v),
+      xFmt: (v) => `${dayNames()[Math.floor(v / 24) % 7]} ${Math.floor(v % 24)}h`,
+      markers: () => dayMarkers(dayNames()),
+    };
+    this.gameChart = new LineChart(this.gameOpts);
     this.cChart = new LineChart({
       height: 120,
       series: [
@@ -324,6 +341,7 @@ export class SimPanel implements PanelController {
           icon(ICONS.reset, 16),
         ),
       ),
+      this.drawnNote,
       h('div', { class: 'eyebrow' }, st('scenarios')),
       h(
         'div',
@@ -344,6 +362,7 @@ export class SimPanel implements PanelController {
         ),
       ),
       this.lesson,
+      hint('speedHint'),
       this.status,
       this.readouts,
       hint('levelHint'),
@@ -419,9 +438,11 @@ export class SimPanel implements PanelController {
       folded(
         st('secGame'),
         hint('gameIntro'),
-        this.gameGrid,
+        h('div', { class: 'eyebrow' }, `${st('chartWeek')} (€/MWh)`),
+        this.gameChart.el,
         this.gameScore,
         this.gameWin,
+        this.gameGrid,
         h(
           'div',
           { class: 'part-chips' },
@@ -465,6 +486,7 @@ export class SimPanel implements PanelController {
       hint('chartWeekHint'),
       h('div', { class: 'eyebrow' }, st('chartOrder')),
       this.orderBox,
+      hint('orderHint'),
       h('div', { class: 'eyebrow' }, st('chartScale')),
       this.scaleBox,
       hint('scaleHint'),
@@ -472,6 +494,7 @@ export class SimPanel implements PanelController {
       this.yearChart.el,
       this.yearMeanChart.el,
       this.yearBox,
+      hint('yearHint'),
       hint('efficiencyHint'),
       h('div', { class: 'eyebrow' }, `${st('chartC')} (kJ/kg·K)`),
       this.cChart.el,
@@ -592,6 +615,7 @@ export class SimPanel implements PanelController {
   private renderStatus(): void {
     const sim = this.ctx.sim;
     if (this.presetSelect && this.presetSelect.value !== sim.params.preset) this.presetSelect.value = sim.params.preset;
+    fill(this.drawnNote, sim.state.onDrawnSilo ? null : h('p', { class: 'hint' }, st('drawnHint')));
     const { key, tone } = statusOf(sim.state, sim.params);
     fill(
       this.status,
@@ -715,6 +739,12 @@ export class SimPanel implements PanelController {
     const sim = this.ctx.sim;
     const plan = sim.params.painted;
     const names = dayNames();
+    const week = PRICE_WEEKS[sim.params.priceWeek];
+    const wk = weekChartData(week, plan);
+    this.gameOpts.yMin = wk.bottom;
+    this.gameOpts.yMax = niceCeil3(wk.top * 1.05);
+    this.gameChart.setData(wk.xs, { price: wk.price, plan: wk.plan });
+    this.gameChart.draw();
     const rows: HTMLElement[] = [];
     for (let d = 0; d < 7; d++) {
       const chips: HTMLElement[] = [];
@@ -725,6 +755,8 @@ export class SimPanel implements PanelController {
             'button',
             {
               class: `part-chip${on ? ' is-on' : ''}`,
+              // eight to a row, so that a day stays on one line and the grid stays beside the prices
+              style: 'padding:4px 0;min-width:0;text-align:center;font-size:11px',
               'aria-pressed': String(on),
               title: `${names[d]} ${b * BLOCK_HOURS}h`,
               onclick: () => this.paint(setBlock(plan, d, b, !on)),
@@ -733,7 +765,17 @@ export class SimPanel implements PanelController {
           ),
         );
       }
-      rows.push(h('div', { class: 'eyebrow' }, names[d]!), h('div', { class: 'part-chips' }, ...chips));
+      rows.push(
+        h(
+          'div',
+          {
+            style:
+              'display:grid;grid-template-columns:2.8em repeat(8,minmax(0,1fr));gap:3px;align-items:center;margin:3px 0',
+          },
+          h('span', { class: 'eyebrow', style: 'margin:0;letter-spacing:0.04em' }, names[d]!),
+          ...chips,
+        ),
+      );
     }
     fill(this.gameGrid, ...rows);
     const you = sim.getPaintedWeek();
@@ -751,7 +793,7 @@ export class SimPanel implements PanelController {
     );
     fill(
       this.gameWin,
-      them && you.total <= them.total
+      them && beatsOpponent(you.total, them.total)
         ? h('div', { class: 'callout callout--tip' }, h('span', {}, st('gameBeat')))
         : null,
     );

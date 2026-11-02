@@ -8,9 +8,11 @@ import { siloSpec } from '../sim/silo';
 import type { Scope } from '../sim/types';
 import {
   BLOCKS_PER_DAY,
+  beatsOpponent,
   blockOn,
   budgetSegments,
   capacityChartData,
+  dayMarkers,
   energy,
   mainReadouts,
   moreReadouts,
@@ -30,7 +32,8 @@ import {
   yearReadouts,
 } from './model';
 import { SimPanel } from './sim';
-import { st, sx } from './strings';
+import { MODEL } from '../data/figures';
+import { num, st, sx } from './strings';
 import { monthOf, stripAlarms, stripClock, stripValues, STRIP_SPEEDS } from './strip';
 import { FakeElement, installFakeDom } from './test-dom';
 
@@ -180,6 +183,23 @@ describe('what the controls do', () => {
   });
 });
 
+describe('a machine that is not the one drawn', () => {
+  it('says so once, and only while it lasts', () => {
+    const { root, sim, panel } = open('en');
+    panel.tick(0.3);
+    expect(root.textContent).not.toContain(st('drawnHint'));
+    sim.applyPreset('two-drums');
+    panel.render();
+    panel.tick(0.3);
+    expect(sim.state.onDrawnSilo).toBe(false);
+    expect(root.textContent).toContain(st('drawnHint'));
+    sim.applyPreset('same-silo-sand');
+    panel.render();
+    panel.tick(0.3);
+    expect(root.textContent).not.toContain(st('drawnHint'));
+  });
+});
+
 describe('the game on the panel', () => {
   it('paints a block of three hours, scores it, and can take the opponent’s plan', () => {
     const { root, sim, panel } = open('en');
@@ -193,11 +213,36 @@ describe('the game on the panel', () => {
     expect(root.textContent).toContain(st('gameOpponent'));
     button(root, st('gameCheap')).click();
     expect(sim.params.painted.some(Boolean)).toBe(true);
-    expect(root.textContent).toContain(st('gameBeat'));
+    expect(root.textContent, 'its own plan is a draw, not a win').not.toContain(st('gameBeat'));
     button(root, st('gameUse')).click();
     expect(sim.params.strategy).toBe('painted');
     button(root, st('gameClear')).click();
     expect(sim.params.painted.some(Boolean)).toBe(false);
+  });
+  it('a win takes more than a euro', () => {
+    expect(beatsOpponent(4469.4, 4469.4)).toBe(false);
+    expect(beatsOpponent(4469, 4469.4)).toBe(false);
+    expect(beatsOpponent(4468, 4469.4)).toBe(true);
+    expect(beatsOpponent(5000, 4469.4)).toBe(false);
+  });
+  it('shows the prices and the score above the grid, so that nobody paints blind', () => {
+    const { root, sim, panel } = open('en');
+    run(panel, sim, 1);
+    const section = root.find('details').find((d) => d.textContent.includes(st('secGame')))!;
+    const flat = section.all();
+    const firstBlock = flat.findIndex((e) => e.tagName === 'button' && e.textContent === '00');
+    const chart = flat.findIndex((e) => e.classList.contains('chart'));
+    const score = flat.findIndex((e) => e.tagName === 'span' && e.textContent.startsWith(st('gameYou')));
+    expect(chart).toBeGreaterThanOrEqual(0);
+    expect(chart).toBeLessThan(score);
+    expect(score).toBeLessThan(firstBlock);
+  });
+  it('the days of the game’s chart: a name in each, a line between them, none before the first', () => {
+    const marks = dayMarkers(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']);
+    expect(marks.filter((m) => m.label).map((m) => m.label)).toHaveLength(7);
+    expect(marks.filter((m) => !m.label).map((m) => m.x)).toEqual([24, 48, 72, 96, 120, 144]);
+    for (const m of marks.filter((x) => x.label)) expect(m.y).toBeNaN();
+    for (const m of marks) expect(m.x).toBeLessThan(168);
   });
   it('blocks read and write the plan', () => {
     const plan = new Array<boolean>(168).fill(false);
@@ -307,6 +352,25 @@ describe('the numbers behind the charts', () => {
     expect(d.xs).toHaveLength(365);
     expect(yearReadouts(y).length).toBeGreaterThan(5);
     expect(scaleLine(sim.getScale()[0]!).key).toBe('scaleTwoDrums');
+  });
+  it('a year with no charge prints dashes, not 141 %', () => {
+    const sim = new SandSim();
+    sim.set({ strategy: 'off' });
+    const rows = yearReadouts(sim.getYear());
+    for (const key of ['yearEfficiency', 'yearWalls', 'yearCirc', 'yearPaid', 'yearDiscount'] as const) {
+      const r = rows.find((x) => x.key === key)!;
+      expect(r.value, key).toBeNaN();
+      expect(`${r.unit}${r.tag}`, key).toBe('');
+    }
+    expect(num(Number.NaN)).toBe('—');
+    const normal = yearReadouts(new SandSim().getYear());
+    for (const r of normal) expect(Number.isFinite(r.value), r.key).toBe(true);
+  });
+  it('the panel’s year keeps within a few tenths of the sheets, and says why it differs', () => {
+    const y = new SandSim().getYear();
+    expect(Math.abs((100 * y.walls) / y.electricity - MODEL.wallsYear)).toBeLessThan(0.2);
+    expect(Math.abs((100 * y.circulation) / y.electricity - MODEL.circYear)).toBeLessThan(0.2);
+    expect(st('yearHint')).toBeTruthy();
   });
   it('the folded figures exist and are finite', () => {
     const sim = new SandSim();

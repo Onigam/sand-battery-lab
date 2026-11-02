@@ -342,6 +342,18 @@ describe('presets and sliders', () => {
     expect(sim.params.preset).toBe('custom');
   });
 
+  it('settings that are those of a preset say so: the medium’s switch is the same silo filled with sand', () => {
+    const sim = new SandSim();
+    sim.set({ medium: 'sand' });
+    expect(sim.params.preset).toBe('same-silo-sand');
+    sim.set({ medium: 'soapstone' });
+    expect(sim.params.preset).toBe('pornainen-soapstone');
+    sim.set({ painted: new Array<boolean>(168).fill(true) });
+    expect(sim.params.preset, 'a plan changes no machine').toBe('pornainen-soapstone');
+    sim.set({ pitch: 0.6 });
+    expect(sim.params.preset).toBe('custom');
+  });
+
   it('the ranges scale to the machine and hold each preset’s own value', () => {
     for (const id of PRESET_IDS) {
       const p = presetParams(id);

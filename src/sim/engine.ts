@@ -21,6 +21,7 @@ import {
 } from './plant';
 import {
   DEFAULT_TIME_SCALE,
+  presetOf,
   presetParams,
   rangeOf,
   RANGES,
@@ -225,7 +226,7 @@ export class SandSim implements LabSim {
     this.listeners.forEach((fn) => fn());
   }
 
-  /** Change parameters (clamped to the range of the machine). Anything but the time controls turns the preset into 'custom'. */
+  /** Change parameters (clamped to the range of the machine). Anything but the time controls turns the preset into 'custom', unless the settings are those of another preset. */
   set(patch: Partial<SandParams>): void {
     const p = this.params as unknown as Record<string, unknown>;
     let physical = false;
@@ -246,7 +247,7 @@ export class SandSim implements LabSim {
         this.ramps = this.ramps.filter((r) => r.key !== key);
       }
     }
-    if (physical && patch.preset === undefined) this.params.preset = 'custom';
+    if (physical && patch.preset === undefined) this.params.preset = presetOf(this.params);
     if (GEOMETRY_KEYS.some((k) => patch[k] !== undefined)) this.rebuild('half');
     else if (physical) this.applySettings(mediumBefore);
     this.emit();

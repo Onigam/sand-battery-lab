@@ -22,6 +22,15 @@ const PANEL = {
     'Chacun raconte une chose. Ils règlent eux-mêmes la vitesse du temps.',
     'Each tells one thing. They set the speed of time themselves.',
   ],
+  // the kit writes the speeds as bare factors (docs/kit-requests.md, request 4): the panel says what they are
+  speedHint: [
+    'La vitesse du temps, à côté de l’horloge : ×3600, une heure par seconde ; ×86400, un jour ; ×604800, une semaine.',
+    'The speed of time, beside the clock: ×3600 is an hour a second; ×86400, a day; ×604800, a week.',
+  ],
+  drawnHint: [
+    'Le dessin reste celui du silo de 100 MWh : cette machine-ci n’existe que dans les chiffres.',
+    'The drawing stays that of the 100 MWh silo: this machine exists only in the figures.',
+  ],
 
   // ---- the status line
   statusIdle: [
@@ -122,8 +131,8 @@ const PANEL = {
   secMachine: ['La machine', 'The machine'],
   medium: ['Matériau', 'Medium'],
   mediumHint: [
-    'Le plus grand silo en service ne contient pas de sable : de la pierre ollaire concassée, plus dense. Le même volume de sable pèse un tiers de moins.',
-    'The largest silo in service holds no sand: crushed soapstone, denser. The same volume of sand weighs a third less.',
+    'Le plus grand silo en service ne contient pas de sable : de la pierre ollaire concassée, plus dense. Le même volume de sable pèse un tiers de moins. Regardez le silo en coupe : la pierre y montre sa couleur quelques secondes. « Utile à plein » chute aussitôt : le sable conduit moins bien, et la pleine puissance s’arrête plus tôt.',
+    'The largest silo in service holds no sand: crushed soapstone, denser. The same volume of sand weighs a third less. Look at the silo in section: the stone shows its colour there for a few seconds. “At full power” drops at once: sand conducts less well, and full power stops sooner.',
   ],
   ratedPower: ['Puissance de chaleur *', 'Heat power *'],
   chargePower: ['Puissance des résistances *', 'Power of the resistors *'],
@@ -205,6 +214,7 @@ const PANEL = {
   gameOpponent: ['L’adversaire', 'The opponent'],
   gameDelta: ['Écart', 'Difference'],
   gameBeat: ['Vous battez l’adversaire.', 'You beat the opponent.'],
+  seriesPainted: ['Mes heures', 'My hours'],
   gameHint: [
     'L’adversaire connaît toute la semaine et planifie sur un modèle simplifié. Rien ne prouve qu’il soit imbattable sur le modèle complet, mais en tranches entières, nous ne l’avons pas battu.',
     'The opponent knows the whole week and plans on a simplified model. Nothing proves it cannot be beaten on the full model, but with whole blocks we have not beaten it.',
@@ -245,6 +255,10 @@ const PANEL = {
   yearCirc: ['Circulation et charge, part', 'Circulation and charge, share'],
   yearPaid: ['Prix moyen payé', 'Mean price paid'],
   yearDiscount: ['Sous la moyenne de la semaine', 'Under the mean of the week'],
+  yearHint: [
+    'Cette année est calculée à pas de 6 h, pour rester rapide : ses chiffres s’écartent un peu de ceux des fiches, calculés heure par heure.',
+    'This year is computed in steps of 6 h, to stay quick: its figures differ a little from those of the sheets, computed hour by hour.',
+  ],
   efficiencyHint: [
     'Nous n’avons trouvé aucune mesure indépendante de ces machines. Le constructeur et ses clients annoncent de 60 à 75 % sur le petit silo, et pour celui-ci environ 80 %, plus de 85 %, de 80 à 90 %. Ce chiffre-ci sort du modèle, qui ne connaît ni les fuites ni les ponts thermiques réels : il est plutôt un plafond.',
     'We found no independent measurement of these machines. The maker and its customers quote 60 to 75% for the small silo, and for this one about 80%, above 85%, 80 to 90%. This figure comes from the model, which knows neither the real leaks nor the real thermal bridges: it is rather a ceiling.',
@@ -254,6 +268,10 @@ const PANEL = {
   orderLoss: ['Perdu pendant la charge', 'Lost during the charge'],
   orderWall: ['Pertes une fois plein', 'Losses once full'],
   orderEdge: ['Bord une fois plein', 'Edge once full'],
+  orderHint: [
+    'Une première charge, depuis une pierre à 150 °C. Les fiches citent le silo après trois cycles : il finit un peu autrement, plus vite et le bord plus chaud.',
+    'A first charge, from stone at 150 °C. The sheets quote the silo after three cycles: it ends a little differently, sooner and with a hotter edge.',
+  ],
   chartScale: ['L’échelle : la même physique', 'The scale: the same physics'],
   scaleTwoDrums: ['Deux fûts', 'Two drums'],
   scaleKankaanpaa: ['8 MWh', '8 MWh'],

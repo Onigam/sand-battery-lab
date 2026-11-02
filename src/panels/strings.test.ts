@@ -18,12 +18,14 @@ const numbers = (s: string): string[] => (s.replace(/(\d),(\d)/g, '$1.$2').match
  * 8, 100, 250 (MWh): the capacities the maker quotes. 46: 100 MWh over 217 MWh, derived from what it quotes. 2027: the commissioning of the 250 MWh silo.
  * 573: the inversion of quartz. 3, 373: the span of a week of spot prices. 45: the estimated price of a MWh from the boiler (docs/physics.md).
  * 60, 75, 80, 85, 90: efficiencies quoted by the maker and its customers. 0.78, 1.13, 0.8: specific heat of measured sand, and the fixed value it replaces.
+ * 3600, 86400, 604800: the speeds the strip prints. 150: the stone at the start of the comparison of orders. 6: the step of the panel's year, in hours.
  */
 const ALLOWED = new Set([
   '0.78',
   '0.8',
   '1.13',
   '3',
+  '6',
   '8',
   '45',
   '46',
@@ -33,10 +35,14 @@ const ALLOWED = new Set([
   '85',
   '90',
   '100',
+  '150',
   '250',
   '373',
   '573',
   '2027',
+  '3600',
+  '86400',
+  '604800',
 ]);
 
 describe('the panel’s words', () => {

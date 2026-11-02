@@ -242,15 +242,23 @@ export function yearChartData(y: YearResult) {
 }
 
 export function yearReadouts(y: YearResult): Readout[] {
+  // A share of the electricity means nothing in a year that lost more than it bought, nor a price paid in a year that bought nothing: a dash, not 141 %.
+  const bought = y.electricity > y.walls + y.circulation;
+  const charged = y.dayCharge.some((w) => w > 0);
+  const dash = (key: PanelKey): Readout => ({ key, value: Number.NaN, digits: 0, unit: '', tag: '' });
+  const share = (key: PanelKey, part: number): Readout =>
+    bought ? { key, value: (100 * part) / y.electricity, digits: 1, unit: '%', tag: '†' } : dash(key);
   return [
     asEnergy('yearHeat', y.heat),
     asEnergy('yearBoiler', y.boiler),
     { key: 'yearShare', value: 100 * y.coverage, digits: 0, unit: '%', tag: '†' },
-    { key: 'yearEfficiency', value: 100 * y.efficiency, digits: 0, unit: '%', tag: '†' },
-    { key: 'yearWalls', value: (100 * y.walls) / y.electricity, digits: 1, unit: '%', tag: '†' },
-    { key: 'yearCirc', value: (100 * y.circulation) / y.electricity, digits: 1, unit: '%', tag: '†' },
-    { key: 'yearPaid', value: y.paid, digits: 0, unit: '€/MWh', tag: '†' },
-    { key: 'yearDiscount', value: 100 * y.discount, digits: 0, unit: '%', tag: '†' },
+    charged
+      ? { key: 'yearEfficiency', value: 100 * y.efficiency, digits: 0, unit: '%', tag: '†' }
+      : dash('yearEfficiency'),
+    share('yearWalls', y.walls),
+    share('yearCirc', y.circulation),
+    charged ? { key: 'yearPaid', value: y.paid, digits: 0, unit: '€/MWh', tag: '†' } : dash('yearPaid'),
+    charged ? { key: 'yearDiscount', value: 100 * y.discount, digits: 0, unit: '%', tag: '†' } : dash('yearDiscount'),
   ];
 }
 
@@ -282,6 +290,23 @@ export function scaleLine(r: ScaleRow) {
     surfacePerVolume: r.surfacePerVolume,
     efficiency: r.efficiency,
   };
+}
+
+/** Under a euro on a total of thousands, two weeks are the same week. */
+export const GAME_MARGIN = 1;
+
+/** A win is a lower total by more than the margin: taking the opponent's plan is a draw, and says nothing. */
+export const beatsOpponent = (you: number, them: number): boolean => you < them - GAME_MARGIN;
+
+/**
+ * The days of the game's chart: a line where each starts, its name inside it. The kit draws no line under a marker whose y is not a number, and it
+ * writes a label to the left of its point in the last 30 % of the chart, so the last two days put theirs at the end of the day, not at the start.
+ */
+export function dayMarkers(names: readonly string[]): { x: number; y?: number; label: string }[] {
+  return names.flatMap((label, d) => [
+    ...(d > 0 ? [{ x: d * 24, label: '' }] : []),
+    { x: d * 24 + (d < 5 ? 2 : 20), y: Number.NaN, label },
+  ]);
 }
 
 /** A painted week to and from blocks of three hours: a block is on when all its hours are. */

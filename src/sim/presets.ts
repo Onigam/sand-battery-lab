@@ -143,6 +143,15 @@ export function presetParams(id: PresetId): SandParams {
   };
 }
 
+/** What makes a preset: everything but the clock, the name itself, and a painted plan, which only counts under the rule that reads it. */
+const NOT_THE_MACHINE: readonly (keyof SandParams)[] = ['slowMo', 'timeScale', 'running', 'preset', 'painted'];
+
+/** The preset these settings are, if any: switching the medium gives « the same silo, filled with sand », and the list should say so. */
+export function presetOf(p: SandParams): PresetId | 'custom' {
+  const keys = (Object.keys(p) as (keyof SandParams)[]).filter((k) => !NOT_THE_MACHINE.includes(k));
+  return PRESET_IDS.find((id) => keys.every((k) => presetParams(id)[k] === p[k])) ?? 'custom';
+}
+
 /** The machine a set of parameters describes. */
 export function specOf(p: SandParams): SiloSpec {
   const base = siloSpec(p.silo, p.medium);
