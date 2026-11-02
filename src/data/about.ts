@@ -8,7 +8,8 @@ import { CHAPTERS, MAIN_VIDEO, SOURCES } from './sources';
 export function aboutPanel(ctx: { videoUrl?: (timestamp: string) => string }): HTMLElement[] {
   const fr = document.documentElement.lang !== 'en';
   const link = (href: string, label: string) => h('a', { href, target: '_blank', rel: 'noopener noreferrer' }, label);
-  const videoUrl = ctx.videoUrl ?? (() => MAIN_VIDEO.href);
+  // a method of the kit's context: called on it, never detached
+  const videoUrl = (ts: string) => ctx.videoUrl?.(ts) ?? MAIN_VIDEO.href;
   return [
     h('div', { class: 'callout callout--tip' }, h('span', {}, t('disclaimer'))),
     h('div', { class: 'callout callout--tip' }, h('span', {}, t('noticeReading'))),

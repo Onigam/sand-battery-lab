@@ -2,7 +2,7 @@
   "name": "sand-battery-lab",
   "private": true,
   "version": "0.1.0",
-  "description": "Interactive 3D lab of a sand battery: store heat in a silo of sand, get it back later",
+  "description": "Interactive 3D lab of the largest sand battery in service, which holds crushed soapstone: stone heated by cheap electricity gives back heat, not current",
   "type": "module",
   "scripts": {
     "dev": "vite",

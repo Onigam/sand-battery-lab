@@ -3,14 +3,12 @@ import { DERIVED } from '../data/figures';
 import { nEn, nFr } from '../data/units';
 
 // The lab's own interface strings, `key: [fr, en]`. The ones every lab shares (modes, toolbar, panels, guides) live in the kit; the simulation panel's words live in
-// src/panels/strings.ts, written by the physics role. This file holds the frame's words for this lab: titles, worlds, sheets' groups, and the Sources panel's notices.
+// src/panels/strings.ts, written by the physics role. This file holds the frame's words for this lab: titles, worlds, and the Sources panel's notices.
 
 export const LAB_STRINGS = {
   labTitle: ['LABO DE LA BATTERIE DE SABLE', 'SAND BATTERY LAB'],
-  tagline: [
-    'Le plus grand silo ne contient pas de sable : de la pierre, chauffée au courant bon marché, qui rend de la chaleur',
-    'The largest silo holds no sand: stone, heated by cheap current, that gives back heat',
-  ],
+  // the top bar shows about 60 capitals at 1280 px, and cuts the rest; the longer line is for the showcase, in public/lab.json
+  tagline: ['Le plus grand silo ne contient pas de sable : de la pierre', 'The largest silo holds no sand, but stone'],
 
   // ---- the worlds and the shortcuts between them
   sceneSite: ['Le village', 'The village'],
@@ -22,12 +20,7 @@ export const LAB_STRINGS = {
   goPipeCell: ['Entrer dans le champ de tubes', 'Step into the pipe field'],
   goPlantRoom: ['Entrer dans l’étage technique', 'Step onto the equipment floor'],
 
-  // ---- the groups of the drawings, and the intros
-  groupSite: ['Le village', 'The village'],
-  groupSilo: ['Le silo', 'The silo'],
-  groupPipeCell: ['Les tubes', 'The pipes'],
-  groupPlantRoom: ['L’étage technique', 'The equipment floor'],
-  groupModel: ['Ce que trouve le modèle', 'What the model finds'],
+  // ---- the intros
   plansIntro: [
     'Dix planches A3 générées à partir des dimensions du modèle 3D et des résultats de la simulation : l’implantation, le silo en coupe, le champ de températures, le champ de tubes, la boucle d’air, les schémas électrique et hydraulique, le bilan d’énergie, la séquence de montage et l’échelle des silos réels. Seules quelques cotes sont publiées : toutes les autres sont marquées comme estimées.',
     'Ten A3 sheets generated from the dimensions of the 3D model and the results of the simulation: the layout, the silo in section, the temperature field, the pipe field, the air loop, the electrical and water diagrams, the energy balance, the assembly sequence and the scale of the real silos. Only a few dimensions are published: all the others are marked as estimates.',
@@ -68,10 +61,6 @@ export const LAB_STRINGS = {
     'Merci à Polar Night Energy, Loviisan Lämpö, Vatajankoski, Lahti Energia, Tulikivi, DLR, KTH et Penn State. Certaines sources de seconde main n’ont été lues qu’en résumé : elles sont créditées ici sans être citées.',
     'Thanks to Polar Night Energy, Loviisan Lämpö, Vatajankoski, Lahti Energia, Tulikivi, DLR, KTH and Penn State. Some second-hand sources were read in summary only: they are credited here, not quoted.',
   ],
-
-  // ---- kept for src/lab.ts until the lead moves it to the four worlds
-  sceneDevice: ['Le silo', 'The silo'],
-  groupDevice: ['Le silo', 'The silo'],
 } as const satisfies Record<string, readonly [string, string]>;
 
 registerStrings(LAB_STRINGS);
