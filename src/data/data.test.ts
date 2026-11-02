@@ -256,15 +256,13 @@ describe('what the sheets must say', () => {
     expect(t).toMatch(/160 MWh, is not found/);
   });
 
-  it('efficiency: a ceiling, no independent measurement, said once in the sheets, on the heat meter', () => {
+  it('efficiency: a ceiling on the heat meter, and « no independent measurement » left to the panel, which says it once', () => {
     const t = part('heat-meter').description.en;
-    expect(t).toMatch(/No independent measurement of a real silo exists/);
     expect(t).toMatch(/91%/);
     expect(t).toMatch(/ceiling/);
     expect(t).toMatch(/they disagree/);
-    expect(part('heat-meter').description.fr).toMatch(/Aucune mesure indépendante d’un vrai silo n’existe/);
-    const say = /No independent|Nobody has measured|independent measurement/i;
-    expect(visitorTexts().filter(([, v]) => say.test(v.en)).length).toBe(1);
+    const say = /No independent|Nobody has measured a real silo|independent measurement/i;
+    expect(visitorTexts().filter(([, v]) => say.test(v.en)).length).toBe(0);
   });
 
   it('the heat capacity is a curve, soapstone’s is unknown and held at 1.0, an assumption', () => {

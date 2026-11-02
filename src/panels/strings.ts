@@ -7,8 +7,8 @@ import { ALARM_TEXTS, MEDIUM_TEXTS, PRESET_TEXTS, SCENARIO_TEXTS, STRATEGY_TEXTS
 const PANEL = {
   simTitle2: ['Simulation', 'Simulation'],
   simIntro: [
-    'Un modèle du silo, de ses boucles d’air et de ses parois. La pierre stocke de la chaleur et rend de la chaleur, pas du courant. Les tubes, l’isolant et les soufflantes ne sont pas publiés : ils sont estimés par le calcul. Aucune mesure indépendante d’un vrai silo n’existe.',
-    'A model of the silo, its air loops and its walls. The stone stores heat and gives back heat, not electricity. The pipes, the insulation and the blowers are not published: they are estimated by calculation. No independent measurement of a real silo exists.',
+    'Un modèle du silo, de ses boucles d’air et de ses parois. La pierre stocke de la chaleur et rend de la chaleur, pas du courant. Les tubes, l’isolant et les soufflantes ne sont pas publiés : ils sont estimés par le calcul.',
+    'A model of the silo, its air loops and its walls. The stone stores heat and gives back heat, not electricity. The pipes, the insulation and the blowers are not published: they are estimated by calculation.',
   ],
   tagLegend: [
     '† résultat du modèle · * estimation : les sources se taisent.',
@@ -115,7 +115,7 @@ const PANEL = {
   ],
   budgetMaker: [
     'Le constructeur annonce jusqu’à 100 MWh, soit 46 % de la chaleur au-dessus de l’ambiante, sans dire à quelle puissance. Le modèle encadre ce chiffre : voir la courbe suivante.',
-    'The maker quotes up to 100 MWh, which is 46 % of the heat above ambient, without saying at what power. The model brackets that figure: see the next curve.',
+    'The maker quotes up to 100 MWh, which is 46% of the heat above ambient, without saying at what power. The model brackets that figure: see the next curve.',
   ],
 
   // ---- sections
@@ -247,7 +247,7 @@ const PANEL = {
   yearDiscount: ['Sous la moyenne de la semaine', 'Under the mean of the week'],
   efficiencyHint: [
     'Personne n’a mesuré un vrai silo de façon indépendante. Le constructeur et ses clients annoncent de 60 à 75 % sur le petit silo, et pour celui-ci environ 80 %, plus de 85 %, de 85 à 90 %. Ce chiffre-ci sort du modèle, qui ne connaît ni les fuites ni les ponts thermiques réels : il est plutôt un plafond.',
-    'Nobody has measured a real silo independently. The maker and its customers quote 60 to 75 % for the small silo, and for this one about 80 %, above 85 %, 85 to 90 %. This figure comes from the model, which knows neither the real leaks nor the real thermal bridges: it is rather a ceiling.',
+    'Nobody has measured a real silo independently. The maker and its customers quote 60 to 75% for the small silo, and for this one about 80%, above 85%, 85 to 90%. This figure comes from the model, which knows neither the real leaks nor the real thermal bridges: it is rather a ceiling.',
   ],
   chartOrder: ['Le cœur d’abord, ou partout', 'Core first, or everywhere'],
   orderHours: ['Durée de la charge', 'Length of the charge'],
@@ -333,6 +333,11 @@ export const st = (key: PanelKey): string => tx(key);
 /** A word that comes from the simulation: `sx('alarm', 'noFlow')`. */
 export const sx = (table: 'alarm' | 'preset' | 'scenario' | 'lesson' | 'medium' | 'strategy', id: string): string =>
   tx(`${table}:${id}`);
+
+/** The space before a unit: French writes « 46 % », English « 46% ». */
+export function unitGap(unit: string): string {
+  return unit === '%' && getLang() === 'en' ? '' : ' ';
+}
 
 /** A number with the decimal mark of the language; no "-0". */
 export function num(value: number, digits = 0): string {

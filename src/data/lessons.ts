@@ -1,7 +1,7 @@
 // The six lessons (docs/research.md §0.6), each opening on a scenario of the simulation, two quiz questions each. The heart is lesson 4: a capacity only means something at a given power. What
 // the model finds is used in place of the research's text (docs/physics.md): 69 MWh at the rated 1 MW against the 100 MWh quoted, the budget of the 217 MWh, the 250 MWh silo's 2.3 against the 2.5
 // quoted, efficiency as a ceiling. Lesson 5 is written around the charging-hours game as it stands today: blocks of three hours in the simulation panel; the proper widget is a kit request.
-// « No independent measurement » is said once, on the heat meter's sheet: the lessons do not repeat it.
+// « No independent measurement » is said once, in the simulation panel under the year's efficiency: the lessons do not repeat it.
 import type { Lesson } from '@onigam/lab-kit/content';
 import { l } from '@onigam/lab-kit/i18n';
 import { lf, sp, tf } from './part-helpers';

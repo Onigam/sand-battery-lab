@@ -81,8 +81,14 @@ describe('the panel’s words', () => {
   });
   it('say the model is a model once, and warn about the efficiencies once', () => {
     const count = (re: RegExp) => entries.filter(([, [, en]]) => re.test(en)).length;
-    expect(count(/No independent measurement/)).toBe(1);
+    expect(count(/No independent measurement/)).toBe(0);
     expect(count(/Nobody has measured/)).toBe(1);
+  });
+  it('write 46% in English, 46 % in French', () => {
+    for (const [key, [fr, en]] of entries) {
+      expect(en, key).not.toMatch(/\d %/);
+      expect(fr, key).not.toMatch(/\d%/);
+    }
   });
   it('the panel’s lookups work in both languages', () => {
     for (const lang of ['fr', 'en'] as const) {

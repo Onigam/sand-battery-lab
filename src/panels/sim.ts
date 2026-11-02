@@ -50,7 +50,7 @@ import {
   yearReadouts,
   type Readout,
 } from './model';
-import { dayNames, months, num, st, sx, type PanelKey } from './strings';
+import { dayNames, months, num, st, sx, unitGap, type PanelKey } from './strings';
 import { monthOf } from './strip';
 
 // Simulation mode: starting points and scenarios, a few live figures, where the heat of the stone goes, then everything else folded: the
@@ -607,7 +607,7 @@ export class SimPanel implements PanelController {
         'div',
         { class: 'readout' },
         h('span', {}, st(r.key)),
-        h('b', {}, num(r.value, r.digits), h('small', {}, ` ${r.unit}${r.tag ? ` ${r.tag}` : ''}`)),
+        h('b', {}, num(r.value, r.digits), h('small', {}, `${unitGap(r.unit)}${r.unit}${r.tag ? ` ${r.tag}` : ''}`)),
       );
     const line = (r: Readout) =>
       h(
@@ -615,7 +615,7 @@ export class SimPanel implements PanelController {
         {},
         `${st(r.key)} `,
         h('b', {}, num(r.value, r.digits)),
-        h('small', {}, ` ${r.unit}${r.tag ? ` ${r.tag}` : ''}`),
+        h('small', {}, `${unitGap(r.unit)}${r.unit}${r.tag ? ` ${r.tag}` : ''}`),
       );
     fill(this.readouts, ...mainReadouts(sim.state).map(box));
     fill(this.more, ...moreReadouts(sim.state, sim.mass).map(line));
@@ -651,7 +651,7 @@ export class SimPanel implements PanelController {
             h('i', { style: `background:${r.colour}` }),
             `${st(r.key)} `,
             h('b', {}, `${num(e.value, e.digits)} ${e.unit}`),
-            h('small', {}, ` ${num((100 * r.joules) / total)} % †`),
+            h('small', {}, ` ${num((100 * r.joules) / total)}${unitGap('%')}% †`),
           );
         }),
       ),
@@ -697,7 +697,7 @@ export class SimPanel implements PanelController {
           h(
             'small',
             {},
-            ` ${st('scaleUsable')} ${num(l.usable.value, l.usable.digits)} ${l.usable.unit} · ${st('scaleHalfLife')} ${num(l.halfLife, l.halfLife < 10 ? 1 : 0)} ${st('unitDays')} · ${st('scaleSurface')} ${num(l.surfacePerVolume, 1)} /m · ${st('scaleEfficiency')} ${num(100 * l.efficiency)} % †`,
+            ` ${st('scaleUsable')} ${num(l.usable.value, l.usable.digits)} ${l.usable.unit} · ${st('scaleHalfLife')} ${num(l.halfLife, l.halfLife < 10 ? 1 : 0)} ${st('unitDays')} · ${st('scaleSurface')} ${num(l.surfacePerVolume, 1)} /m · ${st('scaleEfficiency')} ${num(100 * l.efficiency)}${unitGap('%')}% †`,
           ),
         );
       }),
