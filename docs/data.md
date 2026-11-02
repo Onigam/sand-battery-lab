@@ -42,7 +42,7 @@ Used in the lab's own words, never quoted, listed for the re-reading `docs/resea
 | about a year, about 40 subcontractors, over 100 workers | S4 (f)                  | assembly `plot`                                               |
 | 40 trucks; filled by the end of October 2024            | S13, S4 (f)             | `storage-bed`, assembly `filling`                             |
 | start of service June 2025; tests in the winter         | S4, S13 (f)             | `silo-exterior`, install `winter-tests`, `first-heat`         |
-| chips −60 %, oil out, 160 t of CO₂e                     | S4 (f); S5 (t) for 70 % | `chip-boiler-plant`, `boiler-stack`                           |
+| chips −60 %, oil out, 160 t of CO₂e (a forecast)        | S4 (f); S5 (t) for 70 % | `chip-boiler-plant`, `boiler-stack`                           |
 | 3 to 373 €/MWh in a week                                | S17 (f), secondary      | `wind-farm`, lesson 5 (and the panel)                         |
 | about 100 h of charge                                   | S17 (f), secondary      | `charge-blower`                                               |
 | 80 to 90 %                                              | S17 (f)                 | `heat-meter`                                                  |

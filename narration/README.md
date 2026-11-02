@@ -13,10 +13,10 @@ HOME=$(mktemp -d) node ~/Dev/lab-kit/tools/narration/generate.mjs --src narratio
 
 ## Budget (spoken characters, cues removed)
 
-| Language | Total  | Intro | Worlds | Parts  | Longest parts |
-| -------- | ------ | ----- | ------ | ------ | ------------- |
-| French   | 21,316 | 2,474 | 2,548 (site 624, silo 649, pipe-cell 643, plant-room 632) | 16,294 | `heat-meter` 454, `discharge-blower` 437, `resistor-bank` 424, `storage-bed` 409, `equipment-floor` 400 |
-| English  | 20,500 | 2,391 | 2,508 (site 608, silo 672, pipe-cell 612, plant-room 616) | 15,601 | `discharge-blower` 431, `resistor-bank` 422, `heat-meter` 413, `storage-bed` 383, `equipment-floor` 365 |
+| Language | Total  | Intro | Worlds                                                    | Parts  | Longest parts                                                                                           |
+| -------- | ------ | ----- | --------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------- |
+| French   | 21,350 | 2,485 | 2,571 (site 624, silo 649, pipe-cell 643, plant-room 655) | 16,294 | `heat-meter` 454, `discharge-blower` 437, `resistor-bank` 424, `storage-bed` 409, `equipment-floor` 400 |
+| English  | 20,529 | 2,404 | 2,524 (site 608, silo 672, pipe-cell 612, plant-room 632) | 15,601 | `discharge-blower` 431, `resistor-bank` 422, `heat-meter` 413, `storage-bed` 383, `equipment-floor` 365 |
 
 The ceiling is 30,000 per language and the aim 17,000 to 24,000 (`src/narration.test.ts`). `generate.mjs` refuses a segment over 2,500 characters, so the intro has little room left: anything added to it
 has to replace something. Ordinary parts are about 300 characters, not 270: most of them carry a figure of the maker against a figure of the simulation, and that takes a sentence.
@@ -28,15 +28,15 @@ and `part-crushed-soapstone`. The intro follows the story from the wind to the s
 
 ## The truths, each said once (`src/narration.test.ts` counts them)
 
-| Truth                                                                       | Where                     |
-| --------------------------------------------------------------------------- | ------------------------- |
-| The real machine holds crushed soapstone, not sand                          | `intro`, from its opening |
-| Educational, independent, generic reconstruction; neither a plan nor a product | `intro`                |
-| Where the figures come from: the simulation, unless a source is quoted       | `intro`                   |
-| No independent measurement of these machines was found                      | `intro`                   |
-| A capacity only means something at a given power: 217, then 69, 105 and 43 MWh | `intro`                |
-| The maker quotes up to 100 MWh, the model 69 at 1 MW, a blower nobody publishes | `intro`, the same passage |
-| False colour: stone at 400 °C does not glow                                 | `scene-silo`, one sentence |
+| Truth                                                                           | Where                      |
+| ------------------------------------------------------------------------------- | -------------------------- |
+| The real machine holds crushed soapstone, not sand                              | `intro`, from its opening  |
+| Educational, independent, generic reconstruction; neither a plan nor a product  | `intro`                    |
+| Where the figures come from: the simulation, unless a source is quoted          | `intro`                    |
+| No independent measurement of these machines was found                          | `intro`                    |
+| A capacity only means something at a given power: 217, then 69, 105 and 43 MWh  | `intro`                    |
+| The maker quotes up to 100 MWh, the model 69 at 1 MW, a blower nobody publishes | `intro`, the same passage  |
+| False colour: stone at 400 °C does not glow                                     | `scene-silo`, one sentence |
 
 **Why the heart is in the introduction.** Said once means one segment, and a part is played only by someone who clicks it, while the introduction is the way in. So `part-storage-bed` and `part-discharge-blower` do not repeat it:
 the first is about the calm of the bed, the second about why the blower decides, with the range of 46 to 132 MWh across the unknown settings. None of them says 217, 69, 105, 43 or 100 MWh.
@@ -92,6 +92,12 @@ sentences at most 135 characters, exclamations and questions, no « tu », Briti
 
 French: ollaire, virole, gradateur, consigné, préisolés, mégawattheures, the long numbers (« mille quatre cent quarante-trois », « trois cent soixante-treize »). English: soapstone, thermowell, megawatt-hours, « one thousand four hundred and forty-three ». The percentages in a row of `part-heat-meter` are the hardest passage for the voice and the listener.
 
-## For the lead
+## Wired
 
-`src/lab.ts` needs `narration: { manifest: 'audio/{lang}/manifest.json' }` once the audio exists, and this repo has no `scripts/check-narration.mjs` yet (Mill Lab's works as it is) or a `build` step that runs it. The intro's `mode:install` needs the installation guide wired.
+`src/lab.ts` has `narration: { manifest: 'audio/{lang}/manifest.json' }`. `scripts/check-narration.mjs` runs in `npm run build`, and skips a language folder with no manifest yet.
+
+## After the review of 2 November
+
+- **The order of the charge.** Air goes through the blower, then the resistors: `intro` and `scene-plant-room` said the reverse, against the 3D and the model, and now follow them. Their frames go with it: `charge-blower`, then `resistor-bank,hot-air-duct`.
+- **« Frais », not « froid ».** The maker says « cool », the model 8 K above the air (`part-silo-exterior`).
+- **The frames moved closer** (`partPadding` 1.3, 1.15, 1.2 and 1.3; `docs/3d.md`). All 30 `frame` cues were read against it and shot at 1280: each sentence still has its object in view, and none had to change for it. A turbine stands for « les éoliennes », the first pole for « la ligne », the corner at the road for the trench. `charge-blower` is partly behind the bank, which suits a sentence about the two of them.

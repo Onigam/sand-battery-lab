@@ -34,3 +34,13 @@ Each item says what the lab did meanwhile, in `src/three`, with no patch of the 
 19. **Hide the explode tool (a `SceneDef` flag, as `cutaway`).** A landscape does not come apart. `site` has zero offsets, so the slider does nothing but it is still there, and an installation guide's parts appear instead of dropping in. A flag that keeps guides' offsets and hides the tool would give both back.
 20. **Declutter « all labels ».** On 380 to 390 px, 15 labels of 100 to 200 px cannot be kept apart by anchors alone: 6 to 17 still overlap at those widths (`docs/3d.md`). Asked: at narrow widths, drop to a dot until tapped, or push labels apart.
 21. **`walk.mjs` on Metal (with 15).** The lab's walks use the reviewer's scripts on Metal; under SwiftShader a world of this size still times out.
+
+## From the lead, after the review of 2 November
+
+Numbers go on from 21. What the review called the kit's and the lab cannot reach without patching it.
+
+22. **The invitation covers what it sits on.** « Commencer par la visite guidée » opens over the sheet's category and the panel's toggle, and stays until closed (the review's D46). Asked: leave them free, or close it when the visitor selects a part or opens the panel.
+23. **« Projection européenne » touches the title block's red line** on every sheet (D42). Asked: a little more room between the projection's caption and the disclaimer.
+24. **Chart markers that are a label, or a line.** The game's chart names the days with a trick: a marker with `y: NaN` draws its label with no line, and a label past 70 % of the width is written to the left of its point, so the last two days have to move theirs (`dayMarkers` in `src/panels/model.ts`). Asked: `markers` with `{ x, label, line?: boolean, align?: 'start' | 'end' }`.
+
+**Requests 1 and 4, meanwhile.** Request 1: the prices and the score now stand above the grid, and a day keeps to one line by a small inline grid in `src/panels/sim.ts`, so the three fit one view at 1280 (the review's D17). On a phone it is still more than a screen, and the widget is still what is asked. Request 4: the panel says once what ×3600, ×86400 and ×604800 mean; the strip still prints them.
