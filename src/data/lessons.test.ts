@@ -77,6 +77,18 @@ describe('the lessons', () => {
     expect(new Set(answers).size).toBeGreaterThan(1);
   });
 
+  it('do not give the answer away by its length: the longest choice is right about as often as chance would have it', () => {
+    for (const lang of ['fr', 'en'] as const) {
+      let longest = 0;
+      for (const x of LESSONS)
+        for (const q of x.quiz!) {
+          const lengths = q.choices.map((c) => c[lang].length);
+          if (lengths[q.answer] === Math.max(...lengths)) longest++;
+        }
+      expect(longest, lang).toBeLessThanOrEqual(5);
+    }
+  });
+
   it('the fourth holds the heart: the budget, the same silo at four powers, what is unknown', () => {
     const l4 = LESSONS.find((x) => x.id === 'air-carries-the-power')!;
     const en = l4.body.map((b) => b.en).join(' ');

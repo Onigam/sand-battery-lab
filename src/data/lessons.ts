@@ -63,10 +63,13 @@ export const LESSONS: Lesson[] = [
           'In the model, what mostly explains why the 250 MWh silo stores so much, at nearly the same size?',
         ),
         choices: [
-          lf('sa masse, ×{factorMass} (résultat du modèle)', 'its mass, ×{factorMass} (model result)'),
           lf(
-            'son sommet de 100 K plus haut, au-dessus du même plancher, ×{factorTop} (résultat du modèle)',
-            'a top 100 K higher, above the same floor, ×{factorTop} (model result)',
+            'sa masse : son lit de sable pèse plus lourd que la pierre d’ici, ×{factorMass} (résultat du modèle)',
+            'its mass: its bed of sand weighs more than the stone here, ×{factorMass} (model result)',
+          ),
+          lf(
+            'un sommet 100 K plus haut, ×{factorTop} (résultat du modèle)',
+            'a top 100 K higher, ×{factorTop} (model result)',
           ),
           lf('le c(T) du sable, ×{factorC} (résultat du modèle)', 'sand’s c(T), ×{factorC} (model result)'),
         ],
@@ -118,11 +121,14 @@ export const LESSONS: Lesson[] = [
           'What creates the temperature gradient in the bed?',
         ),
         choices: [
-          l('l’air chaud qui monte entre les grains', 'hot air rising between the grains'),
-          l('la lenteur de la conduction et l’ordre de la charge', 'slow conduction and the order of charge'),
+          l(
+            'l’air chaud qui monte entre les grains, comme l’eau chaude dans un ballon',
+            'hot air rising between the grains, as hot water does in a tank',
+          ),
           l('une cloison entre le cœur et le bord', 'a partition between core and edge'),
+          l('la lenteur de la conduction et l’ordre de la charge', 'slow conduction and the order of charge'),
         ],
-        answer: 1,
+        answer: 2,
         explain: l(
           'L’air reste dans les tubes et rien ne remue dans la pierre. Les zones n’ont pas de cloison : ce sont des décisions de tuyauterie et de pilotage.',
           'The air stays in the pipes and nothing stirs in the stone. The zones have no partition: they are decisions of piping and control.',
@@ -196,7 +202,11 @@ export const LESSONS: Lesson[] = [
           'On double le diamètre et la hauteur d’un silo. Le rapport surface sur volume est…',
           'A silo’s diameter and height are both doubled. The ratio of surface to volume is…',
         ),
-        choices: [l('inchangé', 'unchanged'), l('divisé par deux', 'halved'), l('divisé par huit', 'divided by eight')],
+        choices: [
+          l('inchangé', 'unchanged'),
+          l('divisé par deux', 'halved'),
+          l('divisé par huit : le volume l’emporte', 'divided by eight: the volume wins'),
+        ],
         answer: 1,
         explain: l(
           'La surface est multipliée par quatre et le volume par huit, donc leur rapport est divisé par deux. C’est toute la raison d’être des grands silos.',
@@ -209,17 +219,20 @@ export const LESSONS: Lesson[] = [
           'Can two well-insulated drums of sand heat a house for a winter?',
         ),
         choices: [
-          lf(
-            'non : au mieux quelques heures, et une demi-vie de {drumsHalfLife} jour (résultat du modèle)',
-            'no: a few hours at best, and a half-life of {drumsHalfLife} days (model result)',
+          l('non : quelques heures au mieux', 'no: a few hours at best'),
+          l(
+            'oui, si on les charge en été et qu’on garde cette chaleur pour janvier',
+            'yes, if they are charged in summer and that heat is kept for January',
           ),
-          l('oui, si on les charge en été', 'yes, if they are charged in summer'),
-          l('oui, avec du sable très fin', 'yes, with very fine sand'),
+          l(
+            'oui, avec un sable très fin, qui garde mieux la chaleur',
+            'yes, with very fine sand, which holds heat better',
+          ),
         ],
         answer: 0,
         explain: lf(
-          'L’arithmétique donne {drumsKwh} kWh avant toute perte (dérivé), une demi-journée d’une maison de 5 kW. Le rapport surface sur volume de {avDrum} m⁻¹ (dérivé) fait le reste. Aucune cote de construction n’est donnée ici.',
-          'The sums give {drumsKwh} kWh before any loss (derived), half a day of a 5 kW house. A surface-to-volume ratio of {avDrum} m⁻¹ (derived) does the rest. No building dimension is given here.',
+          'L’arithmétique donne {drumsKwh} kWh avant toute perte (dérivé), une demi-journée d’une maison de 5 kW. Le rapport surface sur volume de {avDrum} m⁻¹ (dérivé) fait le reste : une demi-vie de {drumsHalfLife} jour (résultat du modèle). Aucune cote de construction n’est donnée ici.',
+          'The sums give {drumsKwh} kWh before any loss (derived), half a day of a 5 kW house. A surface-to-volume ratio of {avDrum} m⁻¹ (derived) does the rest: a half-life of {drumsHalfLife} days (model result). No building dimension is given here.',
         ),
       },
     ],
@@ -277,14 +290,17 @@ export const LESSONS: Lesson[] = [
           'The same silo gives {usable} MWh at 1 MW and {usableWinter} MWh at {winterKw} kW (model result; derived for the demand). Why?',
         ),
         choices: [
-          l('parce qu’il perd moins par ses parois en hiver', 'because it loses less through its walls in winter'),
+          l('parce qu’à plus faible puissance, le plancher descend', 'because at lower power, the floor comes down'),
           l(
-            'parce qu’à plus faible puissance, un air moins chaud suffit encore : le plancher descend',
-            'because at lower power, less hot air still does: the floor comes down',
+            'parce qu’il perd moins par ses parois en hiver, quand l’air froid du dehors protège le silo',
+            'because it loses less through its walls in winter, when the cold air outside protects the silo',
           ),
-          l('parce que la pierre stocke davantage à froid', 'because stone stores more when cold'),
+          l(
+            'parce que la pierre, une fois froide, stocke davantage de chaleur par degré',
+            'because stone, once cold, stores more heat for each degree',
+          ),
         ],
-        answer: 1,
+        answer: 0,
         explain: l(
           'Avec le même débit maximal, une puissance plus faible se contente d’un air moins chaud. Le silo peut donc descendre plus bas avant que le régime demandé ne s’arrête.',
           'At the same highest flow, a lower power is content with less hot air. So the silo can go lower before the power asked for stops.',
@@ -359,11 +375,11 @@ export const LESSONS: Lesson[] = [
           'Why does the game count what is left in the stone at the end of the week?',
         ),
         choices: [
+          l('parce qu’un silo vidé se paie la semaine d’après', 'because an emptied silo is paid for the next week'),
           l(
-            'parce qu’un silo vidé paraît économique sur une semaine, et se paie la semaine d’après',
-            'because an emptied silo looks cheap over one week, and is paid for the next',
+            'parce qu’une pierre trop froide se fissure, et s’abîme en se réchauffant',
+            'because stone left too cold cracks, and gets damaged as it warms up again',
           ),
-          l('parce qu’une pierre froide s’abîme', 'because cold stone gets damaged'),
           l('pour que le jeu dure plus longtemps', 'to make the game last longer'),
         ],
         answer: 0,
