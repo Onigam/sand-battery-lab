@@ -356,8 +356,8 @@ export const SILO_PARTS: PartInfo[] = [
       },
     ),
     tip: lf(
-      'Les couleurs de la coupe sont une fausse couleur, en °C : à 400 °C, une pierre ne rougeoie pas. Il faudrait des soufflantes {blowerTimes} fois plus grosses pour que le modèle rende 100 MWh à 1 MW (résultat du modèle), et personne ne les a publiées.',
-      'The colours of the section are false colour, in °C: stone at 400 °C does not glow. It would take blowers {blowerTimes} times larger for the model to give 100 MWh at 1 MW (model result), and nobody has published them.',
+      'Il faudrait des soufflantes {blowerTimes} fois plus grosses pour que le modèle rende 100 MWh à 1 MW (résultat du modèle), et personne ne les a publiées.',
+      'It would take blowers {blowerTimes} times larger for the model to give 100 MWh at 1 MW (model result), and nobody has published them.',
     ),
     design: lf(
       'Pourquoi le silo de 250 MWh annonce-t-il 2,5 fois plus à peu près à la même taille ? Le modèle trouve {ratioV} fois (résultat du modèle) : la masse y fait ×{factorMass}, le sommet de 100 K plus haut ×{factorTop}, le c(T) du sable ×{factorC}. Sa valeur absolue, {usableV} MWh, n’est pas retrouvée. Ce qui compte, c’est la course utilisable, et elle part d’un plancher fixé par l’air, pas de l’ambiante.',
