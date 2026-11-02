@@ -186,8 +186,6 @@ export interface SandState {
   chargeBlowerAngle: number;
   dischargeBlowerAngle: number;
   pumpAngle: number;
-  /** The same as `dischargeBlowerAngle`: what the template's placeholder scene turns, until the 3D role replaces it. */
-  angle: number;
   /** Resistor element, °C, and a false-colour glow from 0 to 1. Real elements at this temperature barely show. */
   elementT: number;
   heaterGlow: number;

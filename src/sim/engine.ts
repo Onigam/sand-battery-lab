@@ -152,7 +152,6 @@ const newState = (spec: SiloSpec): SandState => ({
   chargeBlowerAngle: 0,
   dischargeBlowerAngle: 0,
   pumpAngle: 0,
-  angle: 0,
   elementT: 20,
   heaterGlow: 0,
   tripped: false,
@@ -511,7 +510,6 @@ export class SandSim implements LabSim {
     s.dischargeBlowerAngle = (s.dischargeBlowerAngle + turn(s.dischargeBlower)) % (2 * Math.PI);
     s.pumpAngle =
       (s.pumpAngle + turn(Math.min(1, s.waterFlow / Math.max(p.ratedPower / (40 * 4186), 1e-9)))) % (2 * Math.PI);
-    s.angle = s.dischargeBlowerAngle;
   }
 
   private settleFast(): void {
@@ -828,6 +826,3 @@ export class SandSim implements LabSim {
     return { rho, T, wallT };
   }
 }
-
-/** The template's placeholder scene (src/three/device.ts) until the 3D role replaces it: it only reads a turning angle. */
-export type DemoState = { readonly angle: number };
