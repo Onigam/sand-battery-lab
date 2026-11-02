@@ -1,10 +1,21 @@
 {
   "id": "sand-battery-lab",
-  "title": { "fr": "Sand Battery Lab", "en": "Sand Battery Lab" },
-  "tagline": { "fr": "Un lab à remplacer", "en": "A lab to replace" },
-  "tags": [],
-  "difficulty": 1,
-  "minutes": 10,
+  "title": {
+    "fr": "Labo de la batterie de sable",
+    "en": "Sand Battery Lab"
+  },
+  "tagline": {
+    "fr": "Le plus grand silo ne contient pas de sable : de la pierre, chauffée au courant bon marché, qui rend de la chaleur",
+    "en": "The largest silo holds no sand: stone, heated by cheap current, that gives back heat"
+  },
+  "tags": [
+    "heat",
+    "storage",
+    "electricity",
+    "grid"
+  ],
+  "difficulty": 2,
+  "minutes": 25,
   "status": "building",
   "energyProfile": null
 }
