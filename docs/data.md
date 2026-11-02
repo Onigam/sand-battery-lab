@@ -20,19 +20,9 @@ The texts of the lab: 51 part sheets, two guides, four overviews, six lessons wi
 | `src/i18n/ui.ts`              | the lab's strings: title, worlds, shortcuts, the notices of the Sources panel                                                                                  |
 | `src/data/data.test.ts`       | the checks of this file                                                                                                                                        |
 
-## What `src/lab.ts` has to do with it
+## What `src/lab.ts` does with it
 
-The lead's file. To wire the rest of the delivery:
-
-```ts
-brand: { title: { fr: 'LABO DE LA BATTERIE DE SABLE', en: 'SAND BATTERY LAB' }, tagline: strL('tagline'), icon: './favicon.svg' },
-video: { id: MAIN_VIDEO.id },
-guides: { assembly: { scene: 'silo', steps: ASSEMBLY }, install: { scene: 'site', steps: INSTALL } },
-plans: { sheets: SHEETS, groups: PLAN_GROUPS, intro: strL('plansIntro') },
-about: aboutPanel,
-```
-
-Each `scenes[i]` gets `overview: { ...OVERVIEWS.site, actions: [{ label: strL('goSilo'), scene: 'silo', primary: true }] }`. The `configureDrawings` line goes: `src/drawings/index.ts` sets the project, the disclaimer and the date. `sceneDevice` and `groupDevice` of `src/i18n/ui.ts` can go with it. `index.html` and `package.json` still say « store heat in a silo of sand ».
+The lead's file, wired: the bilingual title (`labTitle`), `video` from `MAIN_VIDEO`, both guides, `PLAN_GROUPS`, `aboutPanel`, and `overview` of each world with its shortcuts. `src/drawings/index.ts` sets the project, the disclaimer and the date of the drawings. The tagline of the top bar is short, since it cuts at about 60 capitals; `public/lab.json` keeps the long one for the showcase.
 
 ## Conventions
 
