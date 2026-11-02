@@ -1,0 +1,407 @@
+{
+  "lang": "en",
+  "voiceLabel": {
+    "fr": "Voix de synthèse",
+    "en": "Synthetic voice"
+  },
+  "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.8,
+    "style": 0.35,
+    "speed": 0.95
+  },
+  "segments": [
+    {
+      "id": "intro",
+      "scope": "intro",
+      "title": "About this lab",
+      "scene": "site",
+      "text": "[[home]] Picture a northern village, on a night of high wind: electricity is worth next to nothing. [[frame:silo-exterior]] In a yard, a big dark silo is waiting. They call it a sand battery… and yet the largest one in service, in Finland, has no sand in it! It holds about two thousand tonnes of crushed soapstone, and it gives back heat, not electricity. Let’s follow one single grain of that stone. It doesn’t move: the heat comes to find it. [[scene:plant-room]] Under the roof, resistors turn the current into very hot air, [[frame:charge-blower]] and a blower drives it downwards. [[scene:pipe-cell]] Here is our grain, in the dark, right up against a stainless pipe. It warms, very slowly, and hands its heat on to its neighbour. [[scene:silo]] And the stone waits, at a mean of about four hundred degrees. Then the wind drops, and electricity turns dear again. [[scene:plant-room]] A second blower draws the air back through the stone, [[frame:air-water-exchanger]] and the exchanger gives its heat to the water. [[scene:site]] [[flows:on]] The hot water runs underground to the village, [[frame:village-school]] and at the school, a radiator warms up. [[flows:off]] That is the whole story: a gust of wind, a grain of stone, a lot of patience… and a warm classroom. [[scene:silo]] Which leaves the real question: how much does this silo give back? When full, it holds two hundred and seventeen megawatt-hours above the ambient air. Sixty-nine come out at one megawatt. A hundred and five come out afterwards, at falling power. And forty-three stay in the stone, too cold for the network. A capacity only means something at a given power! The maker quotes up to a hundred megawatt-hours, without saying at what power. Our model finds sixty-nine at one megawatt: the gap comes down to the size of a blower, which nobody publishes. [[scene:site]] A few landmarks: four views, the village, the silo, one pipe in the stone and the equipment floor. Click any part: its sheet opens, and you can listen to its story. [[mode:assembly]] One guide tells of the building site, [[mode:install]] another of how the silo joins its village. [[mode:sim]] The simulation lets you change everything. [[mode:lessons]] Six lessons, with quizzes, explain the physics. [[mode:plans]] Ten sheets gather the drawings. [[mode:explore]] One last thing: this lab is an educational reconstruction, independent and generic. [[scene:site]] It is neither an official plan nor a maker’s product, and this village exists nowhere. Pipes, insulation, blowers, where the machines stand: none of it is published, all of it is our reading or calculation. Unless I quote a source, the figures come from our simulation. And we have found no independent measurement of these machines. [[select:none]] Over to you!"
+    },
+    {
+      "id": "scene-site",
+      "scope": "scene:site",
+      "title": "The village: from cheap current to the school",
+      "scene": "site",
+      "text": "[[home]] Welcome to the village, at the forest’s edge: the whole story runs along its road. [[frame:wind-farm]] Far off, the wind turbines set the price, without one cable to the silo. [[frame:power-line]] The line brings the current, when it costs next to nothing. [[frame:pad-transformer,electrical-annex]] Transformer and annex await it at the silo’s foot. [[frame:silo-exterior]] The silo itself shows nothing of what it hides. [[flows:on]] [[frame:dh-riser]] Two pipes come down along its wall. [[frame:dh-trench]] The water runs along a trench, drawn open for you, [[frame:village-school,house-substation]] as far as the school and the houses of the village. [[flows:off]] [[frame:chip-boiler-plant]] And the old boiler plant stands by, as a backup. [[home]] One precaution: a silo like this one is an industrial installation, subject to the rules of each country."
+    },
+    {
+      "id": "scene-silo",
+      "scope": "scene:silo",
+      "title": "The silo in section",
+      "scene": "silo",
+      "text": "[[home]] Here is the machine, a quarter open, like a cake someone has already started. [[frame:foundation-slab,base-insulation]] At the bottom, the slab, then an insulation that has to carry it all. [[frame:storage-bed,pipe-field]] Above them, six metres of stone, and all its pipes. [[frame:wall-insulation,outer-cladding]] Around it, insulation and cladding fit into half a metre. [[frame:equipment-floor,conical-roof]] Right at the top, the equipment floor, under its conical roof. [[home]] These colours come from the simulation, and they are false colour: stone at four hundred degrees does not glow. [[cutaway:on]] Let’s open half the silo. The core is hotter than the edge, and yet nothing stirs in the stone. [[cutaway:off]] [[explode:0.6]] Let’s pull the layers apart, from the slab to the roof. [[explode:0]] Six metres of stone in thirteen metres of silo: all the rest protects it, or serves it."
+    },
+    {
+      "id": "scene-pipe-cell",
+      "scope": "scene:pipe-cell",
+      "title": "One pipe in the stone",
+      "scene": "pipe-cell",
+      "text": "[[home]] Let’s zoom in. Here is a block of stone, with our grain somewhere inside it. [[frame:heat-pipe,return-bend]] A pipe goes down, turns round in its bend at the bottom, and climbs back. [[frame:expansion-loop]] At the top, a loop lets the pipe grow, [[frame:branch-header]] and a header joins it to its neighbours. [[frame:core-zone,outer-zone]] Two blocks, two zones: the core and the edge. [[frame:quartz-sand,crushed-soapstone]] And on the table, two samples, magnified for you. [[home]] [[cutaway:on]] In section, the heat spreads around the pipe, in rings. [[cutaway:off]] The maker says a metre of sand heated on one side takes over eight days to reach a hundred degrees on the other. Our simulation finds seven point four days. Heat crawls: so it is fetched with a pipe about every fifty centimetres."
+    },
+    {
+      "id": "scene-plant-room",
+      "scope": "scene:plant-room",
+      "title": "Where the current and the heat go",
+      "scene": "plant-room",
+      "text": "[[home]] Here is the floor, read in the order of the current, then of the heat. [[frame:lv-switchboard]] The switchboard takes all the current as it arrives. [[frame:heater-controller]] The controller doses it at every moment, [[frame:resistor-bank]] and the resistors turn it into very hot air. [[frame:charge-blower,hot-air-duct]] A blower drives that air into the duct, [[frame:charge-damper]] and the dampers choose the zone to charge. [[flows:on]] [[frame:discharge-blower,discharge-damper]] Later, the second blower brings that air back, [[frame:air-water-exchanger]] and the exchanger gives its heat to the water. [[frame:dh-pump,heat-meter]] The pump sends the water out, and the meter counts. [[flows:off]] [[frame:control-cabinet]] And the control cabinet decides when. [[home]] [[explode:0.6]] Let’s pull the machines apart, to see them better. [[explode:0]] Count what moves here: two blowers, a pump, a few flaps. All the rest is stone, waiting."
+    },
+    {
+      "id": "part-silo-exterior",
+      "scope": "part:silo-exterior",
+      "title": "The silo from outside",
+      "scene": "site",
+      "text": "A squat cylinder, about thirteen metres high and fifteen wide. Nothing gives away what it hides. Lay a hand on it: the maker says it stays cool. Our calculation finds it about eight degrees above the air. And behind half a metre of wall, the edge of the stone reaches three hundred and seventy-five degrees!"
+    },
+    {
+      "id": "part-dh-riser",
+      "scope": "part:dh-riser",
+      "title": "Network risers",
+      "scene": "site",
+      "text": "Look for them on the cladding: these two clad pipes are the only outward signs that this silo heats a village. [[flows:on]] One brings the hot water down, the other takes the return up. [[flows:off]] No steam: just water under pressure, as in any network. In hard frost, it has to keep moving."
+    },
+    {
+      "id": "part-cable-riser",
+      "scope": "part:cable-riser",
+      "title": "Cable riser",
+      "scene": "site",
+      "text": "A vertical duct on a photo, with no caption: we read it as the path of the current. And what a current! If the voltage is four hundred volts, one megawatt means one thousand four hundred and forty-three amps. No household cable would survive that: the lab counts nine hundred and sixty square millimetres per phase."
+    },
+    {
+      "id": "part-electrical-annex",
+      "scope": "part:electrical-annex",
+      "title": "Electrical annex",
+      "scene": "site",
+      "text": "A low annex at the silo’s foot, and no source says what it is for. The lab houses the medium-voltage incomer there: such equipment likes the ground and cool air. Their classic faults: condensation, and the rodent in the cable trench."
+    },
+    {
+      "id": "part-pad-transformer",
+      "scope": "part:pad-transformer",
+      "title": "Pad-mounted transformer",
+      "scene": "site",
+      "text": "A megawatt at low voltage: no way to bring that from far off. So the current travels at medium voltage, twenty thousand volts in this lab. This transformer brings it down to the voltage of the equipment, close by. Double the voltage, and the losses fall by four. Never open the enclosure: medium voltage kills without contact."
+    },
+    {
+      "id": "part-power-line",
+      "scope": "part:power-line",
+      "title": "Medium-voltage line",
+      "scene": "site",
+      "text": "This is how the cheap hours arrive. And nothing goes back: the silo has no way to make electricity again, it gives back heat. Its service to the grid? A load that can be cut in an instant, without a single house feeling it. And with no current, no blower and no pump: a blackout stops the heat too."
+    },
+    {
+      "id": "part-solar-field",
+      "scope": "part:solar-field",
+      "title": "Solar field",
+      "scene": "site",
+      "text": "This field does not exist at the real silo: the lab draws it for an idea. The very first pilot heated its sand from a hundred square metres of panels. But here, the sun is plentiful when demand is low, and short when demand is high. The stone keeps heat for days or weeks: it does not put July away for January."
+    },
+    {
+      "id": "part-wind-farm",
+      "scope": "part:wind-farm",
+      "title": "Distant wind farm",
+      "scene": "site",
+      "text": "No cable runs from these turbines to the silo. So what is the link? The price! When there is more wind than demand, electricity collapses, and the stone charges. A silo stores a fall in price. One source reports prices from three to three hundred and seventy-three euros a megawatt-hour, in a single week."
+    },
+    {
+      "id": "part-chip-boiler-plant",
+      "scope": "part:chip-boiler-plant",
+      "title": "Wood-chip boiler plant",
+      "scene": "site",
+      "text": "The silo did not replace the old boiler plant: it put it in reserve. Storage moves a source in time, it does not replace it. According to the maker, the network has dropped oil altogether and cut wood chips by about sixty per cent. Try ten windless days: you will see why it was kept."
+    },
+    {
+      "id": "part-boiler-stack",
+      "scope": "part:boiler-stack",
+      "title": "Boiler stack",
+      "scene": "site",
+      "text": "The silo burns nothing: the only smoke on the site comes from here. The operator announces about a hundred and sixty tonnes of carbon dioxide equivalent avoided a year. These figures are its own: the simulation computes nothing of the kind. A simple picture remains: this stack smokes far less, and the village stays warm."
+    },
+    {
+      "id": "part-dh-trench",
+      "scope": "part:dh-trench",
+      "title": "District-heating trench",
+      "scene": "site",
+      "text": "[[flows:on]] Without this pipe, the silo is useless. Two pre-insulated pipes: hot on the way out, cooler on the way back. We draw the trench open; in reality, it is backfilled. [[flows:off]] No network close by, no silo: it is the first question to ask of a site. And before you dig, give notice."
+    },
+    {
+      "id": "part-village-school",
+      "scope": "part:village-school",
+      "title": "The village school",
+      "scene": "site",
+      "text": "Here is the demand, in flesh and blood. Its radiators do not know where the hot water comes from, and that is the whole point. According to the maker, the silo comes to about a week of winter demand, and almost a month of summer. Our simulation gives eight and a half days, and forty-eight days for the summer."
+    },
+    {
+      "id": "part-house-substation",
+      "scope": "part:house-substation",
+      "title": "A house substation",
+      "scene": "site",
+      "text": "A connected house has no boiler. In the cellar, a plate exchanger passes the heat from the network to the house’s water, without ever mixing them. No flame, no chimney. And the water it sends back, colder, will go on to cool the silo’s air. That is how heat gets fetched from deep in the stone."
+    },
+    {
+      "id": "part-foundation-slab",
+      "scope": "part:foundation-slab",
+      "title": "Foundation slab",
+      "scene": "silo",
+      "text": "Two thousand tonnes of stone: they have to go somewhere. That comes to about thirteen tonnes on every square metre. Stone does not turn or wear anything out: it is dead weight, and it only needs setting down properly. During filling, the level marks set in the foot get read again and again."
+    },
+    {
+      "id": "part-base-insulation",
+      "scope": "part:base-insulation",
+      "title": "Base insulation",
+      "scene": "silo",
+      "text": "Under the bed, the insulation has two jobs: stopping the heat, and carrying all the weight. No wool will do! The maker’s patent mentions expanded clay, a granulate that holds itself up. And nobody will ever go back to it: its maintenance happens the day it is laid."
+    },
+    {
+      "id": "part-inner-shell",
+      "scope": "part:inner-shell",
+      "title": "Inner steel shell",
+      "scene": "silo",
+      "text": "This steel shell holds back the stone as a barrel holds its wine. But this barrel grows: about nine centimetres across its diameter when it warms. The grains slip down to fill the gap, and on cooling, it tightens on stone that will not move back. The maker does not say how it deals with this."
+    },
+    {
+      "id": "part-wall-insulation",
+      "scope": "part:wall-insulation",
+      "title": "Wall insulation",
+      "scene": "silo",
+      "text": "A fifteen-metre silo around a fourteen-metre bed: that leaves half a metre on each side, all told. Take away half the insulation, and the leak when full climbs from thirty-eight to sixty-seven kilowatts. But the capacity at full power hardly moves! Insulation protects the holding time."
+    },
+    {
+      "id": "part-outer-cladding",
+      "scope": "part:outer-cladding",
+      "title": "Outer steel cladding",
+      "scene": "silo",
+      "text": "The cladding has nothing to contain: it protects. Two steels, two jobs: one holds the stone when hot, the other the rain when cold. On a cold morning, a thermal camera reads it very well. A warm band at the top gives away settled insulation, a patch at the bottom, more likely water."
+    },
+    {
+      "id": "part-storage-bed",
+      "scope": "part:storage-bed",
+      "title": "The storage bed",
+      "scene": "silo",
+      "text": "Here is the heart of the machine, and our grain’s home country. Forty trucks brought it: fourteen metres wide, six high, and nothing that turns. [[cutaway:on]] Look at it in section: no flame, no smoke, and yet about a week of a village’s winter sleeps in there. [[cutaway:off]] Beware of this calm. This heat cannot be seen: stone and ducts stay dangerous for months after a stop. Nobody opens anything while hot."
+    },
+    {
+      "id": "part-pipe-field",
+      "scope": "part:pipe-field",
+      "title": "The pipe field",
+      "scene": "silo",
+      "text": "[[xray:on]] The air never touches the stone: it runs through buried stainless pipes. The maker keeps its layout secret. This one comes from a calculation: nearly four kilometres of pipe, at a pitch of about fifty centimetres. [[xray:off]] And that pitch weighs heavily. At forty centimetres, the silo gives eighty-five megawatt-hours at one megawatt. At sixty, forty-six."
+    },
+    {
+      "id": "part-top-insulation",
+      "scope": "part:top-insulation",
+      "title": "Top insulation",
+      "scene": "silo",
+      "text": "On top of the stone, about a metre of insulation: twice the walls, because all the pipes pass through here. It rests on the stone and follows it down as it settles: the smallest gap would make a pocket of air. It is the one layer still within reach: more can be added from above, without emptying the silo."
+    },
+    {
+      "id": "part-equipment-floor",
+      "scope": "part:equipment-floor",
+      "title": "The equipment floor",
+      "scene": "silo",
+      "text": "This floor is a detective story: no source draws it. The clues? A documentary shows the engineer among the machines, with the stone under his feet. A photo shows two pipes coming down from high on the wall. And a six-metre bed in thirteen metres of silo leaves a good seven metres to explain! If the maker ever says where its machines stand, this floor will change."
+    },
+    {
+      "id": "part-conical-roof",
+      "scope": "part:conical-roof",
+      "title": "Conical roof",
+      "scene": "silo",
+      "text": "A low cone with a hub in the middle: here is the silo’s hat. It sheds some of the snow, and its frame carries the rest. Do not expect the stone to melt it: the insulation is on watch. A roof that loses its snow faster than the shed next door gives away a leak. Winter does the work of a thermal camera!"
+    },
+    {
+      "id": "part-upper-vent",
+      "scope": "part:upper-vent",
+      "title": "Upper opening",
+      "scene": "silo",
+      "text": "Two kinds of air live side by side here, and never mix. The air in the loops stays shut in. The air in the room has to leave, because motors and cabinets leave their heat in it. We read this opening as its ventilation. It has its small enemies: a nest, powder snow, a stuck shutter."
+    },
+    {
+      "id": "part-access-ladder",
+      "scope": "part:access-ladder",
+      "title": "Caged ladder",
+      "scene": "silo",
+      "text": "A ladder, and it says a lot: something up there calls for a visit, on foot. No heavy part goes this way: equipment goes up by crane. People fall from ladders more often than ladders give way. So the tools go up in a bag, hauled on a rope: on a ladder, both hands are for the ladder."
+    },
+    {
+      "id": "part-thermocouple-lance",
+      "scope": "part:thermocouple-lance",
+      "title": "Temperature lances",
+      "scene": "silo",
+      "text": "Once the stone is poured, nobody can see inside. That leaves these lances, the only eyes in the stone. Do not mistake them for the coloured section, which comes from the simulation. The trick is in the thermowell that shelters them: a probe is replaced from above, without touching the stone."
+    },
+    {
+      "id": "part-duct-penetration",
+      "scope": "part:duct-penetration",
+      "title": "Insulation penetration",
+      "scene": "silo",
+      "text": "Insulation is only good where nothing crosses it. And here, the whole pipe field crosses it. Each leg of steel is a small thermal bridge: between them, about a tenth of the silo’s leaks. The lab draws a sleeve and a flexible packing, to let the pipe slide."
+    },
+    {
+      "id": "part-heat-pipe",
+      "scope": "part:heat-pipe",
+      "title": "Heat-transfer pipe",
+      "scene": "pipe-cell",
+      "text": "[[cutaway:on]] Air inside, stone outside, and never any mixing: our grain lives against this wall. The steel holds back almost nothing, it is the stone that holds back. Why not blow the air straight through the bed? It would lose its pressure there, and bring back dust. [[cutaway:off]] Here, five centimetres of radius, three millimetres of wall."
+    },
+    {
+      "id": "part-return-bend",
+      "scope": "part:return-bend",
+      "title": "Return bend",
+      "scene": "pipe-cell",
+      "text": "[[explode:0.6]] This small bend, at the bottom of the bed, justifies the whole U shape. With both ends at the top, the pipe hangs, and it grows freely downwards. Notice what it lacks: no support, no outlet, no sensor. [[explode:0]] The maker’s patent speaks only of vertical pipes: the U is ours!"
+    },
+    {
+      "id": "part-pipe-spacer",
+      "scope": "part:pipe-spacer",
+      "title": "Pipe spacer",
+      "scene": "pipe-cell",
+      "text": "Hundreds of pipes, and forty trucks of stone on the way: with no guide, they would end up anywhere. The spacer gives them a grid to keep to while the stone pours in, then it stays buried for good. No source describes it: we draw it because without it, this layout does not hold up."
+    },
+    {
+      "id": "part-branch-header",
+      "scope": "part:branch-header",
+      "title": "Branch header",
+      "scene": "pipe-cell",
+      "text": "Above the bed, the pipe heads gather together: this header is how you choose where the heat goes. Each path must offer the same resistance, or the air takes the easiest one, and its neighbour stays cold. And a leak here is far easier to hear than to see."
+    },
+    {
+      "id": "part-expansion-loop",
+      "scope": "part:expansion-loop",
+      "title": "Expansion loop",
+      "scene": "pipe-cell",
+      "text": "Six metres of stainless steel, five hundred degrees more: the pipe grows about five centimetres. In a straight line, those centimetres would go into the weld. So they are given a path: a few bends that flex a little. The maker announces up to two hundred cycles a year, for over thirty years: six thousand round trips!"
+    },
+    {
+      "id": "part-core-zone",
+      "scope": "part:core-zone",
+      "title": "Core zone",
+      "scene": "pipe-cell",
+      "text": "[[cutaway:on]] A zone has no wall: it is a decision. The maker charges the core first, because its heat has to cross all the stone to reach the wall. But our simulation holds a surprise. When full, four hundred and seventeen degrees at the centre, three hundred and seventy-five at the edge. [[cutaway:off]] Much flatter than the picture the maker publishes."
+    },
+    {
+      "id": "part-outer-zone",
+      "scope": "part:outer-zone",
+      "title": "Outer zone",
+      "scene": "pipe-cell",
+      "text": "All around, the outer ring: it is emptied first. What stays hot at the edge leaks fastest, and a lukewarm edge insulates the core. The first silo’s operator reports five hundred degrees at the core, and a hundred and fifty to two hundred at the edge. It all depends on a control rule that stays secret."
+    },
+    {
+      "id": "part-quartz-sand",
+      "scope": "part:quartz-sand",
+      "title": "Quartz sand",
+      "scene": "pipe-cell",
+      "text": "Here is the sand that gave the idea its name: it fills the first silo, and the one due in two thousand and twenty-seven. Lighter than the stone, it conducts less well. And at five hundred and seventy-three degrees, quartz changes form. Two drums at the bottom of the garden? Do the sums: a few hours of heating, not a winter."
+    },
+    {
+      "id": "part-crushed-soapstone",
+      "scope": "part:crushed-soapstone",
+      "title": "Crushed soapstone",
+      "scene": "pipe-cell",
+      "text": "And here is our grain’s stone: the stone of masonry heaters… and it is a waste product! A factory by-product, heavier than sand for the same volume, and faster at conducting, says the maker. Its thermal values are the weakest in the lab. A heater maker gives about one kilojoule per kilo and per degree, with no reference."
+    },
+    {
+      "id": "part-lv-switchboard",
+      "scope": "part:lv-switchboard",
+      "title": "Low-voltage switchboard",
+      "scene": "plant-room",
+      "text": "All the current passes here: of the order of a hundred times that of a household socket. From this board leave the resistors, by far the hungriest, the motors and the controls. At this current, a loose connection ends in an arc: it is only touched dead, and locked out."
+    },
+    {
+      "id": "part-heater-controller",
+      "scope": "part:heater-controller",
+      "title": "Heater controller",
+      "scene": "plant-room",
+      "text": "A resistor does not mind being cut off. So this load is driven instantly, and nearly all of that advantage sits in this cabinet. The controller follows a price, or a call from the grid, and the village sees nothing. Its worst fault? A contactor stuck closed, which lets the current through while the order says no."
+    },
+    {
+      "id": "part-resistor-bank",
+      "scope": "part:resistor-bank",
+      "title": "Resistor bank",
+      "scene": "plant-room",
+      "text": "This is the moment the energy changes its nature. The current crosses the resistors, the air passing over them warms, and hardly anything is lost. According to a documentary, to be checked, this air leaves at about five hundred degrees. But with no air, the element has no way out, and it soon burns: try the scenario where the blower fails. A heat pump would do more with the same current, but it could not climb so high."
+    },
+    {
+      "id": "part-charge-blower",
+      "scope": "part:charge-blower",
+      "title": "Charge blower",
+      "scene": "plant-room",
+      "text": "It drives the air through the resistors, then into the core. And here is the surprise: as the stone warms, the air comes back hot and thin, and it shifts less of it. The power accepted falls by itself, to a third when full. So it is not the electricity that limits the end of a charge: it is the air."
+    },
+    {
+      "id": "part-discharge-blower",
+      "scope": "part:discharge-blower",
+      "title": "Discharge blower",
+      "scene": "plant-room",
+      "text": "[[flows:on]] Here is the most important part in the lab. It draws the air through the stone, then the exchanger. The cooler the stone, the more air it takes to carry one megawatt. One day the blower can no longer keep up: at a mean of two hundred and seventy-five degrees, on our estimate. [[flows:off]] Across the unknown settings, the silo gives forty-six to a hundred and thirty-two megawatt-hours at one megawatt. One line from the maker would settle it!"
+    },
+    {
+      "id": "part-blower-drive",
+      "scope": "part:blower-drive",
+      "title": "Blower drive",
+      "scene": "plant-room",
+      "text": "The machine’s real tap, at last. No throttling damper: the heat is set by running the blower faster or slower. And there, a lovely gift from physics: at half speed, it uses about eight times less! A controller gives the orders, watching the water that leaves for the village."
+    },
+    {
+      "id": "part-charge-damper",
+      "scope": "part:charge-damper",
+      "title": "Charge damper",
+      "scene": "plant-room",
+      "text": "A simple flap, opening a zone to the hot air. In this lab, the core is charged as long as it takes at least half of what is on offer, then the middle, then the edge. At these temperatures metal warps: sealing is hard. Watch them move: these flaps follow the simulation live."
+    },
+    {
+      "id": "part-discharge-damper",
+      "scope": "part:discharge-damper",
+      "title": "Discharge damper",
+      "scene": "plant-room",
+      "text": "The same flap, on the other side. Discharge goes from the outside, and the core stays hot: a reserve is not touched while there is still enough to go on. As the two loops work on different zones, the lab can charge and discharge at once. That is an assumption, pushed by a network that cannot wait."
+    },
+    {
+      "id": "part-hot-air-duct",
+      "scope": "part:hot-air-duct",
+      "title": "Hot-air duct",
+      "scene": "plant-room",
+      "text": "A pipe as wide as a person, to carry as much power as a few water pipes! Air is a poor carrier of heat, but it does not boil or freeze, and it takes temperature very well. The maker cares about short ducts: every hot metre is a loss. And its lukewarm jacket says nothing of what passes inside."
+    },
+    {
+      "id": "part-cold-air-duct",
+      "scope": "part:cold-air-duct",
+      "title": "Cool-air duct",
+      "scene": "plant-room",
+      "text": "The air comes back and leaves again: the same air every time. Cold is a manner of speaking: about sixty degrees leaving the exchanger. An open loop would let the winter into the stone, and throw away the heat left over. The word battery misleads: no electrolyte, no chemical charge. An air loop is just plumbing!"
+    },
+    {
+      "id": "part-air-water-exchanger",
+      "scope": "part:air-water-exchanger",
+      "title": "Air-to-water exchanger",
+      "scene": "plant-room",
+      "text": "[[flows:on]] The one part where air and water meet, without mixing. In counterflow: the air leaving cold meets the water entering cold. This is where the end of useful heat is decided. Once the air can no longer take the water to eighty-five degrees, the rest stays in the stone. [[flows:off]] Its nightmare is a leak: water on a hot pipe turns to steam, all at once."
+    },
+    {
+      "id": "part-dh-pump",
+      "scope": "part:dh-pump",
+      "title": "Network pump",
+      "scene": "plant-room",
+      "text": "[[flows:on]] It sends the water out to the village, and the controller watches one thing only: the supply temperature. Better a little water at the right temperature than plenty of lukewarm water. [[flows:off]] A few kilowatts here, more than ten to move the air: water always wins that comparison."
+    },
+    {
+      "id": "part-heat-meter",
+      "scope": "part:heat-meter",
+      "title": "Heat meter",
+      "scene": "plant-room",
+      "text": "A flow, a temperature difference: that is what gets sold. And the efficiencies quoted do not agree. About eighty per cent, above eighty-five after the first year. On the first silo, sixty to seventy-five. Our simulation gives ninety-one over the year, but seventy-four on a cycle followed by a week of rest. Read the first as a ceiling. An efficiency always says what cycle it was computed on, or it says nothing."
+    },
+    {
+      "id": "part-expansion-vessel",
+      "scope": "part:expansion-vessel",
+      "title": "Expansion vessel",
+      "scene": "plant-room",
+      "text": "Water grows too as it warms. In a closed circuit, the pressure would climb until a relief valve opened. So this membrane tank gives it a little room. An ordinary device, for an idea found on every level of the machine: whatever warms, grows. A relief valve weeping? Look at the vessel first."
+    },
+    {
+      "id": "part-control-cabinet",
+      "scope": "part:control-cabinet",
+      "title": "Control cabinet",
+      "scene": "plant-room",
+      "text": "Now for the silo’s brain. It reads the prices and decides the charging hours, on a contractor’s algorithm, which stays secret. According to the operator, the first year’s current cost seventy to eighty per cent below the mean. And you, can you do better? The game in the lesson on cheap hours puts you in its place."
+    }
+  ]
+}

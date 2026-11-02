@@ -1,0 +1,407 @@
+{
+  "lang": "fr",
+  "voiceLabel": {
+    "fr": "Voix de synthèse",
+    "en": "Synthetic voice"
+  },
+  "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.8,
+    "style": 0.35,
+    "speed": 0.95
+  },
+  "segments": [
+    {
+      "id": "intro",
+      "scope": "intro",
+      "title": "Présentation du labo",
+      "scene": "site",
+      "text": "[[home]] Imaginez un village du Nord, un soir de grand vent : le courant ne vaut plus grand-chose. [[frame:silo-exterior]] Dans une cour, un gros silo sombre attend. On appelle cela une batterie de sable… et pourtant, la plus grande en service, en Finlande, ne contient pas de sable ! Elle garde environ deux mille tonnes de pierre ollaire concassée, et elle rend de la chaleur, pas du courant. Suivons un seul grain de cette pierre. Lui ne bouge pas : c’est la chaleur qui vient le trouver. [[scene:plant-room]] Sous le toit, des résistances changent le courant en air très chaud, [[frame:charge-blower]] et une soufflante le pousse vers le bas. [[scene:pipe-cell]] Voici notre grain, dans le noir, tout contre un tube d’inox. Il tiédit, très lentement, et passe sa chaleur à son voisin. [[scene:silo]] Et la pierre attend, à environ quatre cents degrés en moyenne. Puis le vent tombe, et le courant redevient cher. [[scene:plant-room]] Une seconde soufflante tire l’air à travers la pierre, [[frame:air-water-exchanger]] et l’échangeur donne sa chaleur à l’eau. [[scene:site]] [[flows:on]] L’eau chaude file sous la terre jusqu’au village, [[frame:village-school]] et à l’école, un radiateur tiédit. [[flows:off]] Voilà toute l’histoire : un coup de vent, un grain de pierre, beaucoup de patience… et une classe bien au chaud. [[scene:silo]] Reste la vraie question : combien ce silo rend-il ? À plein, il tient deux cent dix-sept mégawattheures au-dessus de l’air ambiant. Soixante-neuf sortent à un mégawatt. Cent cinq sortent ensuite, à puissance décroissante. Et quarante-trois restent dans la pierre, trop froids pour le réseau. Une capacité n’a de sens qu’à une puissance donnée ! Le constructeur annonce jusqu’à cent mégawattheures, sans dire à quelle puissance. Notre modèle en trouve soixante-neuf à un mégawatt : l’écart tient à la taille d’une soufflante, que personne ne publie. [[scene:site]] Quelques repères : quatre vues, le village, le silo, un tube dans la pierre et l’étage technique. Cliquez sur une pièce : sa fiche s’ouvre, et vous pouvez écouter son histoire. [[mode:assembly]] Un guide raconte le chantier, [[mode:install]] un autre l’arrivée du silo au village. [[mode:sim]] La simulation vous laisse tout changer. [[mode:lessons]] Six leçons, avec des quiz, expliquent la physique. [[mode:plans]] Dix plans réunissent les dessins. [[mode:explore]] Une dernière chose : ce laboratoire est une reconstitution pédagogique, indépendante et générique. [[scene:site]] Ni plan officiel, ni produit du constructeur, et ce village n’existe nulle part. Tubes, isolants, soufflantes, place des machines : rien de cela n’est publié, tout est notre lecture ou notre calcul. Sauf quand je cite une source, les chiffres viennent de notre simulation. Et nous n’avons trouvé aucune mesure indépendante de ces machines. [[select:none]] À vous de jouer !"
+    },
+    {
+      "id": "scene-site",
+      "scope": "scene:site",
+      "title": "Le village : du courant bon marché à l’école",
+      "scene": "site",
+      "text": "[[home]] Bienvenue au village, à la lisière de la forêt : toute l’histoire tient le long de sa route. [[frame:wind-farm]] Au loin, les éoliennes font le prix, sans un seul câble vers le silo. [[frame:power-line]] La ligne apporte le courant, quand il ne coûte presque rien. [[frame:pad-transformer,electrical-annex]] Transformateur et annexe l’attendent au pied du silo. [[frame:silo-exterior]] Le silo, lui, ne montre rien de ce qu’il cache. [[flows:on]] [[frame:dh-riser]] Deux tuyaux descendent le long de sa paroi. [[frame:dh-trench]] L’eau file par une tranchée, dessinée ouverte pour vous, [[frame:village-school,house-substation]] jusqu’à l’école et aux maisons du village. [[flows:off]] [[frame:chip-boiler-plant]] Et la vieille chaufferie veille, en secours. [[home]] Une précaution : un silo comme celui-ci est une installation industrielle, soumise aux règles de chaque pays."
+    },
+    {
+      "id": "scene-silo",
+      "scope": "scene:silo",
+      "title": "Le silo en coupe",
+      "scene": "silo",
+      "text": "[[home]] Voici la machine, ouverte d’un quart, comme un gâteau déjà entamé. [[frame:foundation-slab,base-insulation]] En bas, le radier, puis un isolant qui doit tout porter. [[frame:storage-bed,pipe-field]] Au-dessus, six mètres de pierre, et tous ses tubes. [[frame:wall-insulation,outer-cladding]] Autour, isolant et bardage tiennent dans un demi-mètre. [[frame:equipment-floor,conical-roof]] Tout en haut, l’étage technique, sous son toit conique. [[home]] Ces couleurs sortent de la simulation, et c’est une fausse couleur : une pierre à quatre cents degrés ne rougeoie pas. [[cutaway:on]] Ouvrons la moitié du silo. Le cœur est plus chaud que le bord, et pourtant, rien ne remue dans la pierre. [[cutaway:off]] [[explode:0.6]] Écartons les couches, de la dalle jusqu’au toit. [[explode:0]] Six mètres de pierre dans treize mètres de silo : tout le reste la protège, ou la sert."
+    },
+    {
+      "id": "scene-pipe-cell",
+      "scope": "scene:pipe-cell",
+      "title": "Un tube dans la pierre",
+      "scene": "pipe-cell",
+      "text": "[[home]] Grossissons. Voici un bloc de pierre, avec notre grain quelque part là-dedans. [[frame:heat-pipe,return-bend]] Un tube descend, tourne au fond dans son coude, et remonte. [[frame:expansion-loop]] En haut, une lyre le laisse grandir, [[frame:branch-header]] et un collecteur le relie à ses voisins. [[frame:core-zone,outer-zone]] Deux blocs, deux zones : le cœur, et le bord. [[frame:quartz-sand,crushed-soapstone]] Et sur la table, deux échantillons, grossis pour vous. [[home]] [[cutaway:on]] En coupe, la chaleur s’étale autour du tube, par anneaux. [[cutaway:off]] Selon le constructeur, un mètre de sable chauffé d’un côté met plus de huit jours à atteindre cent degrés de l’autre. Notre simulation trouve sept virgule quatre jours. La chaleur se traîne : on va donc la chercher avec un tube tous les cinquante centimètres environ."
+    },
+    {
+      "id": "scene-plant-room",
+      "scope": "scene:plant-room",
+      "title": "Où vont le courant et la chaleur",
+      "scene": "plant-room",
+      "text": "[[home]] Voici l’étage, lu dans l’ordre du courant, puis de la chaleur. [[frame:lv-switchboard]] Le tableau reçoit tout le courant à l’arrivée. [[frame:heater-controller]] Le gradateur le dose à chaque instant, [[frame:resistor-bank]] et les résistances en font de l’air très chaud. [[frame:charge-blower,hot-air-duct]] Une soufflante le pousse dans la gaine, [[frame:charge-damper]] et les registres choisissent la zone à charger. [[flows:on]] [[frame:discharge-blower,discharge-damper]] Plus tard, la seconde soufflante ramène cet air, [[frame:air-water-exchanger]] et l’échangeur donne sa chaleur à l’eau. [[frame:dh-pump,heat-meter]] La pompe envoie l’eau au village, le compteur compte. [[flows:off]] [[frame:control-cabinet]] Et l’armoire d’automatisme décide quand. [[home]] [[explode:0.6]] Écartons les machines, pour mieux les voir. [[explode:0]] Comptez ce qui bouge ici : deux soufflantes, une pompe, quelques volets. Tout le reste, c’est de la pierre qui attend."
+    },
+    {
+      "id": "part-silo-exterior",
+      "scope": "part:silo-exterior",
+      "title": "Le silo vu du dehors",
+      "scene": "site",
+      "text": "Un cylindre trapu, environ treize mètres de haut et quinze de large. Rien ne trahit ce qu’il cache. Posez la main dessus : selon le constructeur, il reste froid. Notre calcul le trouve à environ huit degrés au-dessus de l’air. Et derrière un demi-mètre de paroi, le bord de la pierre atteint trois cent soixante-quinze degrés !"
+    },
+    {
+      "id": "part-dh-riser",
+      "scope": "part:dh-riser",
+      "title": "Colonnes du réseau",
+      "scene": "site",
+      "text": "Cherchez-les sur le bardage : ces deux tuyaux gainés sont les seuls signes extérieurs que ce silo chauffe un village. [[flows:on]] L’un descend l’eau chaude, l’autre remonte le retour. [[flows:off]] Aucune vapeur : de l’eau sous pression, comme dans tout réseau. Par grand froid, elle doit rester en mouvement."
+    },
+    {
+      "id": "part-cable-riser",
+      "scope": "part:cable-riser",
+      "title": "Colonne des câbles",
+      "scene": "site",
+      "text": "Une gaine verticale sur une photo, sans légende : nous y lisons le chemin du courant. Et quel courant ! Si la tension est de quatre cents volts, un mégawatt fait mille quatre cent quarante-trois ampères. Aucun câble de maison n’y survivrait : le labo compte neuf cent soixante millimètres carrés par phase."
+    },
+    {
+      "id": "part-electrical-annex",
+      "scope": "part:electrical-annex",
+      "title": "Local électrique au pied du silo",
+      "scene": "site",
+      "text": "Une annexe basse, au pied du silo, et aucune source ne dit à quoi elle sert. Le labo y loge l’arrivée de la moyenne tension : ces appareils aiment le sol et l’air frais. Leurs pannes classiques : la condensation, et le rongeur dans le caniveau à câbles."
+    },
+    {
+      "id": "part-pad-transformer",
+      "scope": "part:pad-transformer",
+      "title": "Transformateur",
+      "scene": "site",
+      "text": "Un mégawatt à basse tension, impossible à faire venir de loin. Alors le courant voyage en moyenne tension, vingt mille volts dans ce labo. Ce transformateur le ramène à la tension des appareils, tout près d’eux. Doublez la tension, et les pertes sont divisées par quatre. N’ouvrez jamais l’enclos : la moyenne tension tue sans contact."
+    },
+    {
+      "id": "part-power-line",
+      "scope": "part:power-line",
+      "title": "Ligne moyenne tension",
+      "scene": "site",
+      "text": "Par ici arrivent les heures bon marché. Et rien ne repart : le silo n’a pas de quoi refaire de l’électricité, il rend de la chaleur. Son service au réseau ? Une charge qu’on peut couper à l’instant, sans qu’aucune maison ne le sente. Et sans courant, plus de soufflante ni de pompe : une coupure arrête aussi la chaleur."
+    },
+    {
+      "id": "part-solar-field",
+      "scope": "part:solar-field",
+      "title": "Champ solaire",
+      "scene": "site",
+      "text": "Ce champ n’existe pas au vrai silo : le labo le dessine pour une idée. Le tout premier pilote chauffait son sable avec cent mètres carrés de panneaux. Mais ici, le soleil abonde quand la demande est faible, et manque quand elle est forte. La pierre garde des jours ou des semaines : elle ne range pas juillet pour janvier."
+    },
+    {
+      "id": "part-wind-farm",
+      "scope": "part:wind-farm",
+      "title": "Parc éolien au loin",
+      "scene": "site",
+      "text": "Aucun câble ne va de ces éoliennes au silo. Alors, quel rapport ? Le prix ! Quand il vente plus qu’on ne consomme, le courant s’effondre, et la pierre charge. Un silo stocke une chute de prix. Une source rapporte un prix allant de trois à trois cent soixante-treize euros le mégawattheure, en une seule semaine."
+    },
+    {
+      "id": "part-chip-boiler-plant",
+      "scope": "part:chip-boiler-plant",
+      "title": "Chaufferie à plaquettes",
+      "scene": "site",
+      "text": "Le silo n’a pas remplacé la vieille chaufferie : il l’a mise en réserve. Un stockage déplace une source dans le temps, il ne la remplace pas. Selon le constructeur, le réseau a supprimé le fioul et réduit les plaquettes d’environ soixante pour cent. Essayez dix jours sans vent : vous verrez pourquoi on l’a gardée."
+    },
+    {
+      "id": "part-boiler-stack",
+      "scope": "part:boiler-stack",
+      "title": "Cheminée de la chaufferie",
+      "scene": "site",
+      "text": "Le silo ne brûle rien : la seule fumée du site sort d’ici. L’exploitant annonce environ cent soixante tonnes d’équivalent gaz carbonique évitées par an. Ces chiffres sont les siens : la simulation ne calcule rien de tel. Reste une image simple : cette cheminée fume bien moins, et le village reste au chaud."
+    },
+    {
+      "id": "part-dh-trench",
+      "scope": "part:dh-trench",
+      "title": "Tranchée du réseau de chaleur",
+      "scene": "site",
+      "text": "[[flows:on]] Sans ce tuyau, le silo ne sert à rien. Deux tubes préisolés : un aller chaud, un retour plus froid. Nous dessinons la tranchée ouverte ; en vrai, elle est rebouchée. [[flows:off]] Pas de réseau tout proche, pas de silo : c’est la première question à poser à un site. Et avant de creuser, déclarez vos travaux."
+    },
+    {
+      "id": "part-village-school",
+      "scope": "part:village-school",
+      "title": "L’école du village",
+      "scene": "site",
+      "text": "Voici la demande, en chair et en os. Ses radiateurs ne savent pas d’où vient l’eau chaude, et c’est tout le but. Selon le constructeur, le silo représente à peu près une semaine de demande d’hiver, et presque un mois d’été. Notre simulation donne huit jours et demi, et quarante-huit jours pour l’été."
+    },
+    {
+      "id": "part-house-substation",
+      "scope": "part:house-substation",
+      "title": "Sous-station d’une maison",
+      "scene": "site",
+      "text": "Une maison raccordée n’a pas de chaudière. Dans la cave, un échangeur à plaques passe la chaleur du réseau à l’eau de la maison, sans jamais les mélanger. Ni flamme, ni cheminée. Et l’eau qu’il renvoie, plus froide, ira rafraîchir l’air du silo. C’est ainsi qu’on va chercher la chaleur au fond de la pierre."
+    },
+    {
+      "id": "part-foundation-slab",
+      "scope": "part:foundation-slab",
+      "title": "Radier",
+      "scene": "silo",
+      "text": "Deux mille tonnes de pierre : il faut bien les poser quelque part. Cela fait environ treize tonnes sur chaque mètre carré. Une pierre ne tourne pas, n’use rien : c’est du poids mort, qu’il suffit de bien poser. Pendant le remplissage, on relit les repères de niveau scellés au pied."
+    },
+    {
+      "id": "part-base-insulation",
+      "scope": "part:base-insulation",
+      "title": "Isolation sous le lit",
+      "scene": "silo",
+      "text": "Sous le lit, l’isolant a deux métiers : arrêter la chaleur, et porter tout le poids. Pas question d’une laine ! Le brevet du constructeur cite l’argile expansée, un granulat qui se tient tout seul. Et personne n’y retournera : son entretien se fait le jour de sa pose."
+    },
+    {
+      "id": "part-inner-shell",
+      "scope": "part:inner-shell",
+      "title": "Virole intérieure",
+      "scene": "silo",
+      "text": "Cette virole d’acier retient la pierre comme un tonneau retient son vin. Mais ce tonneau-là grandit : environ neuf centimètres sur son diamètre, quand il chauffe. Les grains descendent combler le jeu, et en refroidissant, elle serre une pierre qui ne recule pas. Le constructeur ne dit pas comment il s’en arrange."
+    },
+    {
+      "id": "part-wall-insulation",
+      "scope": "part:wall-insulation",
+      "title": "Isolation des parois",
+      "scene": "silo",
+      "text": "Un silo de quinze mètres autour d’un lit de quatorze : il reste un demi-mètre de chaque côté, tout compris. Ôtez la moitié de l’isolant, et la fuite à plein passe de trente-huit à soixante-sept kilowatts. Mais la capacité à pleine puissance ne bouge presque pas ! L’isolant protège le temps de garde."
+    },
+    {
+      "id": "part-outer-cladding",
+      "scope": "part:outer-cladding",
+      "title": "Bardage extérieur",
+      "scene": "silo",
+      "text": "Le bardage n’a rien à contenir : il protège. Deux aciers, deux métiers : l’un retient la pierre à chaud, l’autre la pluie à froid. Un matin froid, une caméra thermique le lit très bien. Une bande chaude en haut trahit un isolant tassé, une tache en bas, plutôt de l’eau."
+    },
+    {
+      "id": "part-storage-bed",
+      "scope": "part:storage-bed",
+      "title": "Le lit de pierre",
+      "scene": "silo",
+      "text": "Voici le cœur de la machine, et le pays de notre grain. Quarante camions l’ont apporté : quatorze mètres de large, six de haut, et rien qui tourne. [[cutaway:on]] Regardez-le en coupe : ni flamme, ni fumée, et pourtant, environ une semaine d’hiver d’un village dort là-dedans. [[cutaway:off]] Méfiez-vous de ce calme. Cette chaleur ne se voit pas : pierre et gaines restent dangereuses des mois après l’arrêt. Personne n’ouvre rien à chaud."
+    },
+    {
+      "id": "part-pipe-field",
+      "scope": "part:pipe-field",
+      "title": "Le champ de tubes",
+      "scene": "silo",
+      "text": "[[xray:on]] L’air ne touche jamais la pierre : il court dans des tubes d’inox enfouis. Le constructeur garde son tracé secret. Celui-ci sort d’un calcul : près de quatre kilomètres de tube, à un pas d’environ cinquante centimètres. [[xray:off]] Et ce pas pèse lourd. À quarante centimètres, le silo rend quatre-vingt-cinq mégawattheures à un mégawatt. À soixante, quarante-six."
+    },
+    {
+      "id": "part-top-insulation",
+      "scope": "part:top-insulation",
+      "title": "Isolation du dessus",
+      "scene": "silo",
+      "text": "Par-dessus la pierre, environ un mètre d’isolant : le double des parois, car tous les tubes passent ici. Il repose sur la pierre et la suit quand elle se tasse : le moindre vide ferait une poche d’air. C’est la seule couche encore accessible : on en rajoute par le haut, sans vider le silo."
+    },
+    {
+      "id": "part-equipment-floor",
+      "scope": "part:equipment-floor",
+      "title": "L’étage technique",
+      "scene": "silo",
+      "text": "Ce plancher, c’est une enquête : aucune source ne le dessine. Les indices ? Un documentaire montre l’ingénieur parmi les machines, la pierre sous ses pieds. Une photo montre deux tuyaux qui descendent de haut sur la paroi. Et un lit de six mètres dans treize mètres de silo, cela laisse bien sept mètres à expliquer ! Si le constructeur précise un jour la place de ses machines, ce plancher changera."
+    },
+    {
+      "id": "part-conical-roof",
+      "scope": "part:conical-roof",
+      "title": "Toit conique",
+      "scene": "silo",
+      "text": "Un cône bas, avec un moyeu au centre : voilà le chapeau du silo. Il fait glisser une partie de la neige, et sa charpente porte le reste. N’attendez pas de la pierre qu’elle la fasse fondre : l’isolant veille. Un toit qui perd sa neige plus vite que le hangar voisin trahit une fuite. L’hiver fait le travail d’une caméra thermique !"
+    },
+    {
+      "id": "part-upper-vent",
+      "scope": "part:upper-vent",
+      "title": "Ouverture haute",
+      "scene": "silo",
+      "text": "Deux airs se côtoient ici, et ne se mélangent jamais. Celui des boucles reste enfermé. Celui du local doit s’en aller, car moteurs et armoires y laissent leur chaleur. Nous lisons cette ouverture comme sa ventilation. Elle a ses petits ennemis : un nid, de la neige poudreuse, un volet coincé."
+    },
+    {
+      "id": "part-access-ladder",
+      "scope": "part:access-ladder",
+      "title": "Échelle à crinoline",
+      "scene": "silo",
+      "text": "Une échelle, et elle en dit long : quelque chose, là-haut, demande qu’on y vienne, à pied. Aucune pièce lourde n’y passe : un équipement monte à la grue. On en tombe plus souvent qu’elle ne lâche. Alors les outils montent dans un sac, hissé à la corde : sur une échelle, les deux mains servent à l’échelle."
+    },
+    {
+      "id": "part-thermocouple-lance",
+      "scope": "part:thermocouple-lance",
+      "title": "Cannes de température",
+      "scene": "silo",
+      "text": "Une fois la pierre versée, plus personne ne voit l’intérieur. Restent ces cannes, les seuls yeux dans la pierre. Ne les confondez pas avec la coupe colorée, qui sort de la simulation. L’astuce est dans le doigt de gant qui les abrite : une sonde se remplace par le haut, sans toucher à la pierre."
+    },
+    {
+      "id": "part-duct-penetration",
+      "scope": "part:duct-penetration",
+      "title": "Traversée de l’isolation",
+      "scene": "silo",
+      "text": "Un isolant n’est bon que là où rien ne le traverse. Et ici, tout le champ de tubes le traverse. Chaque branche d’acier est un petit pont thermique : à elles toutes, environ un dixième des fuites du silo. Le labo dessine un fourreau et un garnissage souple, pour laisser glisser le tube."
+    },
+    {
+      "id": "part-heat-pipe",
+      "scope": "part:heat-pipe",
+      "title": "Tube d’échange",
+      "scene": "pipe-cell",
+      "text": "[[cutaway:on]] De l’air dedans, de la pierre autour, et jamais de mélange : notre grain vit contre cette paroi. L’acier ne freine presque rien, c’est la pierre qui freine. Pourquoi ne pas souffler l’air directement dans le lit ? Il y perdrait sa pression, et ramènerait de la poussière. [[cutaway:off]] Ici, cinq centimètres de rayon, trois millimètres de paroi."
+    },
+    {
+      "id": "part-return-bend",
+      "scope": "part:return-bend",
+      "title": "Coude de retour",
+      "scene": "pipe-cell",
+      "text": "[[explode:0.6]] Ce petit coude, au fond du lit, justifie toute la forme en U. Les deux bouts en haut, le tube pend, et il grandit librement vers le bas. Regardez ce qu’il n’a pas : ni support, ni sortie, ni capteur. [[explode:0]] Le brevet du constructeur parle seulement de tubes verticaux : le U, c’est nous !"
+    },
+    {
+      "id": "part-pipe-spacer",
+      "scope": "part:pipe-spacer",
+      "title": "Entretoise de tubes",
+      "scene": "pipe-cell",
+      "text": "Des centaines de tubes, et quarante camions de pierre qui arrivent : sans guide, ils finiraient n’importe où. L’entretoise leur donne une grille à respecter, le temps du remplissage, puis elle reste enfouie pour toujours. Aucune source ne la décrit : nous la dessinons, car sans elle, ce tracé ne tient pas debout."
+    },
+    {
+      "id": "part-branch-header",
+      "scope": "part:branch-header",
+      "title": "Collecteur de branche",
+      "scene": "pipe-cell",
+      "text": "Au-dessus du lit, les têtes de tubes se regroupent : c’est par ce collecteur qu’on choisit où va la chaleur. Chaque chemin doit offrir la même résistance, sinon l’air prend le plus facile, et le voisin reste froid. Et une fuite, ici, s’entend bien mieux qu’elle ne se voit."
+    },
+    {
+      "id": "part-expansion-loop",
+      "scope": "part:expansion-loop",
+      "title": "Lyre de dilatation",
+      "scene": "pipe-cell",
+      "text": "Six mètres d’inox, cinq cents degrés de plus : le tube grandit d’environ cinq centimètres. Tout droit, ces centimètres iraient dans la soudure. Alors on leur offre un chemin : quelques coudes, qui fléchissent un peu. Le constructeur annonce jusqu’à deux cents cycles par an, plus de trente ans : six mille allers-retours !"
+    },
+    {
+      "id": "part-core-zone",
+      "scope": "part:core-zone",
+      "title": "Zone de cœur",
+      "scene": "pipe-cell",
+      "text": "[[cutaway:on]] Une zone n’a pas de paroi : c’est une décision. Le constructeur charge le cœur d’abord, car sa chaleur doit traverser toute la pierre pour atteindre la paroi. Mais notre simulation réserve une surprise. À plein, quatre cent dix-sept degrés au centre, trois cent soixante-quinze au bord. [[cutaway:off]] Bien plus plat que l’image publiée par le constructeur."
+    },
+    {
+      "id": "part-outer-zone",
+      "scope": "part:outer-zone",
+      "title": "Zone périphérique",
+      "scene": "pipe-cell",
+      "text": "Tout autour, l’anneau extérieur : on le vide en premier. Ce qui reste chaud au bord fuit le plus vite, et un bord tiède isole le cœur. L’exploitant du premier silo rapporte cinq cents degrés au cœur, et de cent cinquante à deux cents au bord. Tout dépend d’une règle de pilotage qui reste secrète."
+    },
+    {
+      "id": "part-quartz-sand",
+      "scope": "part:quartz-sand",
+      "title": "Sable de quartz",
+      "scene": "pipe-cell",
+      "text": "Voici le sable qui a donné son nom à l’idée : il remplit le premier silo, et celui prévu pour deux mille vingt-sept. Plus léger que la pierre, il conduit moins bien. Et à cinq cent soixante-treize degrés, le quartz change de forme. Deux fûts au fond du jardin ? Faites le calcul : quelques heures de chauffage, pas un hiver."
+    },
+    {
+      "id": "part-crushed-soapstone",
+      "scope": "part:crushed-soapstone",
+      "title": "Pierre ollaire concassée",
+      "scene": "pipe-cell",
+      "text": "Et voici la pierre de notre grain : celle des poêles de masse… et c’est un rebut ! Un sous-produit d’usine, plus lourd que le sable à volume égal, et qui conduit plus vite, selon le constructeur. Ses valeurs thermiques sont les moins sûres du labo. Un fabricant donne à peu près un kilojoule par kilo et par degré, sans référence."
+    },
+    {
+      "id": "part-lv-switchboard",
+      "scope": "part:lv-switchboard",
+      "title": "Tableau basse tension",
+      "scene": "plant-room",
+      "text": "Tout le courant passe ici : de l’ordre de cent fois celui d’une prise de maison. De ce tableau partent les résistances, de très loin les plus gourmandes, les moteurs et l’automatisme. À ce courant, une connexion desserrée finit en arc : on n’y touche que hors tension, et consigné."
+    },
+    {
+      "id": "part-heater-controller",
+      "scope": "part:heater-controller",
+      "title": "Gradateur de résistances",
+      "scene": "plant-room",
+      "text": "Une résistance ne craint pas les coupures. Alors cette charge se pilote à l’instant, et presque tout cet atout tient dans cette armoire. Le gradateur suit un prix, ou un appel du réseau, et le village ne voit rien. Sa pire panne ? Un contacteur collé, qui laisse passer le courant quand l’ordre dit non."
+    },
+    {
+      "id": "part-resistor-bank",
+      "scope": "part:resistor-bank",
+      "title": "Batterie de résistances",
+      "scene": "plant-room",
+      "text": "C’est le moment où l’énergie change de nature. Le courant traverse les résistances, l’air qui passe devant se réchauffe, et presque rien n’est perdu. D’après un documentaire, à vérifier, cet air sort à environ cinq cents degrés. Mais sans air, l’élément n’a plus d’issue, et il brûle vite : essayez le scénario de la soufflante qui lâche. Une pompe à chaleur ferait mieux avec le même courant, mais elle n’irait pas si haut."
+    },
+    {
+      "id": "part-charge-blower",
+      "scope": "part:charge-blower",
+      "title": "Soufflante de charge",
+      "scene": "plant-room",
+      "text": "Elle pousse l’air à travers les résistances, puis dans le cœur. Et voici la surprise : quand la pierre chauffe, l’air revient chaud, moins dense, et elle en déplace moins. La puissance acceptée baisse d’elle-même, jusqu’au tiers à plein. Ce n’est donc pas l’électricité qui limite la fin d’une charge : c’est l’air."
+    },
+    {
+      "id": "part-discharge-blower",
+      "scope": "part:discharge-blower",
+      "title": "Soufflante de décharge",
+      "scene": "plant-room",
+      "text": "[[flows:on]] Voici la pièce la plus importante du labo. Elle tire l’air à travers la pierre, puis l’échangeur. Plus la pierre refroidit, plus il faut d’air pour porter un mégawatt. Un jour, la soufflante ne suit plus : à deux cent soixante-quinze degrés de moyenne, avec notre estimation. [[flows:off]] Selon les réglages inconnus, le silo rend à un mégawatt de quarante-six à cent trente-deux mégawattheures. Une seule ligne du constructeur suffirait à trancher !"
+    },
+    {
+      "id": "part-blower-drive",
+      "scope": "part:blower-drive",
+      "title": "Variateur",
+      "scene": "plant-room",
+      "text": "Le vrai robinet de la machine, le voici. Pas de registre étranglé : on règle la chaleur en faisant tourner la soufflante plus ou moins vite. Et là, joli cadeau de la physique : à mi-vitesse, elle consomme environ huit fois moins ! C’est un automatisme qui commande, en regardant l’eau qui part vers le village."
+    },
+    {
+      "id": "part-charge-damper",
+      "scope": "part:charge-damper",
+      "title": "Registre de charge",
+      "scene": "plant-room",
+      "text": "Un simple volet, qui ouvre une zone à l’air chaud. Dans ce labo, on charge le cœur tant qu’il prend au moins la moitié de l’offre, puis le milieu, puis le bord. À ces températures, le métal se déforme : l’étanchéité est difficile. Regardez-les bouger : ces volets suivent la simulation en direct."
+    },
+    {
+      "id": "part-discharge-damper",
+      "scope": "part:discharge-damper",
+      "title": "Registre de décharge",
+      "scene": "plant-room",
+      "text": "Le même volet, de l’autre côté. On décharge par l’extérieur, et le cœur reste chaud : on ne touche pas à sa réserve tant qu’il reste de quoi faire. Comme les deux boucles travaillent sur des zones différentes, le labo peut charger et décharger à la fois. C’est une hypothèse, poussée par un réseau qui ne peut pas attendre."
+    },
+    {
+      "id": "part-hot-air-duct",
+      "scope": "part:hot-air-duct",
+      "title": "Gaine d’air chaud",
+      "scene": "plant-room",
+      "text": "Un tuyau gros comme un homme, pour porter autant de puissance que quelques tuyaux d’eau ! L’air transporte mal la chaleur, mais il ne bout pas, ne gèle pas, et supporte très bien la température. Le constructeur tient à des gaines courtes : chaque mètre chaud est une perte. Et son habillage tiède ne dit rien de ce qui passe dedans."
+    },
+    {
+      "id": "part-cold-air-duct",
+      "scope": "part:cold-air-duct",
+      "title": "Gaine d’air froid",
+      "scene": "plant-room",
+      "text": "L’air revient et repart : c’est toujours le même. Froid, c’est vite dit : environ soixante degrés en sortie d’échangeur. Une boucle ouverte ferait entrer l’hiver dans la pierre, et jetterait la chaleur restante. Le mot batterie trompe : ni électrolyte, ni charge chimique. Une boucle d’air, c’est juste de la plomberie !"
+    },
+    {
+      "id": "part-air-water-exchanger",
+      "scope": "part:air-water-exchanger",
+      "title": "Échangeur air-eau",
+      "scene": "plant-room",
+      "text": "[[flows:on]] La seule pièce où l’air et l’eau se rencontrent, sans se mélanger. À contre-courant : l’air qui sort froid croise l’eau qui entre froide. C’est ici que se décide la fin de la chaleur utile. Quand l’air ne peut plus porter l’eau à quatre-vingt-cinq degrés, le reste demeure dans la pierre. [[flows:off]] Sa hantise, c’est une fuite : de l’eau sur un tube chaud devient de la vapeur, d’un coup."
+    },
+    {
+      "id": "part-dh-pump",
+      "scope": "part:dh-pump",
+      "title": "Pompe du réseau",
+      "scene": "plant-room",
+      "text": "[[flows:on]] Elle envoie l’eau vers le village, et l’automatisme ne regarde qu’une chose : la température de départ. Mieux vaut peu d’eau à la bonne température que beaucoup d’eau tiède. [[flows:off]] Quelques kilowatts ici, plus d’une dizaine pour déplacer l’air : l’eau gagne toujours cette comparaison."
+    },
+    {
+      "id": "part-heat-meter",
+      "scope": "part:heat-meter",
+      "title": "Compteur de chaleur",
+      "scene": "plant-room",
+      "text": "Un débit, un écart de température : voilà ce qui est vendu. Les rendements annoncés ne concordent pas. Environ quatre-vingts pour cent, plus de quatre-vingt-cinq après la première année. Sur le premier silo, de soixante à soixante-quinze. Notre simulation donne quatre-vingt-onze sur l’année, mais soixante-quatorze sur un cycle suivi d’une semaine de repos. Lisez le premier comme un plafond. Un rendement dit toujours sur quel cycle, ou il ne dit rien."
+    },
+    {
+      "id": "part-expansion-vessel",
+      "scope": "part:expansion-vessel",
+      "title": "Vase d’expansion",
+      "scene": "plant-room",
+      "text": "L’eau aussi grandit quand elle chauffe. Dans un circuit fermé, la pression monterait jusqu’à ouvrir une soupape. Alors ce réservoir à membrane lui offre un peu de place. Un appareil banal, pour une idée présente à tous les étages : tout ce qui chauffe grandit. Une soupape coule ? Regardez d’abord le vase."
+    },
+    {
+      "id": "part-control-cabinet",
+      "scope": "part:control-cabinet",
+      "title": "Armoire d’automatisme",
+      "scene": "plant-room",
+      "text": "Ici, le cerveau du silo. Il lit les prix et décide des heures de charge, selon l’algorithme d’un prestataire, qui reste secret. D’après l’exploitant, le courant de la première année a coûté de soixante-dix à quatre-vingts pour cent sous la moyenne. Et vous, ferez-vous mieux ? Le jeu de la leçon sur les heures bon marché vous met à sa place."
+    }
+  ]
+}

@@ -93,6 +93,8 @@ export const lab: LabDefinition<SandSim> = {
   },
   lessons: { items: LESSONS, intro: strL('lessonsIntro') },
   plans: { sheets: SHEETS, groups: PLAN_GROUPS, intro: strL('plansIntro') },
+  // spoken guide: audio and subtitles generated from narration/<lang>.json (see narration/README.md)
+  narration: { manifest: 'audio/{lang}/manifest.json' },
   simPanel: (ctx: AppContext<SandSim>) => new SimPanel(ctx),
   strip: { values: stripValues, clock: stripClock, alarms: stripAlarms, speeds: STRIP_SPEEDS },
   about: aboutPanel,
