@@ -206,8 +206,8 @@ const PANEL = {
   gameDelta: ['Écart', 'Difference'],
   gameBeat: ['Vous battez l’adversaire.', 'You beat the opponent.'],
   gameHint: [
-    'L’adversaire connaît toute la semaine et planifie sur un modèle simplifié ; il n’est pas imbattable sur le modèle complet.',
-    'The opponent knows the whole week and plans on a simplified model; it is not unbeatable on the full model.',
+    'L’adversaire connaît toute la semaine et planifie sur un modèle simplifié. Rien ne prouve qu’il soit imbattable sur le modèle complet, mais en tranches entières, nous ne l’avons pas battu.',
+    'The opponent knows the whole week and plans on a simplified model. Nothing proves it cannot be beaten on the full model, but with whole blocks we have not beaten it.',
   ],
   gameBoiler: ['dont chaudière', 'boiler included'],
   gameStock: ['dont stock final', 'final stock included'],

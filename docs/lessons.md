@@ -13,7 +13,7 @@ Six lessons, two questions each, every one opening on a scenario of the simulati
 
 ## The game
 
-Lesson 5 is written around the game as it stands: **blocks of three hours** in the simulation panel, section « À vous de jouer : peignez vos heures », and it says these blocks are a stopgap. When the kit's timeline widget arrives (`docs/kit-requests.md`, request 1), only that sentence of the lesson changes.
+Lesson 5 is written around the game as it stands: **blocks of three hours** in the simulation panel, section « À vous de jouer : peignez vos heures », and it says nothing of the widget to come (the review's D32: a backlog note is not for a visitor). When the kit's timeline widget arrives (`docs/kit-requests.md`, request 1), only that sentence of the lesson changes.
 
 ## What the lessons say about the model
 

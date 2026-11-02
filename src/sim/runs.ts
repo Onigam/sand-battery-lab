@@ -516,8 +516,8 @@ export interface GamePlan {
 
 /**
  * The opponent of the game. The optimiser plans on a tank (operate.ts); its plan and a few plain price thresholds then run through the full model, and
- * the cheapest week wins, so that the opponent is never beaten by a rule anyone can write. A player can still beat it by a little, which is
- * fair: it is not a proof of optimality on the full model.
+ * the cheapest week wins, so that the opponent is never beaten by a rule anyone can write. It is no proof of optimality on the full model: the review
+ * came no nearer than 15 € with whole blocks, and beat it by under a euro only by changing one block of its own plan, by the hour.
  */
 export function gamePlan(spec: SiloSpec, op: Operation, field: ArrayLike<number>, startDay = WINTER_DAY - 1): GamePlan {
   const p = createPlant(spec, 200);

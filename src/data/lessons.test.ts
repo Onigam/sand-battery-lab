@@ -109,7 +109,7 @@ describe('the lessons', () => {
     expect(en).not.toMatch(/\bmm\b|insulat\w+ of \d/);
   });
 
-  it('the fifth is written around the game as it stands: the name of its section, its blocks, and it calls them a stopgap', () => {
+  it('the fifth is written around the game as it stands: the name of its section, its blocks, and no word of the backlog', () => {
     const l5 = LESSONS.find((x) => x.id === 'the-cheap-hours')!;
     const en = l5.body.map((b) => b.en).join(' ');
     const fr = l5.body.map((b) => b.fr).join(' ');
@@ -118,7 +118,9 @@ describe('the lessons', () => {
     expect(en).toContain(section[1]);
     expect(en).toMatch(/three-hour blocks/);
     expect(fr).toMatch(/tranches de trois heures/);
-    expect(en).toMatch(/stopgap/);
+    expect(en).not.toMatch(/stopgap|waiting for|whisker/);
+    expect(fr).not.toMatch(/provisoire|attend un vrai|cheveu/);
+    expect(en).toMatch(/with whole blocks we have not beaten it/);
     expect(en).toMatch(/drawn by hand and labelled as such/);
     expect(en).toMatch(/The final stock counts/);
     expect(en).toMatch(/No price data ships with this lab/);
