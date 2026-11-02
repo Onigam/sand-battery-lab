@@ -6,7 +6,7 @@
 //   « résultat du modèle / model result » an output of the simulation (src/sim), held to it by data.test.ts;
 //   « hypothèse / assumption »           a value the model needs and no source gives;
 //   « estimation / estimate »            a dimension or an order of magnitude no source gives.
-// The panel of the simulation writes † and * in its figures, with one legend. A part sheet has no legend, so it writes the words.
+// The panel of the simulation writes † (a model result) and * (an estimate) in its figures, with one legend; the drawings ‡ (derived) and *. A part sheet has no legend, so it writes the words.
 // Nothing here is copied from a transcript or from a source: facts and figures only, in the lab's own words.
 import type { Spec } from '@onigam/lab-kit/content';
 import { l, type L } from '@onigam/lab-kit/i18n';

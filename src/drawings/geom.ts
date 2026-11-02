@@ -1,12 +1,12 @@
 // Numbers of the sheets: every length is read from the single source of dimensions (src/three/dims.ts, metres), every model result from src/data/figures.ts, and each carries its status so
-// that a sheet can mark it: no mark, given by a source; † derived from reported figures; * an estimate. Model results carry no mark: they sit in a red box that says so. Every number that a label
+// that a sheet can mark it: no mark, given by a source; ‡ derived from reported figures; * an estimate. † is the lab's mark for a model result, and the same in the simulation panel: on a sheet a model result sits in a red box that says so, and carries no mark. Every number that a label
 // prints goes through `lab` here, which also records it in `PRINTED`, so that the test can tell a printed number from a typed one.
 import { l, type L } from '@onigam/lab-kit/i18n';
 import { FIG } from '../data/figures';
 import { nEn, nFr } from '../data/units';
 
 export type Status = 'R' | 'D' | 'E' | 'M';
-export const MARK: Record<Status, string> = { R: '', D: '†', E: '*', M: '' };
+export const MARK: Record<Status, string> = { R: '', D: '‡', E: '*', M: '' };
 
 /** Every number a sheet has printed through `lab`, for the test. */
 export const PRINTED = new Set<number>();

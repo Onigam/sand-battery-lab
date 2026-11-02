@@ -153,7 +153,7 @@ describe('the render', () => {
     ])
       expect(flat(id, 'en'), id).toMatch(/MODEL RESULT · not a measurement/);
     expect(flat('silo-section', 'en')).toMatch(/0\.45 m\*/);
-    expect(flat('silo-section', 'en')).toMatch(/0\.50 m†/);
+    expect(flat('silo-section', 'en')).toMatch(/0\.50 m‡/);
     expect(flat('silo-section', 'fr')).toMatch(/0,45 m\*/);
     // the official dimensions carry no mark
     for (const t of ['13 m', '15 m', '14 m', '6 m']) {
@@ -207,7 +207,7 @@ describe('the sheets against the sources of their numbers', () => {
 
   it('the balance prints the figures of the texts', () => {
     const t = flat('energy-balance', 'en');
-    for (const s of ['69 MWh', '105 MWh', '43 MWh', '32%', '48%', '20%', '91%', '4.6%', '4.3%', '217 MWh†'])
+    for (const s of ['69 MWh', '105 MWh', '43 MWh', '32%', '48%', '20%', '91%', '4.6%', '4.3%', '217 MWh‡'])
       expect(t, s).toContain(s);
     const c = powerCurve();
     expect(Math.round(c[0]!.usable)).toBe(MODEL.usable);
@@ -216,7 +216,7 @@ describe('the sheets against the sources of their numbers', () => {
     expect(Math.abs(c[3]!.usable - MODEL.usableSummer)).toBeLessThan(3);
     // the maker's figure is a dashed line, never a point of the model
     expect(t).toMatch(/up to 100 MWh quoted, power unsaid/);
-    expect(t).not.toMatch(/100 MWh†/);
+    expect(t).not.toMatch(/100 MWh[†‡]/);
   });
 
   it('the blower curve is the model’s, not typed: more blower, more MWh at 1 MW', () => {

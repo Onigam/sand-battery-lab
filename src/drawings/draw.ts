@@ -244,7 +244,7 @@ export function marksLegend(
   const rows: LegendRow[] = [
     { sym: mark('123'), text: words.reported ?? l('donnée par une source (environ)', 'given by a source (about)') },
     {
-      sym: mark('123†'),
+      sym: mark('123‡'),
       text: words.derived ?? l('dérivée de chiffres rapportés', 'derived from reported figures'),
     },
     {

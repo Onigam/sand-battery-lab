@@ -17,7 +17,7 @@ Ten A3 sheets (`src/drawings/`), every length read from `src/three/dims.ts`, eve
 
 ## Marks
 
-No mark: given by a source. `†`: derived from reported figures. `*`: an estimate. The legend is on the sheets that carry dimensions. **A model result carries no mark: it sits under a red box that says MODEL RESULT, not a measurement, and is written in red where it stands alone.** The panel of the simulation uses `†` for a model result: `docs/data.md` flags the difference.
+No mark: given by a source. `‡`: derived from reported figures. `*`: an estimate. The legend is on the sheets that carry dimensions. **A model result carries no mark on a sheet: it sits under a red box that says MODEL RESULT, not a measurement, and is written in red where it stands alone.** `†` means a model result wherever it appears, which is the simulation panel: the lead settled it so (`docs/data.md`).
 
 « Reconstruction » is said by the title block (`configureDrawings` in `src/drawings/index.ts`) and nowhere else on a sheet. The kit's default red line, « à vérifier avant fabrication », would suggest the opposite of what these sheets are.
 
