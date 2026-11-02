@@ -31,6 +31,8 @@ export const WORLD = {
   silo: {
     /** The section is the hero of this world: a quarter is already open, the tool opens the half. */
     cutaway: true,
+    /** Slow motion only scales what turns: nothing does here, and without it the toolbar keeps to one row at 1280 px. */
+    slowMo: false,
     partPadding: 1.9,
     stepFrame: { padding: 1.5, minRadius: 2 },
     /** Parts made transparent by X-ray while nothing is selected: the shell, so the stone and the pipes read. */
@@ -45,6 +47,7 @@ export const WORLD = {
   },
   'pipe-cell': {
     cutaway: true,
+    slowMo: false,
     partPadding: 1.9,
     stepFrame: { padding: 1.5, minRadius: 0.5 },
     xrayShell: (id: string): boolean => id === 'core-zone' || id === 'outer-zone',
