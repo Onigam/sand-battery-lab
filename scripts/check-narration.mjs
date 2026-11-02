@@ -11,6 +11,8 @@ const problems = [];
 for (const lang of existsSync(audio) ? readdirSync(audio) : []) {
   const dir = join(audio, lang);
   if (!statSync(dir).isDirectory()) continue;
+  // a language folder with no manifest holds no finished audio (cleared, or being generated): nothing to check yet
+  if (!existsSync(join(dir, 'manifest.json'))) continue;
   const manifest = JSON.parse(readFileSync(join(dir, 'manifest.json'), 'utf8'));
   const scriptPath = join(root, 'narration', `${lang}.json`);
   const script = existsSync(scriptPath) ? JSON.parse(readFileSync(scriptPath, 'utf8')) : null;
