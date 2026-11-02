@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { PartRegistry, clamp, damp, mesh } from '@onigam/lab-kit/three';
+import { clamp, damp, mesh } from '@onigam/lab-kit/three';
 import type { Hotspot, SceneModule } from '@onigam/lab-kit/three';
 import type { SandState } from '../../sim/types';
 import { FlowDots, softDotTexture, v3 } from '../common';
@@ -7,7 +7,7 @@ import { applyWear } from '../detail';
 import { AZIMUTH, DEG, LEVEL, RISERS, SITE, siteFromSilo, wallPoint } from '../dims';
 import { bodyMaterials, buildBody, buildWallRisers, type BodyPieces, type WallRisers } from '../machine/silo';
 import { mergeStatic } from '../merge';
-import { anchor, hotspots, type HotspotDef } from '../world';
+import { FramedRegistry, anchor, hotspots, type HotspotDef } from '../world';
 import {
   buildBoiler,
   buildSchool,
@@ -21,6 +21,7 @@ import {
   buildAnnex,
   buildCellar,
   buildFence,
+  buildHoleFloor,
   buildLine,
   buildSolar,
   buildTransformer,
@@ -75,21 +76,24 @@ const HOTSPOTS: HotspotDef[] = [
   { id: 'house-substation', fr: 'Sous-station d’une maison', en: 'A house substation', minor: true },
 ];
 
-/** Explode offsets, site frame, metres: every part rises by its own amount, the silo the least. */
+/**
+ * Explode offsets: none. A village does not come apart: the school hung 9 m up and the trench rose as a frame (review D7), and it taught nothing. The tool stays on the toolbar until the kit can
+ * hide it (`docs/kit-requests.md`), and doing nothing is better than breaking the picture.
+ */
 export const EXPLODE: Record<SitePartId, [number, number, number]> = {
   'silo-exterior': [0, 0, 0],
-  'dh-riser': [-3, 2, 3],
-  'cable-riser': [3, 2, 2],
-  'electrical-annex': [4, 4, 4],
-  'pad-transformer': [3, 6, 5],
-  'power-line': [0, 7, 0],
-  'solar-field': [0, 5, -3],
+  'dh-riser': [0, 0, 0],
+  'cable-riser': [0, 0, 0],
+  'electrical-annex': [0, 0, 0],
+  'pad-transformer': [0, 0, 0],
+  'power-line': [0, 0, 0],
+  'solar-field': [0, 0, 0],
   'wind-farm': [0, 0, 0],
-  'chip-boiler-plant': [0, 7, -2],
-  'boiler-stack': [-3, 11, -3],
-  'dh-trench': [0, 5, 0],
-  'village-school': [0, 9, 0],
-  'house-substation': [0, 4, 0],
+  'chip-boiler-plant': [0, 0, 0],
+  'boiler-stack': [0, 0, 0],
+  'dh-trench': [0, 0, 0],
+  'village-school': [0, 0, 0],
+  'house-substation': [0, 0, 0],
 };
 
 export interface SiteScene extends SceneModule<SandState> {
@@ -123,7 +127,7 @@ export function createSiteScene(_opts: SiteOptions = {}): SiteScene {
   scene.name = 'site';
   // a little brighter than the kit's default: snow under a low sun must read white, not grey
   scene.userData.look = { exposure: 1.18 };
-  const registry = new PartRegistry();
+  const registry = new FramedRegistry();
   const sky = createSky(scene);
   sky.focusShadow(V(-14, 0, 8), 78);
 
@@ -138,6 +142,9 @@ export function createSiteScene(_opts: SiteOptions = {}): SiteScene {
   // ---- the land and the plants
   const terrain = buildTerrain(forestMask);
   scene.add(terrain.mesh);
+  // the land's holes have their own bottom: a part that is hidden leaves earth, not the sky
+  const holes = buildHoleFloor();
+  scene.add(holes);
   const plan = planVegetation();
   const vegetation = buildVegetation(plan);
   scene.add(vegetation.group);
@@ -263,15 +270,15 @@ export function createSiteScene(_opts: SiteOptions = {}): SiteScene {
   // the silo's root turns: its anchor in its own frame, at the top of the wall on the side towards the road
   at('silo-exterior', ...(wallPoint(-110, 4, LEVEL.apex + 1.2) as [number, number, number]));
   at('dh-riser', ...(wallPoint(AZIMUTH.water, RISERS.axisR + 0.5, 6) as [number, number, number]));
-  at('cable-riser', ...(wallPoint(AZIMUTH.cable, RISERS.axisR + 0.2, 7) as [number, number, number]));
-  at('electrical-annex', ...(wallPoint(AZIMUTH.cable, 9.5, SITE.annex.height + 0.6) as [number, number, number]));
-  at('pad-transformer', SITE.transformer.x, 3, SITE.transformer.z);
-  at('power-line', ...lineAnchor());
-  at('solar-field', SITE.solar.x0 + 11, 4.2, SITE.solar.z0 + 20);
+  at('cable-riser', -6.53, 10.75, -4.07);
+  at('electrical-annex', -8.52, 1.54, -7.29);
+  at('pad-transformer', 7.6, 0.2, 15.9);
+  at('power-line', 10.91, 7.06, 15.1);
+  at('solar-field', 37.05, 0.77, -61.49);
   const [wx, wz] = SITE.wind.turbines[1];
   at('wind-farm', wx, wind.feet[1].y + SITE.wind.hub * 0.75, wz);
-  at('chip-boiler-plant', SITE.boiler.x - 3, SITE.boiler.height + 13, SITE.boiler.z);
-  at('boiler-stack', boiler.stackTop.x, boiler.stackTop.y + 1, boiler.stackTop.z);
+  at('chip-boiler-plant', SITE.boiler.x - 3, SITE.boiler.height + 6.5, SITE.boiler.z);
+  at('boiler-stack', boiler.stackTop.x, 14, boiler.stackTop.z);
   at('dh-trench', -26, 1.3, SITE.trench.path[3][1]);
   at(
     'village-school',
@@ -279,9 +286,28 @@ export function createSiteScene(_opts: SiteOptions = {}): SiteScene {
     SITE.school.storeys * SITE.school.storeyH + SITE.school.roofH + 1,
     SITE.school.z,
   );
-  at('house-substation', (SITE.cellar.x0 + SITE.cellar.x1) / 2, 2, (SITE.cellar.z0 + SITE.cellar.z1) / 2);
+  at('house-substation', -64.9, -0.99, 21.28);
 
   for (const id of SITE_PARTS) registry.add(id, roots[id], V(...EXPLODE[id]));
+  // what is too long to frame whole, framed where it reads: the first pole and its span over the transformer, one turbine, the corner of the trench that looks at the road
+  const [p0, p1] = SITE.line.poles;
+  registry.setFocus(
+    'power-line',
+    new THREE.Box3(
+      V(Math.min(p0[0], SITE.transformer.x) - 1, 0, p1[1] - 1),
+      V((p0[0] + p1[0]) / 2, SITE.line.poleH + 1, p0[1] + 1),
+    ),
+  );
+  const turbine = wind.feet[1];
+  registry.setFocus(
+    'wind-farm',
+    new THREE.Box3(
+      V(turbine.x - SITE.wind.rotorR, turbine.y, turbine.z - 8),
+      V(turbine.x + SITE.wind.rotorR, turbine.y + SITE.wind.hub + SITE.wind.rotorR, turbine.z + 8),
+    ),
+  );
+  const [cx, cz] = SITE.trench.path[2];
+  registry.setFocus('dh-trench', new THREE.Box3(V(cx - 5, -SITE.trench.depth, cz - 8), V(cx + 3, 0.6, cz + 2)));
 
   // ---- « Flux »: the current along the line and up the wall, the hot water out, the cool water back
   const current = new FlowDots(150, { color: 0xffb24d, size: 5, pixels: true, throughWalls: true, opacity: 0.95 });
@@ -335,7 +361,7 @@ export function createSiteScene(_opts: SiteOptions = {}): SiteScene {
     flows: { current, hot, cool },
     smoke,
     sun: sky.sun,
-    scenery: () => [terrain.mesh, fence, houses, substationHouse],
+    scenery: () => [terrain.mesh, fence, houses, substationHouse, holes],
     drawn,
     siloFrame: new THREE.Matrix4().compose(
       V(SITE.silo.x, 0, SITE.silo.z),
@@ -367,7 +393,7 @@ export function createSiteScene(_opts: SiteOptions = {}): SiteScene {
       drawn.leaves = leavesOf(s.winter);
       SNOW.value = drawn.snow;
       LEAVES.value = drawn.leaves;
-      vegetation.meshes.find((m) => m.name === 'birch-leaves')!.visible = drawn.leaves > 0.02;
+      for (const m of vegetation.meshes) if (m.name.startsWith('birch-leaves')) m.visible = drawn.leaves > 0.02;
 
       // the turbines: cheap hours are windy hours, by the shape of the drawn week; a visual speed, always readable
       const windy = clamp(1.1 - s.price / 140, 0.15, 1);
@@ -408,9 +434,4 @@ export function createSiteScene(_opts: SiteOptions = {}): SiteScene {
     },
   };
   return mod;
-}
-
-function lineAnchor(): [number, number, number] {
-  const [x, z] = SITE.line.poles[1];
-  return [x, SITE.line.poleH + 1.4, z];
 }

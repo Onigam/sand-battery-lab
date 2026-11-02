@@ -23,18 +23,24 @@ The silo is turned by `SITE.silo.yawDeg` so that its pipes and its cable face th
 
 ## The land
 
-One mesh on a graded grid, 170 × 170 cells: about 1.7 m in the middle, about 160 m at the horizon. A flat clearing, low rolling land, a far ridge. Each building, the yard and the trench have a pad: flat to the millimetre (tested), blended into the land by a margin. Grass, gravel, road, dug earth and snow are computed per pixel from the same shapes as `terrainHeight`, so an edge never depends on the grid. The trench and the cellar are exact holes discarded in the shader, their walls built from the same lines.
+One mesh on a graded grid, 170 × 170 cells: about 1.7 m in the middle, about 160 m at the horizon. A flat clearing, low rolling land, a far ridge. Each building, the yard and the trench have a pad: flat to the millimetre (tested), blended into the land by a margin. Grass, gravel, road, dug earth and snow are computed per pixel from the same shapes as `terrainHeight`, so an edge never depends on the grid. The trench and the cellar are exact holes discarded in the shader, their walls built from the same lines. A plate of earth lies under them (`buildHoleFloor`, scenery, no part): when a part is isolated and the trench's walls are hidden, the eye finds earth, not the sky, and it closes the round end of the hole around the riser's feet.
+
+The yard's gravel is stones packed edge to edge, of uneven size, each its own tone, two scales in the land's shader that never line up, and a slow wash over them: a soft disc on a darker ground read as polka dots.
+
+The glass of the solar field takes no snow: tilted at 40° and dark, it sheds what falls on it. Its frames keep theirs. With the snow patch the glass read as brown shingles in winter.
 
 The forest floor darkens with distance under the canopy (`aForest`, from `forestMask`): from afar a forest reads as a mass, not as cones on snow.
 
 ## The plants (instanced, all from unit geometries)
 
-| Species      | Count  | Triangles each | Note                                                                                                         |
-| ------------ | ------ | -------------- | ------------------------------------------------------------------------------------------------------------ |
-| Spruce, near | ~460   | 504 / 108      | trunk, whorls of drooping boughs with a dark keel; under 150 m full, beyond it fewer boughs and no keel      |
-| Young spruce | ~130   | 84             | the forest comes down in steps                                                                               |
-| Birch        | ~110   | ~1,000 / ~300  | white bark with lenticels, rising branches, twigs that hang (near only), a broken crown that falls in winter |
-| Far forest   | ~3,400 | 12             | two stacked cones                                                                                            |
+| Species      | Count  | Triangles each | Note                                                                                                                 |
+| ------------ | ------ | -------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Spruce, near | ~460   | 504 / 108      | trunk, whorls of drooping boughs with a dark keel; under 150 m full, beyond it fewer boughs and no keel              |
+| Young spruce | ~130   | 84             | the forest comes down in steps                                                                                       |
+| Birch        | ~110   | ~2,000 / ~800  | white bark with lenticels, rising branches, twigs that hang (near only), a crown of leaf sprays that falls in winter |
+| Far forest   | ~3,400 | 12             | two stacked cones                                                                                                    |
+
+A birch's crown is cards of a procedural leaf map, cut out by `alphaTest`, hanging along drooping shoots: 504 cards under 90 m, 176 beyond. Its normals are mostly those of the crown as one mass, and it takes no shadow of its own, so that it is lit soft: solid lumps read as boulders on a stick, the owner's old « jellyfish ». It adds 73,000 triangles in leaf, and nothing in winter.
 
 Every tree stands on `terrainHeight`, off the pads, the road, the line and the trench (tested), and keeps out of the corridor of the home view. Past 130 m (trees) and 150 m (far forest) the many faces blend to one mean colour and one lit surface: that is what stops a forest of dark boughs on white snow from crawling.
 

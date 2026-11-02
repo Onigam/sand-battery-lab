@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { MAT, PAPER_STUDIO, PartRegistry, mesh, rng } from '@onigam/lab-kit/three';
+import { MAT, PAPER_STUDIO, mesh, rng } from '@onigam/lab-kit/three';
 import type { Hotspot, SceneModule } from '@onigam/lab-kit/three';
 import type { MediumId } from '../../sim/silo';
 import type { SandState } from '../../sim/types';
@@ -21,7 +21,8 @@ import {
   type UPipe,
 } from '../machine/pipes';
 import { mergeStatic } from '../merge';
-import { anchor, hotspots, workshopScene, type HotspotDef } from '../world';
+import { buildHeatScale, type HeatScale } from '../scale';
+import { FramedRegistry, anchor, hotspots, workshopScene, type HotspotDef } from '../world';
 
 // The `pipe-cell` world: one block of the bed around a few pipes, then the grains. Two blocks about 2 m wide stand side by side, one from the core and one from the outer zone, on the
 // base they stand on in the silo. A quarter of each is taken away, the section shows the U-pipes in the stone. The stone's colour is the fine profile the model gives around a
@@ -45,9 +46,11 @@ const HOTSPOTS: HotspotDef[] = [
   { id: 'core-zone', fr: 'Zone de cœur', en: 'Core zone' },
   { id: 'outer-zone', fr: 'Périphérie', en: 'Outer zone' },
   { id: 'heat-pipe', fr: 'Tube d’échange', en: 'Heat-transfer pipe' },
-  { id: 'expansion-loop', fr: 'Lyre de dilatation', en: 'Expansion loop' },
   { id: 'quartz-sand', fr: 'Sable de quartz', en: 'Quartz sand' },
   { id: 'crushed-soapstone', fr: 'Pierre ollaire', en: 'Soapstone' },
+  // the scale of the false colour; a click selects the block
+  { id: 'core-zone#scale', fr: '0 à 600 °C', en: '0 to 600 °C' },
+  { id: 'expansion-loop', fr: 'Lyre de dilatation', en: 'Expansion loop', minor: true },
   { id: 'return-bend', fr: 'Coude de retour', en: 'Return bend', minor: true },
   { id: 'pipe-spacer', fr: 'Entretoise de tubes', en: 'Pipe spacer', minor: true },
   { id: 'branch-header', fr: 'Collecteur de branche', en: 'Branch header', minor: true },
@@ -66,6 +69,19 @@ export const EXPLODE: Record<CellPartId, [number, number, number]> = {
   'crushed-soapstone': [0.9, 0, 0.8],
 };
 
+/** The legend stands on the paper, in line with the gap between the two blocks as the overview sees them: a short bar beside both their colours, in front of neither open quarter. */
+export const SCALE = {
+  x: 0.55,
+  z: 2.15,
+  baseY: 0,
+  width: 0.26,
+  depth: 0.05,
+  y0: 0.32,
+  y1: 2.1,
+  footR: 0.24,
+  yaw: 0.42,
+};
+
 export interface PipeCellOptions {
   /** The model's profile around a pipe: `SandSim.getPipeProfile`. */
   profile?: (ring: number, layer: number, points?: number) => { rho: number[]; T: number[]; wallT: number };
@@ -73,6 +89,7 @@ export interface PipeCellOptions {
 }
 
 export interface PipeCellScene extends SceneModule<SandState> {
+  scale: HeatScale;
   cuts: { core: WedgeCut; outer: WedgeCut };
   /** The legs, bends and loops of the two blocks, as instance data (the tests read them). */
   layout: { core: UPipe[]; outer: UPipe[] };
@@ -277,7 +294,7 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
   }
   scene.add(paperFloor(26, 8, 0, [7, 24]));
 
-  const registry = new PartRegistry();
+  const registry = new FramedRegistry();
   const stoneKind = { value: 'soapstone' as 'soapstone' | 'sand' };
   const reveal = new StoneReveal();
   const roots = {} as Record<CellPartId, THREE.Group>;
@@ -476,6 +493,11 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
     ),
   );
 
+  // the legend
+  const scale = buildHeatScale(SCALE);
+  scene.add(scale.group);
+  mergeStatic(scale.group, { name: 'heat-scale', scope: 'pipe-cell', colours: false });
+
   // merge the small static pieces
   mergeStatic(plinths, { name: 'plinths', scope: 'pipe-cell' });
   for (const id of ['heat-pipe', 'return-bend', 'expansion-loop', 'branch-header', 'pipe-spacer'] as const) {
@@ -492,14 +514,22 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
   at('core-zone', CELL.coreX - CELL_HALF * 0.55, LEVEL.bedBottom + 1.7, CELL_HALF);
   at('outer-zone', CELL.outerX - CELL_HALF * 0.82, LEVEL.bedTop - 0.5, 0.02);
   at('heat-pipe', CELL.coreX + 0.75, LEVEL.bedBottom + 3.3, 0.05);
-  at('return-bend', CELL.outerX + 0.5, PIPE.legBottom - PIPE.bendR, 0.05);
-  at('pipe-spacer', CELL.outerX + 0.75, PIPE.spacerYs[1], 0.5);
-  at('expansion-loop', CELL.coreX + 0.25, PIPE.legTop + 0.2, 0.05);
-  at('branch-header', CELL.outerX, PIPE.headerY + 0.15, 0.1);
+  // on what is framed when they are selected, the open quarter of the core block
+  at('return-bend', CELL.coreX + 0.5, PIPE.legBottom - PIPE.bendR, 0.5);
+  at('pipe-spacer', CELL.coreX + 0.75, PIPE.spacerYs[1], 0.5);
+  at('expansion-loop', CELL.coreX + 0.75, PIPE.legTop + 0.03, 0.5);
+  at('branch-header', -0.51, 7.56, -0.59);
   at('quartz-sand', CELL.tray.sandX - 0.2, CELL.tray.standH + 0.34, CELL.tray.z);
   at('crushed-soapstone', CELL.tray.soapX - 1.45, CELL.tray.standH + 0.34, CELL.tray.z + 0.2);
+  anchors['core-zone#scale'] = scale.anchorAt(100);
 
   for (const id of CELL_PARTS) registry.add(id, roots[id], V(...EXPLODE[id]));
+  // what stands inside the blocks is framed where a block is open, the quarter of the core block
+  const opening = (y0: number, y1: number) =>
+    new THREE.Box3(V(CELL.coreX - 0.1, y0, -0.1), V(CELL.coreX + CELL_HALF + 0.05, y1, CELL_HALF + 0.05));
+  registry.setFocus('heat-pipe', opening(LEVEL.bedBottom, LEVEL.bedTop));
+  registry.setFocus('pipe-spacer', opening(PIPE.spacerYs[1] - 0.7, PIPE.spacerYs[1] + 0.7));
+  registry.setFocus('return-bend', opening(LEVEL.bedBottom - 0.1, PIPE.legBottom + 1));
 
   // ---- the air in one pipe: dots down the leg and up its neighbour
   const dots = new FlowDots(80, { color: 0xffffff, size: 7, pixels: true, throughWalls: true, opacity: 0.95 });
@@ -535,10 +565,11 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
     scene,
     registry,
     hotspots: hotspots(HOTSPOTS, anchors) as Hotspot[],
+    scale,
     cuts,
     layout: { core: us, outer: us },
     profiles,
-    scenery: () => [plinths],
+    scenery: () => [plinths, scale.group],
     dots,
     home: { position: V(5.4, 7.4, 12.2), target: V(0, 3.4, 0.2) },
     minDistance: 0.5,

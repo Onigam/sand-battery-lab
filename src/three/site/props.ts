@@ -366,11 +366,8 @@ export function buildSolar(m: BuildingMaterials): SolarBuild {
   const tilt = S.tiltDeg * DEG;
   const panelCount = S.rows * S.panels;
   const panelGeo = new THREE.BoxGeometry(S.panelW - 0.02, 0.04, S.panelL);
-  const panelMat = patchSnow(new THREE.MeshStandardMaterial({ color: 0x18284a, roughness: 0.22, metalness: 0.65 }), {
-    lo: 0.25,
-    hi: 0.7,
-    gain: 0.22,
-  });
+  // no snow on the glass: tilted at 40° and dark, it sheds what falls on it; a patch of snow on a metal this glossy read as brown shingles (review D12)
+  const panelMat = new THREE.MeshStandardMaterial({ color: 0x18284a, roughness: 0.22, metalness: 0.65 });
   const panels = new THREE.InstancedMesh(panelGeo, panelMat, panelCount);
   panels.name = 'panels';
   panels.castShadow = true;
@@ -701,6 +698,39 @@ export function buildTrench(m: BuildingMaterials, risers: WallRisers, yaw: numbe
     floorY,
     pipeY,
   };
+}
+
+/**
+ * The bottom of the land's holes, scenery and no part: the land is discarded over the trench and the cellar, and when their walls are hidden (isolate) the eye must find earth, not the sky (review
+ * D7). It also closes the round end of the trench's hole around the riser's feet (D41). A wide plate under the ground: nothing shows of it but what is seen through a hole, down to a low sun's angle.
+ */
+export function buildHoleFloor(): THREE.Mesh {
+  const T = SITE.trench;
+  const C = SITE.cellar;
+  const parts: THREE.BufferGeometry[] = [];
+  const reach = 5;
+  const y = -T.depth - 0.04;
+  for (const line of [T.path, T.schoolSpur, T.boilerSpur]) {
+    for (let i = 0; i < line.length - 1; i++) {
+      const [ax, az] = line[i];
+      const [bx, bz] = line[i + 1];
+      const L = Math.hypot(bx - ax, bz - az);
+      const plate = new THREE.BoxGeometry(L + 2 * reach, 0.02, 2 * reach);
+      plate.rotateY(-Math.atan2(bz - az, bx - ax));
+      plate.translate((ax + bx) / 2, y, (az + bz) / 2);
+      parts.push(plate);
+    }
+  }
+  parts.push(
+    box((C.x0 + C.x1) / 2, -C.depth - 0.04, (C.z0 + C.z1) / 2, C.x1 - C.x0 + 2 * reach, 0.02, C.z1 - C.z0 + 2 * reach),
+  );
+  const earth = new THREE.MeshStandardMaterial({ color: 0x3d3023, roughness: 1 });
+  const m = mesh(joined(parts), earth);
+  m.name = 'hole-floor';
+  m.castShadow = false;
+  m.receiveShadow = false;
+  m.userData.noShadow = true;
+  return m;
 }
 
 /** A low ridge of dug earth along a line, irregular: rows of points across and along, its edges on the ground. */

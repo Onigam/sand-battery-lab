@@ -1,9 +1,8 @@
 import * as THREE from 'three';
-import { mergeVertices } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { rng } from '@onigam/lab-kit/three';
 import { smoothstep } from '../common';
 import { SITE } from '../dims';
-import { birchBarkMap, fbm, foliageMap, spruceBarkMap, vnoise } from '../textures';
+import { birchBarkMap, fbm, leafSprayMap, spruceBarkMap } from '../textures';
 import { LEAVES, patchSnow } from './snow';
 import { HOUSES, PADS, polyDistance, roadZ, terrainHeight } from './terrain';
 
@@ -313,71 +312,67 @@ function birchWood(seed: number, twigs: boolean): THREE.BufferGeometry {
   return m.build();
 }
 
-const unitIco = new Map<number, THREE.BufferGeometry>();
-function ico(detail: number): THREE.BufferGeometry {
-  let g = unitIco.get(detail);
-  if (!g) {
-    const raw = new THREE.IcosahedronGeometry(1, detail);
-    raw.deleteAttribute('normal');
-    raw.deleteAttribute('uv');
-    g = mergeVertices(raw, 1e-4);
-    unitIco.set(detail, g);
-  }
-  return g;
-}
-
-/** Puffs of small leaves: a displaced lobe. */
-function lobe(
-  m: Mesher,
-  cx: number,
-  cy: number,
-  cz: number,
-  rx: number,
-  ry: number,
-  rz: number,
-  lo: THREE.Color,
-  hi: THREE.Color,
-  seed: number,
-  detail = 1,
-): void {
-  const g = ico(detail);
-  const p = g.attributes.position;
-  const ix = g.index!;
-  const base = m.n;
-  const tmp = new THREE.Color();
-  for (let i = 0; i < p.count; i++) {
-    const ux = p.getX(i);
-    const uy = p.getY(i);
-    const uz = p.getZ(i);
-    const f = 1 + 0.32 * (vnoise(ux * 2.3 + seed, uy * 2.3 + uz * 1.7 + seed * 0.7) - 0.5) * 2;
-    tmp
-      .copy(lo)
-      .lerp(hi, smoothstep(-0.8, 0.9, uy))
-      .multiplyScalar(0.88 + 0.24 * vnoise(ux * 3.1 + seed * 1.3, uz * 3.1 + uy * 2));
-    const x = cx + ux * rx * f;
-    const y = cy + uy * ry * f;
-    const z = cz + uz * rz * f;
-    m.vert(x, y, z, tmp, (x + 0.5 * z) * 9, (y + 0.3 * z) * 9);
-  }
-  for (let i = 0; i < ix.count; i++) m.idx.push(base + ix.getX(i));
-}
-
-/** A birch's crown: many small puffs along the branches, light and airy, an oval that hangs a little. */
-function birchLeaves(seed: number): THREE.BufferGeometry {
+/**
+ * A birch's crown: an airy, narrow oval of small sprays of leaves that hang along drooping shoots, so that the white trunk and the sky show through. Each spray is two crossed cards of the leaf map
+ * (review D10: lumps of solid geometry read as boulders on a stick, the owner's « jellyfish »). `shoots` and `perShoot` set how many: the near trees have them all; the far ones fewer, larger, which
+ * reads the same from there. The normals are mostly those of the crown as one mass, so that it is lit soft.
+ */
+function birchLeaves(seed: number, shoots: number, perShoot: number, size: number): THREE.BufferGeometry {
   const m = new Mesher();
   const r = rng(seed);
-  const lo = C(0x4e6a26);
-  const hi = C(0xa4bc55);
-  const N = 26;
-  for (let i = 0; i < N; i++) {
-    const f = i / (N - 1);
-    const y = 0.42 + 0.56 * f;
+  const inner = C(0x4a6236);
+  const outer = C(0xa2b56a);
+  const tmp = new THREE.Color();
+  const U = new THREE.Vector3();
+  const V = new THREE.Vector3();
+  const quad = (c: THREE.Vector3, u: THREE.Vector3, v: THREE.Vector3, col: THREE.Color, u0: number, v0: number) => {
+    const a = m.vert(c.x - u.x - v.x, c.y - u.y - v.y, c.z - u.z - v.z, col, u0, v0);
+    const b = m.vert(c.x + u.x - v.x, c.y + u.y - v.y, c.z + u.z - v.z, col, u0 + 0.6, v0);
+    const d = m.vert(c.x + u.x + v.x, c.y + u.y + v.y, c.z + u.z + v.z, col, u0 + 0.6, v0 + 0.6);
+    const e = m.vert(c.x - u.x + v.x, c.y - u.y + v.y, c.z - u.z + v.z, col, u0, v0 + 0.6);
+    m.tri(a, b, d);
+    m.tri(a, d, e);
+  };
+  const P = new THREE.Vector3();
+  for (let i = 0; i < shoots; i++) {
+    const f = i / (shoots - 1);
+    // the shoot starts near the trunk, arches outward, then hangs
+    const y0 = 0.4 + 0.58 * f;
     const a = i * 2.399 + r() * 0.5;
-    const rad = (0.2 - 0.14 * f) * (0.55 + 0.75 * r()) * smoothstep(0.32, 0.5, y + 0.1);
-    const s = 0.062 + 0.05 * (1 - f) * r() + 0.018;
-    lobe(m, Math.cos(a) * rad, y, Math.sin(a) * rad, s * 1.15, s * 0.9, s * 1.15, lo, hi, seed + i, 0);
+    const reach = (0.17 - 0.125 * f) * (0.75 + 0.5 * r()) * smoothstep(0.34, 0.56, y0);
+    for (let k = 0; k < perShoot; k++) {
+      const t = (k + 0.35 + 0.3 * r()) / perShoot;
+      const rad = reach * (0.2 + 1.0 * t);
+      const y = y0 + reach * (0.5 * t - 1.5 * t * t);
+      const side = (r() - 0.5) * 0.05;
+      P.set(Math.cos(a) * rad - Math.sin(a) * side, y, Math.sin(a) * rad + Math.cos(a) * side);
+      const s = size * (0.8 + 0.5 * r());
+      const yaw = r() * Math.PI * 2;
+      tmp
+        .copy(inner)
+        .lerp(outer, smoothstep(0.1, 1, t) * 0.75 + 0.25 * r())
+        .multiplyScalar(0.92 + 0.16 * r());
+      for (let c = 0; c < 2; c++) {
+        const b = yaw + (c * Math.PI) / 2;
+        U.set(Math.cos(b) * s, (r() - 0.5) * s * 0.5, Math.sin(b) * s);
+        // a card hangs: nearer upright than flat
+        V.set(Math.cos(b + 1.57) * s * 0.42, -s * 0.9, Math.sin(b + 1.57) * s * 0.42);
+        quad(P, U, V, tmp, r(), r());
+      }
+    }
   }
-  return m.build();
+  const g = m.build();
+  const pos = g.attributes.position;
+  const nor = g.attributes.normal;
+  const n = new THREE.Vector3();
+  const out = new THREE.Vector3();
+  for (let i = 0; i < pos.count; i++) {
+    out.set(pos.getX(i), (pos.getY(i) - 0.66) * 1.2 + 0.2, pos.getZ(i)).normalize();
+    n.fromBufferAttribute(nor, i);
+    n.multiplyScalar(0.12).addScaledVector(out, 0.88).normalize();
+    nor.setXYZ(i, n.x, n.y, n.z);
+  }
+  return g;
 }
 
 // ------------------------------------------------------------------------------------------------ placement
@@ -598,17 +593,28 @@ export function buildVegetation(plan: VegetationPlan): Vegetation {
   const leafMat = patchLeaves(
     new THREE.MeshStandardMaterial({
       color: 0xffffff,
-      map: foliageMap(),
+      map: leafSprayMap(),
+      alphaTest: 0.42,
       vertexColors: true,
-      roughness: 0.95,
+      roughness: 0.8,
       side: THREE.DoubleSide,
     }),
   );
-  make('birch-leaves', birchLeaves(7), leafMat, plan.birches, {
+  const leafTint = (it: Inst) => colour.setHSL(0.21 + 0.03 * it.tint, 0.28, 0.9 + 0.16 * it.tint);
+  const leavesNear = make('birch-leaves', birchLeaves(7, 36, 7, 0.038), leafMat, plan.birches.filter(nearBirch), {
     shadow: true,
     size: treeSize,
-    tint: (it) => colour.setHSL(0.21 + 0.03 * it.tint, 0.28, 0.9 + 0.16 * it.tint),
+    tint: leafTint,
   });
+  const leavesFar = make(
+    'birch-leaves-far',
+    birchLeaves(7, 22, 4, 0.055),
+    leafMat,
+    plan.birches.filter((it) => !nearBirch(it)),
+    { shadow: true, size: treeSize, tint: leafTint },
+  );
+  // the shadow of one spray on the next would break the mass into dark and light lumps again
+  for (const m of [leavesNear, leavesFar]) if (m) m.receiveShadow = false;
 
   // the far forest: no shadow, it greys with the snow
   make(

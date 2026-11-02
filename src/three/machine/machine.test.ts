@@ -34,6 +34,15 @@ for (const w of [silo, plant, site, cell]) {
 }
 const P3MM = 0.003;
 
+/** A part of the `silo` world by itself: what is only parented to it there (the risers to the cladding, the scale to the stone, so that they go with it) is not what these tests measure. */
+const ownBox = (id: string): THREE.Box3 =>
+  meshBox(silo.registry.get(id)!.object, (m) => {
+    for (let o: THREE.Object3D | null = m; o; o = o.parent) {
+      if (o === silo.risers.water || o === silo.risers.cable || o === silo.scale.group) return true;
+    }
+    return false;
+  });
+
 /** The box of an object's meshes in another frame (their vertices moved back by `inverse`). */
 function boxInFrame(
   root: THREE.Object3D,
@@ -66,7 +75,7 @@ describe('one machine, the same in every world', () => {
     const outside = new THREE.Box3();
     for (const id of ['foundation-slab', 'outer-cladding', 'conical-roof', 'upper-vent', 'access-ladder']) {
       // the rafters and the ring beam are inside the roof: the site does not draw them
-      outside.union(meshBox(silo.registry.get(id)!.object));
+      outside.union(ownBox(id));
     }
     within(boxInFrame(site.registry.get('silo-exterior')!.object, inv), outside, P3MM, 'silo-exterior');
   });
@@ -124,7 +133,7 @@ describe('one machine, the same in every world', () => {
 });
 
 describe('the stack rests, layer on layer (3 mm)', () => {
-  const b = (id: string) => meshBox(silo.registry.get(id)!.object);
+  const b = ownBox;
   silo.registry.setAllFactors(0);
   it('the slab stands on the ground, 16 m across', () => {
     expect(b('foundation-slab').min.y).toBeCloseTo(0, 3);

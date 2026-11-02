@@ -213,33 +213,111 @@ export const roofSheetMap = (): THREE.DataTexture =>
     return [k, k, k];
   });
 
-/** Crushed gravel of the yard. */
+/**
+ * Crushed gravel of the yard: stones packed edge to edge, of uneven size, each its own tone, a thin dark line where they meet, no ground between them and no halo: a soft disc on a darker ground is
+ * what read as polka dots (review D11). Two sizes of stone, one laid over the other. Tiles exactly.
+ */
 export const gravelMap = (): THREE.DataTexture =>
-  map('gravel', 256, (u, v, i, j) => {
-    const G = 18;
-    const gx = u * G;
-    const gy = v * G;
-    const cx = Math.floor(gx);
-    const cy = Math.floor(gy);
-    let best = 9;
-    let id = 0;
-    for (let dy = -1; dy <= 1; dy++)
-      for (let dx = -1; dx <= 1; dx++) {
-        const wx = (cx + dx + G) % G;
-        const wy = (cy + dy + G) % G;
-        const ex = cx + dx + 0.2 + 0.6 * hash1(wx, wy) - gx;
-        const ey = cy + dy + 0.2 + 0.6 * hash1(wy + 7, wx + 3) - gy;
-        const d = ex * ex + ey * ey;
-        if (d < best) {
-          best = d;
-          id = wx * 31 + wy;
+  map('gravel', 512, (u, v, i, j) => {
+    const stones = (G: number, seed: number): { edge: number; tone: number } => {
+      const gx = u * G;
+      const gy = v * G;
+      const cx = Math.floor(gx);
+      const cy = Math.floor(gy);
+      let d1 = 9;
+      let d2 = 9;
+      let id = 0;
+      for (let dy = -1; dy <= 1; dy++)
+        for (let dx = -1; dx <= 1; dx++) {
+          const wx = (cx + dx + G) % G;
+          const wy = (cy + dy + G) % G;
+          const ex = cx + dx + hash1(wx + seed, wy) - gx;
+          const ey = cy + dy + hash1(wy + seed + 7, wx + 3) - gy;
+          // an uneven weight: some stones take more room than their neighbours
+          const d = (ex * ex + ey * ey) * (0.55 + 0.9 * hash1(wx + 11, wy + seed));
+          if (d < d1) {
+            d2 = d1;
+            d1 = d;
+            id = wx * 131 + wy;
+          } else if (d < d2) d2 = d;
         }
-      }
-    const peb = 1 - smoothstep(0.16, 0.52, Math.sqrt(best));
-    const tone = 0.55 + 0.3 * hash1(id, 5);
-    const k = (0.42 + 0.5 * peb * tone + 0.05 * (hash1(i, j) - 0.5)) * 1.05;
-    return [k * 1.01, k, k * 0.95];
+      return { edge: Math.sqrt(d2) - Math.sqrt(d1), tone: hash1(id, seed + 5) };
+    };
+    const fine = stones(46, 0);
+    const big = stones(19, 40);
+    // a bigger stone here and there: where it is well inside its cell, it lies over the fine ones
+    const useBig = hash1(Math.floor(big.tone * 4096), 17) > 0.72 && big.edge > 0.08;
+    const s = useBig ? big : fine;
+    const line = smoothstep(0.0, useBig ? 0.1 : 0.16, s.edge);
+    const tone = 0.5 + 0.26 * s.tone + 0.08 * (tf(u, v, 7, 2) - 0.5);
+    const k = (tone * (0.58 + 0.42 * line) + 0.03 * (hash1(i, j) - 0.5)) * 1.1;
+    const warm = 0.97 + 0.08 * hash1(Math.floor(s.tone * 977), 3);
+    return [k * warm, k, k * (1.04 - 0.1 * warm)];
   });
+
+/**
+ * A spray of small leaves on nothing: pointed ovals of varied tone scattered over a transparent square, for the crown of a birch. No canvas, so it builds in Node too. Tiles, so that a card can
+ * start anywhere in it.
+ */
+export const leafSprayMap = (): THREE.DataTexture => {
+  const hit = cache.get('leaf-spray');
+  if (hit) return hit;
+  const size = 256;
+  const G = 13;
+  const data = new Uint8Array(size * size * 4);
+  for (let j = 0; j < size; j++)
+    for (let i = 0; i < size; i++) {
+      const gx = (i / size) * G;
+      const gy = (j / size) * G;
+      const cx = Math.floor(gx);
+      const cy = Math.floor(gy);
+      let best = 0;
+      let tone = 0;
+      for (let dy = -1; dy <= 1; dy++)
+        for (let dx = -1; dx <= 1; dx++) {
+          const wx = (cx + dx + G) % G;
+          const wy = (cy + dy + G) % G;
+          // about one cell in three stays empty: light passes through
+          if (hash1(wx + 3, wy + 91) < 0.33) continue;
+          const px = cx + dx + hash1(wx, wy) - gx;
+          const py = cy + dy + hash1(wy + 7, wx + 3) - gy;
+          const a = hash1(wx + 11, wy + 5) * Math.PI * 2;
+          const u = Math.cos(a) * px + Math.sin(a) * py;
+          const v = -Math.sin(a) * px + Math.cos(a) * py;
+          // a birch's leaf: a pointed oval, wider near its stalk
+          const L = 0.62 + 0.26 * hash1(wx + 2, wy + 17);
+          const t = u / L;
+          if (Math.abs(t) >= 1) continue;
+          const W = L * 0.62 * (1 - t * t) * (1 - 0.32 * t);
+          const inside = 1 - Math.abs(v) / Math.max(W, 1e-3);
+          if (inside > best) {
+            best = inside;
+            // each leaf its tone, lit on one side of its midrib
+            tone = 0.62 + 0.42 * hash1(wx + 29, wy + 31) + (v > 0 ? 0.1 : -0.06);
+          }
+        }
+      const k = (j * size + i) * 4;
+      const on = best > 0;
+      // the colour bleeds under the transparent part: mipmaps must not fade the leaves to black
+      const c = on ? tone : 0.72;
+      data[k] = b8(c * 0.8);
+      data[k + 1] = b8(c);
+      data[k + 2] = b8(c * 0.46);
+      data[k + 3] = on ? 255 : 0;
+    }
+  const t = new THREE.DataTexture(data, size, size, THREE.RGBAFormat);
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.wrapS = t.wrapT = THREE.RepeatWrapping;
+  t.magFilter = THREE.LinearFilter;
+  t.minFilter = THREE.LinearMipmapLinearFilter;
+  t.generateMipmaps = true;
+  t.anisotropy = 4;
+  t.name = 'leaf-spray';
+  t.needsUpdate = true;
+  cache.set('leaf-spray', t);
+  stats.push({ name: 'leaf-spray', size, bytes: Math.round(size * size * 4 * (4 / 3)) });
+  return t;
+};
 
 /** A closed green ground, with the grain the eye reads close up. */
 export const grassMap = (): THREE.DataTexture =>
@@ -277,12 +355,4 @@ export const spruceBarkMap = (): THREE.DataTexture =>
     const n = tf(u, v, 12, 4, 20);
     const k = 0.22 + 0.32 * n + 0.04 * (hash1(i, j) - 0.5);
     return [k * 1.08, k * 0.95, k * 0.82];
-  });
-
-/** A woollen roughness for the foliage: a mottling so a crown is no flat colour. */
-export const foliageMap = (): THREE.DataTexture =>
-  map('foliage', 128, (u, v, i, j) => {
-    const n = tf(u, v, 14, 3);
-    const k = 0.62 + 0.62 * (n - 0.5) + 0.12 * (hash1(i, j) - 0.5);
-    return [k, k, k];
   });

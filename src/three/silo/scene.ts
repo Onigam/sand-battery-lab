@@ -1,18 +1,19 @@
 import * as THREE from 'three';
-import { MAT, PAPER_STUDIO, PartRegistry, mesh } from '@onigam/lab-kit/three';
+import { PAPER_STUDIO, mesh } from '@onigam/lab-kit/three';
 import type { Hotspot, SceneModule } from '@onigam/lab-kit/three';
 import type { MediumId } from '../../sim/silo';
 import type { SandState } from '../../sim/types';
-import { FlowDots, box, discY, joined, paperFloor, stick, v3 } from '../common';
+import { FlowDots, discY, joined, paperFloor, stick, v3 } from '../common';
 import { type CutMode, type Poly, WedgeCut, rectPoly } from '../cut';
 import { applyWear, contactRing } from '../detail';
 import { LANCES, LEVEL, PENETRATION, PIPE, PLANT, SILO } from '../dims';
-import { HEAT_MAX, HeatField, StoneReveal, type StoneKind, heatColor, heatMaterial } from '../heat';
+import { HeatField, StoneReveal, type StoneKind, heatColor, heatMaterial } from '../heat';
 import {
   driveEquipment,
   buildEquipment,
   plantMaterials,
   PLANT_PARTS,
+  SERVICE_PARTS,
   type EquipmentPieces,
   type PlantId,
 } from '../machine/equipment';
@@ -28,8 +29,8 @@ import {
   type WallRisers,
 } from '../machine/silo';
 import { mergeStatic } from '../merge';
-
-import { anchor, hotspots, workshopScene, type HotspotDef } from '../world';
+import { buildHeatScale, type HeatScale } from '../scale';
+import { FramedRegistry, anchor, hotspots, workshopScene, type HotspotDef } from '../world';
 
 // The `silo` world: the machine in section, the roadmap's « aha ». On arrival a quarter of the silo is taken away, and the stone is coloured live by the model (`bedT`): the hot core
 // spreading during a charge, the cool edge staying cool. The section tool takes away the whole front half instead. The false colour is fixed in °C and it has its scale beside the
@@ -74,8 +75,44 @@ export const EXPLODE: Record<SiloPartId, [number, number, number]> = {
   'conical-roof': [0, 17.8, 0],
 };
 
-/** The bar of the scale stands here, on the paper, at the left of the silo in the home view, inside the box the overview frames: its labels read towards the silo. */
-export const SCALE = { x: -6.9, z: 4.9, width: 0.32, depth: 0.1, y0: LEVEL.bedBottom, y1: LEVEL.bedTop };
+/**
+ * The bar of the scale stands here, on the paper, at the left of the silo in the home view, inside the box the overview frames: its labels read towards the silo. It is wide enough to show beside its
+ * labels at the phone's distance, where a metre is about twenty pixels.
+ */
+export const SCALE = {
+  x: -6.9,
+  z: 4.9,
+  baseY: 0,
+  width: 0.6,
+  depth: 0.1,
+  y0: LEVEL.bedBottom,
+  y1: LEVEL.bedTop,
+  footR: 0.42,
+  yaw: Math.PI / 4,
+};
+
+/** Where a layer of the silo reads: its section on the plane z = 0, at the rim. A selected layer is framed here, not by its whole 16 m (`FramedRegistry`). */
+const onSection = (x0: number, x1: number, y0: number, y1: number): THREE.Box3 =>
+  new THREE.Box3(new THREE.Vector3(x0, y0, -0.8), new THREE.Vector3(x1, y1, 0.8));
+
+const FOCUS: Partial<Record<SiloPartId, THREE.Box3>> = {
+  'foundation-slab': onSection(4.5, 8.1, 0, 1.5),
+  'base-insulation': onSection(4.5, 8.1, 0, 1.5),
+  'inner-shell': onSection(5.5, 8, 0.6, 8),
+  'wall-insulation': onSection(5.5, 8, 0.6, 8),
+  'outer-cladding': onSection(5.5, 8.3, 0.4, 11.6),
+  'storage-bed': new THREE.Box3(new THREE.Vector3(-0.5, LEVEL.bedBottom, -0.5), new THREE.Vector3(7, LEVEL.bedTop, 7)),
+  'pipe-field': new THREE.Box3(
+    new THREE.Vector3(-0.5, LEVEL.bedBottom, -0.5),
+    new THREE.Vector3(7, LEVEL.bedTop + 1, 7),
+  ),
+  'top-insulation': onSection(3.5, 8, 6.2, 8.6),
+  'equipment-floor': new THREE.Box3(
+    new THREE.Vector3(-1, LEVEL.floor, -6.5),
+    new THREE.Vector3(7.4, LEVEL.floor + 3.3, 0.5),
+  ),
+  'conical-roof': onSection(2.5, 8, 10.8, 13.2),
+};
 
 export interface SiloWorldOptions {
   /** The medium the simulation holds (it is a parameter, the state does not carry it). */
@@ -88,6 +125,7 @@ export interface SiloScene extends SceneModule<SandState> {
   body: BodyPieces;
   pipes: PipeField;
   risers: WallRisers;
+  scale: HeatScale;
   equipment: EquipmentPieces;
   /** The box of each machine of the room as it was built, before it was merged into the floor. */
   equipmentBoxes: Record<PlantId, THREE.Box3>;
@@ -102,64 +140,11 @@ const V = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
 
 const meshBox = (o: THREE.Object3D): THREE.Box3 => new THREE.Box3().setFromObject(o, true);
 
-/** The scale of the false colour: a bar on a stand, no text on it (the labels are the kit's). */
-function buildScale(): THREE.Group {
-  const g = new THREE.Group();
-  g.name = 'heat-scale';
-  const steps = 60;
-  const pos: number[] = [];
-  const col: number[] = [];
-  const idx: number[] = [];
-  const c = new THREE.Color();
-  for (let i = 0; i <= steps; i++) {
-    const t = i / steps;
-    heatColor(t * HEAT_MAX, c);
-    const y = SCALE.y0 + t * (SCALE.y1 - SCALE.y0);
-    pos.push(-SCALE.width / 2, y, 0, SCALE.width / 2, y, 0);
-    col.push(c.r, c.g, c.b, c.r, c.g, c.b);
-    if (i < steps) idx.push(i * 2, i * 2 + 1, i * 2 + 2, i * 2 + 1, i * 2 + 3, i * 2 + 2);
-  }
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
-  geo.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
-  geo.setIndex(idx);
-  geo.computeVertexNormals();
-  const bar = new THREE.Mesh(
-    geo,
-    new THREE.MeshStandardMaterial({
-      vertexColors: true,
-      roughness: 0.7,
-      side: THREE.DoubleSide,
-      emissive: new THREE.Color(0xffffff),
-      emissiveIntensity: 0,
-    }),
-  );
-  bar.position.z = SCALE.depth / 2 + 0.03;
-  bar.castShadow = false;
-  g.add(bar);
-  const mat = MAT.printBlack();
-  const frame: THREE.BufferGeometry[] = [
-    // the board behind the bar, its foot on the floor
-    box(0, (SCALE.y0 + SCALE.y1) / 2, 0, SCALE.width + 0.1, SCALE.y1 - SCALE.y0 + 0.1, SCALE.depth),
-    box(0, SCALE.y0 / 2, 0, 0.12, SCALE.y0, 0.08),
-    discY(0.42, 0, 0.04, 32),
-  ];
-  // ticks each 100 °C
-  for (let T = 0; T <= HEAT_MAX; T += 100) {
-    const y = SCALE.y0 + (T / HEAT_MAX) * (SCALE.y1 - SCALE.y0);
-    frame.push(box(SCALE.width / 2 + 0.09, y, 0, 0.16, 0.025, SCALE.depth));
-  }
-  g.add(mesh(joined(frame), mat));
-  g.position.set(SCALE.x, 0, SCALE.z);
-  // it faces the home view
-  g.rotation.y = Math.PI / 4;
-  return g;
-}
-
 export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
   const scene = workshopScene({
     name: 'silo',
-    fog: [52, 59],
+    // behind everything the camera can frame from its limit: the paper dissolves by itself
+    fog: [100, 145],
     key: [20, 34, 26],
     target: [0, 5, 0],
     shadowHalf: 25,
@@ -177,7 +162,7 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
   contact.position.y = 0.006;
   scene.add(contact);
 
-  const registry = new PartRegistry();
+  const registry = new FramedRegistry();
   const cut = new WedgeCut(0, 0);
   const mats = bodyMaterials();
   const body = buildBody(mats);
@@ -232,6 +217,7 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
   const pmats = plantMaterials();
   const equipment = buildEquipment(pmats);
   for (const id of PLANT_PARTS) roots['equipment-floor'].add(equipment.roots[id]);
+  for (const id of SERVICE_PARTS) roots['equipment-floor'].add(equipment.services[id]);
   const dressing = buildRoomDressing(pmats);
   roots['equipment-floor'].add(dressing.group);
   // their boxes before they are merged into one part: the test of the same machine across the worlds reads them
@@ -244,8 +230,8 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
   scene.add(risers.water, risers.cable);
 
   // ---- the legend
-  const scale = buildScale();
-  scene.add(scale);
+  const scale: HeatScale = buildHeatScale(SCALE);
+  scene.add(scale.group);
 
   // ---- merge, wear, clip, in this order: a merged mesh is what is clipped and worn
   const scope = 'silo';
@@ -256,7 +242,7 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
   }
   mergeStatic(risers.water, { name: 'dh-riser', scope });
   mergeStatic(risers.cable, { name: 'cable-riser', scope });
-  mergeStatic(scale, { name: 'heat-scale', scope, colours: false });
+  mergeStatic(scale.group, { name: 'heat-scale', scope, colours: false });
   for (const id of SILO_PARTS) {
     applyWear(roots[id], 3, (m) => !!(m.material as THREE.Material).userData.worn);
   }
@@ -275,35 +261,41 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
   cut.clip(risers.cable);
   cut.clipMaterial(bedMat);
 
+  // ---- what has no part of its own in this world goes with what it belongs to, so that isolate and explode leave nothing standing in the void: the pipes and the cable are fixed to the
+  // cladding, the scale explains the stone. They are clipped already, or not at all: the scale stands whole beside the section.
+  roots['outer-cladding'].add(risers.water, risers.cable);
+  roots['storage-bed'].add(scale.group);
+
   // ---- anchors of the labels
   const anchors: Record<string, THREE.Object3D> = {};
   const at = (id: SiloPartId, x: number, y: number, z: number) => {
     anchors[id] = anchor(roots[id], x, y, z, `${id}-label`);
   };
-  at('storage-bed', 2.6, LEVEL.bedBottom + 1.5, 0);
-  at('pipe-field', 0, LEVEL.bedBottom + 4.7, 3.75);
-  at('equipment-floor', -3.5, LEVEL.floor + 1.8, -2.8);
-  at('foundation-slab', 7.4, LEVEL.slabTop - 0.1, 3);
-  at('base-insulation', 0, (LEVEL.slabTop + LEVEL.bedBottom) / 2, 5);
-  at('inner-shell', SILO.bedR, LEVEL.bedTop - 0.5, 0);
-  at('wall-insulation', 0, LEVEL.bedTop - 1, SILO.bedR + 0.25);
-  at('outer-cladding', -5.5, 6, 5.3);
-  at('top-insulation', 0, LEVEL.bedTop + 0.5, 3.4);
-  at('conical-roof', -3, 12.6, 3);
+  // each on its part, placed so that « all labels » keep apart at 1280 (a search over the part's own surface, `docs/3d.md`). The layers sit on their section on +X, where a selected layer is framed.
+  at('storage-bed', 2.6, 2.5, 0);
+  at('pipe-field', 1, 4.5, 0);
+  at('equipment-floor', -3.5, 9.92, -2.8);
+  at('foundation-slab', 7.9, 0.1, 0);
+  at('base-insulation', 4.5, 0.86, 0);
+  at('inner-shell', 7.01, 4.94, 0);
+  at('wall-insulation', 7.24, 2.88, 0);
+  at('outer-cladding', 7.57, 9.75, 0);
+  at('top-insulation', 3, 7.2, 0);
+  at('conical-roof', 3, 12.6, 0);
   at('upper-vent', -1.3, 10.6, 7.5);
-  at('access-ladder', -4.4, 5, 6.3);
-  at('thermocouple-lance', 4.75, LEVEL.bedTop - 1.6, 0);
-  at('duct-penetration', 1.95, LEVEL.deckBottom - 0.4, 0);
-  const scaleAnchor = (T: number): THREE.Object3D => {
-    const y = SCALE.y0 + (T / HEAT_MAX) * (SCALE.y1 - SCALE.y0);
-    const o = anchor(scale, SCALE.width / 2 + 0.17, y, 0, `scale-${T}`);
-    return o;
-  };
-  anchors['storage-bed#t500'] = scaleAnchor(500);
-  anchors['storage-bed#t300'] = scaleAnchor(300);
-  anchors['storage-bed#t100'] = scaleAnchor(100);
+  at('access-ladder', -5.15, 8.12, 6.89);
+  at('thermocouple-lance', 0, 5.8, 1.25);
+  at('duct-penetration', 0.35, 7.7, 0);
+  anchors['storage-bed#t500'] = scale.anchorAt(500);
+  anchors['storage-bed#t300'] = scale.anchorAt(300);
+  anchors['storage-bed#t100'] = scale.anchorAt(100);
 
-  for (const id of SILO_PARTS) registry.add(id, roots[id], V(...EXPLODE[id]));
+  for (const id of SILO_PARTS) {
+    // the stone rises a little in the exploded view; its scale stays on the paper
+    const stay = id === 'storage-bed' ? (f: number) => void (scale.group.position.y = -EXPLODE[id][1] * f) : undefined;
+    registry.add(id, roots[id], V(...EXPLODE[id]), stay);
+  }
+  for (const [id, b] of Object.entries(FOCUS)) registry.setFocus(id, b);
 
   // ---- the air: dots down the leg of each zone on the section plane, hot in, back up. The colour of each is the model's temperature, on the same ramp.
   const colourFlows = (): FlowDots =>
@@ -343,7 +335,7 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
   const damperDrawn = { charge: [0, 0, 0], discharge: [0, 0, 0] };
   let drawnMode: CutMode = 'wedge';
 
-  const scenery = () => [risers.water, risers.cable, scale];
+  const scenery = () => [risers.water, risers.cable, scale.group];
   const mod: SiloScene = {
     id: 'silo',
     scene,
@@ -354,6 +346,7 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
     body,
     pipes,
     risers,
+    scale,
     equipment,
     equipmentBoxes,
     flows,
@@ -363,7 +356,8 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
     // from the side of the wedge, a little above: both faces of the section read
     home: { position: V(23, 15, 25), target: V(0, 5.5, 0) },
     minDistance: 3,
-    maxDistance: 54,
+    // on a phone the overview's fit asks for more than this and the silo would shrink: here its width just fits the screen's (D4)
+    maxDistance: 60,
     homePadding: 0.9,
     update(s, dt, view) {
       stone.value = opts.medium?.() ?? 'soapstone';

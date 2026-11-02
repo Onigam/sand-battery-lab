@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import type { Hotspot, SceneModule } from '@onigam/lab-kit/three';
 import type { SandState } from '../sim/types';
+import { DEPTH } from './world';
 
 // Where the visitor's camera and the hotspot labels end up, without a browser: a replica of what the kit does when a world is shown (`Stage.frameAll()` and the CSS of `.hotspot`). Used by
 // `labels.test.ts` to keep the labels of the default views apart and inside the picture at every size; if the kit changes either, change them here too. From Mill Lab.
@@ -25,8 +26,8 @@ export function homeCamera(
   const camera = new THREE.PerspectiveCamera(
     (2 * Math.atan((half * free.h) / size.h) * 180) / Math.PI,
     free.w / free.h,
-    mod.id === 'site' ? 0.1 : 0.01,
-    mod.id === 'site' ? 4000 : 60,
+    mod.id === 'site' ? 0.1 : DEPTH.near,
+    mod.id === 'site' ? 4000 : DEPTH.far,
   ) as THREE.PerspectiveCamera & { free: Size };
   camera.free = free;
   mod.scene.updateMatrixWorld(true);

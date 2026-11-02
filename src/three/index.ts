@@ -25,7 +25,7 @@ export const WORLD = {
     cutaway: false,
     /** X-ray only makes sense around a selected part in a landscape. */
     xrayNeedsSelection: true,
-    partPadding: 2.6,
+    partPadding: 1.3,
     stepFrame: { padding: 1.7, minRadius: 3 },
   },
   silo: {
@@ -33,7 +33,7 @@ export const WORLD = {
     cutaway: true,
     /** Slow motion only scales what turns: nothing does here, and without it the toolbar keeps to one row at 1280 px. */
     slowMo: false,
-    partPadding: 1.9,
+    partPadding: 1.15,
     stepFrame: { padding: 1.5, minRadius: 2 },
     /** Parts made transparent by X-ray while nothing is selected: the shell, so the stone and the pipes read. */
     xrayShell: (id: string): boolean =>
@@ -48,14 +48,17 @@ export const WORLD = {
   'pipe-cell': {
     cutaway: true,
     slowMo: false,
-    partPadding: 1.9,
+    partPadding: 1.2,
     stepFrame: { padding: 1.5, minRadius: 0.5 },
     xrayShell: (id: string): boolean => id === 'core-zone' || id === 'outer-zone',
   },
   'plant-room': {
     /** No section here: the room is open to the eye, the machines come off in the exploded view. */
     cutaway: false,
-    partPadding: 2.2,
+    partPadding: 1.3,
     stepFrame: { padding: 1.5, minRadius: 0.8 },
+    /** With nothing selected X-ray clears the ducts and the dampers on them, the mass in front: the machines behind them read. */
+    xrayShell: (id: string): boolean =>
+      id === 'hot-air-duct' || id === 'cold-air-duct' || id === 'charge-damper' || id === 'discharge-damper',
   },
 } as const;

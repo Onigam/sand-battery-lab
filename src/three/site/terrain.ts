@@ -297,7 +297,10 @@ export function buildTerrain(canopy: (x: number, z: number) => number = () => 0)
           float dTr = 1e9;
           for ( int i = 0; i < ${segs.length}; i++ ) dTr = min( dTr, ldSeg( p, uSegs[ i ] ) );
           float dug = 1.0 - smoothstep( ${(SITE.trench.width / 2 + 0.3).toFixed(3)}, ${(SITE.trench.width / 2 + 1.6).toFixed(3)}, dTr + 0.3 + 0.6 * ( ldNoise( p * 1.3 ) - 0.5 ) * nearFade );
-          vec3 gravel = texture2D( uGravel, p * 0.28 ).rgb * vec3( 0.66, 0.63, 0.59 );
+          // two scales that never line up, and a slow wash over them: no tile can be read
+          vec3 gravelA = texture2D( uGravel, p * 0.23 ).rgb;
+          vec3 gravelB = texture2D( uGravel, vec2( p.y, -p.x ) * 0.61 + 0.37 ).rgb;
+          vec3 gravel = mix( gravelA, gravelB, 0.42 ) * vec3( 0.66, 0.63, 0.59 ) * ( 0.86 + 0.28 * ldFbm( p * 0.21 ) );
           gravel = mix( gravel, vec3( 0.34, 0.33, 0.31 ), smoothstep( 40.0, 160.0, dist ) );
           vec3 tar = texture2D( uAsphalt, p * 0.5 ).rgb * 1.5;
           vec3 c = meadow;

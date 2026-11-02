@@ -379,7 +379,15 @@ export function buildBlower(mats: PlantMaterials, flip: boolean): BlowerPieces {
     marks.push(stick(v3(couplingX + B.couplingW / 2, y, z), v3(couplingX + B.couplingW / 2 + 0.01, y, z), 0.011, 6));
   }
   rotor.add(mesh(joined(marks), mats.steel));
-  rotor.add(mesh(box(couplingX, B.couplingR + 0.001, 0, B.couplingW * 0.86, 0.006, 0.05), mats.warning));
+  // three yellow bars round the coupling, so that its turning reads from any side (the wheel in its port is behind the motor)
+  const bars: THREE.BufferGeometry[] = [];
+  for (let i = 0; i < 3; i++) {
+    const bar = new THREE.BoxGeometry(B.couplingW * 0.86, 0.012, 0.07);
+    bar.translate(couplingX, B.couplingR + 0.002, 0);
+    bar.rotateX((i / 3) * TAU);
+    bars.push(bar);
+  }
+  rotor.add(mesh(joined(bars), mats.warning));
   group.add(rotor);
 
   // the motor: a ribbed body, its end bells, the fan cowl, the feet, a terminal box
@@ -490,8 +498,17 @@ function buildDamper(mats: PlantMaterials): Damper {
 
 // ------------------------------------------------------------------------------------------------ the equipment
 
+/** The machines whose pipes, trays and cables run across the room: these belong to the machine on screen (they hide with it), but are no part of its box or of its outline. */
+export const SERVICE_PARTS = ['blower-drive', 'dh-pump', 'heat-meter', 'control-cabinet'] as const;
+export type ServicePart = (typeof SERVICE_PARTS)[number];
+
 export interface EquipmentPieces {
   roots: Record<PlantId, THREE.Group>;
+  /**
+   * The long runs of a machine: its pipes across the room, its trays, its cables. A heat meter is a meter on a pipe, not 5.5 m of pipe, and framing or outlining the run would lose the machine
+   * (review D5). They stand still in the exploded view, and they show as long as their machine does.
+   */
+  services: Record<ServicePart, THREE.Group>;
   chargeBlower: BlowerPieces;
   dischargeBlower: BlowerPieces;
   /** Dampers by zone (core, middle, outer): two per zone and per loop. */
@@ -539,6 +556,12 @@ export function buildEquipment(mats: PlantMaterials): EquipmentPieces {
     const g = new THREE.Group();
     g.name = id;
     roots[id] = g;
+  }
+  const services = {} as Record<ServicePart, THREE.Group>;
+  for (const id of SERVICE_PARTS) {
+    const g = new THREE.Group();
+    g.name = `${id}-services`;
+    services[id] = g;
   }
   const H = PLANT.header;
   const zoneDuctR = PLANT.riserR + PLANT.jacket;
@@ -931,7 +954,7 @@ export function buildEquipment(mats: PlantMaterials): EquipmentPieces {
   }
   const motorTop = chargeBlower.terminal.clone().add(v3(CB.x, Y, CB.z));
   cableRun(
-    roots['blower-drive'],
+    services['blower-drive'],
     mats.cable,
     [
       v3(dv.x - dv.w / 4, Y + dv.h + 0.02, dv.z + dv.d / 2),
@@ -955,16 +978,16 @@ export function buildEquipment(mats: PlantMaterials): EquipmentPieces {
   roots['control-cabinet'].add(mesh(box(cc.x, Y + 1.45, ccFront + 0.021, 0.44, 0.32, 0.004), screen));
   // a signal conduit from its top to a box over the dampers
   const jBox = P(cc.x, 3.14, -1.62);
-  roots['control-cabinet'].add(mesh(box(jBox.x, jBox.y, jBox.z, 0.3, 0.14, 0.2), mats.dark));
+  services['control-cabinet'].add(mesh(box(jBox.x, jBox.y, jBox.z, 0.3, 0.14, 0.2), mats.steel));
   cableRun(
-    roots['control-cabinet'],
+    services['control-cabinet'],
     mats.steel,
     [v3(cc.x, Y + cc.h + 0.02, cc.z + cc.d / 2), v3(cc.x, Y + 3.14, cc.z + cc.d / 2), jBox.clone()],
     0.016,
   );
   // its supply: a thin cable to the drive's cabinet next to it
   cableRun(
-    roots['control-cabinet'],
+    services['control-cabinet'],
     mats.cable,
     [
       v3(cc.x - cc.w / 2 + 0.1, Y + cc.h + 0.02, cc.z + 0.2),
@@ -1075,7 +1098,7 @@ export function buildEquipment(mats: PlantMaterials): EquipmentPieces {
   const trayA = v3(dv.x + dv.w / 4, trayY, dv.z + dv.d / 2 + 0.2);
   const trayB = v3(dMotorTop.x, trayY, dMotorTop.z - 0.1);
   cableRun(
-    roots['blower-drive'],
+    services['blower-drive'],
     mats.cable,
     [
       v3(dv.x + dv.w / 4, Y + dv.h + 0.02, dv.z + dv.d / 2),
@@ -1085,13 +1108,13 @@ export function buildEquipment(mats: PlantMaterials): EquipmentPieces {
     ],
     0.022,
   );
-  trayRun(roots['blower-drive'], mats, trayA, trayB);
+  trayRun(services['blower-drive'], mats, trayA, trayB);
   // feed of the drive: from the board's far end along the back, on a tray
   const feedA = v3(swOut.x + 0.1, trayY, swOut.z - 0.2);
   const feedB = v3(dv.x - dv.w / 4, trayY, dv.z + dv.d / 2 + 0.35);
-  trayRun(roots['blower-drive'], mats, feedA, feedB);
+  trayRun(services['blower-drive'], mats, feedA, feedB);
   cableRun(
-    roots['blower-drive'],
+    services['blower-drive'],
     mats.cable,
     [
       v3(swOut.x, Y + sw.h + 0.02, swOut.z - 0.2),
@@ -1119,7 +1142,7 @@ export function buildEquipment(mats: PlantMaterials): EquipmentPieces {
     P(pumpSuction.x + 0.2, PU.axisY, PU.z),
     pumpSuction,
   ];
-  waterPipe(roots['dh-pump'], waterMat, retInner, rWater);
+  waterPipe(services['dh-pump'], waterMat, retInner, rWater);
   const toExchanger = [
     pumpOut,
     P(PU.x, W.highY, PU.z),
@@ -1128,7 +1151,7 @@ export function buildEquipment(mats: PlantMaterials): EquipmentPieces {
     P(W.returnX, ex.y - 0.2, zF + 0.2),
     v3(colLeft, Y + ex.y - 0.2, zF + 0.05),
   ];
-  waterPipe(roots['dh-pump'], waterMat, toExchanger, rWater);
+  waterPipe(services['dh-pump'], waterMat, toExchanger, rWater);
   const supply = [
     v3(colRight, Y + ex.y + 0.45, zF + 0.05),
     P(W.supplyX + 0.28, ex.y + 0.45, zF + 0.2),
@@ -1137,11 +1160,11 @@ export function buildEquipment(mats: PlantMaterials): EquipmentPieces {
     P(W.supplyX, W.highY, wallSup[2] + 0.65),
     v3(wallSup[0], wallSup[1], wallSup[2]),
   ];
-  waterPipe(roots['heat-meter'], waterMat, supply, rWater);
+  waterPipe(services['heat-meter'], waterMat, supply, rWater);
   // supports: rods from the ceiling on the high runs, a stand for the pump's riser
-  for (const z of [-4.8, -3.2, -1.7]) hanger(roots['dh-pump'], mats, W.returnX, z, W.highY + rWater - 0.01);
+  for (const z of [-4.8, -3.2, -1.7]) hanger(services['dh-pump'], mats, W.returnX, z, W.highY + rWater - 0.01);
   for (const z of [-4.2, -2.8, -1.4])
-    hanger(roots['heat-meter'], mats, W.supplyX + (z > -1.6 ? 0.2 : 0), z, W.highY + rWater - 0.01);
+    hanger(services['heat-meter'], mats, W.supplyX + (z > -1.6 ? 0.2 : 0), z, W.highY + rWater - 0.01);
 
   // the pump: a base, the scroll, the bearing, a coupling, a motor; the discharge goes up, the suction comes from the side
   const pump = roots['dh-pump'];
@@ -1210,7 +1233,7 @@ export function buildEquipment(mats: PlantMaterials): EquipmentPieces {
   // its supply: a cable to the drive's cabinet, along the floor and up
   const pumpTerm = P(PU.x + motorStart - PU.motorL / 2, PU.axisY + PU.motorR + 0.085, PU.z);
   cableRun(
-    pump,
+    services['dh-pump'],
     mats.cable,
     [
       pumpTerm,
@@ -1247,11 +1270,11 @@ export function buildEquipment(mats: PlantMaterials): EquipmentPieces {
   meterScreen.userData.noShare = true;
   meter.add(mesh(box(boxBelow.x, boxBelow.y - 0.05, boxBelow.z + 0.054, M.boxW * 0.7, 0.08, 0.006), meterScreen));
   // the sensor on the return, a thin wire over to it
-  meter.add(
-    mesh(stick(v3(W.returnX, my - rWater - 0.04, mz), v3(W.returnX, my - rWater + 0.04, mz), 0.024, 8), mats.brass),
+  services['heat-meter'].add(
+    mesh(stick(v3(W.returnX, my - rWater - 0.04, mz), v3(W.returnX, my - rWater + 0.04, mz), 0.024, 8), mats.steel),
   );
   cableRun(
-    meter,
+    services['heat-meter'],
     mats.cable,
     [
       v3(boxBelow.x - M.boxW / 2, boxBelow.y - 0.07, boxBelow.z),
@@ -1349,6 +1372,7 @@ export function buildEquipment(mats: PlantMaterials): EquipmentPieces {
   );
   return {
     roots,
+    services,
     chargeBlower,
     dischargeBlower,
     chargeDampers,

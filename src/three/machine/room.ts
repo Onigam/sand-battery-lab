@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { emissive, mesh } from '@onigam/lab-kit/three';
 import { TAU, box, discY, joined, stick, v3 } from '../common';
 import { DEG, LEVEL, PLANT, WALL } from '../dims';
+import { dynamic } from '../merge';
 import type { PlantMaterials } from './equipment';
 
 // What makes the equipment floor a room and not a stage (scenery, nothing here is a part): lamps under the ceiling, a walkway painted on the deck, a guard rail around the ducts where
@@ -12,6 +13,8 @@ const Y = LEVEL.floor;
 export interface RoomDressing {
   group: THREE.Group;
   lamp: THREE.MeshStandardMaterial;
+  /** What hangs under the ceiling, wall to wall: rails and lamps. A world that opens its wall must not draw them where they would end in the air: their material is their own. */
+  overhead: THREE.Mesh[];
   /** Things that stand on the deck, with their feet at Y (tests). */
   standing: THREE.Object3D[];
 }
@@ -27,7 +30,6 @@ export function buildRoomDressing(mats: PlantMaterials): RoomDressing {
     const half = Math.sqrt(Math.max(0, WALL.roomIn * WALL.roomIn - z * z));
     rails.push(box(0, Y + PLANT.railY, z, 2 * half, 0.05, PLANT.railW));
   }
-  group.add(mesh(joined(rails), mats.tray));
 
   // ---- lamps: battens hung from the rails
   const lamp = emissive(0xfff0d0, 1.1);
@@ -45,11 +47,17 @@ export function buildRoomDressing(mats: PlantMaterials): RoomDressing {
     for (const dx of [-0.5, 0.5])
       hoods.push(stick(v3(x + dx, Y + PLANT.railY - 0.16, z), v3(x + dx, Y + PLANT.railY - 0.02, z), 0.008, 5));
   }
-  const bat = mesh(joined(battens), lamp);
+  const bat = dynamic(mesh(joined(battens), lamp));
   bat.castShadow = false;
   bat.userData.noShadow = true;
   group.add(bat);
-  group.add(mesh(joined(hoods), mats.paintGrey));
+  // the rails, the hoods and their rods: one mesh, its material its own
+  const railMat = mats.tray.clone();
+  railMat.color.set(0x8d9294);
+  railMat.userData.noShare = true;
+  const railMesh = dynamic(mesh(joined([...rails, ...hoods]), railMat));
+  railMesh.name = 'ceiling-rails';
+  group.add(railMesh);
 
   // ---- the walkway on the deck: two yellow lines from the door to the zone's ducts
   const lines: THREE.BufferGeometry[] = [];
@@ -84,7 +92,7 @@ export function buildRoomDressing(mats: PlantMaterials): RoomDressing {
   legs.push(box(0, 0.25, -0.28, 1.8, 0.04, 0.04));
   legs.push(box(0, 0.25, 0.28, 1.8, 0.04, 0.04));
   bench.add(mesh(joined(legs), mats.paintGrey));
-  bench.add(mesh(box(0, 0.88, 0, 2, 0.05, 0.7), new THREE.MeshStandardMaterial({ color: 0x8f7a5e, roughness: 0.85 })));
+  bench.add(mesh(box(0, 0.88, 0, 2, 0.05, 0.7), new THREE.MeshStandardMaterial({ color: 0x8f7a5e, roughness: 0.92 })));
   // a vice, a tool box
   bench.add(mesh(box(0.7, 0.96, 0.22, 0.14, 0.11, 0.2), mats.paintBlue));
   bench.add(mesh(box(-0.5, 0.97, 0, 0.42, 0.13, 0.2), mats.paintRed));
@@ -146,5 +154,5 @@ export function buildRoomDressing(mats: PlantMaterials): RoomDressing {
   group.add(ext);
   standing.push(ext);
 
-  return { group, lamp, standing };
+  return { group, lamp, overhead: [railMesh, bat], standing };
 }
