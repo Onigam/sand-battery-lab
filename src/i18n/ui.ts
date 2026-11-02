@@ -13,8 +13,9 @@ export const LAB_STRINGS = {
   // ---- the worlds and the shortcuts between them
   sceneSite: ['Le village', 'The village'],
   sceneSilo: ['Le silo', 'The silo'],
-  scenePipeCell: ['Un tube dans la pierre', 'One pipe in the stone'],
-  scenePlantRoom: ['L’étage technique', 'The equipment floor'],
+  // short, as in the other labs: at 768 px the long forms left « LABO… » of the title, and a phone had to scroll to the fourth world. The overviews carry the long forms.
+  scenePipeCell: ['Un tube', 'One pipe'],
+  scenePlantRoom: ['L’étage', 'The floor'],
   goSite: ['Voir le village', 'See the village'],
   goSilo: ['Ouvrir le silo', 'Open the silo'],
   goPipeCell: ['Entrer dans le champ de tubes', 'Step into the pipe field'],
