@@ -253,10 +253,8 @@ function draw(d: Drawing): void {
     ],
     [
       [l('Plancher de la pleine puissance', 'Floor of full power'), fig('floor', 'M', ' °C')],
-      [l('Soufflante, de', 'Blower, from'), fig('blowerKwLow', 'M', ' kW')],
-      [l('à', 'to'), fig('blowerKwHigh', 'M', ' kW')],
-      [l('Pression, de', 'Pressure, from'), fig('blowerKpaLow', 'M', ' kPa')],
-      [l('à', 'to'), fig('blowerKpaHigh', 'M', ' kPa')],
+      [l('Soufflante', 'Blower'), cat(fig('blowerKwLow', 'M'), l(' à ', ' to '), fig('blowerKwHigh', 'M', ' kW'))],
+      [l('Pression', 'Pressure'), cat(fig('blowerKpaLow', 'M'), l(' à ', ' to '), fig('blowerKpaHigh', 'M', ' kPa'))],
       [l('Conductance de l’échangeur', 'Conductance of the exchanger'), fig('exchangerUA', 'M', ' kW/K')],
     ],
     { size: 1.85, pad: 0.55 },

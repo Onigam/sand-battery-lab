@@ -4,7 +4,7 @@ import { partIds } from '../data/ids';
 import { PARTS } from '../data/parts';
 import { AZIMUTH, CABLE_RISER, LADDER, LEVEL, RISERS, SILO, SITE, siteFromSilo, VENT } from '../three/dims';
 import { arrow, balloon, caption, dimH, dimV, FILL, grid, marksLegend, note, PAPER, poly, RED, WATER } from './draw';
-import { lab, perMetre, scaleText } from './geom';
+import { cat, lab, perMetre, scaleText } from './geom';
 
 // PL-01: the plot and the village in plan, the silo from outside in elevation, all read from dims.ts. Only the outside of the silo is reported; the plot's size is reported for the 2 MW product; the
 // village is generic scenery at true scale, never the real plot.
@@ -269,7 +269,7 @@ function fillSizes(): void {
   SIZE['house-substation'] = dims3(SITE.substationHouse.length, SITE.substationHouse.width, SITE.substationHouse.wallH);
   SIZE['power-line'] = lab(SITE.line.poleH, 1, 'E');
   SIZE['wind-farm'] = lab(SITE.wind.hub, 0, 'E');
-  SIZE['solar-field'] = dims2(SITE.solar.panelW, SITE.solar.panelL, 2);
+  SIZE['solar-field'] = cat(l('un panneau, ', 'one panel, '), dims2(SITE.solar.panelW, SITE.solar.panelL, 2));
   SIZE['silo-exterior'] = l(`${SILO.totalHeight} × ${2 * SILO.outerR} m`, `${SILO.totalHeight} × ${2 * SILO.outerR} m`);
   SIZE['dh-riser'] = lab(RISERS.jacketR * 2, 2, 'E');
   SIZE['cable-riser'] = lab(CABLE_RISER.width, 2, 'E');
