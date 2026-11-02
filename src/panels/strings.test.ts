@@ -81,8 +81,10 @@ describe('the panel’s words', () => {
   });
   it('say the model is a model once, and warn about the efficiencies once', () => {
     const count = (re: RegExp) => entries.filter(([, [, en]]) => re.test(en)).length;
-    expect(count(/No independent measurement/)).toBe(0);
-    expect(count(/Nobody has measured/)).toBe(1);
+    // what the research supports: none found, not none in existence
+    expect(count(/We found no independent measurement of these machines/)).toBe(1);
+    expect(count(/independent measurement/i)).toBe(1);
+    expect(count(/Nobody has measured|No independent measurement/)).toBe(0);
   });
   it('write 46% in English, 46 % in French', () => {
     for (const [key, [fr, en]] of entries) {

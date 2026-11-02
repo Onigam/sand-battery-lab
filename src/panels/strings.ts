@@ -246,8 +246,8 @@ const PANEL = {
   yearPaid: ['Prix moyen payé', 'Mean price paid'],
   yearDiscount: ['Sous la moyenne de la semaine', 'Under the mean of the week'],
   efficiencyHint: [
-    'Personne n’a mesuré un vrai silo de façon indépendante. Le constructeur et ses clients annoncent de 60 à 75 % sur le petit silo, et pour celui-ci environ 80 %, plus de 85 %, de 85 à 90 %. Ce chiffre-ci sort du modèle, qui ne connaît ni les fuites ni les ponts thermiques réels : il est plutôt un plafond.',
-    'Nobody has measured a real silo independently. The maker and its customers quote 60 to 75% for the small silo, and for this one about 80%, above 85%, 85 to 90%. This figure comes from the model, which knows neither the real leaks nor the real thermal bridges: it is rather a ceiling.',
+    'Nous n’avons trouvé aucune mesure indépendante de ces machines. Le constructeur et ses clients annoncent de 60 à 75 % sur le petit silo, et pour celui-ci environ 80 %, plus de 85 %, de 85 à 90 %. Ce chiffre-ci sort du modèle, qui ne connaît ni les fuites ni les ponts thermiques réels : il est plutôt un plafond.',
+    'We found no independent measurement of these machines. The maker and its customers quote 60 to 75% for the small silo, and for this one about 80%, above 85%, 85 to 90%. This figure comes from the model, which knows neither the real leaks nor the real thermal bridges: it is rather a ceiling.',
   ],
   chartOrder: ['Le cœur d’abord, ou partout', 'Core first, or everywhere'],
   orderHours: ['Durée de la charge', 'Length of the charge'],

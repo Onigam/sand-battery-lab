@@ -17,7 +17,7 @@ Lesson 5 is written around the game as it stands: **blocks of three hours** in t
 
 ## What the lessons say about the model
 
-69 MWh is never said to be measured, 100 MWh never said to be the model's. The lessons use no second « no independent measurement »: it is said once, in the simulation panel, under the year's efficiency. Heat pump: no figure, an order of magnitude with its tag, since the research gives none.
+69 MWh is never said to be measured, 100 MWh never said to be the model's. The lessons use no second « we found no independent measurement »: it is said once, in the simulation panel, under the year's efficiency. Heat pump: no figure, an order of magnitude with its tag, since the research gives none.
 
 ## Tests
 

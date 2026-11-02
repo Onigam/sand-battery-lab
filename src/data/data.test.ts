@@ -261,6 +261,7 @@ describe('what the sheets must say', () => {
     expect(t).toMatch(/91%/);
     expect(t).toMatch(/ceiling/);
     expect(t).toMatch(/they disagree/);
+    expect(t).toMatch(/Every figure we found comes from the maker or its customers/);
     const say = /No independent|Nobody has measured a real silo|independent measurement/i;
     expect(visitorTexts().filter(([, v]) => say.test(v.en)).length).toBe(0);
   });
