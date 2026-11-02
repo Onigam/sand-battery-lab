@@ -7,7 +7,7 @@ import { FlowDots, discY, paperFloor } from '../common';
 import { WedgeCut, rectPoly } from '../cut';
 import { applyWear, contactRing } from '../detail';
 import { LEVEL, PLANT, SILO, WALL } from '../dims';
-import { HeatField, type StoneKind, heatColor, heatMaterial } from '../heat';
+import { HeatField, StoneReveal, type StoneKind, heatColor, heatMaterial } from '../heat';
 import {
   PLANT_PARTS,
   buildEquipment,
@@ -146,6 +146,7 @@ export function createPlantRoomScene(opts: PlantRoomOptions = {}): PlantRoomScen
   const cut = new WedgeCut(0, 0);
   const field = new HeatField();
   const stone = { value: 'soapstone' as StoneKind };
+  const reveal = new StoneReveal(field.uniforms.uStoneShow);
 
   // ---- the silo under the floor: the same function; what stands above the deck opens to the eye
   const mats = bodyMaterials();
@@ -283,6 +284,7 @@ export function createPlantRoomScene(opts: PlantRoomOptions = {}): PlantRoomScen
     homePadding: 0.92,
     update(s, dt, view) {
       stone.value = opts.medium?.() ?? 'soapstone';
+      reveal.update(stone.value, dt);
       field.update(s, dt);
       cut.update('wedge', null);
       driveEquipment(equipment, s, dt, damperDrawn);

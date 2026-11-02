@@ -7,7 +7,7 @@ import { FlowDots, box, discY, joined, paperFloor, stick, v3 } from '../common';
 import { type CutMode, type Poly, WedgeCut, rectPoly } from '../cut';
 import { applyWear, contactRing } from '../detail';
 import { LANCES, LEVEL, PENETRATION, PIPE, PLANT, SILO } from '../dims';
-import { HEAT_MAX, HeatField, type StoneKind, heatColor, heatMaterial } from '../heat';
+import { HEAT_MAX, HeatField, StoneReveal, type StoneKind, heatColor, heatMaterial } from '../heat';
 import {
   driveEquipment,
   buildEquipment,
@@ -183,6 +183,7 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
   const body = buildBody(mats);
   const field = new HeatField();
   const stone = { value: 'soapstone' as StoneKind };
+  const reveal = new StoneReveal(field.uniforms.uStoneShow);
 
   const roots = {} as Record<SiloPartId, THREE.Group>;
   for (const id of SILO_PARTS) {
@@ -366,6 +367,7 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
     homePadding: 0.9,
     update(s, dt, view) {
       stone.value = opts.medium?.() ?? 'soapstone';
+      reveal.update(stone.value, dt);
       field.update(s, dt);
       drawnMode = view.cutaway ? 'half' : 'wedge';
       cut.update(drawnMode, registry);

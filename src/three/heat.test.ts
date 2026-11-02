@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { describe, expect, it } from 'vitest';
-import { HEAT_MAX, HEAT_MIN, HEAT_STOPS, HeatField, heatColor, heatRampGlsl } from './heat';
+import { HEAT_MAX, HEAT_MIN, HEAT_STOPS, HeatField, heatColor, heatRampGlsl, StoneReveal } from './heat';
 
 // The false colour must read in both light modes of the kit: ACES at 1 (the `site` world, the kit's default) and Neutral at 1.2 (the paper studio) and at the exposures the worlds use. A
 // visitor must tell the steps apart; the ramp runs from cool to hot and it never saturates into one flat colour. Tone curves as in three.js.
@@ -39,6 +39,25 @@ function neutral(c: number[], exposure: number): number[] {
 }
 const srgb = (v: number) => (v <= 0.0031308 ? 12.92 * v : 1.055 * v ** (1 / 2.4) - 0.055);
 const dist = (a: number[], b: number[]) => Math.hypot(...a.map((v, i) => srgb(v) - srgb(b[i])));
+
+describe('the sand switch', () => {
+  it('shows the new stone when the medium changes, and only then, and the false colour comes back', () => {
+    const r = new StoneReveal();
+    r.update('soapstone', 0.016);
+    expect(r.uniform.value).toBe(0);
+    r.update('soapstone', 0.016);
+    expect(r.uniform.value).toBe(0);
+    r.update('sand', 0.016);
+    expect(r.uniform.value).toBe(1);
+    r.update('sand', StoneReveal.HOLD * 0.9);
+    expect(r.uniform.value).toBe(1);
+    r.update('sand', StoneReveal.HOLD * 0.1 + StoneReveal.FADE * 0.5);
+    expect(r.uniform.value).toBeGreaterThan(0.1);
+    expect(r.uniform.value).toBeLessThan(0.9);
+    r.update('sand', StoneReveal.FADE);
+    expect(r.uniform.value).toBe(0);
+  });
+});
 
 describe('the false colour', () => {
   it('is fixed from 0 to 600 °C, with the same stops in JS and in the shader', () => {

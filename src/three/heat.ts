@@ -64,6 +64,8 @@ export class HeatField {
   readonly uniforms = {
     uHeat: { value: null as unknown as THREE.Texture },
     uHeatOn: { value: 1 },
+    /** 1 shows the plain stone instead of the false colour (`StoneReveal`). */
+    uStoneShow: { value: 0 },
   };
   private since = Infinity;
   /** Cells written so far (tests). */
@@ -109,6 +111,27 @@ export const STONE_LOOK = {
 } as const;
 export type StoneKind = keyof typeof STONE_LOOK;
 
+/**
+ * Under the false colour soapstone and sand look alike, and the temperatures do not move when the medium changes, so the sand switch would show nothing. When it changes, the section
+ * shows the new stone in its own colour for a moment, then the false colour comes back. `uniform` goes to the materials.
+ */
+export class StoneReveal {
+  /** Real seconds: how long the plain stone holds, then how long it fades. */
+  static readonly HOLD = 1.6;
+  static readonly FADE = 1.4;
+  private kind: StoneKind | null = null;
+  private t = Infinity;
+  constructor(readonly uniform: { value: number } = { value: 0 }) {}
+
+  update(kind: StoneKind, dt: number): void {
+    if (this.kind !== null && kind !== this.kind) this.t = 0;
+    else this.t += dt;
+    this.kind = kind;
+    const x = Math.min(1, Math.max(0, (this.t - StoneReveal.HOLD) / StoneReveal.FADE));
+    this.uniform.value = 1 - x * x * (3 - 2 * x);
+  }
+}
+
 /** GLSL: the crushed look in the object's coordinates: lumps of stone (a Voronoi distance) that fade before they get under a few pixels. */
 const STONE_GLSL = /* glsl */ `
   vec2 stHash( vec2 p ) { p = vec2( dot( p, vec2( 127.1, 311.7 ) ), dot( p, vec2( 269.5, 183.3 ) ) ); return fract( sin( p ) * 43758.5453 ); }
@@ -153,6 +176,7 @@ export function heatMaterial(o: HeatMaterialOptions): THREE.MeshStandardMaterial
   m.onBeforeCompile = (shader) => {
     shader.uniforms.uHeat = o.field.uniforms.uHeat;
     shader.uniforms.uHeatOn = o.field.uniforms.uHeatOn;
+    shader.uniforms.uStoneShow = o.field.uniforms.uStoneShow;
     shader.uniforms.uStoneA = { value: soap };
     shader.uniforms.uStoneB = { value: sand };
     shader.uniforms.uStoneMix = {
@@ -170,6 +194,7 @@ export function heatMaterial(o: HeatMaterialOptions): THREE.MeshStandardMaterial
         varying vec3 vHeatP;
         uniform sampler2D uHeat;
         uniform float uHeatOn;
+        uniform float uStoneShow;
         uniform vec3 uStoneA;
         uniform vec3 uStoneB;
         uniform float uStoneMix;
@@ -196,9 +221,10 @@ export function heatMaterial(o: HeatMaterialOptions): THREE.MeshStandardMaterial
           float tw = max( fwidth( T ), 1e-3 );
           float d = abs( fract( T / 50.0 + 0.5 ) - 0.5 ) * 50.0 / tw;
           float iso = ( 1.0 - smoothstep( 0.4, 1.4, d ) ) * ( 1.0 - smoothstep( 4.0, 16.0, tw ) );
-          vec3 col = uHeatOn > 0.5 ? heat * ( 1.0 - 0.28 * iso ) : stone;
-          diffuseColor.rgb = col * grain * ( uHeatOn > 0.5 ? 0.72 : 1.0 );
-          gHeatGlow = uHeatOn > 0.5 ? col * grain * ${glow.toFixed(3)} : vec3( 0.0 );
+          float plain = uHeatOn > 0.5 ? uStoneShow : 1.0;
+          vec3 col = mix( heat * ( 1.0 - 0.28 * iso ), stone, plain );
+          diffuseColor.rgb = col * grain * mix( 0.72, 1.0, plain );
+          gHeatGlow = col * grain * ${glow.toFixed(3)} * ( 1.0 - plain );
         }`,
       )
       .replace(

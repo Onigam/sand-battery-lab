@@ -7,7 +7,7 @@ import { FlowDots, box, joined, paperFloor } from '../common';
 import { WedgeCut } from '../cut';
 import { applyWear, contactShadow } from '../detail';
 import { CELL, CELL_HALF, GRID, LEVEL, PIPE, SILO, ZONE_R } from '../dims';
-import { heatColor, heatRampGlsl } from '../heat';
+import { STONE_LOOK, StoneReveal, heatColor, heatRampGlsl } from '../heat';
 import {
   CELL_QUALITY,
   bendBlockGeometry,
@@ -125,7 +125,11 @@ export class ProfileField {
  * The stone of a block: colour from the distance to the nearest pipe of the lattice and the height, so a section shows the rings of heat around the legs. The look of the stone under
  * it is the crushed look of the silo.
  */
-function cellStoneMaterial(field: ProfileField, stone: { value: 'soapstone' | 'sand' }): THREE.MeshStandardMaterial {
+function cellStoneMaterial(
+  field: ProfileField,
+  stone: { value: 'soapstone' | 'sand' },
+  show: { value: number },
+): THREE.MeshStandardMaterial {
   const m = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.92, side: THREE.DoubleSide });
   m.userData.noShare = true;
   m.userData.worn = true;
@@ -137,6 +141,9 @@ function cellStoneMaterial(field: ProfileField, stone: { value: 'soapstone' | 's
         return stone.value === 'sand' ? 1 : 0;
       },
     };
+    shader.uniforms.uStoneShow = show;
+    shader.uniforms.uStoneA = { value: new THREE.Color(STONE_LOOK.soapstone.color) };
+    shader.uniforms.uStoneB = { value: new THREE.Color(STONE_LOOK.sand.color) };
     shader.vertexShader = shader.vertexShader
       .replace('#include <common>', '#include <common>\nvarying vec3 vCellW;\nvarying vec3 vCellO;')
       .replace('#include <begin_vertex>', '#include <begin_vertex>\nvCellO = position;');
@@ -153,6 +160,9 @@ function cellStoneMaterial(field: ProfileField, stone: { value: 'soapstone' | 's
         uniform sampler2D uProfile;
         uniform vec2 uRho;
         uniform float uStoneMix;
+        uniform float uStoneShow;
+        uniform vec3 uStoneA;
+        uniform vec3 uStoneB;
         ${heatRampGlsl()}
         vec2 clHash( vec2 p ) { p = vec2( dot( p, vec2( 127.1, 311.7 ) ), dot( p, vec2( 269.5, 183.3 ) ) ); return fract( sin( p ) * 43758.5453 ); }
         float clVor( vec2 x ) { vec2 n = floor( x ), f = fract( x ); float m = 8.0; for ( int j = -1; j <= 1; j++ ) for ( int i = -1; i <= 1; i++ ) { vec2 g = vec2( float( i ), float( j ) ); vec2 r = g + clHash( n + g ) - f; m = min( m, dot( r, r ) ); } return sqrt( m ); }
@@ -178,9 +188,9 @@ function cellStoneMaterial(field: ProfileField, stone: { value: 'soapstone' | 's
           float keep = 1.0 - smoothstep( 0.07, 0.2, cpp );
           float lump = clVor( s * cell );
           float grain = 1.0 + keep * ( mix( 0.34, 0.16, uStoneMix ) * ( 0.55 - lump ) );
-          vec3 col = heatRamp( T ) * ( 1.0 - 0.22 * iso );
-          diffuseColor.rgb = col * grain * 0.72;
-          gCellGlow = col * grain * 0.2;
+          vec3 col = mix( heatRamp( T ) * ( 1.0 - 0.22 * iso ), mix( uStoneA, uStoneB, uStoneMix ), uStoneShow );
+          diffuseColor.rgb = col * grain * mix( 0.72, 1.0, uStoneShow );
+          gCellGlow = col * grain * 0.2 * ( 1.0 - uStoneShow );
         }`,
       )
       .replace(
@@ -269,6 +279,7 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
 
   const registry = new PartRegistry();
   const stoneKind = { value: 'soapstone' as 'soapstone' | 'sand' };
+  const reveal = new StoneReveal();
   const roots = {} as Record<CellPartId, THREE.Group>;
   for (const id of CELL_PARTS) {
     const g = new THREE.Group();
@@ -305,8 +316,8 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
 
   const buildBlock = (id: 'core-zone' | 'outer-zone', cx: number, cut: WedgeCut, field: ProfileField) => {
     // the stone: a box of the height of the bed; a quarter removed by its own cut, its colour from the fine profile
-    const stone = cellStoneMaterial(field, stoneKind);
-    const capMat = cellStoneMaterial(field, stoneKind);
+    const stone = cellStoneMaterial(field, stoneKind, reveal.uniform);
+    const capMat = cellStoneMaterial(field, stoneKind, reveal.uniform);
     const g = new THREE.BoxGeometry(2 * CELL_HALF, SILO.bedHeight, 2 * CELL_HALF);
     g.translate(0, (LEVEL.bedBottom + LEVEL.bedTop) / 2, 0);
     const root = roots[id];
@@ -350,6 +361,15 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
       place(seg, u.x0, PIPE.legBottom, u.z);
       bendRoot.add(seg);
     }
+    // each U rests on its block, under the bend: the pipes stand free where the stone is taken away
+    const blockGeo = bendBlockGeometry();
+    for (const u of us) {
+      const seg = new THREE.Mesh(blockGeo, conc);
+      seg.castShadow = true;
+      seg.receiveShadow = true;
+      place(seg, u.x0, PIPE.legBottom, u.z);
+      bendRoot.add(seg);
+    }
     roots['return-bend'].add(bendRoot);
     const loopFeed = loopGeometry(q, -PIPE.headerOffset);
     const loopBack = loopGeometry(q, PIPE.headerOffset);
@@ -361,15 +381,6 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
       loopRoot.add(seg);
     }
     roots['expansion-loop'].add(loopRoot);
-    // each U rests on its block, under the bend: the pipes stand free where the stone is taken away
-    const blockGeo = bendBlockGeometry();
-    for (const u of us) {
-      const seg = new THREE.Mesh(blockGeo, conc);
-      seg.castShadow = true;
-      seg.receiveShadow = true;
-      place(seg, u.x0, PIPE.legBottom, u.z);
-      bendRoot.add(seg);
-    }
     const hg = headerGeometry(20);
     const runs = headerRuns(us);
     const headerRoot = new THREE.Group();
@@ -535,6 +546,7 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
     homePadding: 1.0,
     update(s, dt, view) {
       stoneKind.value = opts.medium?.() ?? 'soapstone';
+      reveal.update(stoneKind.value, dt);
       since += dt;
       if (since > 0.2) {
         since = 0;
