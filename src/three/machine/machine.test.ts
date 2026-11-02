@@ -9,6 +9,7 @@ import { AZIMUTH, CELL, LEVEL, PIPE, PLANT, RISERS, SILO, SITE, WALL, wallPoint 
 import { meshBox, stateWith, view } from '../test-utils';
 import { PLANT_PARTS, type PlantId } from './equipment';
 import {
+  bendBlockGeometry,
   bendGeometry,
   CELL_QUALITY,
   FIELD_QUALITY,
@@ -148,7 +149,8 @@ describe('the stack rests, layer on layer (3 mm)', () => {
     expect(b('conical-roof').min.y).toBeGreaterThanOrEqual(LEVEL.ceiling - 0.05);
   });
   it('the pipes stay in the stone below, under the deck above', () => {
-    expect(b('pipe-field').min.y).toBeGreaterThan(LEVEL.bedBottom);
+    // the blocks under the bends stand on the floor of the bed
+    expect(b('pipe-field').min.y).toBeCloseTo(LEVEL.bedBottom, 3);
     expect(b('pipe-field').max.y).toBeLessThan(LEVEL.deckBottom);
     const reach = Math.max(b('pipe-field').max.x, b('pipe-field').max.z);
     expect(reach).toBeLessThan(SILO.bedR + 0.001);
@@ -214,6 +216,16 @@ describe('the pipes are attached, end to end', () => {
     expect(bb.min.y).toBeCloseTo(-PIPE.bendR - PIPE.r, 2);
     // under it, stone
     expect(PIPE.legBottom + bb.min.y).toBeGreaterThan(LEVEL.bedBottom);
+  });
+  it('every bend rests on a block that stands on the floor of the bed', () => {
+    const g = bendBlockGeometry();
+    g.computeBoundingBox();
+    const bb = g.boundingBox!;
+    expect(PIPE.legBottom + bb.min.y).toBeCloseTo(LEVEL.bedBottom, 6);
+    // its top goes up into the underside of the bend, at the bend's lowest point
+    expect(bb.max.y).toBeGreaterThan(-PIPE.bendR - PIPE.r);
+    expect(bb.max.y).toBeLessThan(-PIPE.bendR + PIPE.r);
+    expect((bb.min.x + bb.max.x) / 2).toBeCloseTo(PIPE.bendR, 6);
   });
   it("each expansion loop starts on its leg's top and ends in its header", () => {
     for (const off of [-PIPE.headerOffset, PIPE.headerOffset]) {

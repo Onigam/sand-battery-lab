@@ -207,6 +207,9 @@ export const PIPE = {
   bendR: pitch / 2,
   /** estimate: stone under the bend. */
   bendClearance: 0.1,
+  /** estimate: the block each bend rests on while the field goes up (its height is the clearance); the stone then buries it. */
+  blockW: 0.16,
+  blockD: 0.1,
   /** derived: bottom of the straight part of a leg. */
   legBottom: LEVEL.bedBottom + 0.1 + pipeR + pitch / 2,
   /** derived: the straight part ends at the top of the bed; the expansion loop starts there. */

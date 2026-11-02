@@ -80,6 +80,8 @@ function draw(d: Drawing): void {
   const cx = (xa + xb) / 2;
   e.arc([cx, yB], PIPE.bendR + r, 180, 360, { w: W.medium });
   e.arc([cx, yB], PIPE.bendR - r, 180, 360, { w: W.medium });
+  // the block the bend rests on: the stone buries it
+  e.rect([cx - PIPE.blockW / 2, y0], [cx + PIPE.blockW / 2, yB - PIPE.bendR - r], { w: W.thin, fill: INK_2 });
   // spacers on their levels, the bar and the collars
   for (const y of PIPE.spacerYs) {
     e.rect([-0.6, y - 0.03], [1.1, y + 0.03], { w: W.thin, fill: INK_2 });

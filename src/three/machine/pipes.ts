@@ -89,6 +89,14 @@ export function bendGeometry(q: PipeQuality): THREE.BufferGeometry {
   return new THREE.TubeGeometry(new HalfCircle(), q.bendTubular, PIPE.r, q.bendRadial, false);
 }
 
+/** The block under a return bend, in the bend's frame: from the floor of the bed up into the underside of the bend. The crew sets the U on it, and the stone then buries it. */
+export function bendBlockGeometry(): THREE.BufferGeometry {
+  const under = -PIPE.bendR - PIPE.r;
+  const foot = under - PIPE.bendClearance;
+  const top = under + 0.006;
+  return box(PIPE.bendR, (foot + top) / 2, 0, PIPE.blockW, top - foot, PIPE.blockD);
+}
+
 class HalfCircle extends THREE.Curve<THREE.Vector3> {
   constructor() {
     super();
@@ -197,6 +205,7 @@ export function buildPipeField(
   steel: THREE.Material,
   spacerSteel: THREE.Material,
   mainSteel: THREE.Material,
+  blockMat: THREE.Material,
 ): PipeField {
   const q = FIELD_QUALITY;
   const us = pipeLattice();
@@ -211,6 +220,8 @@ export function buildPipeField(
 
   const bendMesh = instanced(bendGeometry(q), steel, us.length, 'bends');
   us.forEach((u, i) => bendMesh.setMatrixAt(i, M.makeTranslation(u.x0, PIPE.legBottom, u.z)));
+  const blockMesh = instanced(bendBlockGeometry(), blockMat, us.length, 'blocks');
+  us.forEach((u, i) => blockMesh.setMatrixAt(i, M.makeTranslation(u.x0, PIPE.legBottom, u.z)));
 
   const feed = legs.filter((l) => l.side === 0);
   const back = legs.filter((l) => l.side === 1);
@@ -274,8 +285,8 @@ export function buildPipeField(
   mains.castShadow = false;
   mains.userData.noShadow = true;
 
-  group.add(legMesh, bendMesh, loopA, loopB, headerMesh, bars, collars, mains);
-  for (const im of [legMesh, bendMesh, loopA, loopB, headerMesh, bars, collars]) {
+  group.add(legMesh, bendMesh, blockMesh, loopA, loopB, headerMesh, bars, collars, mains);
+  for (const im of [legMesh, bendMesh, blockMesh, loopA, loopB, headerMesh, bars, collars]) {
     im.instanceMatrix.needsUpdate = true;
     im.computeBoundingBox();
     im.computeBoundingSphere();

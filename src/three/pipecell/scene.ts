@@ -10,6 +10,7 @@ import { CELL, CELL_HALF, GRID, LEVEL, PIPE, SILO, ZONE_R } from '../dims';
 import { heatColor, heatRampGlsl } from '../heat';
 import {
   CELL_QUALITY,
+  bendBlockGeometry,
   bendGeometry,
   headerGeometry,
   headerRuns,
@@ -360,6 +361,15 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
       loopRoot.add(seg);
     }
     roots['expansion-loop'].add(loopRoot);
+    // each U rests on its block, under the bend: the pipes stand free where the stone is taken away
+    const blockGeo = bendBlockGeometry();
+    for (const u of us) {
+      const seg = new THREE.Mesh(blockGeo, conc);
+      seg.castShadow = true;
+      seg.receiveShadow = true;
+      place(seg, u.x0, PIPE.legBottom, u.z);
+      bendRoot.add(seg);
+    }
     const hg = headerGeometry(20);
     const runs = headerRuns(us);
     const headerRoot = new THREE.Group();

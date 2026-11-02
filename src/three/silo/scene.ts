@@ -204,7 +204,8 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
   const pipeSteel = new THREE.MeshStandardMaterial({ color: 0xb5babf, roughness: 0.4, metalness: 0.85 });
   const barSteel = new THREE.MeshStandardMaterial({ color: 0x70757a, roughness: 0.5, metalness: 0.7 });
   const mainSteel = new THREE.MeshStandardMaterial({ color: 0xc2c7cb, roughness: 0.38, metalness: 0.85 });
-  const pipes = buildPipeField(pipeSteel, barSteel, mainSteel);
+  const blockConcrete = new THREE.MeshStandardMaterial({ color: 0x9a968c, roughness: 0.92 });
+  const pipes = buildPipeField(pipeSteel, barSteel, mainSteel, blockConcrete);
   roots['pipe-field'].add(pipes.group);
 
   // ---- where the ducts cross the top insulation

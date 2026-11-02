@@ -69,7 +69,7 @@ Used in the lab's own words, never quoted, listed for the re-reading `docs/resea
 
 ## One departure from the research
 
-`docs/research.md` §4.5 puts `pipe-spacer` at step 5 and `heat-pipe` at step 6. In `dims.ts` the spacers are frames of bars and collars on the legs, 2 m and 4 m above the floor, so alone they would float. The guide lowers the pipes first (step 5, on a temporary block) and fits the spacers on them (step 6), still before the stone.
+`docs/research.md` §4.5 puts `pipe-spacer` at step 5 and `heat-pipe` at step 6. In `dims.ts` the spacers are frames of bars and collars on the legs, 2 m and 4 m above the floor, so alone they would float. The guide lowers the pipes first (step 5, each bend on a block that the stone buries, drawn in `src/three`) and fits the spacers on them (step 6), still before the stone.
 
 ## Tests
 

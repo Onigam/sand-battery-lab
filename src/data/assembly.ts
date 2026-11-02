@@ -80,8 +80,8 @@ export const ASSEMBLY: GuideStep[] = [
     title: l('Descendre les tubes en U', 'Lower the U-pipes'),
     text: step(
       'reading',
-      'Chaque **tube d’échange** descend dans la virole, posé sur une cale provisoire, et le **coude de retour** referme le U au fond. C’est la seule soudure qu’aucun visiteur ne reverra jamais : on la contrôle ici, ou jamais. Le U nous vient d’un exercice de physique : le tracé réel est gardé secret, et le constructeur indique seulement des tubes verticaux d’inox. On contrôle : soudures, propreté intérieure, aplomb.',
-      'Each **heat-transfer pipe** goes down into the shell, resting on a temporary block, and the **return bend** closes the U at the bottom. It is the one weld no visitor will ever see again: it gets checked here, or never. The U comes to us from a physics exercise: the real layout is kept secret, and the maker indicates only vertical stainless pipes. To check: welds, cleanliness inside, plumb.',
+      'Chaque **tube d’échange** descend dans la virole et le **coude de retour** referme le U au fond, posé sur une cale que la pierre enterrera. C’est la seule soudure qu’aucun visiteur ne reverra jamais : on la contrôle ici, ou jamais. Le U nous vient d’un exercice de physique : le tracé réel est gardé secret, et le constructeur indique seulement des tubes verticaux d’inox. On contrôle : soudures, propreté intérieure, aplomb.',
+      'Each **heat-transfer pipe** goes down into the shell and the **return bend** closes the U at the bottom, resting on a block that the stone will bury. It is the one weld no visitor will ever see again: it gets checked here, or never. The U comes to us from a physics exercise: the real layout is kept secret, and the maker indicates only vertical stainless pipes. To check: welds, cleanliness inside, plumb.',
     ),
     parts: ['heat-pipe', 'return-bend'],
     tools: [
