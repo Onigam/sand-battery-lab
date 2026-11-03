@@ -11,9 +11,14 @@ const problems = [];
 for (const lang of existsSync(audio) ? readdirSync(audio) : []) {
   const dir = join(audio, lang);
   if (!statSync(dir).isDirectory()) continue;
-  // a language folder with no manifest holds no finished audio (cleared, or being generated): nothing to check yet
-  if (!existsSync(join(dir, 'manifest.json'))) continue;
-  const manifest = JSON.parse(readFileSync(join(dir, 'manifest.json'), 'utf8'));
+  // an empty folder is no audio yet either: the voice's run creates the folders before it writes anything
+  if (!readdirSync(dir).some((name) => !name.startsWith('.'))) continue;
+  const manifestPath = join(dir, 'manifest.json');
+  if (!existsSync(manifestPath)) {
+    problems.push(`${lang}: files but no manifest.json`);
+    continue;
+  }
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
   const scriptPath = join(root, 'narration', `${lang}.json`);
   const script = existsSync(scriptPath) ? JSON.parse(readFileSync(scriptPath, 'utf8')) : null;
   const ids = new Set();

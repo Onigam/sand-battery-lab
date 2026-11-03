@@ -1,0 +1,2935 @@
+{
+  "lang": "fr",
+  "model": "qwen3-tts-1.7B",
+  "generatedAt": "2026-11-03T11:54:15.414Z",
+  "voiceLabel": {
+    "fr": "Voix de synthèse",
+    "en": "Synthetic voice"
+  },
+  "totalSeconds": 1239.35,
+  "segments": [
+    {
+      "id": "intro",
+      "scope": "intro",
+      "title": "Présentation du labo",
+      "scene": "site",
+      "file": "intro.mp3",
+      "duration": 142.76,
+      "chars": 2485,
+      "hash": "64009204866525f3",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.24,
+          "text": "Imaginez un village du Nord, un soir de grand vent : le courant ne vaut plus grand-chose."
+        },
+        {
+          "t0": 5.24,
+          "t1": 8.3,
+          "text": "Dans une cour, un gros silo sombre attend."
+        },
+        {
+          "t0": 8.3,
+          "t1": 10.3,
+          "text": "On appelle cela une batterie de sable…"
+        },
+        {
+          "t0": 10.3,
+          "t1": 15.5,
+          "text": "et pourtant, la plus grande en service, en Finlande, ne contient pas de sable !"
+        },
+        {
+          "t0": 15.5,
+          "t1": 21.24,
+          "text": "Elle garde environ deux mille tonnes de pierre ollaire concassée, et elle rend de la chaleur, pas du courant."
+        },
+        {
+          "t0": 21.24,
+          "t1": 23.46,
+          "text": "Suivons un seul grain de cette pierre."
+        },
+        {
+          "t0": 23.46,
+          "t1": 26,
+          "text": "Lui ne bouge pas : c’est la chaleur qui vient le trouver."
+        },
+        {
+          "t0": 26,
+          "t1": 31.38,
+          "text": "Sous le toit, on commence par l’air : une soufflante le pousse à travers des résistances."
+        },
+        {
+          "t0": 31.38,
+          "t1": 32.76,
+          "text": "Le courant le rend très chaud."
+        },
+        {
+          "t0": 32.76,
+          "t1": 36.38,
+          "text": "Voici notre grain, dans le noir, tout contre un tube d’inox."
+        },
+        {
+          "t0": 36.38,
+          "t1": 40.14,
+          "text": "Il tiédit, très lentement, et passe sa chaleur à son voisin."
+        },
+        {
+          "t0": 40.14,
+          "t1": 43.1,
+          "text": "Et la pierre attend, à environ quatre cents degrés en moyenne."
+        },
+        {
+          "t0": 43.1,
+          "t1": 46.08,
+          "text": "Puis le vent tombe, et le courant redevient cher."
+        },
+        {
+          "t0": 46.08,
+          "t1": 50.46,
+          "text": "Une seconde soufflante tire l’air à travers la pierre, et l’échangeur donne sa chaleur à l’eau."
+        },
+        {
+          "t0": 50.46,
+          "t1": 54.84,
+          "text": "L’eau chaude file sous la terre jusqu’au village, et à l’école, un radiateur tiédit."
+        },
+        {
+          "t0": 54.84,
+          "t1": 60.48,
+          "text": "Voilà toute l’histoire : un coup de vent, un grain de pierre, beaucoup de patience…"
+        },
+        {
+          "t0": 60.48,
+          "t1": 62.28,
+          "text": "et une classe bien au chaud."
+        },
+        {
+          "t0": 62.28,
+          "t1": 66.12,
+          "text": "Reste la vraie question : combien ce silo rend-il ?"
+        },
+        {
+          "t0": 66.12,
+          "t1": 70.41,
+          "text": "À plein, il tient deux cent dix-sept mégawattheures au-dessus de l’air ambiant."
+        },
+        {
+          "t0": 70.41,
+          "t1": 72.4,
+          "text": "Soixante-neuf sortent à un mégawatt."
+        },
+        {
+          "t0": 72.4,
+          "t1": 76.2,
+          "text": "Cent cinq sortent ensuite, à puissance décroissante."
+        },
+        {
+          "t0": 76.2,
+          "t1": 79.68,
+          "text": "Et quarante-trois restent dans la pierre, trop froids pour le réseau."
+        },
+        {
+          "t0": 79.68,
+          "t1": 82.1,
+          "text": "Une capacité n’a de sens qu’à une puissance donnée !"
+        },
+        {
+          "t0": 82.1,
+          "t1": 86.68,
+          "text": "Le constructeur annonce jusqu’à cent mégawattheures, sans dire à quelle puissance."
+        },
+        {
+          "t0": 86.68,
+          "t1": 93.6,
+          "text": "Notre modèle en trouve soixante-neuf à un mégawatt : l’écart tient à la taille d’une soufflante, que personne ne publie."
+        },
+        {
+          "t0": 93.6,
+          "t1": 99.78,
+          "text": "Quelques repères : quatre vues, le village, le silo, un tube dans la pierre et l’étage technique."
+        },
+        {
+          "t0": 99.78,
+          "t1": 104.46,
+          "text": "Cliquez sur une pièce : sa fiche s’ouvre, et vous pouvez écouter son histoire."
+        },
+        {
+          "t0": 104.46,
+          "t1": 108.36,
+          "text": "Un guide raconte le chantier, un autre l’arrivée du silo au village."
+        },
+        {
+          "t0": 108.36,
+          "t1": 109.9,
+          "text": "La simulation vous laisse tout changer."
+        },
+        {
+          "t0": 109.9,
+          "t1": 113,
+          "text": "Six leçons, avec des quiz, expliquent la physique."
+        },
+        {
+          "t0": 113,
+          "t1": 115.88,
+          "text": "Dix plans réunissent les dessins."
+        },
+        {
+          "t0": 115.88,
+          "t1": 121.52,
+          "text": "Une dernière chose : ce laboratoire est une reconstitution pédagogique, indépendante et générique."
+        },
+        {
+          "t0": 121.52,
+          "t1": 126.38,
+          "text": "Ni plan officiel, ni produit du constructeur, et ce village n’existe nulle part."
+        },
+        {
+          "t0": 126.38,
+          "t1": 131.66,
+          "text": "Tubes, isolants, soufflantes, place des machines : rien de cela n’est publié,"
+        },
+        {
+          "t0": 132.02,
+          "t1": 133.98,
+          "text": "tout est notre lecture ou notre calcul."
+        },
+        {
+          "t0": 133.98,
+          "t1": 137.7,
+          "text": "Sauf quand je cite une source, les chiffres viennent de notre simulation."
+        },
+        {
+          "t0": 137.7,
+          "t1": 141.18,
+          "text": "Et nous n’avons trouvé aucune mesure indépendante de ces machines."
+        },
+        {
+          "t0": 141.18,
+          "t1": 142.76,
+          "text": "À vous de jouer !"
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 5.24,
+          "do": {
+            "frame": [
+              "silo-exterior"
+            ]
+          }
+        },
+        {
+          "t": 26,
+          "do": {
+            "scene": "plant-room"
+          }
+        },
+        {
+          "t": 28.76,
+          "do": {
+            "frame": [
+              "charge-blower"
+            ]
+          }
+        },
+        {
+          "t": 32.76,
+          "do": {
+            "scene": "pipe-cell"
+          }
+        },
+        {
+          "t": 40.14,
+          "do": {
+            "scene": "silo"
+          }
+        },
+        {
+          "t": 46.08,
+          "do": {
+            "scene": "plant-room"
+          }
+        },
+        {
+          "t": 48.44,
+          "do": {
+            "frame": [
+              "air-water-exchanger"
+            ]
+          }
+        },
+        {
+          "t": 50.46,
+          "do": {
+            "scene": "site"
+          }
+        },
+        {
+          "t": 50.46,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 52.92,
+          "do": {
+            "frame": [
+              "village-school"
+            ]
+          }
+        },
+        {
+          "t": 54.84,
+          "do": {
+            "flows": false
+          }
+        },
+        {
+          "t": 62.28,
+          "do": {
+            "scene": "silo"
+          }
+        },
+        {
+          "t": 93.6,
+          "do": {
+            "scene": "site"
+          }
+        },
+        {
+          "t": 104.46,
+          "do": {
+            "mode": "assembly"
+          }
+        },
+        {
+          "t": 106.3,
+          "do": {
+            "mode": "install"
+          }
+        },
+        {
+          "t": 108.36,
+          "do": {
+            "mode": "sim"
+          }
+        },
+        {
+          "t": 109.9,
+          "do": {
+            "mode": "lessons"
+          }
+        },
+        {
+          "t": 113,
+          "do": {
+            "mode": "plans"
+          }
+        },
+        {
+          "t": 115.88,
+          "do": {
+            "mode": "explore"
+          }
+        },
+        {
+          "t": 121.52,
+          "do": {
+            "scene": "site"
+          }
+        },
+        {
+          "t": 141.18,
+          "do": {
+            "select": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-site",
+      "scope": "scene:site",
+      "title": "Le village : du courant bon marché à l’école",
+      "scene": "site",
+      "file": "scene-site.mp3",
+      "duration": 36.96,
+      "chars": 624,
+      "hash": "a01d5dc281fa85fe",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.12,
+          "text": "Bienvenue au village, à la lisière de la forêt : toute l’histoire tient le long de sa route."
+        },
+        {
+          "t0": 5.12,
+          "t1": 9.9,
+          "text": "Au loin, les éoliennes font le prix, sans un seul câble vers le silo."
+        },
+        {
+          "t0": 9.9,
+          "t1": 13.44,
+          "text": "La ligne apporte le courant, quand il ne coûte presque rien."
+        },
+        {
+          "t0": 13.44,
+          "t1": 16.62,
+          "text": "Transformateur et annexe l’attendent au pied du silo."
+        },
+        {
+          "t0": 16.62,
+          "t1": 20.18,
+          "text": "Le silo, lui, ne montre rien de ce qu’il cache."
+        },
+        {
+          "t0": 20.18,
+          "t1": 22.92,
+          "text": "Deux tuyaux descendent le long de sa paroi."
+        },
+        {
+          "t0": 22.92,
+          "t1": 28,
+          "text": "L’eau file par une tranchée, dessinée ouverte pour vous, jusqu’à l’école et aux maisons du village."
+        },
+        {
+          "t0": 28,
+          "t1": 30.88,
+          "text": "Et la vieille chaufferie veille, en secours."
+        },
+        {
+          "t0": 30.88,
+          "t1": 36.96,
+          "text": "Une précaution : un silo comme celui-ci est une installation industrielle, soumise aux règles de chaque pays."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 5.12,
+          "do": {
+            "frame": [
+              "wind-farm"
+            ]
+          }
+        },
+        {
+          "t": 9.9,
+          "do": {
+            "frame": [
+              "power-line"
+            ]
+          }
+        },
+        {
+          "t": 13.44,
+          "do": {
+            "frame": [
+              "pad-transformer",
+              "electrical-annex"
+            ]
+          }
+        },
+        {
+          "t": 16.62,
+          "do": {
+            "frame": [
+              "silo-exterior"
+            ]
+          }
+        },
+        {
+          "t": 20.18,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 20.18,
+          "do": {
+            "frame": [
+              "dh-riser"
+            ]
+          }
+        },
+        {
+          "t": 22.92,
+          "do": {
+            "frame": [
+              "dh-trench"
+            ]
+          }
+        },
+        {
+          "t": 26.1,
+          "do": {
+            "frame": [
+              "village-school",
+              "house-substation"
+            ]
+          }
+        },
+        {
+          "t": 28,
+          "do": {
+            "flows": false
+          }
+        },
+        {
+          "t": 28,
+          "do": {
+            "frame": [
+              "chip-boiler-plant"
+            ]
+          }
+        },
+        {
+          "t": 30.88,
+          "do": {
+            "home": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-silo",
+      "scope": "scene:silo",
+      "title": "Le silo en coupe",
+      "scene": "silo",
+      "file": "scene-silo.mp3",
+      "duration": 38.67,
+      "chars": 649,
+      "hash": "8bd63ac79a4ec395",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.5,
+          "text": "Voici la machine, ouverte d’un quart, comme un gâteau déjà entamé."
+        },
+        {
+          "t0": 4.5,
+          "t1": 8.42,
+          "text": "En bas, le radier, puis un isolant qui doit tout porter."
+        },
+        {
+          "t0": 8.42,
+          "t1": 12.04,
+          "text": "Au-dessus, six mètres de pierre, et tous ses tubes."
+        },
+        {
+          "t0": 12.04,
+          "t1": 15.84,
+          "text": "Autour, isolant et bardage tiennent dans un demi-mètre."
+        },
+        {
+          "t0": 15.84,
+          "t1": 19.3,
+          "text": "Tout en haut, l’étage technique, sous son toit conique."
+        },
+        {
+          "t0": 19.3,
+          "t1": 21.31,
+          "text": "Ces couleurs sortent de la simulation,"
+        },
+        {
+          "t0": 21.52,
+          "t1": 25.58,
+          "text": "et c’est une fausse couleur : une pierre à quatre cents degrés ne rougeoie pas."
+        },
+        {
+          "t0": 25.58,
+          "t1": 26.86,
+          "text": "Ouvrons la moitié du silo."
+        },
+        {
+          "t0": 26.86,
+          "t1": 31.38,
+          "text": "Le cœur est plus chaud que le bord, et pourtant, rien ne remue dans la pierre."
+        },
+        {
+          "t0": 31.38,
+          "t1": 34.08,
+          "text": "Écartons les couches, de la dalle jusqu’au toit."
+        },
+        {
+          "t0": 34.08,
+          "t1": 38.67,
+          "text": "Six mètres de pierre dans treize mètres de silo : tout le reste la protège, ou la sert."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 4.5,
+          "do": {
+            "frame": [
+              "foundation-slab",
+              "base-insulation"
+            ]
+          }
+        },
+        {
+          "t": 8.42,
+          "do": {
+            "frame": [
+              "storage-bed",
+              "pipe-field"
+            ]
+          }
+        },
+        {
+          "t": 12.04,
+          "do": {
+            "frame": [
+              "wall-insulation",
+              "outer-cladding"
+            ]
+          }
+        },
+        {
+          "t": 15.84,
+          "do": {
+            "frame": [
+              "equipment-floor",
+              "conical-roof"
+            ]
+          }
+        },
+        {
+          "t": 19.3,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 25.58,
+          "do": {
+            "cutaway": true
+          }
+        },
+        {
+          "t": 31.38,
+          "do": {
+            "cutaway": false
+          }
+        },
+        {
+          "t": 31.38,
+          "do": {
+            "explode": 0.6
+          }
+        },
+        {
+          "t": 34.08,
+          "do": {
+            "explode": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-pipe-cell",
+      "scope": "scene:pipe-cell",
+      "title": "Un tube dans la pierre",
+      "scene": "pipe-cell",
+      "file": "scene-pipe-cell.mp3",
+      "duration": 40.27,
+      "chars": 643,
+      "hash": "bdf8c96265652ec0",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 1,
+          "text": "Grossissons."
+        },
+        {
+          "t0": 1,
+          "t1": 5.02,
+          "text": "Voici un bloc de pierre, avec notre grain quelque part là-dedans."
+        },
+        {
+          "t0": 5.02,
+          "t1": 9.38,
+          "text": "Un tube descend, tourne au fond dans son coude, et remonte."
+        },
+        {
+          "t0": 9.38,
+          "t1": 14.6,
+          "text": "En haut, une lyre le laisse grandir, et un collecteur le relie à ses voisins."
+        },
+        {
+          "t0": 14.6,
+          "t1": 18.4,
+          "text": "Deux blocs, deux zones : le cœur, et le bord."
+        },
+        {
+          "t0": 18.4,
+          "t1": 21.46,
+          "text": "Et sur la table, deux échantillons, grossis pour vous."
+        },
+        {
+          "t0": 21.46,
+          "t1": 24.66,
+          "text": "En coupe, la chaleur s’étale autour du tube, par anneaux."
+        },
+        {
+          "t0": 24.66,
+          "t1": 32.58,
+          "text": "Selon le constructeur, un mètre de sable chauffé d’un côté met plus de huit jours à atteindre cent degrés de l’autre."
+        },
+        {
+          "t0": 32.58,
+          "t1": 35.68,
+          "text": "Notre simulation trouve sept virgule quatre jours."
+        },
+        {
+          "t0": 35.68,
+          "t1": 40.27,
+          "text": "La chaleur se traîne : on va donc la chercher avec un tube tous les cinquante centimètres environ."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 5.02,
+          "do": {
+            "frame": [
+              "heat-pipe",
+              "return-bend"
+            ]
+          }
+        },
+        {
+          "t": 9.38,
+          "do": {
+            "frame": [
+              "expansion-loop"
+            ]
+          }
+        },
+        {
+          "t": 11.88,
+          "do": {
+            "frame": [
+              "branch-header"
+            ]
+          }
+        },
+        {
+          "t": 14.6,
+          "do": {
+            "frame": [
+              "core-zone",
+              "outer-zone"
+            ]
+          }
+        },
+        {
+          "t": 18.4,
+          "do": {
+            "frame": [
+              "quartz-sand",
+              "crushed-soapstone"
+            ]
+          }
+        },
+        {
+          "t": 21.46,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 21.46,
+          "do": {
+            "cutaway": true
+          }
+        },
+        {
+          "t": 24.66,
+          "do": {
+            "cutaway": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-plant-room",
+      "scope": "scene:plant-room",
+      "title": "Où vont le courant et la chaleur",
+      "scene": "plant-room",
+      "file": "scene-plant-room.mp3",
+      "duration": 36.24,
+      "chars": 655,
+      "hash": "fe1dba2253970267",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.78,
+          "text": "Voici l’étage, lu dans l’ordre du courant, puis de la chaleur."
+        },
+        {
+          "t0": 3.78,
+          "t1": 6.36,
+          "text": "Le tableau reçoit tout le courant à l’arrivée."
+        },
+        {
+          "t0": 6.36,
+          "t1": 8.62,
+          "text": "Le gradateur le dose à chaque instant."
+        },
+        {
+          "t0": 8.62,
+          "t1": 11.96,
+          "text": "Une soufflante pousse l’air vers les résistances, qui le rendent très chaud,"
+        },
+        {
+          "t0": 11.96,
+          "t1": 14.1,
+          "text": "et la gaine le porte vers la pierre."
+        },
+        {
+          "t0": 14.1,
+          "t1": 16.58,
+          "text": "Les registres choisissent la zone à charger."
+        },
+        {
+          "t0": 16.58,
+          "t1": 21.6,
+          "text": "Plus tard, la seconde soufflante ramène cet air, et l’échangeur donne sa chaleur à l’eau."
+        },
+        {
+          "t0": 21.6,
+          "t1": 24.92,
+          "text": "La pompe envoie l’eau au village, le compteur compte."
+        },
+        {
+          "t0": 24.92,
+          "t1": 27.32,
+          "text": "Et l’armoire d’automatisme décide quand."
+        },
+        {
+          "t0": 27.32,
+          "t1": 29.2,
+          "text": "Écartons les machines, pour mieux les voir."
+        },
+        {
+          "t0": 29.2,
+          "t1": 34.48,
+          "text": "Comptez ce qui bouge ici : deux soufflantes, une pompe, quelques volets."
+        },
+        {
+          "t0": 34.48,
+          "t1": 36.24,
+          "text": "Tout le reste, c’est de la pierre qui attend."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 3.78,
+          "do": {
+            "frame": [
+              "lv-switchboard"
+            ]
+          }
+        },
+        {
+          "t": 6.36,
+          "do": {
+            "frame": [
+              "heater-controller"
+            ]
+          }
+        },
+        {
+          "t": 8.62,
+          "do": {
+            "frame": [
+              "charge-blower"
+            ]
+          }
+        },
+        {
+          "t": 10.96,
+          "do": {
+            "frame": [
+              "resistor-bank",
+              "hot-air-duct"
+            ]
+          }
+        },
+        {
+          "t": 14.1,
+          "do": {
+            "frame": [
+              "charge-damper"
+            ]
+          }
+        },
+        {
+          "t": 16.58,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 16.58,
+          "do": {
+            "frame": [
+              "discharge-blower",
+              "discharge-damper"
+            ]
+          }
+        },
+        {
+          "t": 19.02,
+          "do": {
+            "frame": [
+              "air-water-exchanger"
+            ]
+          }
+        },
+        {
+          "t": 21.6,
+          "do": {
+            "frame": [
+              "dh-pump",
+              "heat-meter"
+            ]
+          }
+        },
+        {
+          "t": 24.92,
+          "do": {
+            "flows": false
+          }
+        },
+        {
+          "t": 24.92,
+          "do": {
+            "frame": [
+              "control-cabinet"
+            ]
+          }
+        },
+        {
+          "t": 27.32,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 27.32,
+          "do": {
+            "explode": 0.6
+          }
+        },
+        {
+          "t": 29.2,
+          "do": {
+            "explode": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-silo-exterior",
+      "scope": "part:silo-exterior",
+      "title": "Le silo vu du dehors",
+      "scene": "site",
+      "file": "part-silo-exterior.mp3",
+      "duration": 18.72,
+      "chars": 327,
+      "hash": "c0a85f1f781e63a4",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.4,
+          "text": "Un cylindre trapu, environ treize mètres de haut et quinze de large."
+        },
+        {
+          "t0": 4.4,
+          "t1": 6.34,
+          "text": "Rien ne trahit ce qu’il cache."
+        },
+        {
+          "t0": 6.34,
+          "t1": 10.2,
+          "text": "Posez la main dessus : selon le constructeur, il reste frais."
+        },
+        {
+          "t0": 10.2,
+          "t1": 13.86,
+          "text": "Notre calcul le trouve à environ huit degrés au-dessus de l’air."
+        },
+        {
+          "t0": 13.86,
+          "t1": 18.72,
+          "text": "Et derrière un demi-mètre de paroi, le bord de la pierre atteint trois cent soixante-quinze degrés !"
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-dh-riser",
+      "scope": "part:dh-riser",
+      "title": "Colonnes du réseau",
+      "scene": "site",
+      "file": "part-dh-riser.mp3",
+      "duration": 16.16,
+      "chars": 283,
+      "hash": "612a3b7332dc0718",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 6.8,
+          "text": "Cherchez-les sur le bardage : ces deux tuyaux gainés sont les seuls signes extérieurs que ce silo chauffe un village."
+        },
+        {
+          "t0": 6.8,
+          "t1": 9.92,
+          "text": "L’un descend l’eau chaude, l’autre remonte le retour."
+        },
+        {
+          "t0": 9.92,
+          "t1": 14.1,
+          "text": "Aucune vapeur : de l’eau sous pression, comme dans tout réseau."
+        },
+        {
+          "t0": 14.1,
+          "t1": 16.16,
+          "text": "Par grand froid, elle doit rester en mouvement."
+        }
+      ],
+      "cues": [
+        {
+          "t": 6.8,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 9.92,
+          "do": {
+            "flows": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-cable-riser",
+      "scope": "part:cable-riser",
+      "title": "Colonne des câbles",
+      "scene": "site",
+      "file": "part-cable-riser.mp3",
+      "duration": 18.8,
+      "chars": 306,
+      "hash": "a92a914664257f75",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.38,
+          "text": "Une gaine verticale sur une photo, sans légende : nous y lisons le chemin du courant."
+        },
+        {
+          "t0": 5.38,
+          "t1": 6.34,
+          "text": "Et quel courant !"
+        },
+        {
+          "t0": 6.34,
+          "t1": 12.8,
+          "text": "Si la tension est de quatre cents volts, un mégawatt fait mille quatre cent quarante-trois ampères."
+        },
+        {
+          "t0": 12.8,
+          "t1": 18.8,
+          "text": "Aucun câble de maison n’y survivrait : le labo compte neuf cent soixante millimètres carrés par phase."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-electrical-annex",
+      "scope": "part:electrical-annex",
+      "title": "Local électrique au pied du silo",
+      "scene": "site",
+      "file": "part-electrical-annex.mp3",
+      "duration": 14.64,
+      "chars": 253,
+      "hash": "ba09ed5734b134f0",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.62,
+          "text": "Une annexe basse, au pied du silo, et aucune source ne dit à quoi elle sert."
+        },
+        {
+          "t0": 4.62,
+          "t1": 9.84,
+          "text": "Le labo y loge l’arrivée de la moyenne tension : ces appareils aiment le sol et l’air frais."
+        },
+        {
+          "t0": 9.84,
+          "t1": 14.64,
+          "text": "Leurs pannes classiques : la condensation, et le rongeur dans le caniveau à câbles."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-pad-transformer",
+      "scope": "part:pad-transformer",
+      "title": "Transformateur",
+      "scene": "site",
+      "file": "part-pad-transformer.mp3",
+      "duration": 19.84,
+      "chars": 335,
+      "hash": "a6bdedca43b97617",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.32,
+          "text": "Un mégawatt à basse tension, impossible à faire venir de loin."
+        },
+        {
+          "t0": 4.32,
+          "t1": 8.52,
+          "text": "Alors le courant voyage en moyenne tension, vingt mille volts dans ce labo."
+        },
+        {
+          "t0": 8.52,
+          "t1": 12.48,
+          "text": "Ce transformateur le ramène à la tension des appareils, tout près d’eux."
+        },
+        {
+          "t0": 12.48,
+          "t1": 16.06,
+          "text": "Doublez la tension, et les pertes sont divisées par quatre."
+        },
+        {
+          "t0": 16.06,
+          "t1": 19.84,
+          "text": "N’ouvrez jamais l’enclos : la moyenne tension tue sans contact."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-power-line",
+      "scope": "part:power-line",
+      "title": "Ligne moyenne tension",
+      "scene": "site",
+      "file": "part-power-line.mp3",
+      "duration": 19.12,
+      "chars": 320,
+      "hash": "c51d2bfb03576baf",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.42,
+          "text": "Par ici arrivent les heures bon marché."
+        },
+        {
+          "t0": 2.42,
+          "t1": 8.18,
+          "text": "Et rien ne repart : le silo n’a pas de quoi refaire de l’électricité, il rend de la chaleur."
+        },
+        {
+          "t0": 8.18,
+          "t1": 9.58,
+          "text": "Son service au réseau ?"
+        },
+        {
+          "t0": 9.58,
+          "t1": 14.12,
+          "text": "Une charge qu’on peut couper à l’instant, sans qu’aucune maison ne le sente."
+        },
+        {
+          "t0": 14.12,
+          "t1": 19.12,
+          "text": "Et sans courant, plus de soufflante ni de pompe : une coupure arrête aussi la chaleur."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-solar-field",
+      "scope": "part:solar-field",
+      "title": "Champ solaire",
+      "scene": "site",
+      "file": "part-solar-field.mp3",
+      "duration": 17.2,
+      "chars": 322,
+      "hash": "4d2ae03c4e21c513",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.28,
+          "text": "Ce champ n’existe pas au vrai silo : le labo le dessine pour une idée."
+        },
+        {
+          "t0": 4.28,
+          "t1": 8.5,
+          "text": "Le tout premier pilote chauffait son sable avec cent mètres carrés de panneaux."
+        },
+        {
+          "t0": 8.5,
+          "t1": 13.2,
+          "text": "Mais ici, le soleil abonde quand la demande est faible, et manque quand elle est forte."
+        },
+        {
+          "t0": 13.2,
+          "t1": 17.2,
+          "text": "La pierre garde des jours ou des semaines : elle ne range pas juillet pour janvier."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-wind-farm",
+      "scope": "part:wind-farm",
+      "title": "Parc éolien au loin",
+      "scene": "site",
+      "file": "part-wind-farm.mp3",
+      "duration": 19.28,
+      "chars": 311,
+      "hash": "9759d6089e1fe894",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.82,
+          "text": "Aucun câble ne va de ces éoliennes au silo."
+        },
+        {
+          "t0": 2.82,
+          "t1": 4.58,
+          "text": "Alors, quel rapport ?"
+        },
+        {
+          "t0": 4.58,
+          "t1": 5.48,
+          "text": "Le prix !"
+        },
+        {
+          "t0": 5.48,
+          "t1": 10.16,
+          "text": "Quand il vente plus qu’on ne consomme, le courant s’effondre, et la pierre charge."
+        },
+        {
+          "t0": 10.16,
+          "t1": 12.18,
+          "text": "Un silo stocke une chute de prix."
+        },
+        {
+          "t0": 12.18,
+          "t1": 19.28,
+          "text": "Une source rapporte un prix allant de trois à trois cent soixante-treize euros le mégawattheure, en une seule semaine."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-chip-boiler-plant",
+      "scope": "part:chip-boiler-plant",
+      "title": "Chaufferie à plaquettes",
+      "scene": "site",
+      "file": "part-chip-boiler-plant.mp3",
+      "duration": 18.4,
+      "chars": 315,
+      "hash": "14a82054efeefe37",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.46,
+          "text": "Le silo n’a pas remplacé la vieille chaufferie : il l’a mise en réserve."
+        },
+        {
+          "t0": 4.46,
+          "t1": 8.38,
+          "text": "Un stockage déplace une source dans le temps, il ne la remplace pas."
+        },
+        {
+          "t0": 8.38,
+          "t1": 14.6,
+          "text": "Selon le constructeur, le réseau a supprimé le fioul et réduit les plaquettes d’environ soixante pour cent."
+        },
+        {
+          "t0": 14.6,
+          "t1": 18.4,
+          "text": "Essayez dix jours sans vent : vous verrez pourquoi on l’a gardée."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-boiler-stack",
+      "scope": "part:boiler-stack",
+      "title": "Cheminée de la chaufferie",
+      "scene": "site",
+      "file": "part-boiler-stack.mp3",
+      "duration": 19.28,
+      "chars": 307,
+      "hash": "80784b1a71cb61fc",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.5,
+          "text": "Le silo ne brûle rien : la seule fumée du site sort d’ici."
+        },
+        {
+          "t0": 4.5,
+          "t1": 10.16,
+          "text": "L’exploitant annonce environ cent soixante tonnes d’équivalent gaz carbonique évitées par an."
+        },
+        {
+          "t0": 10.16,
+          "t1": 14.28,
+          "text": "Ces chiffres sont les siens : la simulation ne calcule rien de tel."
+        },
+        {
+          "t0": 14.28,
+          "t1": 19.28,
+          "text": "Reste une image simple : cette cheminée fume bien moins, et le village reste au chaud."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-dh-trench",
+      "scope": "part:dh-trench",
+      "title": "Tranchée du réseau de chaleur",
+      "scene": "site",
+      "file": "part-dh-trench.mp3",
+      "duration": 17.6,
+      "chars": 295,
+      "hash": "536759855b848aaa",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.6,
+          "text": "Sans ce tuyau, le silo ne sert à rien."
+        },
+        {
+          "t0": 2.6,
+          "t1": 7.02,
+          "text": "Deux tubes préisolés : un aller chaud, un retour plus froid."
+        },
+        {
+          "t0": 7.02,
+          "t1": 10.8,
+          "text": "Nous dessinons la tranchée ouverte ; en vrai, elle est rebouchée."
+        },
+        {
+          "t0": 10.8,
+          "t1": 15.6,
+          "text": "Pas de réseau tout proche, pas de silo : c’est la première question à poser à un site."
+        },
+        {
+          "t0": 15.6,
+          "t1": 17.6,
+          "text": "Et avant de creuser, déclarez vos travaux."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 10.8,
+          "do": {
+            "flows": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-village-school",
+      "scope": "part:village-school",
+      "title": "L’école du village",
+      "scene": "site",
+      "file": "part-village-school.mp3",
+      "duration": 17.68,
+      "chars": 301,
+      "hash": "39a3aa0de62f2fe3",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.48,
+          "text": "Voici la demande, en chair et en os."
+        },
+        {
+          "t0": 2.48,
+          "t1": 6.58,
+          "text": "Ses radiateurs ne savent pas d’où vient l’eau chaude, et c’est tout le but."
+        },
+        {
+          "t0": 6.58,
+          "t1": 13.28,
+          "text": "Selon le constructeur, le silo représente à peu près une semaine de demande d’hiver, et presque un mois d’été."
+        },
+        {
+          "t0": 13.28,
+          "t1": 17.68,
+          "text": "Notre simulation donne huit jours et demi, et quarante-huit jours pour l’été."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-house-substation",
+      "scope": "part:house-substation",
+      "title": "Sous-station d’une maison",
+      "scene": "site",
+      "file": "part-house-substation.mp3",
+      "duration": 17.44,
+      "chars": 308,
+      "hash": "fc1221c228b98261",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.36,
+          "text": "Une maison raccordée n’a pas de chaudière."
+        },
+        {
+          "t0": 2.36,
+          "t1": 6.66,
+          "text": "Dans la cave, un échangeur à plaques passe la chaleur du réseau à l’eau de la maison,"
+        },
+        {
+          "t0": 6.78,
+          "t1": 8.6,
+          "text": "sans jamais les mélanger."
+        },
+        {
+          "t0": 8.6,
+          "t1": 10.76,
+          "text": "Ni flamme, ni cheminée."
+        },
+        {
+          "t0": 10.76,
+          "t1": 14.82,
+          "text": "Et l’eau qu’il renvoie, plus froide, ira rafraîchir l’air du silo."
+        },
+        {
+          "t0": 14.82,
+          "t1": 17.44,
+          "text": "C’est ainsi qu’on va chercher la chaleur au fond de la pierre."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-foundation-slab",
+      "scope": "part:foundation-slab",
+      "title": "Radier",
+      "scene": "silo",
+      "file": "part-foundation-slab.mp3",
+      "duration": 15.44,
+      "chars": 282,
+      "hash": "b306bc7586c6e63d",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.86,
+          "text": "Deux mille tonnes de pierre : il faut bien les poser quelque part."
+        },
+        {
+          "t0": 3.86,
+          "t1": 7,
+          "text": "Cela fait environ treize tonnes sur chaque mètre carré."
+        },
+        {
+          "t0": 7,
+          "t1": 11.9,
+          "text": "Une pierre ne tourne pas, n’use rien : c’est du poids mort, qu’il suffit de bien poser."
+        },
+        {
+          "t0": 11.9,
+          "t1": 15.44,
+          "text": "Pendant le remplissage, on relit les repères de niveau scellés au pied."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-base-insulation",
+      "scope": "part:base-insulation",
+      "title": "Isolation sous le lit",
+      "scene": "silo",
+      "file": "part-base-insulation.mp3",
+      "duration": 15.28,
+      "chars": 268,
+      "hash": "b6ff2e13862c8629",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.22,
+          "text": "Sous le lit, l’isolant a deux métiers : arrêter la chaleur, et porter tout le poids."
+        },
+        {
+          "t0": 5.22,
+          "t1": 6.7,
+          "text": "Pas question d’une laine !"
+        },
+        {
+          "t0": 6.7,
+          "t1": 11.72,
+          "text": "Le brevet du constructeur cite l’argile expansée, un granulat qui se tient tout seul."
+        },
+        {
+          "t0": 11.72,
+          "t1": 15.28,
+          "text": "Et personne n’y retournera : son entretien se fait le jour de sa pose."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-inner-shell",
+      "scope": "part:inner-shell",
+      "title": "Virole intérieure",
+      "scene": "silo",
+      "file": "part-inner-shell.mp3",
+      "duration": 16.64,
+      "chars": 314,
+      "hash": "7ef9e1a5d269cff6",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.02,
+          "text": "Cette virole d’acier retient la pierre comme un tonneau retient son vin."
+        },
+        {
+          "t0": 4.02,
+          "t1": 8.9,
+          "text": "Mais ce tonneau-là grandit : environ neuf centimètres sur son diamètre, quand il chauffe."
+        },
+        {
+          "t0": 8.9,
+          "t1": 14.18,
+          "text": "Les grains descendent combler le jeu, et en refroidissant, elle serre une pierre qui ne recule pas."
+        },
+        {
+          "t0": 14.18,
+          "t1": 16.64,
+          "text": "Le constructeur ne dit pas comment il s’en arrange."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-wall-insulation",
+      "scope": "part:wall-insulation",
+      "title": "Isolation des parois",
+      "scene": "silo",
+      "file": "part-wall-insulation.mp3",
+      "duration": 16.13,
+      "chars": 300,
+      "hash": "0c5dd023363c6ffd",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.67,
+          "text": "Un silo de quinze mètres autour d’un lit de quatorze : il reste un demi-mètre de chaque côté, tout compris."
+        },
+        {
+          "t0": 5.67,
+          "t1": 11.44,
+          "text": "Ôtez la moitié de l’isolant, et la fuite à plein passe de trente-huit à soixante-sept kilowatts."
+        },
+        {
+          "t0": 11.44,
+          "t1": 14.48,
+          "text": "Mais la capacité à pleine puissance ne bouge presque pas !"
+        },
+        {
+          "t0": 14.48,
+          "t1": 16.13,
+          "text": "L’isolant protège le temps de garde."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-outer-cladding",
+      "scope": "part:outer-cladding",
+      "title": "Bardage extérieur",
+      "scene": "silo",
+      "file": "part-outer-cladding.mp3",
+      "duration": 16.24,
+      "chars": 270,
+      "hash": "c343636974cbb210",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.94,
+          "text": "Le bardage n’a rien à contenir : il protège."
+        },
+        {
+          "t0": 2.94,
+          "t1": 8.04,
+          "text": "Deux aciers, deux métiers : l’un retient la pierre à chaud, l’autre la pluie à froid."
+        },
+        {
+          "t0": 8.04,
+          "t1": 11.38,
+          "text": "Un matin froid, une caméra thermique le lit très bien."
+        },
+        {
+          "t0": 11.38,
+          "t1": 16.24,
+          "text": "Une bande chaude en haut trahit un isolant tassé, une tache en bas, plutôt de l’eau."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-storage-bed",
+      "scope": "part:storage-bed",
+      "title": "Le lit de pierre",
+      "scene": "silo",
+      "file": "part-storage-bed.mp3",
+      "duration": 24.8,
+      "chars": 409,
+      "hash": "88fa27c9f327fceb",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.22,
+          "text": "Voici le cœur de la machine, et le pays de notre grain."
+        },
+        {
+          "t0": 3.22,
+          "t1": 10.06,
+          "text": "Quarante camions l’ont apporté : quatorze mètres de large, six de haut, et rien qui tourne."
+        },
+        {
+          "t0": 10.06,
+          "t1": 13.74,
+          "text": "Regardez-le en coupe : ni flamme, ni fumée, et pourtant,"
+        },
+        {
+          "t0": 13.74,
+          "t1": 16.9,
+          "text": "environ une semaine d’hiver d’un village dort là-dedans."
+        },
+        {
+          "t0": 16.9,
+          "t1": 18.6,
+          "text": "Méfiez-vous de ce calme."
+        },
+        {
+          "t0": 18.6,
+          "t1": 23.36,
+          "text": "Cette chaleur ne se voit pas : pierre et gaines restent dangereuses des mois après l’arrêt."
+        },
+        {
+          "t0": 23.36,
+          "t1": 24.8,
+          "text": "Personne n’ouvre rien à chaud."
+        }
+      ],
+      "cues": [
+        {
+          "t": 10.06,
+          "do": {
+            "cutaway": true
+          }
+        },
+        {
+          "t": 16.9,
+          "do": {
+            "cutaway": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-pipe-field",
+      "scope": "part:pipe-field",
+      "title": "Le champ de tubes",
+      "scene": "silo",
+      "file": "part-pipe-field.mp3",
+      "duration": 22.12,
+      "chars": 352,
+      "hash": "15b8758b33270d62",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.46,
+          "text": "L’air ne touche jamais la pierre : il court dans des tubes d’inox enfouis."
+        },
+        {
+          "t0": 4.46,
+          "t1": 6.98,
+          "text": "Le constructeur garde son tracé secret."
+        },
+        {
+          "t0": 6.98,
+          "t1": 12.78,
+          "text": "Celui-ci sort d’un calcul : près de quatre kilomètres de tube, à un pas d’environ cinquante centimètres."
+        },
+        {
+          "t0": 12.78,
+          "t1": 14.52,
+          "text": "Et ce pas pèse lourd."
+        },
+        {
+          "t0": 14.52,
+          "t1": 20.16,
+          "text": "À quarante centimètres, le silo rend quatre-vingt-cinq mégawattheures à un mégawatt."
+        },
+        {
+          "t0": 20.16,
+          "t1": 22.12,
+          "text": "À soixante, quarante-six."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "xray": true
+          }
+        },
+        {
+          "t": 12.78,
+          "do": {
+            "xray": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-top-insulation",
+      "scope": "part:top-insulation",
+      "title": "Isolation du dessus",
+      "scene": "silo",
+      "file": "part-top-insulation.mp3",
+      "duration": 17.52,
+      "chars": 290,
+      "hash": "1fdfcc115a007886",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 6.22,
+          "text": "Par-dessus la pierre, environ un mètre d’isolant : le double des parois, car tous les tubes passent ici."
+        },
+        {
+          "t0": 6.22,
+          "t1": 12.52,
+          "text": "Il repose sur la pierre et la suit quand elle se tasse : le moindre vide ferait une poche d’air."
+        },
+        {
+          "t0": 12.52,
+          "t1": 17.52,
+          "text": "C’est la seule couche encore accessible : on en rajoute par le haut, sans vider le silo."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-equipment-floor",
+      "scope": "part:equipment-floor",
+      "title": "L’étage technique",
+      "scene": "silo",
+      "file": "part-equipment-floor.mp3",
+      "duration": 23.44,
+      "chars": 400,
+      "hash": "0781ee14c13d9b8a",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.28,
+          "text": "Ce plancher, c’est une enquête : aucune source ne le dessine."
+        },
+        {
+          "t0": 4.28,
+          "t1": 5.34,
+          "text": "Les indices ?"
+        },
+        {
+          "t0": 5.34,
+          "t1": 9.76,
+          "text": "Un documentaire montre l’ingénieur parmi les machines, la pierre sous ses pieds."
+        },
+        {
+          "t0": 9.76,
+          "t1": 13.88,
+          "text": "Une photo montre deux tuyaux qui descendent de haut sur la paroi."
+        },
+        {
+          "t0": 13.88,
+          "t1": 19.18,
+          "text": "Et un lit de six mètres dans treize mètres de silo, cela laisse bien sept mètres à expliquer !"
+        },
+        {
+          "t0": 19.18,
+          "t1": 23.44,
+          "text": "Si le constructeur précise un jour la place de ses machines, ce plancher changera."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-conical-roof",
+      "scope": "part:conical-roof",
+      "title": "Toit conique",
+      "scene": "silo",
+      "file": "part-conical-roof.mp3",
+      "duration": 20.16,
+      "chars": 332,
+      "hash": "9897217db280440e",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.82,
+          "text": "Un cône bas, avec un moyeu au centre : voilà le chapeau du silo."
+        },
+        {
+          "t0": 4.82,
+          "t1": 9.08,
+          "text": "Il fait glisser une partie de la neige, et sa charpente porte le reste."
+        },
+        {
+          "t0": 9.08,
+          "t1": 13.14,
+          "text": "N’attendez pas de la pierre qu’elle la fasse fondre : l’isolant veille."
+        },
+        {
+          "t0": 13.14,
+          "t1": 17.8,
+          "text": "Un toit qui perd sa neige plus vite que le hangar voisin trahit une fuite."
+        },
+        {
+          "t0": 17.8,
+          "t1": 20.16,
+          "text": "L’hiver fait le travail d’une caméra thermique !"
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-upper-vent",
+      "scope": "part:upper-vent",
+      "title": "Ouverture haute",
+      "scene": "silo",
+      "file": "part-upper-vent.mp3",
+      "duration": 17.33,
+      "chars": 293,
+      "hash": "a6013d878010d458",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.6,
+          "text": "Deux airs se côtoient ici, et ne se mélangent jamais."
+        },
+        {
+          "t0": 3.6,
+          "t1": 5.64,
+          "text": "Celui des boucles reste enfermé."
+        },
+        {
+          "t0": 5.64,
+          "t1": 10.5,
+          "text": "Celui du local doit s’en aller, car moteurs et armoires y laissent leur chaleur."
+        },
+        {
+          "t0": 10.5,
+          "t1": 13.18,
+          "text": "Nous lisons cette ouverture comme sa ventilation."
+        },
+        {
+          "t0": 13.18,
+          "t1": 17.33,
+          "text": "Elle a ses petits ennemis : un nid, de la neige poudreuse, un volet coincé."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-access-ladder",
+      "scope": "part:access-ladder",
+      "title": "Échelle à crinoline",
+      "scene": "silo",
+      "file": "part-access-ladder.mp3",
+      "duration": 18,
+      "chars": 306,
+      "hash": "f8a74cef4edf078f",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.52,
+          "text": "Une échelle, et elle en dit long : quelque chose, là-haut, demande qu’on y vienne, à pied."
+        },
+        {
+          "t0": 5.52,
+          "t1": 9.5,
+          "text": "Aucune pièce lourde n’y passe : un équipement monte à la grue."
+        },
+        {
+          "t0": 9.5,
+          "t1": 11.84,
+          "text": "On en tombe plus souvent qu’elle ne lâche."
+        },
+        {
+          "t0": 11.84,
+          "t1": 18,
+          "text": "Alors les outils montent dans un sac, hissé à la corde : sur une échelle, les deux mains servent à l’échelle."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-thermocouple-lance",
+      "scope": "part:thermocouple-lance",
+      "title": "Cannes de température",
+      "scene": "silo",
+      "file": "part-thermocouple-lance.mp3",
+      "duration": 16.56,
+      "chars": 296,
+      "hash": "1f24f5d4038681a9",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.74,
+          "text": "Une fois la pierre versée, plus personne ne voit l’intérieur."
+        },
+        {
+          "t0": 3.74,
+          "t1": 6.9,
+          "text": "Restent ces cannes, les seuls yeux dans la pierre."
+        },
+        {
+          "t0": 6.9,
+          "t1": 10.76,
+          "text": "Ne les confondez pas avec la coupe colorée, qui sort de la simulation."
+        },
+        {
+          "t0": 10.76,
+          "t1": 15.2,
+          "text": "L’astuce est dans le doigt de gant qui les abrite : une sonde se remplace par le haut,"
+        },
+        {
+          "t0": 15.38,
+          "t1": 16.56,
+          "text": "sans toucher à la pierre."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-duct-penetration",
+      "scope": "part:duct-penetration",
+      "title": "Traversée de l’isolation",
+      "scene": "silo",
+      "file": "part-duct-penetration.mp3",
+      "duration": 17.09,
+      "chars": 286,
+      "hash": "d181d0b3141b3e70",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.98,
+          "text": "Un isolant n’est bon que là où rien ne le traverse."
+        },
+        {
+          "t0": 2.98,
+          "t1": 5.64,
+          "text": "Et ici, tout le champ de tubes le traverse."
+        },
+        {
+          "t0": 5.64,
+          "t1": 12.44,
+          "text": "Chaque branche d’acier est un petit pont thermique : à elles toutes, environ un dixième des fuites du silo."
+        },
+        {
+          "t0": 12.44,
+          "t1": 17.09,
+          "text": "Le labo dessine un fourreau et un garnissage souple, pour laisser glisser le tube."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-heat-pipe",
+      "scope": "part:heat-pipe",
+      "title": "Tube d’échange",
+      "scene": "pipe-cell",
+      "file": "part-heat-pipe.mp3",
+      "duration": 19.28,
+      "chars": 331,
+      "hash": "9445fbbf34166067",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.96,
+          "text": "De l’air dedans, de la pierre autour, et jamais de mélange : notre grain vit contre cette paroi."
+        },
+        {
+          "t0": 5.96,
+          "t1": 9.3,
+          "text": "L’acier ne freine presque rien, c’est la pierre qui freine."
+        },
+        {
+          "t0": 9.3,
+          "t1": 12.2,
+          "text": "Pourquoi ne pas souffler l’air directement dans le lit ?"
+        },
+        {
+          "t0": 12.2,
+          "t1": 15.3,
+          "text": "Il y perdrait sa pression, et ramènerait de la poussière."
+        },
+        {
+          "t0": 15.3,
+          "t1": 19.28,
+          "text": "Ici, cinq centimètres de rayon, trois millimètres de paroi."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "cutaway": true
+          }
+        },
+        {
+          "t": 15.3,
+          "do": {
+            "cutaway": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-return-bend",
+      "scope": "part:return-bend",
+      "title": "Coude de retour",
+      "scene": "pipe-cell",
+      "file": "part-return-bend.mp3",
+      "duration": 17.49,
+      "chars": 281,
+      "hash": "c9fe669c27846e3e",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.28,
+          "text": "Ce petit coude, au fond du lit, justifie toute la forme en U."
+        },
+        {
+          "t0": 4.28,
+          "t1": 9.12,
+          "text": "Les deux bouts en haut, le tube pend, et il grandit librement vers le bas."
+        },
+        {
+          "t0": 9.12,
+          "t1": 13.26,
+          "text": "Regardez ce qu’il n’a pas : ni support, ni sortie, ni capteur."
+        },
+        {
+          "t0": 13.26,
+          "t1": 17.49,
+          "text": "Le brevet du constructeur parle seulement de tubes verticaux : le U, c’est nous !"
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "explode": 0.6
+          }
+        },
+        {
+          "t": 13.26,
+          "do": {
+            "explode": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-pipe-spacer",
+      "scope": "part:pipe-spacer",
+      "title": "Entretoise de tubes",
+      "scene": "pipe-cell",
+      "file": "part-pipe-spacer.mp3",
+      "duration": 17.6,
+      "chars": 314,
+      "hash": "1cdb33ddb83071ef",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 6.26,
+          "text": "Des centaines de tubes, et quarante camions de pierre qui arrivent : sans guide, ils finiraient n’importe où."
+        },
+        {
+          "t0": 6.26,
+          "t1": 10.04,
+          "text": "L’entretoise leur donne une grille à respecter, le temps du remplissage,"
+        },
+        {
+          "t0": 10.2,
+          "t1": 12.46,
+          "text": "puis elle reste enfouie pour toujours."
+        },
+        {
+          "t0": 12.46,
+          "t1": 17.6,
+          "text": "Aucune source ne la décrit : nous la dessinons, car sans elle, ce tracé ne tient pas debout."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-branch-header",
+      "scope": "part:branch-header",
+      "title": "Collecteur de branche",
+      "scene": "pipe-cell",
+      "file": "part-branch-header.mp3",
+      "duration": 15.28,
+      "chars": 273,
+      "hash": "4b8d40b342aacc3b",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 6.06,
+          "text": "Au-dessus du lit, les têtes de tubes se regroupent : c’est par ce collecteur qu’on choisit où va la chaleur."
+        },
+        {
+          "t0": 6.06,
+          "t1": 12.24,
+          "text": "Chaque chemin doit offrir la même résistance, sinon l’air prend le plus facile, et le voisin reste froid."
+        },
+        {
+          "t0": 12.24,
+          "t1": 15.28,
+          "text": "Et une fuite, ici, s’entend bien mieux qu’elle ne se voit."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-expansion-loop",
+      "scope": "part:expansion-loop",
+      "title": "Lyre de dilatation",
+      "scene": "pipe-cell",
+      "file": "part-expansion-loop.mp3",
+      "duration": 18.52,
+      "chars": 322,
+      "hash": "f3c10e4112c133fe",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.68,
+          "text": "Six mètres d’inox, cinq cents degrés de plus : le tube grandit d’environ cinq centimètres."
+        },
+        {
+          "t0": 5.68,
+          "t1": 8.6,
+          "text": "Tout droit, ces centimètres iraient dans la soudure."
+        },
+        {
+          "t0": 8.6,
+          "t1": 12.7,
+          "text": "Alors on leur offre un chemin : quelques coudes, qui fléchissent un peu."
+        },
+        {
+          "t0": 12.7,
+          "t1": 18.52,
+          "text": "Le constructeur annonce jusqu’à deux cents cycles par an, plus de trente ans : six mille allers-retours !"
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-core-zone",
+      "scope": "part:core-zone",
+      "title": "Zone de cœur",
+      "scene": "pipe-cell",
+      "file": "part-core-zone.mp3",
+      "duration": 19.84,
+      "chars": 342,
+      "hash": "a85ebd873c73f8fd",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.94,
+          "text": "Une zone n’a pas de paroi : c’est une décision."
+        },
+        {
+          "t0": 2.94,
+          "t1": 9.04,
+          "text": "Le constructeur charge le cœur d’abord, car sa chaleur doit traverser toute la pierre pour atteindre la paroi."
+        },
+        {
+          "t0": 9.04,
+          "t1": 11.74,
+          "text": "Mais notre simulation réserve une surprise."
+        },
+        {
+          "t0": 11.74,
+          "t1": 17.02,
+          "text": "À plein, quatre cent dix-sept degrés au centre, trois cent soixante-quinze au bord."
+        },
+        {
+          "t0": 17.02,
+          "t1": 19.84,
+          "text": "Bien plus plat que l’image publiée par le constructeur."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "cutaway": true
+          }
+        },
+        {
+          "t": 17.02,
+          "do": {
+            "cutaway": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-outer-zone",
+      "scope": "part:outer-zone",
+      "title": "Zone périphérique",
+      "scene": "pipe-cell",
+      "file": "part-outer-zone.mp3",
+      "duration": 17.12,
+      "chars": 297,
+      "hash": "eb75e28ddf7ae450",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.28,
+          "text": "Tout autour, l’anneau extérieur : on le vide en premier."
+        },
+        {
+          "t0": 3.28,
+          "t1": 8.5,
+          "text": "Ce qui reste chaud au bord fuit le plus vite, et un bord tiède isole le cœur."
+        },
+        {
+          "t0": 8.5,
+          "t1": 14.12,
+          "text": "L’exploitant du premier silo rapporte cinq cents degrés au cœur, et de cent cinquante à deux cents au bord."
+        },
+        {
+          "t0": 14.12,
+          "t1": 17.12,
+          "text": "Tout dépend d’une règle de pilotage qui reste secrète."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-quartz-sand",
+      "scope": "part:quartz-sand",
+      "title": "Sable de quartz",
+      "scene": "pipe-cell",
+      "file": "part-quartz-sand.mp3",
+      "duration": 19.04,
+      "chars": 324,
+      "hash": "f64b0a58730feca3",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.14,
+          "text": "Voici le sable qui a donné son nom à l’idée : il remplit le premier silo,"
+        },
+        {
+          "t0": 4.14,
+          "t1": 6.9,
+          "text": "et celui prévu pour deux mille vingt-sept."
+        },
+        {
+          "t0": 6.9,
+          "t1": 10.12,
+          "text": "Plus léger que la pierre, il conduit moins bien."
+        },
+        {
+          "t0": 10.12,
+          "t1": 14.06,
+          "text": "Et à cinq cent soixante-treize degrés, le quartz change de forme."
+        },
+        {
+          "t0": 14.06,
+          "t1": 15.62,
+          "text": "Deux fûts au fond du jardin ?"
+        },
+        {
+          "t0": 15.62,
+          "t1": 19.04,
+          "text": "Faites le calcul : quelques heures de chauffage, pas un hiver."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-crushed-soapstone",
+      "scope": "part:crushed-soapstone",
+      "title": "Pierre ollaire concassée",
+      "scene": "pipe-cell",
+      "file": "part-crushed-soapstone.mp3",
+      "duration": 19.04,
+      "chars": 330,
+      "hash": "943f90b2233f9c57",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.66,
+          "text": "Et voici la pierre de notre grain : celle des poêles de masse…"
+        },
+        {
+          "t0": 3.66,
+          "t1": 4.96,
+          "text": "et c’est un rebut !"
+        },
+        {
+          "t0": 4.96,
+          "t1": 9.88,
+          "text": "Un sous-produit d’usine, plus lourd que le sable à volume égal, et qui conduit plus vite,"
+        },
+        {
+          "t0": 9.88,
+          "t1": 11.37,
+          "text": "selon le constructeur."
+        },
+        {
+          "t0": 11.37,
+          "t1": 14.32,
+          "text": "Ses valeurs thermiques sont les moins sûres du labo."
+        },
+        {
+          "t0": 14.32,
+          "t1": 19.04,
+          "text": "Un fabricant donne à peu près un kilojoule par kilo et par degré, sans référence."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-lv-switchboard",
+      "scope": "part:lv-switchboard",
+      "title": "Tableau basse tension",
+      "scene": "plant-room",
+      "file": "part-lv-switchboard.mp3",
+      "duration": 16,
+      "chars": 281,
+      "hash": "ef050b82a16306e9",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.08,
+          "text": "Tout le courant passe ici : de l’ordre de cent fois celui d’une prise de maison."
+        },
+        {
+          "t0": 4.08,
+          "t1": 10.2,
+          "text": "De ce tableau partent les résistances, de très loin les plus gourmandes, les moteurs et l’automatisme."
+        },
+        {
+          "t0": 10.2,
+          "t1": 16,
+          "text": "À ce courant, une connexion desserrée finit en arc : on n’y touche que hors tension, et consigné."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-heater-controller",
+      "scope": "part:heater-controller",
+      "title": "Gradateur de résistances",
+      "scene": "plant-room",
+      "file": "part-heater-controller.mp3",
+      "duration": 17.12,
+      "chars": 303,
+      "hash": "811aacf41f9da7a4",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.26,
+          "text": "Une résistance ne craint pas les coupures."
+        },
+        {
+          "t0": 2.26,
+          "t1": 7.86,
+          "text": "Alors cette charge se pilote à l’instant, et presque tout cet atout tient dans cette armoire."
+        },
+        {
+          "t0": 7.86,
+          "t1": 12.42,
+          "text": "Le gradateur suit un prix, ou un appel du réseau, et le village ne voit rien."
+        },
+        {
+          "t0": 12.42,
+          "t1": 13.66,
+          "text": "Sa pire panne ?"
+        },
+        {
+          "t0": 13.66,
+          "t1": 17.12,
+          "text": "Un contacteur collé, qui laisse passer le courant quand l’ordre dit non."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-resistor-bank",
+      "scope": "part:resistor-bank",
+      "title": "Batterie de résistances",
+      "scene": "plant-room",
+      "file": "part-resistor-bank.mp3",
+      "duration": 23.92,
+      "chars": 424,
+      "hash": "f2e68d99e64f6814",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.46,
+          "text": "C’est le moment où l’énergie change de nature."
+        },
+        {
+          "t0": 2.46,
+          "t1": 8.22,
+          "text": "Le courant traverse les résistances, l’air qui passe devant se réchauffe, et presque rien n’est perdu."
+        },
+        {
+          "t0": 8.22,
+          "t1": 13.1,
+          "text": "D’après un documentaire, à vérifier, cet air sort à environ cinq cents degrés."
+        },
+        {
+          "t0": 13.1,
+          "t1": 20.06,
+          "text": "Mais sans air, l’élément n’a plus d’issue, et il brûle vite : essayez le scénario de la soufflante qui lâche."
+        },
+        {
+          "t0": 20.06,
+          "t1": 23.92,
+          "text": "Une pompe à chaleur ferait mieux avec le même courant, mais elle n’irait pas si haut."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-charge-blower",
+      "scope": "part:charge-blower",
+      "title": "Soufflante de charge",
+      "scene": "plant-room",
+      "file": "part-charge-blower.mp3",
+      "duration": 17.56,
+      "chars": 315,
+      "hash": "04faca031624d630",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.2,
+          "text": "Elle pousse l’air à travers les résistances, puis dans le cœur."
+        },
+        {
+          "t0": 3.2,
+          "t1": 9.42,
+          "text": "Et voici la surprise : quand la pierre chauffe, l’air revient chaud, moins dense, et elle en déplace moins."
+        },
+        {
+          "t0": 9.42,
+          "t1": 13.38,
+          "text": "La puissance acceptée baisse d’elle-même, jusqu’au tiers à plein."
+        },
+        {
+          "t0": 13.38,
+          "t1": 17.56,
+          "text": "Ce n’est donc pas l’électricité qui limite la fin d’une charge : c’est l’air."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-discharge-blower",
+      "scope": "part:discharge-blower",
+      "title": "Soufflante de décharge",
+      "scene": "plant-room",
+      "file": "part-discharge-blower.mp3",
+      "duration": 25.28,
+      "chars": 437,
+      "hash": "cfba3252cc3f962f",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.48,
+          "text": "Voici la pièce la plus importante du labo."
+        },
+        {
+          "t0": 2.48,
+          "t1": 5.56,
+          "text": "Elle tire l’air à travers la pierre, puis l’échangeur."
+        },
+        {
+          "t0": 5.56,
+          "t1": 10,
+          "text": "Plus la pierre refroidit, plus il faut d’air pour porter un mégawatt."
+        },
+        {
+          "t0": 10,
+          "t1": 16.4,
+          "text": "Un jour, la soufflante ne suit plus : à deux cent soixante-quinze degrés de moyenne, avec notre estimation."
+        },
+        {
+          "t0": 16.4,
+          "t1": 22.6,
+          "text": "Selon les réglages inconnus, le silo rend à un mégawatt de quarante-six à cent trente-deux mégawattheures."
+        },
+        {
+          "t0": 22.6,
+          "t1": 25.28,
+          "text": "Une seule ligne du constructeur suffirait à trancher !"
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 16.4,
+          "do": {
+            "flows": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-blower-drive",
+      "scope": "part:blower-drive",
+      "title": "Variateur",
+      "scene": "plant-room",
+      "file": "part-blower-drive.mp3",
+      "duration": 18.56,
+      "chars": 310,
+      "hash": "af3f383c8bbb2431",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.96,
+          "text": "Le vrai robinet de la machine, le voici."
+        },
+        {
+          "t0": 2.96,
+          "t1": 8.68,
+          "text": "Pas de registre étranglé : on règle la chaleur en faisant tourner la soufflante plus ou moins vite."
+        },
+        {
+          "t0": 8.68,
+          "t1": 14.44,
+          "text": "Et là, joli cadeau de la physique : à mi-vitesse, elle consomme environ huit fois moins !"
+        },
+        {
+          "t0": 14.44,
+          "t1": 18.56,
+          "text": "C’est un automatisme qui commande, en regardant l’eau qui part vers le village."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-charge-damper",
+      "scope": "part:charge-damper",
+      "title": "Registre de charge",
+      "scene": "plant-room",
+      "file": "part-charge-damper.mp3",
+      "duration": 17.52,
+      "chars": 296,
+      "hash": "76cfbbf228be6960",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.34,
+          "text": "Un simple volet, qui ouvre une zone à l’air chaud."
+        },
+        {
+          "t0": 3.34,
+          "t1": 9.7,
+          "text": "Dans ce labo, on charge le cœur tant qu’il prend au moins la moitié de l’offre, puis le milieu, puis le bord."
+        },
+        {
+          "t0": 9.7,
+          "t1": 14.1,
+          "text": "À ces températures, le métal se déforme : l’étanchéité est difficile."
+        },
+        {
+          "t0": 14.1,
+          "t1": 17.52,
+          "text": "Regardez-les bouger : ces volets suivent la simulation en direct."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-discharge-damper",
+      "scope": "part:discharge-damper",
+      "title": "Registre de décharge",
+      "scene": "plant-room",
+      "file": "part-discharge-damper.mp3",
+      "duration": 17.84,
+      "chars": 323,
+      "hash": "c9416d33a067bbc8",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.3,
+          "text": "Le même volet, de l’autre côté."
+        },
+        {
+          "t0": 2.3,
+          "t1": 8.82,
+          "text": "On décharge par l’extérieur, et le cœur reste chaud : on ne touche pas à sa réserve tant qu’il reste de quoi faire."
+        },
+        {
+          "t0": 8.82,
+          "t1": 14.1,
+          "text": "Comme les deux boucles travaillent sur des zones différentes, le labo peut charger et décharger à la fois."
+        },
+        {
+          "t0": 14.1,
+          "t1": 17.84,
+          "text": "C’est une hypothèse, poussée par un réseau qui ne peut pas attendre."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-hot-air-duct",
+      "scope": "part:hot-air-duct",
+      "title": "Gaine d’air chaud",
+      "scene": "plant-room",
+      "file": "part-hot-air-duct.mp3",
+      "duration": 18.72,
+      "chars": 332,
+      "hash": "4637a824251a969e",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.4,
+          "text": "Un tuyau gros comme un homme, pour porter autant de puissance que quelques tuyaux d’eau !"
+        },
+        {
+          "t0": 5.4,
+          "t1": 11.64,
+          "text": "L’air transporte mal la chaleur, mais il ne bout pas, ne gèle pas, et supporte très bien la température."
+        },
+        {
+          "t0": 11.64,
+          "t1": 15.74,
+          "text": "Le constructeur tient à des gaines courtes : chaque mètre chaud est une perte."
+        },
+        {
+          "t0": 15.74,
+          "t1": 18.72,
+          "text": "Et son habillage tiède ne dit rien de ce qui passe dedans."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-cold-air-duct",
+      "scope": "part:cold-air-duct",
+      "title": "Gaine d’air froid",
+      "scene": "plant-room",
+      "file": "part-cold-air-duct.mp3",
+      "duration": 20.56,
+      "chars": 320,
+      "hash": "136fb718c68603a9",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.08,
+          "text": "L’air revient et repart : c’est toujours le même."
+        },
+        {
+          "t0": 3.08,
+          "t1": 7.62,
+          "text": "Froid, c’est vite dit : environ soixante degrés en sortie d’échangeur."
+        },
+        {
+          "t0": 7.62,
+          "t1": 12.78,
+          "text": "Une boucle ouverte ferait entrer l’hiver dans la pierre, et jetterait la chaleur restante."
+        },
+        {
+          "t0": 12.78,
+          "t1": 17.38,
+          "text": "Le mot batterie trompe : ni électrolyte, ni charge chimique."
+        },
+        {
+          "t0": 17.38,
+          "t1": 20.56,
+          "text": "Une boucle d’air, c’est juste de la plomberie !"
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-air-water-exchanger",
+      "scope": "part:air-water-exchanger",
+      "title": "Échangeur air-eau",
+      "scene": "plant-room",
+      "file": "part-air-water-exchanger.mp3",
+      "duration": 21.6,
+      "chars": 378,
+      "hash": "6af97a227194749d",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.94,
+          "text": "La seule pièce où l’air et l’eau se rencontrent, sans se mélanger."
+        },
+        {
+          "t0": 3.94,
+          "t1": 8.24,
+          "text": "À contre-courant : l’air qui sort froid croise l’eau qui entre froide."
+        },
+        {
+          "t0": 8.24,
+          "t1": 11.22,
+          "text": "C’est ici que se décide la fin de la chaleur utile."
+        },
+        {
+          "t0": 11.22,
+          "t1": 16.1,
+          "text": "Quand l’air ne peut plus porter l’eau à quatre-vingt-cinq degrés, le reste demeure dans la pierre."
+        },
+        {
+          "t0": 16.1,
+          "t1": 21.6,
+          "text": "Sa hantise, c’est une fuite : de l’eau sur un tube chaud devient de la vapeur, d’un coup."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 16.1,
+          "do": {
+            "flows": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-dh-pump",
+      "scope": "part:dh-pump",
+      "title": "Pompe du réseau",
+      "scene": "plant-room",
+      "file": "part-dh-pump.mp3",
+      "duration": 14.45,
+      "chars": 278,
+      "hash": "1af9da897eda31a9",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.66,
+          "text": "Elle envoie l’eau vers le village, et l’automatisme ne regarde qu’une chose : la température de départ."
+        },
+        {
+          "t0": 5.66,
+          "t1": 9.22,
+          "text": "Mieux vaut peu d’eau à la bonne température que beaucoup d’eau tiède."
+        },
+        {
+          "t0": 9.22,
+          "t1": 14.45,
+          "text": "Quelques kilowatts ici, plus d’une dizaine pour déplacer l’air : l’eau gagne toujours cette comparaison."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 9.22,
+          "do": {
+            "flows": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-heat-meter",
+      "scope": "part:heat-meter",
+      "title": "Compteur de chaleur",
+      "scene": "plant-room",
+      "file": "part-heat-meter.mp3",
+      "duration": 25.44,
+      "chars": 454,
+      "hash": "a14aff2074260826",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.56,
+          "text": "Un débit, un écart de température : voilà ce qui est vendu."
+        },
+        {
+          "t0": 4.56,
+          "t1": 6.7,
+          "text": "Les rendements annoncés ne concordent pas."
+        },
+        {
+          "t0": 6.7,
+          "t1": 11.02,
+          "text": "Environ quatre-vingts pour cent, plus de quatre-vingt-cinq après la première année."
+        },
+        {
+          "t0": 11.02,
+          "t1": 14.04,
+          "text": "Sur le premier silo, de soixante à soixante-quinze."
+        },
+        {
+          "t0": 14.04,
+          "t1": 16.8,
+          "text": "Notre simulation donne quatre-vingt-onze sur l’année,"
+        },
+        {
+          "t0": 16.86,
+          "t1": 20.38,
+          "text": "mais soixante-quatorze sur un cycle suivi d’une semaine de repos."
+        },
+        {
+          "t0": 20.38,
+          "t1": 22.5,
+          "text": "Lisez le premier comme un plafond."
+        },
+        {
+          "t0": 22.5,
+          "t1": 25.44,
+          "text": "Un rendement dit toujours sur quel cycle, ou il ne dit rien."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-expansion-vessel",
+      "scope": "part:expansion-vessel",
+      "title": "Vase d’expansion",
+      "scene": "plant-room",
+      "file": "part-expansion-vessel.mp3",
+      "duration": 16.72,
+      "chars": 306,
+      "hash": "a72880f17fc0ab79",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.34,
+          "text": "L’eau aussi grandit quand elle chauffe."
+        },
+        {
+          "t0": 2.34,
+          "t1": 6.22,
+          "text": "Dans un circuit fermé, la pression monterait jusqu’à ouvrir une soupape."
+        },
+        {
+          "t0": 6.22,
+          "t1": 9.4,
+          "text": "Alors ce réservoir à membrane lui offre un peu de place."
+        },
+        {
+          "t0": 9.4,
+          "t1": 14.26,
+          "text": "Un appareil banal, pour une idée présente à tous les étages : tout ce qui chauffe grandit."
+        },
+        {
+          "t0": 14.26,
+          "t1": 15.56,
+          "text": "Une soupape coule ?"
+        },
+        {
+          "t0": 15.56,
+          "t1": 16.72,
+          "text": "Regardez d’abord le vase."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-control-cabinet",
+      "scope": "part:control-cabinet",
+      "title": "Armoire d’automatisme",
+      "scene": "plant-room",
+      "file": "part-control-cabinet.mp3",
+      "duration": 19.04,
+      "chars": 342,
+      "hash": "c1ebee680848d73e",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 1.96,
+          "text": "Ici, le cerveau du silo."
+        },
+        {
+          "t0": 1.96,
+          "t1": 7.74,
+          "text": "Il lit les prix et décide des heures de charge, selon l’algorithme d’un prestataire, qui reste secret."
+        },
+        {
+          "t0": 7.74,
+          "t1": 13.5,
+          "text": "D’après l’exploitant, le courant de la première année a coûté de soixante-dix à quatre-vingts pour cent sous la moyenne."
+        },
+        {
+          "t0": 13.5,
+          "t1": 15.5,
+          "text": "Et vous, ferez-vous mieux ?"
+        },
+        {
+          "t0": 15.5,
+          "t1": 19.04,
+          "text": "Le jeu de la leçon sur les heures bon marché vous met à sa place."
+        }
+      ],
+      "cues": []
+    }
+  ]
+}

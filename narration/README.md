@@ -1,7 +1,7 @@
 # Narration scripts (French and English)
 
 `fr.json` and `en.json` follow `lab-kit/docs/narration.md`: **56 segments each** (`intro`, 4 worlds, 51 parts: site 13, silo 14, pipe-cell 9, plant-room 15), ids `intro`,
-`scene-<world>`, `part-<id>`, no lesson segments. **No audio exists yet.** This lab uses the local voice (`--engine voicebox`, 0 credit, the Voicebox application open); the session
+`scene-<world>`, `part-<id>`, no lesson segments. **The audio exists in both languages, in the local voice, checked by transcription and not yet by a human ear.** This lab uses the local voice (`--engine voicebox`, 0 credit, the Voicebox application open); the session
 that orchestrates the lab generates it after these checks, and the agent that writes this script never does.
 
 Check the length without spending or generating anything (`HOME=<empty dir>` keeps the tool from even opening the key file):

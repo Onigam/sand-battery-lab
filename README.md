@@ -13,7 +13,7 @@ It belongs to a series that started with [Pelton Lab](https://github.com/Onigam/
 - **Six lessons with twelve questions**, each opening on a scenario: heat in a stone, heat that crawls, surface and volume, a capacity only means something at a given power, the cheap hours (paint your charging hours against an opponent), heat that is not electricity.
 - **A simulation** (a pure, unit-tested thermal model): an enthalpy grid of the bed with a measured c(T) for sand, buried pipes, closed air loops, an exchanger, the network's demand, a hand-drawn week of prices, five starting points and twelve scenarios.
 - **Ten A3 design drawings** generated from the same dimensions as the 3D model and from the model's results.
-- **A spoken guide** for the introduction, each world and each part, in both languages: the scripts are in `narration/`, the audio is not generated yet.
+- **A spoken guide** for the introduction, each world and each part, in both languages: the scripts are in `narration/`, the audio in `public/audio/`, in a local voice.
 
 ## What is real and what is not
 

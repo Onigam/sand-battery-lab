@@ -1,0 +1,2925 @@
+{
+  "lang": "en",
+  "model": "qwen3-tts-1.7B",
+  "generatedAt": "2026-11-03T12:28:25.105Z",
+  "voiceLabel": {
+    "fr": "Voix de synthèse",
+    "en": "Synthetic voice"
+  },
+  "totalSeconds": 1211.77,
+  "segments": [
+    {
+      "id": "intro",
+      "scope": "intro",
+      "title": "About this lab",
+      "scene": "site",
+      "file": "intro.mp3",
+      "duration": 134.89,
+      "chars": 2404,
+      "hash": "57215c17236ee982",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.94,
+          "text": "Picture a northern village, on a night of high wind: electricity is worth next to nothing."
+        },
+        {
+          "t0": 5.94,
+          "t1": 9.2,
+          "text": "In a yard, a big dark silo is waiting."
+        },
+        {
+          "t0": 9.2,
+          "t1": 10.64,
+          "text": "They call it a sand battery…"
+        },
+        {
+          "t0": 10.64,
+          "t1": 14.8,
+          "text": "and yet the largest one in service, in Finland, has no sand in it!"
+        },
+        {
+          "t0": 14.8,
+          "t1": 19.82,
+          "text": "It holds about two thousand tonnes of crushed soapstone, and it gives back heat, not electricity."
+        },
+        {
+          "t0": 19.82,
+          "t1": 22.26,
+          "text": "Let’s follow one single grain of that stone."
+        },
+        {
+          "t0": 22.26,
+          "t1": 24.84,
+          "text": "It doesn’t move: the heat comes to find it."
+        },
+        {
+          "t0": 24.84,
+          "t1": 28.78,
+          "text": "Under the roof, it starts with the air: a blower drives it through resistors."
+        },
+        {
+          "t0": 28.78,
+          "t1": 30.52,
+          "text": "The current makes it very hot."
+        },
+        {
+          "t0": 30.52,
+          "t1": 34.08,
+          "text": "Here is our grain, in the dark, right up against a stainless pipe."
+        },
+        {
+          "t0": 34.08,
+          "t1": 37.48,
+          "text": "It warms, very slowly, and hands its heat on to its neighbour."
+        },
+        {
+          "t0": 37.48,
+          "t1": 40.94,
+          "text": "And the stone waits, at a mean of about four hundred degrees."
+        },
+        {
+          "t0": 40.94,
+          "t1": 43.5,
+          "text": "Then the wind drops, and electricity turns dear again."
+        },
+        {
+          "t0": 43.5,
+          "t1": 49.26,
+          "text": "A second blower draws the air back through the stone, and the exchanger gives its heat to the water."
+        },
+        {
+          "t0": 49.26,
+          "t1": 54.7,
+          "text": "The hot water runs underground to the village, and at the school, a radiator warms up."
+        },
+        {
+          "t0": 54.7,
+          "t1": 59.96,
+          "text": "That is the whole story: a gust of wind, a grain of stone, a lot of patience…"
+        },
+        {
+          "t0": 59.96,
+          "t1": 61.44,
+          "text": "and a warm classroom."
+        },
+        {
+          "t0": 61.44,
+          "t1": 64.6,
+          "text": "Which leaves the real question: how much does this silo give back?"
+        },
+        {
+          "t0": 64.6,
+          "t1": 68.54,
+          "text": "When full, it holds two hundred and seventeen megawatt-hours above the ambient air."
+        },
+        {
+          "t0": 68.54,
+          "t1": 70.68,
+          "text": "Sixty-nine come out at one megawatt."
+        },
+        {
+          "t0": 70.68,
+          "t1": 73.72,
+          "text": "A hundred and five come out afterwards, at falling power."
+        },
+        {
+          "t0": 73.72,
+          "t1": 78.32,
+          "text": "And forty-three stay in the stone, too cold for the network."
+        },
+        {
+          "t0": 78.32,
+          "t1": 81.58,
+          "text": "A capacity only means something at a given power!"
+        },
+        {
+          "t0": 81.58,
+          "t1": 85.38,
+          "text": "The maker quotes up to a hundred megawatt-hours, without saying at what power."
+        },
+        {
+          "t0": 85.38,
+          "t1": 90.16,
+          "text": "Our model finds sixty-nine at one megawatt: the gap comes down to the size of a blower,"
+        },
+        {
+          "t0": 90.16,
+          "t1": 91.8,
+          "text": "which nobody publishes."
+        },
+        {
+          "t0": 91.8,
+          "t1": 97.58,
+          "text": "A few landmarks: four views, the village, the silo, one pipe in the stone and the equipment floor."
+        },
+        {
+          "t0": 97.58,
+          "t1": 101.4,
+          "text": "Click any part: its sheet opens, and you can listen to its story."
+        },
+        {
+          "t0": 101.4,
+          "t1": 105.66,
+          "text": "One guide tells of the building site, another of how the silo joins its village."
+        },
+        {
+          "t0": 105.66,
+          "t1": 108.22,
+          "text": "The simulation lets you change everything."
+        },
+        {
+          "t0": 108.22,
+          "t1": 110.68,
+          "text": "Six lessons, with quizzes, explain the physics."
+        },
+        {
+          "t0": 110.68,
+          "t1": 112.3,
+          "text": "Ten sheets gather the drawings."
+        },
+        {
+          "t0": 112.3,
+          "t1": 116.56,
+          "text": "One last thing: this lab is an educational reconstruction, independent and generic."
+        },
+        {
+          "t0": 116.56,
+          "t1": 120.94,
+          "text": "It is neither an official plan nor a maker’s product, and this village exists nowhere."
+        },
+        {
+          "t0": 120.94,
+          "t1": 124.87,
+          "text": "Pipes, insulation, blowers, where the machines stand: none of it is published,"
+        },
+        {
+          "t0": 125.06,
+          "t1": 127.2,
+          "text": "all of it is our reading or calculation."
+        },
+        {
+          "t0": 127.2,
+          "t1": 130.5,
+          "text": "Unless I quote a source, the figures come from our simulation."
+        },
+        {
+          "t0": 130.5,
+          "t1": 133.92,
+          "text": "And we have found no independent measurement of these machines."
+        },
+        {
+          "t0": 133.92,
+          "t1": 134.89,
+          "text": "Over to you!"
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 5.94,
+          "do": {
+            "frame": [
+              "silo-exterior"
+            ]
+          }
+        },
+        {
+          "t": 24.84,
+          "do": {
+            "scene": "plant-room"
+          }
+        },
+        {
+          "t": 26.8,
+          "do": {
+            "frame": [
+              "charge-blower"
+            ]
+          }
+        },
+        {
+          "t": 30.52,
+          "do": {
+            "scene": "pipe-cell"
+          }
+        },
+        {
+          "t": 37.48,
+          "do": {
+            "scene": "silo"
+          }
+        },
+        {
+          "t": 43.5,
+          "do": {
+            "scene": "plant-room"
+          }
+        },
+        {
+          "t": 46.02,
+          "do": {
+            "frame": [
+              "air-water-exchanger"
+            ]
+          }
+        },
+        {
+          "t": 49.26,
+          "do": {
+            "scene": "site"
+          }
+        },
+        {
+          "t": 49.26,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 51.38,
+          "do": {
+            "frame": [
+              "village-school"
+            ]
+          }
+        },
+        {
+          "t": 54.7,
+          "do": {
+            "flows": false
+          }
+        },
+        {
+          "t": 61.44,
+          "do": {
+            "scene": "silo"
+          }
+        },
+        {
+          "t": 91.8,
+          "do": {
+            "scene": "site"
+          }
+        },
+        {
+          "t": 101.4,
+          "do": {
+            "mode": "assembly"
+          }
+        },
+        {
+          "t": 103.3,
+          "do": {
+            "mode": "install"
+          }
+        },
+        {
+          "t": 105.66,
+          "do": {
+            "mode": "sim"
+          }
+        },
+        {
+          "t": 108.22,
+          "do": {
+            "mode": "lessons"
+          }
+        },
+        {
+          "t": 110.68,
+          "do": {
+            "mode": "plans"
+          }
+        },
+        {
+          "t": 112.3,
+          "do": {
+            "mode": "explore"
+          }
+        },
+        {
+          "t": 116.56,
+          "do": {
+            "scene": "site"
+          }
+        },
+        {
+          "t": 133.92,
+          "do": {
+            "select": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-site",
+      "scope": "scene:site",
+      "title": "The village: from cheap current to the school",
+      "scene": "site",
+      "file": "scene-site.mp3",
+      "duration": 38.48,
+      "chars": 608,
+      "hash": "881b12f6b04057b9",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5,
+          "text": "Welcome to the village, at the forest’s edge: the whole story runs along its road."
+        },
+        {
+          "t0": 5,
+          "t1": 10.2,
+          "text": "Far off, the wind turbines set the price, without one cable to the silo."
+        },
+        {
+          "t0": 10.2,
+          "t1": 14.32,
+          "text": "The line brings the current, when it costs next to nothing."
+        },
+        {
+          "t0": 14.32,
+          "t1": 17.8,
+          "text": "Transformer and annex await it at the silo’s foot."
+        },
+        {
+          "t0": 17.8,
+          "t1": 20.86,
+          "text": "The silo itself shows nothing of what it hides."
+        },
+        {
+          "t0": 20.86,
+          "t1": 23.26,
+          "text": "Two pipes come down along its wall."
+        },
+        {
+          "t0": 23.26,
+          "t1": 28.92,
+          "text": "The water runs along a trench, drawn open for you, as far as the school and the houses of the village."
+        },
+        {
+          "t0": 28.92,
+          "t1": 31.72,
+          "text": "And the old boiler plant stands by, as a backup."
+        },
+        {
+          "t0": 31.72,
+          "t1": 38.48,
+          "text": "One precaution: a silo like this one is an industrial installation, subject to the rules of each country."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 5,
+          "do": {
+            "frame": [
+              "wind-farm"
+            ]
+          }
+        },
+        {
+          "t": 10.2,
+          "do": {
+            "frame": [
+              "power-line"
+            ]
+          }
+        },
+        {
+          "t": 14.32,
+          "do": {
+            "frame": [
+              "pad-transformer",
+              "electrical-annex"
+            ]
+          }
+        },
+        {
+          "t": 17.8,
+          "do": {
+            "frame": [
+              "silo-exterior"
+            ]
+          }
+        },
+        {
+          "t": 20.86,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 20.86,
+          "do": {
+            "frame": [
+              "dh-riser"
+            ]
+          }
+        },
+        {
+          "t": 23.26,
+          "do": {
+            "frame": [
+              "dh-trench"
+            ]
+          }
+        },
+        {
+          "t": 26.5,
+          "do": {
+            "frame": [
+              "village-school",
+              "house-substation"
+            ]
+          }
+        },
+        {
+          "t": 28.92,
+          "do": {
+            "flows": false
+          }
+        },
+        {
+          "t": 28.92,
+          "do": {
+            "frame": [
+              "chip-boiler-plant"
+            ]
+          }
+        },
+        {
+          "t": 31.72,
+          "do": {
+            "home": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-silo",
+      "scope": "scene:silo",
+      "title": "The silo in section",
+      "scene": "silo",
+      "file": "scene-silo.mp3",
+      "duration": 41.68,
+      "chars": 672,
+      "hash": "386f2da895347f81",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.74,
+          "text": "Here is the machine, a quarter open, like a cake someone has already started."
+        },
+        {
+          "t0": 4.74,
+          "t1": 9.04,
+          "text": "At the bottom, the slab, then an insulation that has to carry it all."
+        },
+        {
+          "t0": 9.04,
+          "t1": 13.2,
+          "text": "Above them, six metres of stone, and all its pipes."
+        },
+        {
+          "t0": 13.2,
+          "t1": 17.34,
+          "text": "Around it, insulation and cladding fit into half a metre."
+        },
+        {
+          "t0": 17.34,
+          "t1": 21.64,
+          "text": "Right at the top, the equipment floor, under its conical roof."
+        },
+        {
+          "t0": 21.64,
+          "t1": 23.5,
+          "text": "These colours come from the simulation,"
+        },
+        {
+          "t0": 23.5,
+          "t1": 27.84,
+          "text": "and they are false colour: stone at four hundred degrees does not glow."
+        },
+        {
+          "t0": 27.84,
+          "t1": 29.3,
+          "text": "Let’s open half the silo."
+        },
+        {
+          "t0": 29.3,
+          "t1": 33.78,
+          "text": "The core is hotter than the edge, and yet nothing stirs in the stone."
+        },
+        {
+          "t0": 33.78,
+          "t1": 37.34,
+          "text": "Let’s pull the layers apart, from the slab to the roof."
+        },
+        {
+          "t0": 37.34,
+          "t1": 41.68,
+          "text": "Six metres of stone in thirteen metres of silo: all the rest protects it, or serves it."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 4.74,
+          "do": {
+            "frame": [
+              "foundation-slab",
+              "base-insulation"
+            ]
+          }
+        },
+        {
+          "t": 9.04,
+          "do": {
+            "frame": [
+              "storage-bed",
+              "pipe-field"
+            ]
+          }
+        },
+        {
+          "t": 13.2,
+          "do": {
+            "frame": [
+              "wall-insulation",
+              "outer-cladding"
+            ]
+          }
+        },
+        {
+          "t": 17.34,
+          "do": {
+            "frame": [
+              "equipment-floor",
+              "conical-roof"
+            ]
+          }
+        },
+        {
+          "t": 21.64,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 27.84,
+          "do": {
+            "cutaway": true
+          }
+        },
+        {
+          "t": 33.78,
+          "do": {
+            "cutaway": false
+          }
+        },
+        {
+          "t": 33.78,
+          "do": {
+            "explode": 0.6
+          }
+        },
+        {
+          "t": 37.34,
+          "do": {
+            "explode": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-pipe-cell",
+      "scope": "scene:pipe-cell",
+      "title": "One pipe in the stone",
+      "scene": "pipe-cell",
+      "file": "scene-pipe-cell.mp3",
+      "duration": 38.16,
+      "chars": 612,
+      "hash": "692ccc8160377d1c",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 1.16,
+          "text": "Let’s zoom in."
+        },
+        {
+          "t0": 1.16,
+          "t1": 4.8,
+          "text": "Here is a block of stone, with our grain somewhere inside it."
+        },
+        {
+          "t0": 4.8,
+          "t1": 9.94,
+          "text": "A pipe goes down, turns round in its bend at the bottom, and climbs back."
+        },
+        {
+          "t0": 9.94,
+          "t1": 15.16,
+          "text": "At the top, a loop lets the pipe grow, and a header joins it to its neighbours."
+        },
+        {
+          "t0": 15.16,
+          "t1": 18.64,
+          "text": "Two blocks, two zones: the core and the edge."
+        },
+        {
+          "t0": 18.64,
+          "t1": 22.1,
+          "text": "And on the table, two samples, magnified for you."
+        },
+        {
+          "t0": 22.1,
+          "t1": 25.76,
+          "text": "In section, the heat spreads around the pipe, in rings."
+        },
+        {
+          "t0": 25.76,
+          "t1": 32.06,
+          "text": "The maker says a metre of sand heated on one side takes over eight days to reach a hundred degrees on the other."
+        },
+        {
+          "t0": 32.06,
+          "t1": 34.44,
+          "text": "Our simulation finds seven point four days."
+        },
+        {
+          "t0": 34.44,
+          "t1": 38.16,
+          "text": "Heat crawls: so it is fetched with a pipe about every fifty centimetres."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 4.8,
+          "do": {
+            "frame": [
+              "heat-pipe",
+              "return-bend"
+            ]
+          }
+        },
+        {
+          "t": 9.94,
+          "do": {
+            "frame": [
+              "expansion-loop"
+            ]
+          }
+        },
+        {
+          "t": 12.46,
+          "do": {
+            "frame": [
+              "branch-header"
+            ]
+          }
+        },
+        {
+          "t": 15.16,
+          "do": {
+            "frame": [
+              "core-zone",
+              "outer-zone"
+            ]
+          }
+        },
+        {
+          "t": 18.64,
+          "do": {
+            "frame": [
+              "quartz-sand",
+              "crushed-soapstone"
+            ]
+          }
+        },
+        {
+          "t": 22.1,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 22.1,
+          "do": {
+            "cutaway": true
+          }
+        },
+        {
+          "t": 25.76,
+          "do": {
+            "cutaway": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-plant-room",
+      "scope": "scene:plant-room",
+      "title": "Where the current and the heat go",
+      "scene": "plant-room",
+      "file": "scene-plant-room.mp3",
+      "duration": 34.32,
+      "chars": 632,
+      "hash": "e5bb228f1b9f665c",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.7,
+          "text": "Here is the floor, read in the order of the current, then of the heat."
+        },
+        {
+          "t0": 3.7,
+          "t1": 6.28,
+          "text": "The switchboard takes all the current as it arrives."
+        },
+        {
+          "t0": 6.28,
+          "t1": 8.78,
+          "text": "The controller doses it at every moment."
+        },
+        {
+          "t0": 8.78,
+          "t1": 14.38,
+          "text": "A blower drives air towards the resistors, which make it very hot, and the duct carries it to the stone."
+        },
+        {
+          "t0": 14.38,
+          "t1": 16.68,
+          "text": "The dampers choose the zone to charge."
+        },
+        {
+          "t0": 16.68,
+          "t1": 21.1,
+          "text": "Later, the second blower brings that air back, and the exchanger gives its heat to the water."
+        },
+        {
+          "t0": 21.1,
+          "t1": 23.88,
+          "text": "The pump sends the water out, and the meter counts."
+        },
+        {
+          "t0": 23.88,
+          "t1": 26.04,
+          "text": "And the control cabinet decides when."
+        },
+        {
+          "t0": 26.04,
+          "t1": 28.5,
+          "text": "Let’s pull the machines apart, to see them better."
+        },
+        {
+          "t0": 28.5,
+          "t1": 32.54,
+          "text": "Count what moves here: two blowers, a pump, a few flaps."
+        },
+        {
+          "t0": 32.54,
+          "t1": 34.32,
+          "text": "All the rest is stone, waiting."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 3.7,
+          "do": {
+            "frame": [
+              "lv-switchboard"
+            ]
+          }
+        },
+        {
+          "t": 6.28,
+          "do": {
+            "frame": [
+              "heater-controller"
+            ]
+          }
+        },
+        {
+          "t": 8.78,
+          "do": {
+            "frame": [
+              "charge-blower"
+            ]
+          }
+        },
+        {
+          "t": 11.12,
+          "do": {
+            "frame": [
+              "resistor-bank",
+              "hot-air-duct"
+            ]
+          }
+        },
+        {
+          "t": 14.38,
+          "do": {
+            "frame": [
+              "charge-damper"
+            ]
+          }
+        },
+        {
+          "t": 16.68,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 16.68,
+          "do": {
+            "frame": [
+              "discharge-blower",
+              "discharge-damper"
+            ]
+          }
+        },
+        {
+          "t": 18.9,
+          "do": {
+            "frame": [
+              "air-water-exchanger"
+            ]
+          }
+        },
+        {
+          "t": 21.1,
+          "do": {
+            "frame": [
+              "dh-pump",
+              "heat-meter"
+            ]
+          }
+        },
+        {
+          "t": 23.88,
+          "do": {
+            "flows": false
+          }
+        },
+        {
+          "t": 23.88,
+          "do": {
+            "frame": [
+              "control-cabinet"
+            ]
+          }
+        },
+        {
+          "t": 26.04,
+          "do": {
+            "home": true
+          }
+        },
+        {
+          "t": 26.04,
+          "do": {
+            "explode": 0.6
+          }
+        },
+        {
+          "t": 28.5,
+          "do": {
+            "explode": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-silo-exterior",
+      "scope": "part:silo-exterior",
+      "title": "The silo from outside",
+      "scene": "site",
+      "file": "part-silo-exterior.mp3",
+      "duration": 17.76,
+      "chars": 307,
+      "hash": "9053b41ad3ffccfd",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.44,
+          "text": "A squat cylinder, about thirteen metres high and fifteen wide."
+        },
+        {
+          "t0": 4.44,
+          "t1": 6.24,
+          "text": "Nothing gives away what it hides."
+        },
+        {
+          "t0": 6.24,
+          "t1": 9.48,
+          "text": "Lay a hand on it: the maker says it stays cool."
+        },
+        {
+          "t0": 9.48,
+          "t1": 12.44,
+          "text": "Our calculation finds it about eight degrees above the air."
+        },
+        {
+          "t0": 12.44,
+          "t1": 17.76,
+          "text": "And behind half a metre of wall, the edge of the stone reaches three hundred and seventy-five degrees!"
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-dh-riser",
+      "scope": "part:dh-riser",
+      "title": "Network risers",
+      "scene": "site",
+      "file": "part-dh-riser.mp3",
+      "duration": 16.48,
+      "chars": 266,
+      "hash": "494d9dc0228ab8e7",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 6.1,
+          "text": "Look for them on the cladding: these two clad pipes are the only outward signs that this silo heats a village."
+        },
+        {
+          "t0": 6.1,
+          "t1": 10.08,
+          "text": "One brings the hot water down, the other takes the return up."
+        },
+        {
+          "t0": 10.08,
+          "t1": 14.08,
+          "text": "No steam: just water under pressure, as in any network."
+        },
+        {
+          "t0": 14.08,
+          "t1": 16.48,
+          "text": "In hard frost, it has to keep moving."
+        }
+      ],
+      "cues": [
+        {
+          "t": 6.1,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 10.08,
+          "do": {
+            "flows": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-cable-riser",
+      "scope": "part:cable-riser",
+      "title": "Cable riser",
+      "scene": "site",
+      "file": "part-cable-riser.mp3",
+      "duration": 18,
+      "chars": 315,
+      "hash": "70045c9a34b93174",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.08,
+          "text": "A vertical duct on a photo, with no caption: we read it as the path of the current."
+        },
+        {
+          "t0": 5.08,
+          "t1": 6.36,
+          "text": "And what a current!"
+        },
+        {
+          "t0": 6.36,
+          "t1": 12.2,
+          "text": "If the voltage is four hundred volts, one megawatt means one thousand four hundred and forty-three amps."
+        },
+        {
+          "t0": 12.2,
+          "t1": 18,
+          "text": "No household cable would survive that: the lab counts nine hundred and sixty square millimetres per phase."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-electrical-annex",
+      "scope": "part:electrical-annex",
+      "title": "Electrical annex",
+      "scene": "site",
+      "file": "part-electrical-annex.mp3",
+      "duration": 14.96,
+      "chars": 233,
+      "hash": "04798716efbff58d",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.62,
+          "text": "A low annex at the silo’s foot, and no source says what it is for."
+        },
+        {
+          "t0": 4.62,
+          "t1": 10.84,
+          "text": "The lab houses the medium-voltage incomer there: such equipment likes the ground and cool air."
+        },
+        {
+          "t0": 10.84,
+          "t1": 14.96,
+          "text": "Their classic faults: condensation, and the rodent in the cable trench."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-pad-transformer",
+      "scope": "part:pad-transformer",
+      "title": "Pad-mounted transformer",
+      "scene": "site",
+      "file": "part-pad-transformer.mp3",
+      "duration": 18.4,
+      "chars": 326,
+      "hash": "7c7104e5d012c2de",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.1,
+          "text": "A megawatt at low voltage: no way to bring that from far off."
+        },
+        {
+          "t0": 4.1,
+          "t1": 8.38,
+          "text": "So the current travels at medium voltage, twenty thousand volts in this lab."
+        },
+        {
+          "t0": 8.38,
+          "t1": 11.82,
+          "text": "This transformer brings it down to the voltage of the equipment, close by."
+        },
+        {
+          "t0": 11.82,
+          "t1": 14.78,
+          "text": "Double the voltage, and the losses fall by four."
+        },
+        {
+          "t0": 14.78,
+          "t1": 18.4,
+          "text": "Never open the enclosure: medium voltage kills without contact."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-power-line",
+      "scope": "part:power-line",
+      "title": "Medium-voltage line",
+      "scene": "site",
+      "file": "part-power-line.mp3",
+      "duration": 16.72,
+      "chars": 298,
+      "hash": "6bcdf7c3fcc7738f",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 1.82,
+          "text": "This is how the cheap hours arrive."
+        },
+        {
+          "t0": 1.82,
+          "t1": 7.26,
+          "text": "And nothing goes back: the silo has no way to make electricity again, it gives back heat."
+        },
+        {
+          "t0": 7.26,
+          "t1": 8.8,
+          "text": "Its service to the grid?"
+        },
+        {
+          "t0": 8.8,
+          "t1": 12.14,
+          "text": "A load that can be cut in an instant, without a single house feeling it."
+        },
+        {
+          "t0": 12.14,
+          "t1": 16.72,
+          "text": "And with no current, no blower and no pump: a blackout stops the heat too."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-solar-field",
+      "scope": "part:solar-field",
+      "title": "Solar field",
+      "scene": "site",
+      "file": "part-solar-field.mp3",
+      "duration": 17.68,
+      "chars": 311,
+      "hash": "b376ebdaa345fa99",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.5,
+          "text": "This field does not exist at the real silo: the lab draws it for an idea."
+        },
+        {
+          "t0": 4.5,
+          "t1": 8.56,
+          "text": "The very first pilot heated its sand from a hundred square metres of panels."
+        },
+        {
+          "t0": 8.56,
+          "t1": 13.52,
+          "text": "But here, the sun is plentiful when demand is low, and short when demand is high."
+        },
+        {
+          "t0": 13.52,
+          "t1": 17.68,
+          "text": "The stone keeps heat for days or weeks: it does not put July away for January."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-wind-farm",
+      "scope": "part:wind-farm",
+      "title": "Distant wind farm",
+      "scene": "site",
+      "file": "part-wind-farm.mp3",
+      "duration": 19.28,
+      "chars": 305,
+      "hash": "60cf8878230cd16a",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.54,
+          "text": "No cable runs from these turbines to the silo."
+        },
+        {
+          "t0": 3.54,
+          "t1": 4.78,
+          "text": "So what is the link?"
+        },
+        {
+          "t0": 4.78,
+          "t1": 6,
+          "text": "The price!"
+        },
+        {
+          "t0": 6,
+          "t1": 10.98,
+          "text": "When there is more wind than demand, electricity collapses, and the stone charges."
+        },
+        {
+          "t0": 10.98,
+          "t1": 13.46,
+          "text": "A silo stores a fall in price."
+        },
+        {
+          "t0": 13.46,
+          "t1": 19.28,
+          "text": "One source reports prices from three to three hundred and seventy-three euros a megawatt-hour, in a single week."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-chip-boiler-plant",
+      "scope": "part:chip-boiler-plant",
+      "title": "Wood-chip boiler plant",
+      "scene": "site",
+      "file": "part-chip-boiler-plant.mp3",
+      "duration": 16.08,
+      "chars": 284,
+      "hash": "c06a97446ceff7e6",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.4,
+          "text": "The silo did not replace the old boiler plant: it put it in reserve."
+        },
+        {
+          "t0": 4.4,
+          "t1": 7.7,
+          "text": "Storage moves a source in time, it does not replace it."
+        },
+        {
+          "t0": 7.7,
+          "t1": 13.14,
+          "text": "According to the maker, the network has dropped oil altogether and cut wood chips by about sixty per cent."
+        },
+        {
+          "t0": 13.14,
+          "t1": 16.08,
+          "text": "Try ten windless days: you will see why it was kept."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-boiler-stack",
+      "scope": "part:boiler-stack",
+      "title": "Boiler stack",
+      "scene": "site",
+      "file": "part-boiler-stack.mp3",
+      "duration": 19.28,
+      "chars": 322,
+      "hash": "2661ac43340ad446",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.2,
+          "text": "The silo burns nothing: the only smoke on the site comes from here."
+        },
+        {
+          "t0": 4.2,
+          "t1": 10.14,
+          "text": "The operator announces about a hundred and sixty tonnes of carbon dioxide equivalent avoided a year."
+        },
+        {
+          "t0": 10.14,
+          "t1": 14.24,
+          "text": "These figures are its own: the simulation computes nothing of the kind."
+        },
+        {
+          "t0": 14.24,
+          "t1": 19.28,
+          "text": "A simple picture remains: this stack smokes far less, and the village stays warm."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-dh-trench",
+      "scope": "part:dh-trench",
+      "title": "District-heating trench",
+      "scene": "site",
+      "file": "part-dh-trench.mp3",
+      "duration": 18.88,
+      "chars": 269,
+      "hash": "690a30cf69abfe65",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.98,
+          "text": "Without this pipe, the silo is useless."
+        },
+        {
+          "t0": 2.98,
+          "t1": 7.76,
+          "text": "Two pre-insulated pipes: hot on the way out, cooler on the way back."
+        },
+        {
+          "t0": 7.76,
+          "t1": 11.72,
+          "text": "We draw the trench open; in reality, it is backfilled."
+        },
+        {
+          "t0": 11.72,
+          "t1": 16.94,
+          "text": "No network close by, no silo: it is the first question to ask of a site."
+        },
+        {
+          "t0": 16.94,
+          "t1": 18.88,
+          "text": "And before you dig, give notice."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 11.72,
+          "do": {
+            "flows": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-village-school",
+      "scope": "part:village-school",
+      "title": "The village school",
+      "scene": "site",
+      "file": "part-village-school.mp3",
+      "duration": 18,
+      "chars": 310,
+      "hash": "712abb0931fca8f3",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.92,
+          "text": "Here is the demand, in flesh and blood."
+        },
+        {
+          "t0": 2.92,
+          "t1": 7.64,
+          "text": "Its radiators do not know where the hot water comes from, and that is the whole point."
+        },
+        {
+          "t0": 7.64,
+          "t1": 13.7,
+          "text": "According to the maker, the silo comes to about a week of winter demand, and almost a month of summer."
+        },
+        {
+          "t0": 13.7,
+          "t1": 18,
+          "text": "Our simulation gives eight and a half days, and forty-eight days for the summer."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-house-substation",
+      "scope": "part:house-substation",
+      "title": "A house substation",
+      "scene": "site",
+      "file": "part-house-substation.mp3",
+      "duration": 17.28,
+      "chars": 294,
+      "hash": "1741c11689ae24b8",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.52,
+          "text": "A connected house has no boiler."
+        },
+        {
+          "t0": 2.52,
+          "t1": 6.78,
+          "text": "In the cellar, a plate exchanger passes the heat from the network to the house’s water,"
+        },
+        {
+          "t0": 6.78,
+          "t1": 8.68,
+          "text": "without ever mixing them."
+        },
+        {
+          "t0": 8.68,
+          "t1": 10.78,
+          "text": "No flame, no chimney."
+        },
+        {
+          "t0": 10.78,
+          "t1": 15.1,
+          "text": "And the water it sends back, colder, will go on to cool the silo’s air."
+        },
+        {
+          "t0": 15.1,
+          "t1": 17.28,
+          "text": "That is how heat gets fetched from deep in the stone."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-foundation-slab",
+      "scope": "part:foundation-slab",
+      "title": "Foundation slab",
+      "scene": "silo",
+      "file": "part-foundation-slab.mp3",
+      "duration": 16.64,
+      "chars": 291,
+      "hash": "0f470ed710a828aa",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.08,
+          "text": "Two thousand tonnes of stone: they have to go somewhere."
+        },
+        {
+          "t0": 3.08,
+          "t1": 6.26,
+          "text": "That comes to about thirteen tonnes on every square metre."
+        },
+        {
+          "t0": 6.26,
+          "t1": 12.08,
+          "text": "Stone does not turn or wear anything out: it is dead weight, and it only needs setting down properly."
+        },
+        {
+          "t0": 12.08,
+          "t1": 16.64,
+          "text": "During filling, the level marks set in the foot get read again and again."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-base-insulation",
+      "scope": "part:base-insulation",
+      "title": "Base insulation",
+      "scene": "silo",
+      "file": "part-base-insulation.mp3",
+      "duration": 15.36,
+      "chars": 265,
+      "hash": "8cf0d20845a1e59e",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.74,
+          "text": "Under the bed, the insulation has two jobs: stopping the heat, and carrying all the weight."
+        },
+        {
+          "t0": 5.74,
+          "t1": 7.06,
+          "text": "No wool will do!"
+        },
+        {
+          "t0": 7.06,
+          "t1": 11.64,
+          "text": "The maker’s patent mentions expanded clay, a granulate that holds itself up."
+        },
+        {
+          "t0": 11.64,
+          "t1": 15.36,
+          "text": "And nobody will ever go back to it: its maintenance happens the day it is laid."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-inner-shell",
+      "scope": "part:inner-shell",
+      "title": "Inner steel shell",
+      "scene": "silo",
+      "file": "part-inner-shell.mp3",
+      "duration": 16.32,
+      "chars": 293,
+      "hash": "1ac7bfdd0df3af6e",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.9,
+          "text": "This steel shell holds back the stone as a barrel holds its wine."
+        },
+        {
+          "t0": 3.9,
+          "t1": 8.28,
+          "text": "But this barrel grows: about nine centimetres across its diameter when it warms."
+        },
+        {
+          "t0": 8.28,
+          "t1": 14.24,
+          "text": "The grains slip down to fill the gap, and on cooling, it tightens on stone that will not move back."
+        },
+        {
+          "t0": 14.24,
+          "t1": 16.32,
+          "text": "The maker does not say how it deals with this."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-wall-insulation",
+      "scope": "part:wall-insulation",
+      "title": "Wall insulation",
+      "scene": "silo",
+      "file": "part-wall-insulation.mp3",
+      "duration": 16.88,
+      "chars": 286,
+      "hash": "d24c427455917908",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 6.08,
+          "text": "A fifteen-metre silo around a fourteen-metre bed: that leaves half a metre on each side, all told."
+        },
+        {
+          "t0": 6.08,
+          "t1": 11.72,
+          "text": "Take away half the insulation, and the leak when full climbs from thirty-eight to sixty-seven kilowatts."
+        },
+        {
+          "t0": 11.72,
+          "t1": 14.62,
+          "text": "But the capacity at full power hardly moves!"
+        },
+        {
+          "t0": 14.62,
+          "t1": 16.88,
+          "text": "Insulation protects the holding time."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-outer-cladding",
+      "scope": "part:outer-cladding",
+      "title": "Outer steel cladding",
+      "scene": "silo",
+      "file": "part-outer-cladding.mp3",
+      "duration": 18.24,
+      "chars": 283,
+      "hash": "d54019f36cd776e7",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.26,
+          "text": "The cladding has nothing to contain: it protects."
+        },
+        {
+          "t0": 3.26,
+          "t1": 9.48,
+          "text": "Two steels, two jobs: one holds the stone when hot, the other the rain when cold."
+        },
+        {
+          "t0": 9.48,
+          "t1": 12.66,
+          "text": "On a cold morning, a thermal camera reads it very well."
+        },
+        {
+          "t0": 12.66,
+          "t1": 18.24,
+          "text": "A warm band at the top gives away settled insulation, a patch at the bottom, more likely water."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-storage-bed",
+      "scope": "part:storage-bed",
+      "title": "The storage bed",
+      "scene": "silo",
+      "file": "part-storage-bed.mp3",
+      "duration": 23.36,
+      "chars": 383,
+      "hash": "c27f0904903c7de0",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.47,
+          "text": "Here is the heart of the machine, and our grain’s home country."
+        },
+        {
+          "t0": 3.47,
+          "t1": 8.54,
+          "text": "Forty trucks brought it: fourteen metres wide, six high, and nothing that turns."
+        },
+        {
+          "t0": 8.54,
+          "t1": 14.88,
+          "text": "Look at it in section: no flame, no smoke, and yet about a week of a village’s winter sleeps in there."
+        },
+        {
+          "t0": 14.88,
+          "t1": 16.6,
+          "text": "Beware of this calm."
+        },
+        {
+          "t0": 16.6,
+          "t1": 21.58,
+          "text": "This heat cannot be seen: stone and ducts stay dangerous for months after a stop."
+        },
+        {
+          "t0": 21.58,
+          "t1": 23.36,
+          "text": "Nobody opens anything while hot."
+        }
+      ],
+      "cues": [
+        {
+          "t": 8.54,
+          "do": {
+            "cutaway": true
+          }
+        },
+        {
+          "t": 14.88,
+          "do": {
+            "cutaway": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-pipe-field",
+      "scope": "part:pipe-field",
+      "title": "The pipe field",
+      "scene": "silo",
+      "file": "part-pipe-field.mp3",
+      "duration": 21.2,
+      "chars": 346,
+      "hash": "45be38d50a79edad",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.36,
+          "text": "The air never touches the stone: it runs through buried stainless pipes."
+        },
+        {
+          "t0": 4.36,
+          "t1": 6.58,
+          "text": "The maker keeps its layout secret."
+        },
+        {
+          "t0": 6.58,
+          "t1": 12.88,
+          "text": "This one comes from a calculation: nearly four kilometres of pipe, at a pitch of about fifty centimetres."
+        },
+        {
+          "t0": 12.88,
+          "t1": 14.64,
+          "text": "And that pitch weighs heavily."
+        },
+        {
+          "t0": 14.64,
+          "t1": 19.34,
+          "text": "At forty centimetres, the silo gives eighty-five megawatt-hours at one megawatt."
+        },
+        {
+          "t0": 19.34,
+          "t1": 21.2,
+          "text": "At sixty, forty-six."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "xray": true
+          }
+        },
+        {
+          "t": 12.88,
+          "do": {
+            "xray": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-top-insulation",
+      "scope": "part:top-insulation",
+      "title": "Top insulation",
+      "scene": "silo",
+      "file": "part-top-insulation.mp3",
+      "duration": 18.32,
+      "chars": 306,
+      "hash": "1050508f0b8166ec",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 6.68,
+          "text": "On top of the stone, about a metre of insulation: twice the walls, because all the pipes pass through here."
+        },
+        {
+          "t0": 6.68,
+          "t1": 13.02,
+          "text": "It rests on the stone and follows it down as it settles: the smallest gap would make a pocket of air."
+        },
+        {
+          "t0": 13.02,
+          "t1": 18.32,
+          "text": "It is the one layer still within reach: more can be added from above, without emptying the silo."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-equipment-floor",
+      "scope": "part:equipment-floor",
+      "title": "The equipment floor",
+      "scene": "silo",
+      "file": "part-equipment-floor.mp3",
+      "duration": 21.12,
+      "chars": 365,
+      "hash": "7a5f3e767629e6a5",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.98,
+          "text": "This floor is a detective story: no source draws it."
+        },
+        {
+          "t0": 3.98,
+          "t1": 4.8,
+          "text": "The clues?"
+        },
+        {
+          "t0": 4.8,
+          "t1": 9.42,
+          "text": "A documentary shows the engineer among the machines, with the stone under his feet."
+        },
+        {
+          "t0": 9.42,
+          "t1": 12.32,
+          "text": "A photo shows two pipes coming down from high on the wall."
+        },
+        {
+          "t0": 12.32,
+          "t1": 17.44,
+          "text": "And a six-metre bed in thirteen metres of silo leaves a good seven metres to explain!"
+        },
+        {
+          "t0": 17.44,
+          "t1": 21.12,
+          "text": "If the maker ever says where its machines stand, this floor will change."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-conical-roof",
+      "scope": "part:conical-roof",
+      "title": "Conical roof",
+      "scene": "silo",
+      "file": "part-conical-roof.mp3",
+      "duration": 18.4,
+      "chars": 302,
+      "hash": "c52c2411dc9c596a",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.24,
+          "text": "A low cone with a hub in the middle: here is the silo’s hat."
+        },
+        {
+          "t0": 4.24,
+          "t1": 7.66,
+          "text": "It sheds some of the snow, and its frame carries the rest."
+        },
+        {
+          "t0": 7.66,
+          "t1": 11.72,
+          "text": "Do not expect the stone to melt it: the insulation is on watch."
+        },
+        {
+          "t0": 11.72,
+          "t1": 16.24,
+          "text": "A roof that loses its snow faster than the shed next door gives away a leak."
+        },
+        {
+          "t0": 16.24,
+          "t1": 18.4,
+          "text": "Winter does the work of a thermal camera!"
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-upper-vent",
+      "scope": "part:upper-vent",
+      "title": "Upper opening",
+      "scene": "silo",
+      "file": "part-upper-vent.mp3",
+      "duration": 17.68,
+      "chars": 282,
+      "hash": "8757b53b0646c4b1",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.9,
+          "text": "Two kinds of air live side by side here, and never mix."
+        },
+        {
+          "t0": 3.9,
+          "t1": 6.56,
+          "text": "The air in the loops stays shut in."
+        },
+        {
+          "t0": 6.56,
+          "t1": 11.04,
+          "text": "The air in the room has to leave, because motors and cabinets leave their heat in it."
+        },
+        {
+          "t0": 11.04,
+          "t1": 13.34,
+          "text": "We read this opening as its ventilation."
+        },
+        {
+          "t0": 13.34,
+          "t1": 17.68,
+          "text": "It has its small enemies: a nest, powder snow, a stuck shutter."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-access-ladder",
+      "scope": "part:access-ladder",
+      "title": "Caged ladder",
+      "scene": "silo",
+      "file": "part-access-ladder.mp3",
+      "duration": 16.96,
+      "chars": 282,
+      "hash": "4877823c93835bed",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.42,
+          "text": "A ladder, and it says a lot: something up there calls for a visit, on foot."
+        },
+        {
+          "t0": 4.42,
+          "t1": 8.4,
+          "text": "No heavy part goes this way: equipment goes up by crane."
+        },
+        {
+          "t0": 8.4,
+          "t1": 11.68,
+          "text": "People fall from ladders more often than ladders give way."
+        },
+        {
+          "t0": 11.68,
+          "t1": 16.96,
+          "text": "So the tools go up in a bag, hauled on a rope: on a ladder, both hands are for the ladder."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-thermocouple-lance",
+      "scope": "part:thermocouple-lance",
+      "title": "Temperature lances",
+      "scene": "silo",
+      "file": "part-thermocouple-lance.mp3",
+      "duration": 14.56,
+      "chars": 292,
+      "hash": "9c9b6ac16c104ab1",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.72,
+          "text": "Once the stone is poured, nobody can see inside."
+        },
+        {
+          "t0": 2.72,
+          "t1": 5.56,
+          "text": "That leaves these lances, the only eyes in the stone."
+        },
+        {
+          "t0": 5.56,
+          "t1": 9.26,
+          "text": "Do not mistake them for the coloured section, which comes from the simulation."
+        },
+        {
+          "t0": 9.26,
+          "t1": 14.56,
+          "text": "The trick is in the thermowell that shelters them: a probe is replaced from above, without touching the stone."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-duct-penetration",
+      "scope": "part:duct-penetration",
+      "title": "Insulation penetration",
+      "scene": "silo",
+      "file": "part-duct-penetration.mp3",
+      "duration": 15.44,
+      "chars": 256,
+      "hash": "6b64958b78b2624a",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.98,
+          "text": "Insulation is only good where nothing crosses it."
+        },
+        {
+          "t0": 2.98,
+          "t1": 5.5,
+          "text": "And here, the whole pipe field crosses it."
+        },
+        {
+          "t0": 5.5,
+          "t1": 11.5,
+          "text": "Each leg of steel is a small thermal bridge: between them, about a tenth of the silo’s leaks."
+        },
+        {
+          "t0": 11.5,
+          "t1": 15.44,
+          "text": "The lab draws a sleeve and a flexible packing, to let the pipe slide."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-heat-pipe",
+      "scope": "part:heat-pipe",
+      "title": "Heat-transfer pipe",
+      "scene": "pipe-cell",
+      "file": "part-heat-pipe.mp3",
+      "duration": 19.2,
+      "chars": 316,
+      "hash": "3102edf80c141103",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.98,
+          "text": "Air inside, stone outside, and never any mixing: our grain lives against this wall."
+        },
+        {
+          "t0": 5.98,
+          "t1": 9.96,
+          "text": "The steel holds back almost nothing, it is the stone that holds back."
+        },
+        {
+          "t0": 9.96,
+          "t1": 12.26,
+          "text": "Why not blow the air straight through the bed?"
+        },
+        {
+          "t0": 12.26,
+          "t1": 15.38,
+          "text": "It would lose its pressure there, and bring back dust."
+        },
+        {
+          "t0": 15.38,
+          "t1": 19.2,
+          "text": "Here, five centimetres of radius, three millimetres of wall."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "cutaway": true
+          }
+        },
+        {
+          "t": 15.38,
+          "do": {
+            "cutaway": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-return-bend",
+      "scope": "part:return-bend",
+      "title": "Return bend",
+      "scene": "pipe-cell",
+      "file": "part-return-bend.mp3",
+      "duration": 16.88,
+      "chars": 266,
+      "hash": "e22c232a949d3a0e",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.46,
+          "text": "This small bend, at the bottom of the bed, justifies the whole U shape."
+        },
+        {
+          "t0": 4.46,
+          "t1": 8.9,
+          "text": "With both ends at the top, the pipe hangs, and it grows freely downwards."
+        },
+        {
+          "t0": 8.9,
+          "t1": 12.8,
+          "text": "Notice what it lacks: no support, no outlet, no sensor."
+        },
+        {
+          "t0": 12.8,
+          "t1": 16.88,
+          "text": "The maker’s patent speaks only of vertical pipes: the U is ours!"
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "explode": 0.6
+          }
+        },
+        {
+          "t": 12.8,
+          "do": {
+            "explode": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-pipe-spacer",
+      "scope": "part:pipe-spacer",
+      "title": "Pipe spacer",
+      "scene": "pipe-cell",
+      "file": "part-pipe-spacer.mp3",
+      "duration": 16.88,
+      "chars": 281,
+      "hash": "9b9c3ddb3aa3d99b",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 6.7,
+          "text": "Hundreds of pipes, and forty trucks of stone on the way: with no guide, they would end up anywhere."
+        },
+        {
+          "t0": 6.7,
+          "t1": 12.32,
+          "text": "The spacer gives them a grid to keep to while the stone pours in, then it stays buried for good."
+        },
+        {
+          "t0": 12.32,
+          "t1": 16.88,
+          "text": "No source describes it: we draw it because without it, this layout does not hold up."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-branch-header",
+      "scope": "part:branch-header",
+      "title": "Branch header",
+      "scene": "pipe-cell",
+      "file": "part-branch-header.mp3",
+      "duration": 15.12,
+      "chars": 254,
+      "hash": "e4295dba790d1f90",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 6.38,
+          "text": "Above the bed, the pipe heads gather together: this header is how you choose where the heat goes."
+        },
+        {
+          "t0": 6.38,
+          "t1": 12.58,
+          "text": "Each path must offer the same resistance, or the air takes the easiest one, and its neighbour stays cold."
+        },
+        {
+          "t0": 12.58,
+          "t1": 15.12,
+          "text": "And a leak here is far easier to hear than to see."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-expansion-loop",
+      "scope": "part:expansion-loop",
+      "title": "Expansion loop",
+      "scene": "pipe-cell",
+      "file": "part-expansion-loop.mp3",
+      "duration": 17.84,
+      "chars": 318,
+      "hash": "197af24d995f89d6",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.52,
+          "text": "Six metres of stainless steel, five hundred degrees more: the pipe grows about five centimetres."
+        },
+        {
+          "t0": 5.52,
+          "t1": 8.7,
+          "text": "In a straight line, those centimetres would go into the weld."
+        },
+        {
+          "t0": 8.7,
+          "t1": 12.08,
+          "text": "So they are given a path: a few bends that flex a little."
+        },
+        {
+          "t0": 12.08,
+          "t1": 17.84,
+          "text": "The maker announces up to two hundred cycles a year, for over thirty years: six thousand round trips!"
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-core-zone",
+      "scope": "part:core-zone",
+      "title": "Core zone",
+      "scene": "pipe-cell",
+      "file": "part-core-zone.mp3",
+      "duration": 18,
+      "chars": 327,
+      "hash": "d50419dc10b866b3",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.9,
+          "text": "A zone has no wall: it is a decision."
+        },
+        {
+          "t0": 2.9,
+          "t1": 8.18,
+          "text": "The maker charges the core first, because its heat has to cross all the stone to reach the wall."
+        },
+        {
+          "t0": 8.18,
+          "t1": 9.92,
+          "text": "But our simulation holds a surprise."
+        },
+        {
+          "t0": 9.92,
+          "t1": 15.76,
+          "text": "When full, four hundred and seventeen degrees at the centre, three hundred and seventy-five at the edge."
+        },
+        {
+          "t0": 15.76,
+          "t1": 18,
+          "text": "Much flatter than the picture the maker publishes."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "cutaway": true
+          }
+        },
+        {
+          "t": 15.76,
+          "do": {
+            "cutaway": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-outer-zone",
+      "scope": "part:outer-zone",
+      "title": "Outer zone",
+      "scene": "pipe-cell",
+      "file": "part-outer-zone.mp3",
+      "duration": 17.36,
+      "chars": 302,
+      "hash": "8f17948b83db742a",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.2,
+          "text": "All around, the outer ring: it is emptied first."
+        },
+        {
+          "t0": 3.2,
+          "t1": 8.2,
+          "text": "What stays hot at the edge leaks fastest, and a lukewarm edge insulates the core."
+        },
+        {
+          "t0": 8.2,
+          "t1": 11.8,
+          "text": "The first silo’s operator reports five hundred degrees at the core,"
+        },
+        {
+          "t0": 11.8,
+          "t1": 14.9,
+          "text": "and a hundred and fifty to two hundred at the edge."
+        },
+        {
+          "t0": 14.9,
+          "t1": 17.36,
+          "text": "It all depends on a control rule that stays secret."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-quartz-sand",
+      "scope": "part:quartz-sand",
+      "title": "Quartz sand",
+      "scene": "pipe-cell",
+      "file": "part-quartz-sand.mp3",
+      "duration": 18.64,
+      "chars": 325,
+      "hash": "aff8a11d48bdbd7d",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.3,
+          "text": "Here is the sand that gave the idea its name: it fills the first silo,"
+        },
+        {
+          "t0": 4.3,
+          "t1": 7.22,
+          "text": "and the one due in two thousand and twenty-seven."
+        },
+        {
+          "t0": 7.22,
+          "t1": 9.78,
+          "text": "Lighter than the stone, it conducts less well."
+        },
+        {
+          "t0": 9.78,
+          "t1": 13.86,
+          "text": "And at five hundred and seventy-three degrees, quartz changes form."
+        },
+        {
+          "t0": 13.86,
+          "t1": 15.96,
+          "text": "Two drums at the bottom of the garden?"
+        },
+        {
+          "t0": 15.96,
+          "t1": 18.64,
+          "text": "Do the sums: a few hours of heating, not a winter."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-crushed-soapstone",
+      "scope": "part:crushed-soapstone",
+      "title": "Crushed soapstone",
+      "scene": "pipe-cell",
+      "file": "part-crushed-soapstone.mp3",
+      "duration": 18.8,
+      "chars": 322,
+      "hash": "302ad87274d0f3bb",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.02,
+          "text": "And here is our grain’s stone: the stone of masonry heaters…"
+        },
+        {
+          "t0": 4.02,
+          "t1": 5.4,
+          "text": "and it is a waste product!"
+        },
+        {
+          "t0": 5.4,
+          "t1": 11.5,
+          "text": "A factory by-product, heavier than sand for the same volume, and faster at conducting, says the maker."
+        },
+        {
+          "t0": 11.5,
+          "t1": 13.88,
+          "text": "Its thermal values are the weakest in the lab."
+        },
+        {
+          "t0": 13.88,
+          "t1": 18.8,
+          "text": "A heater maker gives about one kilojoule per kilo and per degree, with no reference."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-lv-switchboard",
+      "scope": "part:lv-switchboard",
+      "title": "Low-voltage switchboard",
+      "scene": "plant-room",
+      "file": "part-lv-switchboard.mp3",
+      "duration": 15.6,
+      "chars": 269,
+      "hash": "4b0ae6cc6a9fb90d",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.86,
+          "text": "All the current passes here: of the order of a hundred times that of a household socket."
+        },
+        {
+          "t0": 4.86,
+          "t1": 10.36,
+          "text": "From this board leave the resistors, by far the hungriest, the motors and the controls."
+        },
+        {
+          "t0": 10.36,
+          "t1": 15.6,
+          "text": "At this current, a loose connection ends in an arc: it is only touched dead, and locked out."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-heater-controller",
+      "scope": "part:heater-controller",
+      "title": "Heater controller",
+      "scene": "plant-room",
+      "file": "part-heater-controller.mp3",
+      "duration": 17.36,
+      "chars": 314,
+      "hash": "5209db6d8ceadc9a",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.36,
+          "text": "A resistor does not mind being cut off."
+        },
+        {
+          "t0": 2.36,
+          "t1": 7.6,
+          "text": "So this load is driven instantly, and nearly all of that advantage sits in this cabinet."
+        },
+        {
+          "t0": 7.6,
+          "t1": 12.06,
+          "text": "The controller follows a price, or a call from the grid, and the village sees nothing."
+        },
+        {
+          "t0": 12.06,
+          "t1": 13.24,
+          "text": "Its worst fault?"
+        },
+        {
+          "t0": 13.24,
+          "t1": 17.36,
+          "text": "A contactor stuck closed, which lets the current through while the order says no."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-resistor-bank",
+      "scope": "part:resistor-bank",
+      "title": "Resistor bank",
+      "scene": "plant-room",
+      "file": "part-resistor-bank.mp3",
+      "duration": 25.12,
+      "chars": 422,
+      "hash": "0353e85751fe54b0",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.96,
+          "text": "This is the moment the energy changes its nature."
+        },
+        {
+          "t0": 2.96,
+          "t1": 8.96,
+          "text": "The current crosses the resistors, the air passing over them warms, and hardly anything is lost."
+        },
+        {
+          "t0": 8.96,
+          "t1": 13.72,
+          "text": "According to a documentary, to be checked, this air leaves at about five hundred degrees."
+        },
+        {
+          "t0": 13.72,
+          "t1": 20.7,
+          "text": "But with no air, the element has no way out, and it soon burns: try the scenario where the blower fails."
+        },
+        {
+          "t0": 20.7,
+          "t1": 25.12,
+          "text": "A heat pump would do more with the same current, but it could not climb so high."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-charge-blower",
+      "scope": "part:charge-blower",
+      "title": "Charge blower",
+      "scene": "plant-room",
+      "file": "part-charge-blower.mp3",
+      "duration": 18.16,
+      "chars": 300,
+      "hash": "3d8a83e8fec02d67",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.58,
+          "text": "It drives the air through the resistors, then into the core."
+        },
+        {
+          "t0": 3.58,
+          "t1": 10.48,
+          "text": "And here is the surprise: as the stone warms, the air comes back hot and thin, and it shifts less of it."
+        },
+        {
+          "t0": 10.48,
+          "t1": 14.04,
+          "text": "The power accepted falls by itself, to a third when full."
+        },
+        {
+          "t0": 14.04,
+          "t1": 18.16,
+          "text": "So it is not the electricity that limits the end of a charge: it is the air."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-discharge-blower",
+      "scope": "part:discharge-blower",
+      "title": "Discharge blower",
+      "scene": "plant-room",
+      "file": "part-discharge-blower.mp3",
+      "duration": 25.76,
+      "chars": 431,
+      "hash": "2fac5f28ad8173fc",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.58,
+          "text": "Here is the most important part in the lab."
+        },
+        {
+          "t0": 2.58,
+          "t1": 5.96,
+          "text": "It draws the air through the stone, then the exchanger."
+        },
+        {
+          "t0": 5.96,
+          "t1": 9.86,
+          "text": "The cooler the stone, the more air it takes to carry one megawatt."
+        },
+        {
+          "t0": 9.86,
+          "t1": 16.72,
+          "text": "One day the blower can no longer keep up: at a mean of two hundred and seventy-five degrees, on our estimate."
+        },
+        {
+          "t0": 16.72,
+          "t1": 23.74,
+          "text": "Across the unknown settings, the silo gives forty-six to a hundred and thirty-two megawatt-hours at one megawatt."
+        },
+        {
+          "t0": 23.74,
+          "t1": 25.76,
+          "text": "One line from the maker would settle it!"
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 16.72,
+          "do": {
+            "flows": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-blower-drive",
+      "scope": "part:blower-drive",
+      "title": "Blower drive",
+      "scene": "plant-room",
+      "file": "part-blower-drive.mp3",
+      "duration": 15.76,
+      "chars": 275,
+      "hash": "4f412b32aaa77825",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.08,
+          "text": "The machine’s real tap, at last."
+        },
+        {
+          "t0": 2.08,
+          "t1": 6.82,
+          "text": "No throttling damper: the heat is set by running the blower faster or slower."
+        },
+        {
+          "t0": 6.82,
+          "t1": 12.22,
+          "text": "And there, a lovely gift from physics: at half speed, it uses about eight times less!"
+        },
+        {
+          "t0": 12.22,
+          "t1": 15.76,
+          "text": "A controller gives the orders, watching the water that leaves for the village."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-charge-damper",
+      "scope": "part:charge-damper",
+      "title": "Charge damper",
+      "scene": "plant-room",
+      "file": "part-charge-damper.mp3",
+      "duration": 17.84,
+      "chars": 274,
+      "hash": "595e0e9d4f4f51b1",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.12,
+          "text": "A simple flap, opening a zone to the hot air."
+        },
+        {
+          "t0": 3.12,
+          "t1": 8.12,
+          "text": "In this lab, the core is charged as long as it takes at least half of what is on offer,"
+        },
+        {
+          "t0": 8.44,
+          "t1": 10.8,
+          "text": "then the middle, then the edge."
+        },
+        {
+          "t0": 10.8,
+          "t1": 14.3,
+          "text": "At these temperatures metal warps: sealing is hard."
+        },
+        {
+          "t0": 14.3,
+          "t1": 17.84,
+          "text": "Watch them move: these flaps follow the simulation live."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-discharge-damper",
+      "scope": "part:discharge-damper",
+      "title": "Discharge damper",
+      "scene": "plant-room",
+      "file": "part-discharge-damper.mp3",
+      "duration": 17.12,
+      "chars": 298,
+      "hash": "304b705021ada7fd",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 1.98,
+          "text": "The same flap, on the other side."
+        },
+        {
+          "t0": 1.98,
+          "t1": 3.78,
+          "text": "Discharge goes from the outside,"
+        },
+        {
+          "t0": 3.78,
+          "t1": 8.9,
+          "text": "and the core stays hot: a reserve is not touched while there is still enough to go on."
+        },
+        {
+          "t0": 8.9,
+          "t1": 13.9,
+          "text": "As the two loops work on different zones, the lab can charge and discharge at once."
+        },
+        {
+          "t0": 13.9,
+          "t1": 17.12,
+          "text": "That is an assumption, pushed by a network that cannot wait."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-hot-air-duct",
+      "scope": "part:hot-air-duct",
+      "title": "Hot-air duct",
+      "scene": "plant-room",
+      "file": "part-hot-air-duct.mp3",
+      "duration": 17.2,
+      "chars": 293,
+      "hash": "974f96a623bb4fb9",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.36,
+          "text": "A pipe as wide as a person, to carry as much power as a few water pipes!"
+        },
+        {
+          "t0": 4.36,
+          "t1": 10.2,
+          "text": "Air is a poor carrier of heat, but it does not boil or freeze, and it takes temperature very well."
+        },
+        {
+          "t0": 10.2,
+          "t1": 13.8,
+          "text": "The maker cares about short ducts: every hot metre is a loss."
+        },
+        {
+          "t0": 13.8,
+          "t1": 17.2,
+          "text": "And its lukewarm jacket says nothing of what passes inside."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-cold-air-duct",
+      "scope": "part:cold-air-duct",
+      "title": "Cool-air duct",
+      "scene": "plant-room",
+      "file": "part-cold-air-duct.mp3",
+      "duration": 20,
+      "chars": 312,
+      "hash": "c939589b054db4dc",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 4.3,
+          "text": "The air comes back and leaves again: the same air every time."
+        },
+        {
+          "t0": 4.3,
+          "t1": 8.78,
+          "text": "Cold is a manner of speaking: about sixty degrees leaving the exchanger."
+        },
+        {
+          "t0": 8.78,
+          "t1": 13.5,
+          "text": "An open loop would let the winter into the stone, and throw away the heat left over."
+        },
+        {
+          "t0": 13.5,
+          "t1": 18.22,
+          "text": "The word battery misleads: no electrolyte, no chemical charge."
+        },
+        {
+          "t0": 18.22,
+          "t1": 20,
+          "text": "An air loop is just plumbing!"
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-air-water-exchanger",
+      "scope": "part:air-water-exchanger",
+      "title": "Air-to-water exchanger",
+      "scene": "plant-room",
+      "file": "part-air-water-exchanger.mp3",
+      "duration": 19.6,
+      "chars": 340,
+      "hash": "160429d959f50304",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.94,
+          "text": "The one part where air and water meet, without mixing."
+        },
+        {
+          "t0": 2.94,
+          "t1": 7.3,
+          "text": "In counterflow: the air leaving cold meets the water entering cold."
+        },
+        {
+          "t0": 7.3,
+          "t1": 10.22,
+          "text": "This is where the end of useful heat is decided."
+        },
+        {
+          "t0": 10.22,
+          "t1": 15.32,
+          "text": "Once the air can no longer take the water to eighty-five degrees, the rest stays in the stone."
+        },
+        {
+          "t0": 15.32,
+          "t1": 19.6,
+          "text": "Its nightmare is a leak: water on a hot pipe turns to steam, all at once."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 15.32,
+          "do": {
+            "flows": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-dh-pump",
+      "scope": "part:dh-pump",
+      "title": "Network pump",
+      "scene": "plant-room",
+      "file": "part-dh-pump.mp3",
+      "duration": 15.44,
+      "chars": 271,
+      "hash": "33234541355f67a6",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 5.96,
+          "text": "It sends the water out to the village, and the controller watches one thing only: the supply temperature."
+        },
+        {
+          "t0": 5.96,
+          "t1": 10.2,
+          "text": "Better a little water at the right temperature than plenty of lukewarm water."
+        },
+        {
+          "t0": 10.2,
+          "t1": 15.44,
+          "text": "A few kilowatts here, more than ten to move the air: water always wins that comparison."
+        }
+      ],
+      "cues": [
+        {
+          "t": 0,
+          "do": {
+            "flows": true
+          }
+        },
+        {
+          "t": 10.2,
+          "do": {
+            "flows": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-heat-meter",
+      "scope": "part:heat-meter",
+      "title": "Heat meter",
+      "scene": "plant-room",
+      "file": "part-heat-meter.mp3",
+      "duration": 23.76,
+      "chars": 413,
+      "hash": "d3df45db7def9375",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 3.7,
+          "text": "A flow, a temperature difference: that is what gets sold."
+        },
+        {
+          "t0": 3.7,
+          "t1": 5.92,
+          "text": "And the efficiencies quoted do not agree."
+        },
+        {
+          "t0": 5.92,
+          "t1": 9.86,
+          "text": "About eighty per cent, above eighty-five after the first year."
+        },
+        {
+          "t0": 9.86,
+          "t1": 12.04,
+          "text": "On the first silo, sixty to seventy-five."
+        },
+        {
+          "t0": 12.04,
+          "t1": 18.58,
+          "text": "Our simulation gives ninety-one over the year, but seventy-four on a cycle followed by a week of rest."
+        },
+        {
+          "t0": 18.58,
+          "t1": 20,
+          "text": "Read the first as a ceiling."
+        },
+        {
+          "t0": 20,
+          "t1": 23.76,
+          "text": "An efficiency always says what cycle it was computed on, or it says nothing."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-expansion-vessel",
+      "scope": "part:expansion-vessel",
+      "title": "Expansion vessel",
+      "scene": "plant-room",
+      "file": "part-expansion-vessel.mp3",
+      "duration": 17.84,
+      "chars": 291,
+      "hash": "1f86bb2d3f2aeb1e",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 2.12,
+          "text": "Water grows too as it warms."
+        },
+        {
+          "t0": 2.12,
+          "t1": 6.5,
+          "text": "In a closed circuit, the pressure would climb until a relief valve opened."
+        },
+        {
+          "t0": 6.5,
+          "t1": 9.3,
+          "text": "So this membrane tank gives it a little room."
+        },
+        {
+          "t0": 9.3,
+          "t1": 14.82,
+          "text": "An ordinary device, for an idea found on every level of the machine: whatever warms, grows."
+        },
+        {
+          "t0": 14.82,
+          "t1": 16.52,
+          "text": "A relief valve weeping?"
+        },
+        {
+          "t0": 16.52,
+          "t1": 17.84,
+          "text": "Look at the vessel first."
+        }
+      ],
+      "cues": []
+    },
+    {
+      "id": "part-control-cabinet",
+      "scope": "part:control-cabinet",
+      "title": "Control cabinet",
+      "scene": "plant-room",
+      "file": "part-control-cabinet.mp3",
+      "duration": 19.68,
+      "chars": 315,
+      "hash": "ee7e25fb58b5fe6a",
+      "captions": [
+        {
+          "t0": 0,
+          "t1": 1.98,
+          "text": "Now for the silo’s brain."
+        },
+        {
+          "t0": 1.98,
+          "t1": 8.46,
+          "text": "It reads the prices and decides the charging hours, on a contractor’s algorithm, which stays secret."
+        },
+        {
+          "t0": 8.46,
+          "t1": 13.86,
+          "text": "According to the operator, the first year’s current cost seventy to eighty per cent below the mean."
+        },
+        {
+          "t0": 13.86,
+          "t1": 16.02,
+          "text": "And you, can you do better?"
+        },
+        {
+          "t0": 16.02,
+          "t1": 19.68,
+          "text": "The game in the lesson on cheap hours puts you in its place."
+        }
+      ],
+      "cues": []
+    }
+  ]
+}
