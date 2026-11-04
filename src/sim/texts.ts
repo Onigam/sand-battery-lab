@@ -58,8 +58,8 @@ export const SCENARIO_TEXTS: Record<ScenarioId, { name: Pair; lesson: Pair }> = 
   'negative-weekend': {
     name: ['Week-end à prix négatifs', 'A negative-price weekend'],
     lesson: [
-      'Le courant est payé pour être pris, les résistances tournent à plein. Mais quand la pierre chauffe, l’air revient chaud et la puissance acceptée baisse : ce n’est pas le prix qui limite, c’est la boucle d’air.',
-      'You are paid to take the current, the resistors run flat out. But as the stone warms, the air comes back hot and the power it accepts falls: the price is not the limit, the air loop is.',
+      'Le courant est payé pour être pris, et le silo en prend tant qu’il peut. Mais quand la pierre chauffe, l’air revient chaud et la puissance acceptée baisse : ce n’est pas le prix qui limite, c’est la boucle d’air.',
+      'You are paid to take the current, and the silo takes all it can. But as the stone warms, the air comes back hot and the power it accepts falls: the price is not the limit, the air loop is.',
     ],
   },
   'idle-three-months': {

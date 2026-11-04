@@ -15,7 +15,7 @@ const PANEL = {
     '† result of the model · * estimate: the sources are silent.',
   ],
   preset: ['Point de départ', 'Starting point'],
-  custom: ['Réglages personnels', 'Custom settings'],
+  custom: ['Réglages modifiés', 'Changed settings'],
   resetSim: ['Recommencer', 'Start again'],
   scenarios: ['Scénarios', 'Scenarios'],
   scenarioHint: [
