@@ -529,12 +529,12 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
   at('heat-pipe', CELL.coreX + 0.75, LEVEL.bedBottom + 3.3, 0.05);
   // on what is framed when they are selected, the open quarter of the core block
   at('return-bend', CELL.coreX + 0.5, PIPE.legBottom - PIPE.bendR, 0.5);
-  at('pipe-spacer', CELL.coreX + 0.75, PIPE.spacerYs[1], 0.5);
+  at('pipe-spacer', CELL.coreX + 0.31, PIPE.spacerYs[1] + 0.03, 0.51);
   at('expansion-loop', CELL.coreX + 0.75, PIPE.legTop + 0.03, 0.5);
   at('branch-header', -0.51, 7.56, -0.59);
   at('quartz-sand', CELL.tray.sandX - 0.2, CELL.tray.standH + 0.34, CELL.tray.z);
-  at('crushed-soapstone', CELL.tray.soapX - 1.45, CELL.tray.standH + 0.34, CELL.tray.z + 0.2);
-  anchors['core-zone#scale'] = scale.anchorAt(100);
+  at('crushed-soapstone', CELL.tray.soapX - 1.65, CELL.tray.standH + 0.34, CELL.tray.z + 0.2);
+  anchors['core-zone#scale'] = scale.anchorAt(200);
 
   for (const id of CELL_PARTS) registry.add(id, roots[id], V(...EXPLODE[id]), undefined, { viewDir: VIEW[id] });
   // what stands inside the blocks is framed where a block is open, the quarter of the core block
@@ -543,6 +543,15 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
   registry.setFocus('heat-pipe', opening(LEVEL.bedBottom, LEVEL.bedTop));
   registry.setFocus('pipe-spacer', opening(PIPE.spacerYs[1] - 0.7, PIPE.spacerYs[1] + 0.7));
   registry.setFocus('return-bend', opening(LEVEL.bedBottom - 0.1, PIPE.legBottom + 1));
+  // the soapstone's name starts on the plinth to the left of its tray (the home view on a phone needs it there): selected, the frame holds the two (review N5)
+  const soapTray = CELL.tray;
+  registry.setFocus(
+    'crushed-soapstone',
+    new THREE.Box3(
+      V(soapTray.soapX - 1.7, soapTray.standH - 0.3, soapTray.z - soapTray.d / 2),
+      V(soapTray.soapX + soapTray.w / 2 + 0.3, soapTray.standH + soapTray.h + 0.3, soapTray.z + soapTray.d / 2),
+    ),
+  );
 
   // ---- the air in one pipe: dots down the leg and up its neighbour
   const dots = new FlowDots(80, { color: 0xffffff, size: 7, pixels: true, throughWalls: true, opacity: 0.95 });

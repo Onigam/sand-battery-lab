@@ -99,7 +99,7 @@ const FOCUS: Partial<Record<SiloPartId, THREE.Box3>> = {
   'foundation-slab': onSection(4.5, 8.1, 0, 1.5),
   'base-insulation': onSection(4.5, 8.1, 0, 1.5),
   'inner-shell': onSection(5.5, 8, 0.6, 8),
-  'wall-insulation': onSection(5.5, 8, 0.6, 8),
+  'wall-insulation': onSection(6, 8.5, 0.6, 8),
   'outer-cladding': onSection(5.5, 8.3, 0.4, 11.6),
   'storage-bed': new THREE.Box3(new THREE.Vector3(-0.5, LEVEL.bedBottom, -0.5), new THREE.Vector3(7, LEVEL.bedTop, 7)),
   'pipe-field': new THREE.Box3(
@@ -296,7 +296,7 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
   at('storage-bed', 2.6, 2.5, 0);
   at('pipe-field', 1, 4.5, 0);
   at('equipment-floor', -3.5, 9.92, -2.8);
-  at('foundation-slab', 7.9, 0.1, 0);
+  at('foundation-slab', 6.4, 0.25, 0);
   at('base-insulation', 4.5, 0.86, 0);
   at('inner-shell', 7.01, 4.94, 0);
   at('wall-insulation', 7.24, 2.88, 0);
@@ -306,7 +306,7 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
   at('upper-vent', -1.3, 10.6, 7.5);
   at('access-ladder', -5.15, 8.12, 6.89);
   at('thermocouple-lance', 0, 5.8, 1.25);
-  at('duct-penetration', 0.35, 7.7, 0);
+  at('duct-penetration', -0.46, 8.14, 0.35);
   anchors['storage-bed#t500'] = scale.anchorAt(500);
   anchors['storage-bed#t300'] = scale.anchorAt(300);
   anchors['storage-bed#t100'] = scale.anchorAt(100);

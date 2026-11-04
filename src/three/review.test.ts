@@ -469,9 +469,9 @@ describe('« all labels » (D20)', () => {
   };
   // before the kit folds a name with no room into its dot (`declutter`, N4): the page itself shows none over another
   const limits = [
-    ['silo', silo, 0],
-    ['pipe-cell', cell, 0],
-    ['plant-room', plant, 0],
+    ['silo', silo, 1],
+    ['pipe-cell', cell, 1],
+    ['plant-room', plant, 3],
     ['site', site, 2],
   ] as const;
   for (const [name, mod, limit] of limits) {

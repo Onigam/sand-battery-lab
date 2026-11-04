@@ -331,13 +331,13 @@ export function createPlantRoomScene(opts: PlantRoomOptions = {}): PlantRoomScen
   at('charge-blower', -3.77, 9.43, -5.02);
   at('air-water-exchanger', 3.76, 9.37, -1.53);
   at('dh-pump', 1.7, 8.69, -5.73);
-  at('heater-controller', -5.9, 10.22, -2.6);
+  at('heater-controller', -6.35, 10.8, -1.67);
   at('discharge-blower', 4.56, 8.26, -3.92);
   at('blower-drive', -0.82, 9.61, -6.28);
-  at('charge-damper', 0.65, 9.08, -0.42);
+  at('charge-damper', -0.04, 10.3, -0.34);
   at('discharge-damper', -0.57, 8.43, -1.39);
   at('hot-air-duct', 2.15, 8.13, -0.2);
-  at('cold-air-duct', -4.35, 8.69, -2.35);
+  at('cold-air-duct', 5.36, 9.17, -3.28);
   at('heat-meter', 3.87, 10.88, -4.49);
   at('expansion-vessel', 1.54, 8.12, -5.12);
   at('control-cabinet', 0.05, 10.12, -6.8);

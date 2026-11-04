@@ -70,10 +70,11 @@ const HOTSPOTS: HotspotDef[] = [
   { id: 'dh-riser', fr: 'Colonnes du réseau', en: 'Network risers', minor: true },
   { id: 'cable-riser', fr: 'Colonne des câbles', en: 'Cable riser', minor: true },
   { id: 'electrical-annex', fr: 'Local électrique', en: 'Electrical annex', minor: true },
-  { id: 'pad-transformer', fr: 'Transformateur', en: 'Pad-mounted transformer', minor: true },
+  { id: 'pad-transformer', fr: 'Transformateur', en: 'Transformer', minor: true },
   { id: 'solar-field', fr: 'Champ solaire', en: 'Solar field', minor: true },
-  { id: 'boiler-stack', fr: 'Cheminée de la chaufferie', en: 'Boiler stack', minor: true },
-  { id: 'house-substation', fr: 'Sous-station d’une maison', en: 'A house substation', minor: true },
+  // a label's name runs to the right of its dot and a selected part stands in the middle of the view: on a phone a long name on a thin part has nowhere to go. The sheet has the full name.
+  { id: 'boiler-stack', fr: 'Cheminée', en: 'Boiler stack', minor: true },
+  { id: 'house-substation', fr: 'Sous-station', en: 'House substation', minor: true },
 ];
 
 /**
@@ -277,15 +278,15 @@ export function createSiteScene(_opts: SiteOptions = {}): SiteScene {
   const [wx, wz] = SITE.wind.turbines[1];
   at('wind-farm', wx, wind.feet[1].y + SITE.wind.hub * 0.75, wz);
   at('chip-boiler-plant', SITE.boiler.x - 3, SITE.boiler.height + 6.5, SITE.boiler.z);
-  at('boiler-stack', boiler.stackTop.x, 14, boiler.stackTop.z);
-  at('dh-trench', -26, 1.3, SITE.trench.path[3][1]);
+  at('boiler-stack', -31.41, 14.96, -17.29);
+  at('dh-trench', -20.89, 0.98, 20.31);
   at(
     'village-school',
     SITE.school.x - 8,
     SITE.school.storeys * SITE.school.storeyH + SITE.school.roofH + 1,
     SITE.school.z,
   );
-  at('house-substation', -64.9, -0.99, 21.28);
+  at('house-substation', -65, 0.1, 24.1);
 
   for (const id of SITE_PARTS) registry.add(id, roots[id], V(...EXPLODE[id]));
   // what is too long to frame whole, framed where it reads: the first pole and its span over the transformer, one turbine, the corner of the trench that looks at the road
