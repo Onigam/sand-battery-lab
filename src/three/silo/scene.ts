@@ -30,7 +30,7 @@ import {
 } from '../machine/silo';
 import { mergeStatic } from '../merge';
 import { buildHeatScale, type HeatScale } from '../scale';
-import { FramedRegistry, anchor, hotspots, workshopScene, type HotspotDef } from '../world';
+import { FramedRegistry, anchor, hotspots, viewFrom, workshopScene, type HotspotDef } from '../world';
 
 // The `silo` world: the machine in section, the roadmap's « aha ». On arrival a quarter of the silo is taken away, and the stone is coloured live by the model (`bedT`): the hot core
 // spreading during a charge, the cool edge staying cool. The section tool takes away the whole front half instead. The false colour is fixed in °C and it has its scale beside the
@@ -112,6 +112,27 @@ const FOCUS: Partial<Record<SiloPartId, THREE.Box3>> = {
     new THREE.Vector3(7.4, LEVEL.floor + 3.3, 0.5),
   ),
   'conical-roof': onSection(2.5, 8, 10.8, 13.2),
+};
+
+/**
+ * Where each part reads from: the quarter that is taken away is the one towards +x and +z, so all of what is inside the silo is seen from there, whatever the camera was doing before (review N2). A
+ * layer's section lies on the plane z = 0, so it is looked at from near +z. What is on the outside says its own side. Found by rays over elevations and bearings, `docs/3d.md`.
+ */
+export const VIEW: Record<SiloPartId, THREE.Vector3> = {
+  'foundation-slab': viewFrom(18, 30),
+  'base-insulation': viewFrom(18, 30),
+  'inner-shell': viewFrom(18, 30),
+  'wall-insulation': viewFrom(18, 30),
+  'outer-cladding': viewFrom(18, 60),
+  'storage-bed': viewFrom(18, 45),
+  'pipe-field': viewFrom(18, 45),
+  'top-insulation': viewFrom(18, 30),
+  'equipment-floor': viewFrom(18, 30),
+  'conical-roof': viewFrom(18, 60),
+  'upper-vent': viewFrom(18, 60),
+  'access-ladder': viewFrom(18, 340),
+  'thermocouple-lance': viewFrom(18, 30),
+  'duct-penetration': viewFrom(18, 30),
 };
 
 export interface SiloWorldOptions {
@@ -293,7 +314,7 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
   for (const id of SILO_PARTS) {
     // the stone rises a little in the exploded view; its scale stays on the paper
     const stay = id === 'storage-bed' ? (f: number) => void (scale.group.position.y = -EXPLODE[id][1] * f) : undefined;
-    registry.add(id, roots[id], V(...EXPLODE[id]), stay);
+    registry.add(id, roots[id], V(...EXPLODE[id]), stay, { viewDir: VIEW[id] });
   }
   for (const [id, b] of Object.entries(FOCUS)) registry.setFocus(id, b);
 

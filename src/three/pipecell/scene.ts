@@ -22,7 +22,7 @@ import {
 } from '../machine/pipes';
 import { mergeStatic } from '../merge';
 import { buildHeatScale, type HeatScale } from '../scale';
-import { FramedRegistry, anchor, hotspots, workshopScene, type HotspotDef } from '../world';
+import { FramedRegistry, anchor, hotspots, viewFrom, workshopScene, type HotspotDef } from '../world';
 
 // The `pipe-cell` world: one block of the bed around a few pipes, then the grains. Two blocks about 2 m wide stand side by side, one from the core and one from the outer zone, on the
 // base they stand on in the silo. A quarter of each is taken away, the section shows the U-pipes in the stone. The stone's colour is the fine profile the model gives around a
@@ -80,6 +80,19 @@ export const SCALE = {
   y1: 2.1,
   footR: 0.24,
   yaw: 0.42,
+};
+
+/** Where each part reads from: each block's open quarter is towards +x and +z, what stands inside a block is seen through it (review N2). Found by rays, `docs/3d.md`. */
+export const VIEW: Record<CellPartId, THREE.Vector3> = {
+  'heat-pipe': viewFrom(18, 30),
+  'return-bend': viewFrom(18, 45),
+  'pipe-spacer': viewFrom(18, 30),
+  'branch-header': viewFrom(18, 30),
+  'expansion-loop': viewFrom(8, 0),
+  'core-zone': viewFrom(18, 0),
+  'outer-zone': viewFrom(18, 0),
+  'quartz-sand': viewFrom(30, 0),
+  'crushed-soapstone': viewFrom(30, 30),
 };
 
 export interface PipeCellOptions {
@@ -523,7 +536,7 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
   at('crushed-soapstone', CELL.tray.soapX - 1.45, CELL.tray.standH + 0.34, CELL.tray.z + 0.2);
   anchors['core-zone#scale'] = scale.anchorAt(100);
 
-  for (const id of CELL_PARTS) registry.add(id, roots[id], V(...EXPLODE[id]));
+  for (const id of CELL_PARTS) registry.add(id, roots[id], V(...EXPLODE[id]), undefined, { viewDir: VIEW[id] });
   // what stands inside the blocks is framed where a block is open, the quarter of the core block
   const opening = (y0: number, y1: number) =>
     new THREE.Box3(V(CELL.coreX - 0.1, y0, -0.1), V(CELL.coreX + CELL_HALF + 0.05, y1, CELL_HALF + 0.05));

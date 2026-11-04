@@ -21,7 +21,7 @@ import { buildRoomDressing, type RoomDressing } from '../machine/room';
 import { bodyMaterials, buildBody, buildWallRisers, type BodyPieces, type WallRisers } from '../machine/silo';
 import { mergeStatic } from '../merge';
 import { buildHeatScale, type HeatScale } from '../scale';
-import { FramedRegistry, anchor, hotspots, workshopScene, type HotspotDef } from '../world';
+import { FramedRegistry, anchor, hotspots, viewFrom, workshopScene, type HotspotDef } from '../world';
 
 // The `plant-room` world: where the current and the heat go. The equipment floor under the roof, the stone below, laid out from left to right in the order they flow: switchboard,
 // controller, resistors, the blower before them on the return side, the dampers, the ducts down into the bed and back, the exchanger, the pump, the meter, the two pipes through the wall.
@@ -67,6 +67,28 @@ export const EXPLODE: Record<PlantId, [number, number, number]> = {
   'heat-meter': [0, 5.8, 0],
   'expansion-vessel': [1.2, 1.6, 0],
   'control-cabinet': [0, 2.4, 1.8],
+};
+
+/**
+ * Where each machine reads from (review N2). The wall opens towards a camera outside, so the machines around the room are seen across it, from the side of their door; those in the middle from above,
+ * over the ducts. Found by rays over elevations and bearings, `docs/3d.md`.
+ */
+export const VIEW: Record<PlantId, THREE.Vector3> = {
+  'lv-switchboard': viewFrom(30, 60),
+  'heater-controller': viewFrom(45, 120),
+  'resistor-bank': viewFrom(60, 60),
+  'charge-blower': viewFrom(30, 60),
+  'discharge-blower': viewFrom(30, 120),
+  'blower-drive': viewFrom(18, 0),
+  'charge-damper': viewFrom(45, 0),
+  'discharge-damper': viewFrom(45, 90),
+  'hot-air-duct': viewFrom(30, 30),
+  'cold-air-duct': viewFrom(30, 165),
+  'air-water-exchanger': viewFrom(45, 0),
+  'dh-pump': viewFrom(45, 0),
+  'heat-meter': viewFrom(18, 60),
+  'expansion-vessel': viewFrom(30, 90),
+  'control-cabinet': viewFrom(18, 0),
 };
 
 export interface PlantRoomOptions {
@@ -321,7 +343,8 @@ export function createPlantRoomScene(opts: PlantRoomOptions = {}): PlantRoomScen
   at('control-cabinet', 0.05, 10.12, -6.8);
   anchors['hot-air-duct#scale'] = scale.anchorAt(300);
 
-  for (const id of PLANT_PARTS) registry.add(id, equipment.roots[id], V(...EXPLODE[id]));
+  for (const id of PLANT_PARTS)
+    registry.add(id, equipment.roots[id], V(...EXPLODE[id]), undefined, { viewDir: VIEW[id] });
   // small machines with some of the room around them: a meter does not fill the screen
   const W = PLANT.water;
   const meterY = LEVEL.floor + W.highY;

@@ -69,6 +69,16 @@ export function workshopScene(o: WorkshopOptions): THREE.Scene {
   return scene;
 }
 
+/**
+ * A direction to look from: its elevation above the ground and its bearing from +z towards +x, degrees. What `viewDir` is made of: a part with no direction of its own keeps the camera's, so turn
+ * the camera, click a part, and you see whatever stands between them (review N2). Every part of the three worlds with a wall around it therefore says where it reads from.
+ */
+export function viewFrom(elevation: number, bearing: number): THREE.Vector3 {
+  const e = (elevation * Math.PI) / 180;
+  const b = (bearing * Math.PI) / 180;
+  return new THREE.Vector3(Math.sin(b) * Math.cos(e), Math.sin(e), Math.cos(b) * Math.cos(e));
+}
+
 export interface HotspotDef {
   /** The part; a suffix `#name` lets a part have several labels. */
   id: string;

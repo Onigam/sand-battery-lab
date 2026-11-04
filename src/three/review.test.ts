@@ -496,6 +496,63 @@ describe('« all labels » (D20)', () => {
   });
 });
 
+describe('what the review of 4 November found: a part read from its own side (N2), a tool that does nothing (N3), every label on (N4)', () => {
+  const walled = [silo, cell, plant];
+  it('every part of the three worlds with walls says where it reads from, so the camera before it does not decide', () => {
+    for (const mod of walled)
+      for (const id of mod.registry.ids()) expect(mod.registry.get(id)!.viewDir, `${mod.id} ${id}`).toBeDefined();
+  });
+  it('from that side, what is inside the silo and the blocks faces the open quarter', () => {
+    for (const id of ['storage-bed', 'pipe-field', 'wall-insulation', 'foundation-slab', 'equipment-floor']) {
+      const d = silo.registry.get(id)!.viewDir!;
+      expect(d.x, id).toBeGreaterThan(0);
+      expect(d.z, id).toBeGreaterThan(0);
+    }
+    for (const id of ['heat-pipe', 'return-bend', 'pipe-spacer']) {
+      const d = cell.registry.get(id)!.viewDir!;
+      expect(d.x, id).toBeGreaterThan(0);
+      expect(d.z, id).toBeGreaterThan(0);
+    }
+  });
+  it('from that side, no other machine stands in front of the three the home side hid', () => {
+    const reg = plant.registry;
+    const others = (id: string) =>
+      reg.ids().flatMap((o) => (o === id ? [] : reg.get(o)!.meshes.filter((m) => m.geometry?.attributes.position)));
+    const rc = new THREE.Raycaster();
+    for (const [id, least] of [
+      ['charge-blower', 0.8],
+      ['discharge-damper', 0.5],
+      ['cold-air-duct', 0.5],
+    ] as const) {
+      const part = reg.get(id)!;
+      const box = reg.frameBounds(id);
+      const eye = box
+        .getCenter(new THREE.Vector3())
+        .addScaledVector(part.viewDir!.clone().normalize(), (box.getSize(new THREE.Vector3()).length() / 2 + 1) * 3);
+      const points: THREE.Vector3[] = [];
+      for (const m of part.meshes) {
+        const p = m.geometry.attributes.position;
+        for (let i = 0; i < p.count; i += Math.max(1, Math.floor(p.count / 12)))
+          points.push(
+            new THREE.Vector3().fromBufferAttribute(p as THREE.BufferAttribute, i).applyMatrix4(m.matrixWorld),
+          );
+      }
+      const hidden = others(id);
+      const seen = points.filter((p) => {
+        const dir = p.clone().sub(eye);
+        rc.set(eye, dir.clone().normalize());
+        rc.far = dir.length() - 0.02;
+        return rc.intersectObjects(hidden, false).length === 0;
+      }).length;
+      expect(seen / points.length, id).toBeGreaterThan(least);
+    }
+  });
+  it('the village has no explode tool, and every world folds a name with no room when all the labels are on', () => {
+    expect(WORLD.site.explode).toBe(false);
+    for (const mod of [silo, cell, plant, site]) expect(mod.declutter, mod.id).toBe(true);
+  });
+});
+
 describe('the small things of the room', () => {
   it('the air is hot from the resistors on: ahead of them it is still the return (D26)', () => {
     const P = plant.equipment.paths;
