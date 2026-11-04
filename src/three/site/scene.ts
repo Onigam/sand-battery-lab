@@ -77,8 +77,7 @@ const HOTSPOTS: HotspotDef[] = [
 ];
 
 /**
- * Explode offsets: none. A village does not come apart: the school hung 9 m up and the trench rose as a frame (review D7), and it taught nothing. The tool stays on the toolbar until the kit can
- * hide it (`docs/kit-requests.md`), and doing nothing is better than breaking the picture.
+ * Explode offsets: none. A village does not come apart: the school hung 9 m up and the trench rose as a frame (review D7), and it taught nothing. The world says `explode: false` (`WORLD.site`), so the tool is not on its toolbar.
  */
 export const EXPLODE: Record<SitePartId, [number, number, number]> = {
   'silo-exterior': [0, 0, 0],
@@ -372,6 +371,7 @@ export function createSiteScene(_opts: SiteOptions = {}): SiteScene {
     home: { position: V(...HOME.pos), target: V(...HOME.target) },
     minDistance: 3,
     maxDistance: 480,
+    declutter: true,
     update(s, dt, view) {
       // the sun holds its hour when the clock runs fast, or a day would strobe past. How fast the clock runs is judged over a second of real time: the state's clock moves in steps.
       clockReal += dt;

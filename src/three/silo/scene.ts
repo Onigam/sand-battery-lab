@@ -359,6 +359,7 @@ export function createSiloScene(opts: SiloWorldOptions = {}): SiloScene {
     // on a phone the overview's fit asks for more than this and the silo would shrink: here its width just fits the screen's (D4)
     maxDistance: 60,
     homePadding: 0.9,
+    declutter: true,
     update(s, dt, view) {
       stone.value = opts.medium?.() ?? 'soapstone';
       reveal.update(stone.value, dt);

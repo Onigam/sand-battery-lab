@@ -575,6 +575,7 @@ export function createPipeCellScene(opts: PipeCellOptions = {}): PipeCellScene {
     minDistance: 0.5,
     maxDistance: 34,
     homePadding: 1.0,
+    declutter: true,
     update(s, dt, view) {
       stoneKind.value = opts.medium?.() ?? 'soapstone';
       reveal.update(stoneKind.value, dt);

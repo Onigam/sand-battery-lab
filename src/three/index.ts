@@ -23,6 +23,8 @@ export const WORLD = {
   site: {
     /** The kit treats this id as a landscape: authored home pose, far plane 4000 m. The trench is drawn open: no section tool here. */
     cutaway: false,
+    /** A village does not come apart, and a slider that moves nothing teaches nothing (review N3). */
+    explode: false,
     /** X-ray only makes sense around a selected part in a landscape. */
     xrayNeedsSelection: true,
     partPadding: 1.3,

@@ -390,6 +390,7 @@ export function createPlantRoomScene(opts: PlantRoomOptions = {}): PlantRoomScen
     maxDistance: 70,
     // about 24 m at 1280, for a box that now reaches down into the section
     homePadding: 0.85,
+    declutter: true,
     update(s, dt, view) {
       for (const run of services) {
         const d = registry.get(run.part)!.display;

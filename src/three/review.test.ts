@@ -467,6 +467,7 @@ describe('« all labels » (D20)', () => {
     boxes.forEach((a, i) => boxes.slice(i + 1).forEach((b) => (n += over(a, b) ? 1 : 0)));
     return n;
   };
+  // before the kit folds a name with no room into its dot (`declutter`, N4): the page itself shows none over another
   const limits = [
     ['silo', silo, 0],
     ['pipe-cell', cell, 0],
