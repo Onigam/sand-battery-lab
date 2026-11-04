@@ -44,3 +44,18 @@ Numbers go on from 21. What the review called the kit's and the lab cannot reach
 24. **Chart markers that are a label, or a line.** The game's chart names the days with a trick: a marker with `y: NaN` draws its label with no line, and a label past 70 % of the width is written to the left of its point, so the last two days have to move theirs (`dayMarkers` in `src/panels/model.ts`). Asked: `markers` with `{ x, label, line?: boolean, align?: 'start' | 'end' }`.
 
 **Requests 1 and 4, meanwhile.** Request 1: the prices and the score now stand above the grid, and a day keeps to one line by a small inline grid in `src/panels/sim.ts`, so the three fit one view at 1280 (the review's D17). On a phone it is still more than a screen, and the widget is still what is asked. Request 4: the panel says once what ×3600, ×86400 and ×604800 mean; the strip still prints them.
+
+## From the lead, after the review of 4 November
+
+Numbers go on from 24. Ids are those of `docs/qa.md`. What the lab cannot reach without patching the kit; each is in every lab using 0.6.0, so none holds this one.
+
+25. **With the sheet open on a tablet or phone, the labels hide the machine (N6).** At 600 × 800 and 390 the 3D is about 150 px tall and six main labels cover it, one over another. Asked: fold labels into their dots below a view height, as `declutter` does with every label on. `declutter` does nothing here: it only acts in « Toutes ».
+26. **The plans' list does not follow the drawing (N7).** Click PL-02: the sheet changes, the list still highlights PL-01 and the card under it still describes PL-01. `drawing` is missing from `panelKeys` in `app.ts`. The DOM shows the same on Piggott and on the gravity lab. One word.
+27. **The invitation covers the worlds on a phone (N8, with 22).** On a fresh visit at 390 and 600 it sits over the world tabs until closed; at 1280, 1024 and 768 over the panel's title. Asked: leave them free, or close it when the visitor changes world, selects a part or opens the panel.
+28. **A selected label kept inside the view (N5).** The label always runs to the right of its dot, so at 390 px a 22-letter name fits only when the dot is left of the centre of the view. The lab moves dots part by part, which holds at the sizes it was measured at and no others. Asked: a hotspot's `side`, or a selected label that flips to the left of its dot when it would be cut.
+29. **A drag that starts on a solid can send the selected part off screen (N13).** It pivots on the point grabbed, by design, and keeps the camera out of solids: after 360 px `crushed-soapstone` stood at NDC −1.36, 0.42 and `pad-transformer` at −1.42, 0.5. Asked: keep the selected part inside the view, or say what the design wants in that case.
+30. **The tagline is hidden at 1024 px and below (N14).** On a phone's first screen nothing then says that this sand battery holds no sand. Asked: a short form, or a way to keep it. Otherwise it needs a short phrase the owner chooses.
+31. **The toolbar's rows (N20).** With every label on, three rows at 768 px with « Ralenti ×1 » alone on the last, two at 1024. This lab drops slow motion in `silo` and `pipe-cell` for that reason; `plant-room` keeps it because its machines turn.
+32. **×3600, ×86400 and ×604800 in the strip (N21, D45).** Request 4 still stands; the panel explains them once and the strip still prints them.
+
+**Requests that kit 0.6.0 answered and this lab now uses (N2, N3, N4):** 13 and 18, `viewDir`, in `silo`, `pipe-cell` and `plant-room`; 19, `explode: false`, in `site`; 20, `declutter`, in all four worlds. Requests 11 and 16 are answered too (`SceneModule.near`, `far`), and `holdDepthRange` in `src/three/world.ts` has not moved to them yet.
