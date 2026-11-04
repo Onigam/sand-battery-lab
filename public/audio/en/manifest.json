@@ -1,12 +1,12 @@
 {
   "lang": "en",
   "model": "qwen3-tts-1.7B",
-  "generatedAt": "2026-11-03T12:28:25.105Z",
+  "generatedAt": "2026-11-04T07:20:29.562Z",
   "voiceLabel": {
     "fr": "Voix de synthèse",
     "en": "Synthetic voice"
   },
-  "totalSeconds": 1211.77,
+  "totalSeconds": 1212.65,
   "segments": [
     {
       "id": "intro",
@@ -2028,45 +2028,32 @@
       "title": "Return bend",
       "scene": "pipe-cell",
       "file": "part-return-bend.mp3",
-      "duration": 16.88,
+      "duration": 17.76,
       "chars": 266,
-      "hash": "e22c232a949d3a0e",
+      "hash": "e0395241291e16d7",
       "captions": [
         {
           "t0": 0,
-          "t1": 4.46,
+          "t1": 4.52,
           "text": "This small bend, at the bottom of the bed, justifies the whole U shape."
         },
         {
-          "t0": 4.46,
-          "t1": 8.9,
+          "t0": 4.52,
+          "t1": 8.8,
           "text": "With both ends at the top, the pipe hangs, and it grows freely downwards."
         },
         {
-          "t0": 8.9,
-          "t1": 12.8,
+          "t0": 8.8,
+          "t1": 13.54,
           "text": "Notice what it lacks: no support, no outlet, no sensor."
         },
         {
-          "t0": 12.8,
-          "t1": 16.88,
+          "t0": 13.54,
+          "t1": 17.76,
           "text": "The maker’s patent speaks only of vertical pipes: the U is ours!"
         }
       ],
-      "cues": [
-        {
-          "t": 0,
-          "do": {
-            "explode": 0.6
-          }
-        },
-        {
-          "t": 12.8,
-          "do": {
-            "explode": 0
-          }
-        }
-      ]
+      "cues": []
     },
     {
       "id": "part-pipe-spacer",

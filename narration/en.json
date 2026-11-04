@@ -247,7 +247,7 @@
       "scope": "part:return-bend",
       "title": "Return bend",
       "scene": "pipe-cell",
-      "text": "[[explode:0.6]] This small bend, at the bottom of the bed, justifies the whole U shape. With both ends at the top, the pipe hangs, and it grows freely downwards. Notice what it lacks: no support, no outlet, no sensor. [[explode:0]] The maker’s patent speaks only of vertical pipes: the U is ours!"
+      "text": "This small bend, at the bottom of the bed, justifies the whole U shape. With both ends at the top, the pipe hangs, and it grows freely downwards. Notice what it lacks: no support, no outlet, no sensor. The maker’s patent speaks only of vertical pipes: the U is ours!"
     },
     {
       "id": "part-pipe-spacer",

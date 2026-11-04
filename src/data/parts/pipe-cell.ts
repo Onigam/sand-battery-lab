@@ -101,8 +101,8 @@ export const PIPE_CELL_PARTS: PartInfo[] = [
       },
     ),
     tip: l(
-      'Quand vous verrez le U en éclaté, repérez ce qu’il n’a pas : aucun support, aucune sortie, aucun capteur à l’aplomb du coude. Tout passe par le haut.',
-      'When you see the U exploded, note what it lacks: no support, no outlet, no sensor down at the bend. Everything goes through the top.',
+      'Dans le quart ouvert du bloc, repérez ce qu’il n’a pas : aucun support, aucune sortie, aucun capteur à l’aplomb du coude. Tout passe par le haut.',
+      'In the open quarter of the block, note what it lacks: no support, no outlet, no sensor down at the bend. Everything goes through the top.',
     ),
     design: l(
       'Faire passer une soudure sous la pierre est une décision grave : on l’évite partout ailleurs. Ce coude est le seul endroit où le choix du U l’impose, et le gain vaut ce risque : aucun tube ne traverse le fond.',

@@ -247,7 +247,7 @@
       "scope": "part:return-bend",
       "title": "Coude de retour",
       "scene": "pipe-cell",
-      "text": "[[explode:0.6]] Ce petit coude, au fond du lit, justifie toute la forme en U. Les deux bouts en haut, le tube pend, et il grandit librement vers le bas. Regardez ce qu’il n’a pas : ni support, ni sortie, ni capteur. [[explode:0]] Le brevet du constructeur parle seulement de tubes verticaux : le U, c’est nous !"
+      "text": "Ce petit coude, au fond du lit, justifie toute la forme en U. Les deux bouts en haut, le tube pend, et il grandit librement vers le bas. Regardez ce qu’il n’a pas : ni support, ni sortie, ni capteur. Le brevet du constructeur parle seulement de tubes verticaux : le U, c’est nous !"
     },
     {
       "id": "part-pipe-spacer",

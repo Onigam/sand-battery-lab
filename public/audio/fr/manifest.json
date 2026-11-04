@@ -1,12 +1,12 @@
 {
   "lang": "fr",
   "model": "qwen3-tts-1.7B",
-  "generatedAt": "2026-11-03T11:54:15.414Z",
+  "generatedAt": "2026-11-04T07:22:44.041Z",
   "voiceLabel": {
     "fr": "Voix de synthèse",
     "en": "Synthetic voice"
   },
-  "totalSeconds": 1239.35,
+  "totalSeconds": 1239.22,
   "segments": [
     {
       "id": "intro",
@@ -2038,45 +2038,32 @@
       "title": "Coude de retour",
       "scene": "pipe-cell",
       "file": "part-return-bend.mp3",
-      "duration": 17.49,
+      "duration": 17.36,
       "chars": 281,
-      "hash": "c9fe669c27846e3e",
+      "hash": "b75405df0699f67e",
       "captions": [
         {
           "t0": 0,
-          "t1": 4.28,
+          "t1": 4.06,
           "text": "Ce petit coude, au fond du lit, justifie toute la forme en U."
         },
         {
-          "t0": 4.28,
-          "t1": 9.12,
+          "t0": 4.06,
+          "t1": 8.72,
           "text": "Les deux bouts en haut, le tube pend, et il grandit librement vers le bas."
         },
         {
-          "t0": 9.12,
-          "t1": 13.26,
+          "t0": 8.72,
+          "t1": 13.12,
           "text": "Regardez ce qu’il n’a pas : ni support, ni sortie, ni capteur."
         },
         {
-          "t0": 13.26,
-          "t1": 17.49,
+          "t0": 13.12,
+          "t1": 17.36,
           "text": "Le brevet du constructeur parle seulement de tubes verticaux : le U, c’est nous !"
         }
       ],
-      "cues": [
-        {
-          "t": 0,
-          "do": {
-            "explode": 0.6
-          }
-        },
-        {
-          "t": 13.26,
-          "do": {
-            "explode": 0
-          }
-        }
-      ]
+      "cues": []
     },
     {
       "id": "part-pipe-spacer",
