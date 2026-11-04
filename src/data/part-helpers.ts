@@ -6,7 +6,7 @@
 //   « résultat du modèle / model result » an output of the simulation (src/sim), held to it by data.test.ts;
 //   « hypothèse / assumption »           a value the model needs and no source gives;
 //   « estimation / estimate »            a dimension or an order of magnitude no source gives.
-// The panel of the simulation writes † (a model result) and * (an estimate) in its figures, with one legend; the drawings ‡ (derived) and *. A part sheet has no legend, so it writes the words.
+// The panel of the simulation writes † (a model result) and * (an estimate) in its figures, with one legend; the drawings ‡ (derived) and *; a lesson's cards all three (`mf`). A part sheet has no legend, so it writes the words.
 // Nothing here is copied from a transcript or from a source: facts and figures only, in the lab's own words.
 import type { Spec } from '@onigam/lab-kit/content';
 import { l, type L } from '@onigam/lab-kit/i18n';
@@ -95,6 +95,29 @@ export function tf(status: Status, fr: string, en?: string): L {
   const filled = { fr: `${fill(fr, 'fr')} (${tagFr})`, en: `${fill(en ?? fr, 'en')} (${tagEn})` };
   checkStatus(fr, en ?? fr, filled.fr, filled.en);
   return l(filled.fr, filled.en);
+}
+
+/**
+ * The mark of a figure that no source reports, as in the panel and on the sheets: † a result of the model, ‡ derived from reported figures, * an estimate or an assumption. No mark: a source. The
+ * one legend of the lessons' marks is in the lessons' introduction (`lessonsIntro`).
+ */
+export const MARK: Record<Status, string> = { model: '†', derived: '‡', assumed: '*', estimate: '*' };
+
+/**
+ * A figure on a lesson's card: the value and its mark, no word of origin, or the word outweighs the figure in that large type (review N9). A part's sheet has no legend, so it keeps `tf`'s words. The
+ * mark must be the one of the figures it follows: `status` is checked against what `src/data/figures.ts` says of them.
+ */
+export function mf(status: Status, fr: string, en?: string): L {
+  const keys = [...fr.matchAll(/\{(\w+)\}/g)].map((m) => m[1] as string);
+  const of: Record<Status, ReadonlySet<string>> = {
+    model: MODEL_KEYS,
+    derived: DERIVED_KEYS,
+    assumed: ASSUMED_KEYS,
+    estimate: ESTIMATE_KEYS,
+  };
+  const wrong = keys.filter((k) => !of[status].has(k));
+  if (wrong.length) throw new Error(`{${wrong.join('}, {')}} in "${fr}" is not a ${status} figure`);
+  return l(`${fill(fr, 'fr')}${MARK[status]}`, `${fill(en ?? fr, 'en')}${MARK[status]}`);
 }
 
 /**

@@ -27,8 +27,8 @@ export const LAB_STRINGS = {
     'Ten A3 sheets generated from the dimensions of the 3D model and the results of the simulation: the layout, the silo in section, the temperature field, the pipe field, the air loop, the electrical and water diagrams, the energy balance, the assembly sequence and the scale of the real silos. Only a few dimensions are published: all the others are marked as estimates.',
   ],
   lessonsIntro: [
-    'Six leçons, chacune ouverte sur un scénario de la simulation : de la chaleur dans la pierre jusqu’à ce qu’un silo ne sait pas faire. Le cœur est dans la quatrième : une capacité n’a de sens qu’à une puissance donnée.',
-    'Six lessons, each opening on a scenario of the simulation: from heat in stone to what a silo cannot do. The heart is in the fourth: a capacity only means something at a given power.',
+    'Six leçons, chacune ouverte sur un scénario de la simulation : de la chaleur dans la pierre jusqu’à ce qu’un silo ne sait pas faire. Le cœur est dans la quatrième : une capacité n’a de sens qu’à une puissance donnée. Sur les cartes de chiffres : † résultat du modèle, ‡ dérivé de chiffres rapportés, * estimation ou hypothèse ; sans marque, le chiffre vient d’une source.',
+    'Six lessons, each opening on a scenario of the simulation: from heat in stone to what a silo cannot do. The heart is in the fourth: a capacity only means something at a given power. On the cards of figures: † a result of the model, ‡ derived from reported figures, * an estimate or an assumption; with no mark, the figure comes from a source.',
   ],
 
   // ---- the notices of the Sources panel, each said once

@@ -4,7 +4,7 @@
 // « We found no independent measurement » is said once, in the simulation panel under the year's efficiency: the lessons do not repeat it.
 import type { Lesson } from '@onigam/lab-kit/content';
 import { l } from '@onigam/lab-kit/i18n';
-import { lf, sp, tf } from './part-helpers';
+import { lf, mf, sp } from './part-helpers';
 
 export const LESSONS: Lesson[] = [
   {
@@ -34,9 +34,9 @@ export const LESSONS: Lesson[] = [
     ],
     figures: [
       sp('Pierre', 'Stone', l('environ 2 000 t, pas de sable', 'about 2,000 t, no sand')),
-      sp('Chaleur à plein', 'Heat when full', tf('derived', '{heatFull} MWh')),
+      sp('Chaleur à plein', 'Heat when full', mf('derived', '{heatFull} MWh')),
       sp('Annoncé', 'Quoted', l('jusqu’à 100 MWh', 'up to 100 MWh')),
-      sp('Eau, de 45 à 95 °C', 'Water, 45 to 95 °C', tf('derived', '{densityWater} kWh/m³')),
+      sp('Eau, de 45 à 95 °C', 'Water, 45 to 95 °C', mf('derived', '{densityWater} kWh/m³')),
     ],
     formula: 'E = m · c(T) · ΔT',
     focus: { scene: 'silo', part: 'storage-bed', scenario: 'soapstone-vs-sand' },
@@ -108,8 +108,8 @@ export const LESSONS: Lesson[] = [
     ],
     figures: [
       sp('1 m de sable, annoncé', '1 m of sand, quoted', l('un peu plus de 8 jours', 'a little over 8 days')),
-      sp('Le même, dans le modèle', 'The same, in the model', tf('model', '{block} jours', '{block} days')),
-      sp('Pas des tubes', 'Pipe pitch', tf('estimate', '{pitch} m')),
+      sp('Le même, dans le modèle', 'The same, in the model', mf('model', '{block} jours', '{block} days')),
+      sp('Pas des tubes', 'Pipe pitch', mf('estimate', '{pitch} m')),
       sp('Convection', 'Convection', l('aucune', 'none')),
     ],
     formula: 't ≈ L² / α',
@@ -181,13 +181,13 @@ export const LESSONS: Lesson[] = [
       ),
     ],
     figures: [
-      sp('Fût de 200 L', '200 L drum', tf('derived', '{avDrum} m⁻¹')),
-      sp('Silo de 8 MWh', '8 MWh silo', tf('derived', '{avFirst} m⁻¹')),
-      sp('Lit de ce silo', 'This silo’s bed', tf('derived', '{avBed} m⁻¹')),
+      sp('Fût de 200 L', '200 L drum', mf('derived', '{avDrum} m⁻¹')),
+      sp('Silo de 8 MWh', '8 MWh silo', mf('derived', '{avFirst} m⁻¹')),
+      sp('Lit de ce silo', 'This silo’s bed', mf('derived', '{avBed} m⁻¹')),
       sp(
         'Demi-vie de la chaleur',
         'Half-life of the heat',
-        tf(
+        mf(
           'model',
           '{halfHeat} jours ; deux fûts : {drumsHalfLife} jour',
           '{halfHeat} days; two drums: {drumsHalfLife} days',
@@ -263,21 +263,21 @@ export const LESSONS: Lesson[] = [
       ),
     ],
     figures: [
-      sp('À 1 MW', 'At 1 MW', tf('model', '{usable} MWh ({shareUsable} %)', '{usable} MWh ({shareUsable}%)')),
+      sp('À 1 MW', 'At 1 MW', mf('model', '{usable} MWh ({shareUsable} %)', '{usable} MWh ({shareUsable}%)')),
       sp(
         'Puis, à puissance décroissante',
         'Then, at falling power',
-        tf('model', '{tail} MWh ({shareTail} %)', '{tail} MWh ({shareTail}%)'),
+        mf('model', '{tail} MWh ({shareTail} %)', '{tail} MWh ({shareTail}%)'),
       ),
       sp(
         'Reste dans la pierre',
         'Stays in the stone',
-        tf('model', '{stays} MWh ({shareStays} %)', '{stays} MWh ({shareStays}%)'),
+        mf('model', '{stays} MWh ({shareStays} %)', '{stays} MWh ({shareStays}%)'),
       ),
       sp(
         'À la demande d’hiver',
         'At winter demand',
-        tf('model', '{usableWinter} MWh en {daysWinter} jours', '{usableWinter} MWh in {daysWinter} days'),
+        mf('model', '{usableWinter} MWh en {daysWinter} jours', '{usableWinter} MWh in {daysWinter} days'),
       ),
       sp('Annoncé', 'Quoted', l('jusqu’à 100 MWh, puissance non dite', 'up to 100 MWh, power unsaid')),
     ],
@@ -354,7 +354,7 @@ export const LESSONS: Lesson[] = [
     ],
     figures: [
       sp('Écart de prix', 'Price span', l('de 3 à 373 €/MWh, semaine dessinée', '3 to 373 €/MWh, a drawn week')),
-      sp('Chaudière', 'Boiler', tf('estimate', '{boilerPrice} €/MWh')),
+      sp('Chaudière', 'Boiler', mf('estimate', '{boilerPrice} €/MWh')),
       sp(
         'Annoncé par l’exploitant',
         'Announced by the operator',
@@ -363,7 +363,7 @@ export const LESSONS: Lesson[] = [
       sp(
         'Une règle simple, une vraie année',
         'A simple rule, a real year',
-        tf('model', 'de {discountRealLow} à {discountRealHigh} %', '{discountRealLow} to {discountRealHigh}%'),
+        mf('model', 'de {discountRealLow} à {discountRealHigh} %', '{discountRealLow} to {discountRealHigh}%'),
       ),
     ],
     focus: { scene: 'plant-room', part: 'control-cabinet', scenario: 'negative-weekend' },
@@ -437,8 +437,8 @@ export const LESSONS: Lesson[] = [
     figures: [
       sp('Retour vers l’électricité, attendu', 'Back to electricity, expected', l('de 30 à 35 %', '30 to 35%')),
       sp('Ce silo', 'This silo', l('de la chaleur, seulement', 'heat, only')),
-      sp('Eau, de 45 à 95 °C', 'Water, 45 to 95 °C', tf('derived', '{densityWater} kWh/m³')),
-      sp('Lit, annoncé', 'Bed, quoted', tf('derived', '{densityBed} kWh/m³')),
+      sp('Eau, de 45 à 95 °C', 'Water, 45 to 95 °C', mf('derived', '{densityWater} kWh/m³')),
+      sp('Lit, annoncé', 'Bed, quoted', mf('derived', '{densityBed} kWh/m³')),
     ],
     focus: { scene: 'site', part: 'chip-boiler-plant', scenario: 'windless-days' },
     video: '01:36',

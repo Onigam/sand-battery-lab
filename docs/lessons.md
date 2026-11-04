@@ -19,6 +19,10 @@ Lesson 5 is written around the game as it stands: **blocks of three hours** in t
 
 69 MWh is never said to be measured, 100 MWh never said to be the model's. The lessons use no second « we found no independent measurement »: it is said once, in the simulation panel, under the year's efficiency. Heat pump: no figure, an order of magnitude with its tag, since the research gives none.
 
+## Marks on the cards
+
+The owner's decision on the review's N9: a figure carries a mark with one legend, not words of origin. The cards of all six lessons do (`mf` in `part-helpers.ts`, which checks the mark against `figures.ts`): † a result of the model, ‡ derived from reported figures, * an estimate or an assumption, the marks of the panel and of the sheets. The legend is in the lessons' introduction (`lessonsIntro`). The prose keeps its words: a tag there often covers several figures of a sentence (« 417 °C au centre et 375 °C au bord (résultat du modèle) »), `lf` and `data.test.ts` hold it to them, and a part's sheet has no legend. So the rest of the tags the review counted were not changed: no safe mechanical change does it.
+
 ## Tests
 
 `src/data/data.test.ts` (the visitor texts' rules hold on the lessons) and `src/data/lessons.test.ts`: six lessons, two questions each, three choices at least, the answer in range and not always the same, every scenario, world and part real, the heart of lesson 4, the game of lesson 5.

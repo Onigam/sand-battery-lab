@@ -7,6 +7,7 @@ import { SandSim } from '../sim/engine';
 import { LESSONS as FROM_LAB } from './lessons';
 import { SCENARIO_TEXTS } from '../sim/texts';
 import { PANEL_STRINGS } from '../panels/strings';
+import { LAB_STRINGS } from '../i18n/ui';
 
 // The six lessons: the bar, the quiz, each tied to a scenario that exists and a part that stands in the world it opens, the heart of the fourth, the game of the fifth.
 
@@ -48,6 +49,24 @@ describe('the lessons', () => {
       const t = SCENARIO_TEXTS[x.focus.scenario as keyof typeof SCENARIO_TEXTS];
       expect(t.name[0].length, x.id).toBeGreaterThan(3);
       expect(t.name[1].length, x.id).toBeGreaterThan(3);
+    }
+  });
+
+  it('mark the figures of their cards, with one legend, and no word of origin there (review N9)', () => {
+    const words = /résultat du modèle|model result|dérivé|derived|estimation|estimate|hypothèse|assumption/i;
+    let marked = 0;
+    for (const x of LESSONS)
+      for (const f of x.figures ?? [])
+        for (const lang of ['fr', 'en'] as const) {
+          const value = typeof f.value === 'string' ? f.value : f.value[lang];
+          expect(value, `${x.id}: ${value}`).not.toMatch(words);
+          if (/[†‡*]$/.test(value)) marked++;
+        }
+    expect(marked).toBeGreaterThanOrEqual(2 * 16);
+    const { fr, en } = { fr: LAB_STRINGS.lessonsIntro[0], en: LAB_STRINGS.lessonsIntro[1] };
+    for (const mark of ['†', '‡', '*']) {
+      expect(fr).toContain(mark);
+      expect(en).toContain(mark);
     }
   });
 

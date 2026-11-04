@@ -224,8 +224,9 @@ describe('what the sheets must say', () => {
 
   it('never presents 100 MWh as the model’s, nor 69 MWh as measured: both are said, and why they differ', () => {
     for (const [label, v] of visitorTexts()) {
-      if (/\b69 MWh/.test(v.en)) expect(v.en, label).toMatch(/model/i);
-      if (/\b69 MWh/.test(v.fr)) expect(v.fr, label).toMatch(/modèle/i);
+      // a lesson's card says it with its mark: † is the model
+      if (/\b69 MWh/.test(v.en)) expect(v.en, label).toMatch(/model|†/i);
+      if (/\b69 MWh/.test(v.fr)) expect(v.fr, label).toMatch(/modèle|†/i);
       if (/\b100 MWh/.test(v.en)) expect(v.en, label).not.toMatch(/model (finds|gives) (about )?100 MWh/);
     }
     expect(en('discharge-blower')).toMatch(/published nowhere/);
